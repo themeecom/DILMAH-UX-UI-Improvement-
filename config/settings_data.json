@@ -1,1 +1,3105 @@
-{"current":{"color_accent":"#bb9107","color_text":"#333333","color_bg":"#ffffff","color_button":"#bb9107","color_border":"#ffffff","color_input_text":"#bb9107","color_icon":"#007c85","color_header_text":"#ffffff","color_header_bg":"#bb9107","color_header_border":"#ffffff","color_footer_text":"#ffffff","color_footer_bg":"#00494f","color_footer_border":"#bb9107","color_footer_button_background":"#bb9107","color_footer_button_text":"#ffffff","color_contrast_text":"#ffffff","color_contrast_bg":"#007c85","color_contrast_border":"#bc9307","color_contrast_input_text":"#ffffff","color_contrast_icon":"#ffffff","color_drawer_text":"#ffffff","color_drawer_bg":"#007c85","color_drawer_border":"#007c85","color_drawer_input_text":"#ffffff","color_drawer_icon":"#ffffff","logo_image_size":90,"navigation_icon_size":25,"section_padding_desktop":40,"enable_tags":"Special,Mood,Tea Type,Tea Flavour,Time Of Day,Caffeine Level,Tea Format,Tea Grading,Tea Strength","font_heading":"montserrat_n4","size_heading":18,"uppercase_headings":false,"font_body":"ibm_plex_sans_n4","size_body":16,"font_logo":"montserrat_n4","logo_uppercase":false,"font_logo_size":19,"share_facebook":true,"share_twitter":true,"share_pinterest":true,"social_twitter_link":"https:\/\/twitter.com\/Dilmah","social_facebook_link":"https:\/\/www.facebook.com\/dilmah","social_pinterest_link":"https:\/\/www.pinterest.com\/dilmah","social_instagram_link":"https:\/\/www.instagram.com\/dilmahceylontea\/","social_snapchat_link":"","social_tumblr_link":"","social_youtube_link":"https:\/\/www.youtube.com\/user\/DilmahRealTea","social_vimeo_link":"","search_max_result_size":6,"search_show_products":true,"search_show_articles":false,"search_show_pages":true,"search_show_price":true,"search_show_vendor":false,"swatch_option":"Color","chip_options":"Size","cart_quick_shop_enabled":true,"cart_quick_shop_show_quantity_input":true,"cart_notes_enable":true,"quick_cart_note":"Your subtotal today is [subtotal]. Shipping and taxes will calculated at checkout.","favicon":"shopify:\/\/shop_images\/Dilmah_Pure_Ceylon_Tea_Official_Logo.jpg","checkout_header_image":"","checkout_logo_image":"shopify:\/\/shop_images\/NEW_Dilmah_Pure_Ceylon_Tea_Official_Logo_60027d21-0b79-4ef0-acd1-e8c48f489738.jpg","checkout_logo_position":"left","checkout_logo_size":"medium","checkout_body_background_image":"","checkout_body_background_color":"#fff","checkout_input_background_color_mode":"white","checkout_sidebar_background_image":"","checkout_sidebar_background_color":"#fafafa","checkout_heading_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_body_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_accent_color":"#197bbd","checkout_button_color":"#197bbd","checkout_error_color":"#e32c2b","color_input_inactive_text":"#9c8881","color_sale_badge":"#c47961","color_sold_out_badge":"#1b1b1b","color_success_message":"#82b875","color_error_message":"#b6534c","color_contrast_input_inactive_text":"#ebd8d3","color_navigation_text":"#534540","color_navigation_bg":"#fcf7ee","color_navigation_feature":"#f0e8d9","color_drawer_input_inactive_text":"#ebd8d3","color_quick_search_highlight":"#ffe898","color_navigation_border":"#e2e2e2","color_navigation_icon":"#aaaaaa","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"19e1dff7-4e3b-4408-99b3-4a84aa844d85":{"type":"announcement","disabled":true,"settings":{"background_color":"#bb9107","text_color":"#ffffff","text":"Please note that there will be a slight delay in processing orders placed after 15th December in lieu of Christmas & New Year","link":""}},"4c0fb5de-f438-4cf6-9a08-0753df8e4d69":{"type":"announcement","settings":{"background_color":"#bb9107","text_color":"#ffffff","text":"Free Shipping on orders above US$75","link":"shopify:\/\/collections\/all"}},"941f0173-79e2-4de9-9a75-0b9dc0690ecb":{"type":"announcement","settings":{"background_color":"#bb9107","text_color":"#ffffff","text":"Subscribe to our Newsletter and get 10% Off on your first purchase","link":"shopify:\/\/collections\/all"}}},"block_order":["19e1dff7-4e3b-4408-99b3-4a84aa844d85","4c0fb5de-f438-4cf6-9a08-0753df8e4d69","941f0173-79e2-4de9-9a75-0b9dc0690ecb"],"settings":{"announcement_bar_enabled":true,"announcement_bar_timing":5}},"header":{"type":"header","blocks":{"44d1906b-a507-47fd-a172-b5626c047203":{"type":"mega_nav","settings":{"dropdown_parent_link":"Tea Gifts","featured_image_heading":"","featured_image_link_text":"","featured_image_link":"","feature_text":""}},"4dff8e3d-c9ef-4f19-89d2-0e8403106c36":{"type":"mega_nav","settings":{"dropdown_parent_link":"Teaware","featured_image_heading":"","featured_image_link_text":"","featured_image_link":"","feature_text":""}},"8018e053-ee02-4075-b4dc-f673748ff445":{"type":"mega_nav","settings":{"dropdown_parent_link":"Flavours & Moods","featured_image_heading":"","featured_image_link_text":"","featured_image_link":"","feature_text":"<p>Mention a new sale, product line, or blog post here. <a href=\"#\">Don't forget to add a link →<\/a><\/p>"}},"8842c48e-7ec9-475f-a55d-8be652585bd7":{"type":"mega_nav","settings":{"dropdown_parent_link":"Tea Types","featured_image_heading":"","featured_image_link_text":"","featured_image_link":"","feature_text":"<p>Mention a new sale, product line, or blog post here. <a href=\"#\">Don't forget to add a link →<\/a><\/p>"}},"79e917ab-bcfb-40f6-a7f9-c87d7088fccf":{"type":"mega_nav","settings":{"dropdown_parent_link":"Our Teas","featured_image_heading":"","featured_image_link_text":"","featured_image_link":"","feature_text":"<p>Mention a new sale, product line, or blog post here. <a href=\"#\">Don't forget to add a link →<\/a><\/p>"}},"mega_nav_GwBDY4":{"type":"mega_nav","settings":{"dropdown_parent_link":"Cinnamon","featured_image_heading":"","featured_image_link_text":"","featured_image_link":"","feature_text":"<p>Mention a new sale, product line, or blog post here. <a href=\"#\">Don't forget to add a link →<\/a><\/p>"}}},"block_order":["44d1906b-a507-47fd-a172-b5626c047203","4dff8e3d-c9ef-4f19-89d2-0e8403106c36","8018e053-ee02-4075-b4dc-f673748ff445","8842c48e-7ec9-475f-a55d-8be652585bd7","79e917ab-bcfb-40f6-a7f9-c87d7088fccf","mega_nav_GwBDY4"],"settings":{"header_style":"default","nav_alignment":"right","detect_menu_length":false,"show_locale_selector":false,"show_currency_selector":true,"logo":"shopify:\/\/shop_images\/Dilmah_Logo_Updated.jpg","logo_max_size":300,"menu":"main-menu-2","transparent_index_header_enabled":false,"transparent_header_foreground_color":"#ffffff","transparent_header_border_color":"#bb9107","transparent_header_border_opacity":10,"show_less_menu_in_cart":true,"cart_less_link":"shopify:\/\/collections\/all","cart_less_link_text":"Shop"}},"exit-intent":{"type":"exit-intent","settings":{"enable_exit_intent":false,"exit_intent_position":"bottom-right","exit_intent_heading":"Sign up for our newsletter","exit_intent_text":"Use this popup to capture customer email addresses at the last moment.","text_color":"#1b1b1b","bg_color":"#ffffff","border_color":"#dedede","input_text_color":"#1b1b1b"}},"footer":{"type":"footer","blocks":{"1602015986783":{"type":"link_list","settings":{"menu":"footer"}},"1605557765620":{"type":"link_list","settings":{"menu":"footer-menu-2"}},"e0943f59-96aa-41c2-a5f4-a349b799fdf4":{"type":"link_list","settings":{"menu":"footer-menu-3"}},"d8350a17-703c-4f0c-b992-85abe5802b6b":{"type":"link_list","settings":{"menu":"community"}}},"block_order":["1602015986783","1605557765620","e0943f59-96aa-41c2-a5f4-a349b799fdf4","d8350a17-703c-4f0c-b992-85abe5802b6b"],"settings":{"show_headings":true,"show_payment_icons":true,"show_newsletter_signup":true,"newsletter_subheading":"Subscribe to our mailing list","show_locale_selector":true,"show_currency_selector":true}},"collection--template":{"type":"collection--template","settings":{"show_collection_image":true,"overlay_opacity":20,"overlay_color":"#000000","text_color":"#ffffff","header_font_style":"uppercase","show_border":true,"show_heading":true,"show_small_heading":true,"show_description":true,"heading_alignment":"left","text_max_width":38,"show_sort":true,"show_filters":true,"filter_type":"by_group","filter_style":"sidebar","show_swatches":true,"products_per_row":4,"aspect_ratio":"portrait","per_page":36,"pagination":"click"}},"testimonials--static":{"type":"testimonials--static","settings":{"enabled":false,"text_position":"top_center","header_font_style":"normal","columns":3,"aspect_ratio":"natural","overline":"Testimonials","title":"Testimonials Section","subheading":"Use this section to showcase your product reviews.","link":"","link_text":"","text_max_width":36}},"featured-collection--static":{"type":"featured-collection--static","settings":{"enabled":true,"header_font_style":"normal","text_position":"top_center","collection":"best-sellers","columns":4,"aspect_ratio":"square","overline":"","title":"Our Tea Lovers Also Like","subheading":"","link_text":"View All Products","text_max_width":16}},"gallery--static":{"type":"gallery--static","settings":{"enabled":false,"text_position":"top_center","columns":3,"aspect_ratio":"square","overline":"Gallery","title":"Gallery section","subheading":"Use this Section to display your favourite images. Automatically crop them to be uniform using the dropdown setting.","link":"","link_text":"","text_max_width":36}},"page-about--template":{"type":"page-about--template","settings":{"overline":"about"}},"page-contact--template":{"type":"page-contact--template","settings":{}},"product--static":{"type":"product--static","custom_css":[],"settings":{"title_font_picker":"montserrat_n7","title_font_size_desktop":25,"title_font_size_mobile":20,"show_vendor":false,"show_swatches":false,"show_share_buttons":false,"show_quantity_input":true,"enable_payment_button":true,"enable_video_looping":true}},"text--static":{"type":"text--static","settings":{"enabled":true,"title":"","text":""}},"gallery-grid--static":{"type":"gallery-grid--static","settings":{"enabled":false,"columns":4,"aspect_ratio":"square","title":"Gallery","text":"<p>Let people know about where to find you on social media. Don&#x27;t forget to add a <a href=\"#\">link<\/a>.<\/p>"}},"product-recommendations--static":{"type":"product-recommendations--static","settings":{"enabled":true,"heading":"Related","columns":4}},"blog--template":{"type":"blog--template","settings":{"layout":"latest_featured","show_rss":true}},"list-collections--template":{"type":"list-collections--template","settings":{"display_type":"all","columns":3,"aspect_ratio":"natural","collection_title_alignment":"left","show_product_count":true}},"16173418000a2c021d":{"type":"collage--dynamic","blocks":{"16173418000a2c021d-3":{"type":"grid_item","settings":{"image":"shopify:\/\/shop_images\/Ethical_Tea_banner.jpg","vlink":"","size":"horizontal","overlay_color":"#000000","overline":"","heading":"","subheading":"","alignment":"right_bottom","text_max_width":19,"link":"https:\/\/www.mjffoundation.org\/"}},"16173418000a2c021d-1":{"type":"grid_item","settings":{"image":"shopify:\/\/shop_images\/MicrosoftTeams-image_18_354bbee9-63a5-48ce-a9ee-d24ea3b6ddd1.jpg","vlink":"https:\/\/www.dilmahconservation.org\/","size":"small","overlay_color":"#000000","overline":"","heading":"","subheading":"","alignment":"left_bottom","text_max_width":22,"link":""}},"16173418000a2c021d-2":{"type":"grid_item","settings":{"image":"shopify:\/\/shop_images\/2_06dc0878-be28-4394-8e0a-1f12f7eb2cfd.jpg","vlink":"https:\/\/shop.dilmahtea.co.uk\/pages\/sustainability-highlights-at-dilmah","size":"small","overlay_color":"#000000","overline":"","heading":"","subheading":"","alignment":"left_bottom","text_max_width":22,"link":"https:\/\/estates.dilmahtea.com"}},"slide_xdxwyr":{"type":"slide","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/Ethical_Tea_banner_2f6b121c-004f-481f-865a-350fc7f4b4d0.jpg","link":"shopify:\/\/products\/rooibos-chocolate-turmeric-ginger-almond-20-string-tag-tea-bags"}},"slide_MNFVm8":{"type":"slide","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/July_2025_1.jpg","link":"shopify:\/\/collections\/dilmah-exquisitely-flavoured-tea-eft"}},"slide_BNpVAn":{"type":"slide","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/June_2025_1.jpg","link":"https:\/\/shop.dilmahtea.com\/collections\/teawares"}},"slide_LDtw3n":{"type":"slide","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/ceylon_cinnamon.jpg","link":"https:\/\/shop.dilmahtea.com\/pages\/dilmah-finest-ceylon-cinnamon"}},"slide_XX9XnX":{"type":"slide","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/Global_Shop_Banner.png","link":"https:\/\/shop.dilmahtea.com\/pages\/customised-giftings"}}},"block_order":["16173418000a2c021d-3","16173418000a2c021d-1","16173418000a2c021d-2","slide_xdxwyr","slide_MNFVm8","slide_BNpVAn","slide_LDtw3n","slide_XX9XnX"],"disabled":true,"settings":{"custom_class":"index-collage","section_style":"default","enable_animation":true,"overline":"","title":"","subheading":"","heading_alignment":"center","text_max_width":36,"text_color":"#000000","text_container_color":"#ffffff","button_text_color":"#1b1b1b","button_border_color":"#dedede"}},"1617343125ede5838f":{"type":"featured-collection-grid--dynamic","disabled":true,"settings":{"section_style":"contrast","title1":"NEW ARRIVALS","collection":"new-arrivals","title2":"BEST SELLERS","collection2":"best-sellers","title3":"NATURAL INFUSIONS","collection3":"natural-infusions","title4":"Teaware and Gifts","collection4":"teaware-and-gifts","title5":"FOUNDER'S FAVOURITES","collection5":"founders-favorites","title6":"Gifts","collection6":"tea-gifts","products_per_row":4,"total_row":2,"aspect_ratio":"natural","overline":"","title":"TEAMAKER'S RECOMMENDATIONS","Htitle":"TEAMAKER'S RECOMMENDATIONS","HStitle":"","Hdetail":"","tagList":"","heading_alignment":"center","text_max_width":36}},"1627616933a37c334b":{"type":"gallery--dynamic","blocks":{"9ad7b262-50d2-46c9-8309-8aafa7d6a37b":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Untitled_design_180x_718e79de-99af-4cd1-b424-37670fa9de3d.png","description":"International Shipping","link":""}},"09ef5376-b893-4acf-bf81-0cc252e0c9a4":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/2_180x_0aef5b3f-3985-4d64-946c-1e1d76950113.png","description":"100% Pure Ceylon Tea","link":""}},"efdadcd8-be60-4dfd-b534-7610ee527b20":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/3_180x_8c95469d-d8aa-4078-97d4-6ccf1efef840.png","description":"Exclusive Online Offers","link":""}},"59d90249-b723-4547-9f4c-da88f7e8e6a4":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/4_180x_cdce8fae-60be-476e-954f-6aa72317af01.png","description":"Loyalty Rewards","link":""}}},"block_order":["9ad7b262-50d2-46c9-8309-8aafa7d6a37b","09ef5376-b893-4acf-bf81-0cc252e0c9a4","efdadcd8-be60-4dfd-b534-7610ee527b20","59d90249-b723-4547-9f4c-da88f7e8e6a4"],"disabled":true,"settings":{"section_style":"default","text_position":"middle_left","columns":4,"aspect_ratio":"square","overline":"Gallery","title":"Welcome to Dilmah Global Shop","subheading":"A Sri Lankan family tea company founded by Merrill J. Fernando. The pioneers of the concept, “Single Origin Tea” established in 1985, against industry trends, to commit to authenticity.","link":"","link_text":"","text_max_width":50}},"1627618715d629c2eb":{"type":"select-tea","blocks":{"1627618715d629c2eb-0":{"type":"column","settings":{"image_max_width":50,"title":"Column one","subheading":"Start here. Introduce your vision, or explain why what you do or sell is superior to your competitors.","text_max_width":36,"link":"","link_text":"Read more"}},"1627618715d629c2eb-1":{"type":"column","settings":{"image_max_width":50,"title":"Column two","subheading":"Get into your process a bit. The quality of handiwork, proprietary knowledge, or materials that you use that make your products better.","text_max_width":36,"link":"","link_text":"Read more"}},"1627618715d629c2eb-2":{"type":"column","settings":{"image_max_width":50,"title":"Column three","subheading":"End it with an action item that the user can take advantage of. Link to a more in-depth page, or go straight to a collection. Your call.","text_max_width":36,"link":"","link_text":"Read more"}}},"block_order":["1627618715d629c2eb-0","1627618715d629c2eb-1","1627618715d629c2eb-2"],"settings":{"section_id":"select-tea-section","section_style":"default","columns":4,"overline":"Text columns with images","title":"Text columns with images section","subheading":"This section is designed for steps or policies. Tell your brand's story, describe how a product is made, or outline shipping stages.","link":"","link_text":"","text_alignment":"center","text_max_width":50}},"1627632084938aa6d2":{"type":"image-with-text--dynamic","settings":{"custom_class":"index-our-story","section_style":"default","enable_animation":false,"image":"shopify:\/\/shop_images\/Generations_edited.jpg","video_url":"https:\/\/cdn.shopify.com\/s\/files\/1\/0525\/3693\/4552\/files\/Three_Generations_of_Family_Passion_in_Tea.mp4?v=1627633095","image_width":"one-half","image_position":"right","overline":"","title":"OUR STORY","title_font":"montserrat_n5","subheading":"<p>Sri Lankan family tea company Dilmah, founded by Merrill J. Fernando has championed quality, authenticity and variety in tea. Dilmah pioneered the concept of Single Origin Tea in 1988 when the family company went against industry trends to declare its commitment to authenticity. Garden fresh, unblended tea is a hallmark of Dilmah and offers a unique taste of unblended Ceylon Tea packed at source.<br\/><br\/>Dilmah is Ethical Tea, in that all packaging profits are retained in Sri Lanka and fund the MJF Charitable Foundation and Dilmah Conservation. We believe that Business is a Matter of Human Service.<\/p>","link":"","link_text":"Shop now","text_alignment":"left","text_color":"#000000","text_container_color":"","button_text_color":"#1b1b1b","button_border_color":"#dedede","text_max_width":50}},"1628834684f5b222af":{"type":"blog-list","settings":{"title":"Mixology","image1":"shopify:\/\/shop_images\/Home_1_mixology_100x_702cd5a5-5333-494c-9026-1599b6282493.png","image1-banner":"shopify:\/\/shop_images\/Tea-Mixology_1_400x_f3cd5be3-4bd2-4172-b198-d7d85a02a03f.jpg","title2":"Gastronomy","image2":"shopify:\/\/shop_images\/Home_4_gastronomy_100x_9f1f2200-4731-4e34-a711-e58d8cdb4067.png","image2-banner":"shopify:\/\/shop_images\/Tea-Gastronomy_400x_525698fa-4533-4784-8dbb-9800a0c8ef88.jpg","title3":"Tea & Health","image3":"shopify:\/\/shop_images\/Home_2_goodness_100x_ddf7e004-fa96-4ab0-94f5-78e754f4a8f0.png","image3-banner":"shopify:\/\/shop_images\/Tea-and-Health_1_400x_d09449f6-c510-4864-baf6-7402c21f8dc9.jpg","title4":"Tea Ideas","image4":"shopify:\/\/shop_images\/Home_3_mood_100x_ea69e90c-d7fe-4b94-95df-707e9c1249d5.png","image4-banner":"shopify:\/\/shop_images\/Tea-Ideas_400x_7c9d70a4-600b-45c5-b5f4-4a7180aeef7b.jpg","blog":"tea-mixology","blog-2":"tea-gastronomy","blog-3":"tea-and-health","blog-4":"tea-ideas","show_date":false,"show_author":false,"show_excerpt":false}},"1632757703d43adf55":{"type":"Brand","blocks":{"1632757703d43adf55-0":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/blurred_1.jpg","mobile_image":"shopify:\/\/shop_images\/8_65322f4d-0c8c-42f8-babe-8de4fc6529f5.jpg","video_url":"","overline":"","title":"","subheading":"GARDEN<br> FRESH,<br>PICKED,<br>\nPPERFECTED,<br>\nPACKED AT SOURCE","link":"","link_text":"Shop now","overlay_opacity":20,"overlay_color":"linear-gradient(180deg, rgba(100, 98, 100, 0.27), rgba(0, 0, 0, 0.41) 100%)","text_color":"#ffffff","text_max_width":48,"horizontal_text_position":"left","vertical_text_position":"middle"}},"1632757703d43adf55-1":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/blurred_2.jpg","mobile_image":"shopify:\/\/shop_images\/7.jpg","video_url":"","overline":"","title":"","subheading":"HANDPICKED<br>\nAND<br>\nHANDMADE<br>\nIN THE<br>\nTRADIONAL WAY","link":"","link_text":"Shop now","overlay_opacity":20,"overlay_color":"linear-gradient(180deg, rgba(100, 98, 100, 0.27), rgba(0, 0, 0, 0.41) 100%)","text_color":"#ffffff","text_max_width":48,"horizontal_text_position":"left","vertical_text_position":"middle"}},"32e3f9b7-ee9a-409f-ab2c-24cc74281ef0":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/blurred_3.jpg","mobile_image":"shopify:\/\/shop_images\/6.jpg","video_url":"","overline":"","title":"","subheading":"OUR PROFITS<br> SHARED WITH<br> LESS FORTUNATE<br> COMMUNITIES","link":"","link_text":"","overlay_opacity":0,"overlay_color":"linear-gradient(180deg, rgba(100, 98, 100, 0.27), rgba(0, 0, 0, 0.41) 100%)","text_color":"#ffffff","text_max_width":48,"horizontal_text_position":"left","vertical_text_position":"middle"}},"a37e4e19-a356-4006-8dc0-2ad17c43d426":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/blurred_4.jpg","mobile_image":"shopify:\/\/shop_images\/5.jpg","video_url":"","overline":"","title":"","subheading":"MADE WITH<br> KINDNESS TO<br> NATURE","link":"","link_text":"","overlay_opacity":0,"overlay_color":"linear-gradient(180deg, rgba(100, 98, 100, 0.27), rgba(0, 0, 0, 0.41) 100%)","text_color":"#ffffff","text_max_width":48,"horizontal_text_position":"left","vertical_text_position":"middle"}}},"block_order":["1632757703d43adf55-0","1632757703d43adf55-1","32e3f9b7-ee9a-409f-ab2c-24cc74281ef0","a37e4e19-a356-4006-8dc0-2ad17c43d426"],"settings":{"custom_class":"container-padding","aspect_ratio":"full_height","text":"<p>Our founder made a commitment to the 'purpose beyond profit'. A minimum of 15% of our pretax profits directly benefit people and the planet, efficiently and effectively fulfilling the philosophy of making 'business a matter of human service'. <\/p>","logo1":"shopify:\/\/shop_images\/15_percent_logo.png","minilogo1":"shopify:\/\/shop_images\/dilmah_fresh_800x_9df58302-0655-4d3c-ad81-694fa3bb028c.png","minilogo2":"shopify:\/\/shop_images\/ethical_tea_800x_f6116e0e-77c0-49f7-a42d-7be5598e67c6.png","minilogo3":"shopify:\/\/shop_images\/3_800x_e3098c3a-a7c9-4dd3-bdf9-43fe8901b950.png"}},"16348173678df9fa29":{"type":"slideshow--dynamic","settings":{"custom_class":"","aspect_ratio":"full_height","timer":7}},"cart--template":{"type":"cart--template","blocks":{"empty_cart_links_Un8kXj":{"type":"empty_cart_links","settings":{"link_text":"VIew Bestsellers >","url":"shopify:\/\/collections\/best-sellers"}},"empty_cart_links_eRmBrJ":{"type":"empty_cart_links","settings":{"link_text":"Explore New Arrivals >","url":"shopify:\/\/collections\/new-arrivals"}},"empty_cart_links_3gAUYY":{"type":"empty_cart_links","settings":{"link_text":"View All Products >","url":"shopify:\/\/collections\/all"}}},"block_order":["empty_cart_links_Un8kXj","empty_cart_links_eRmBrJ","empty_cart_links_3gAUYY"],"settings":{"cart_ajax_enable":true,"cart_notes_enable":false,"font_for_title_cart":"montserrat_n7","collection":"dilmah-inteamate-gifts","enable_tc_checkbox":true,"tc_text":"I agree with the","tc_link_text":"Terms & Conditions","tc_link":"","featured_collection_title":"Our Tea Lovers Also Like","font_for_empty_cart_alignment":"center","font_for_featured_collection_title":"montserrat_n7","font_for_featured_collection_title_deskotop":20,"font_for_featured_collection_title_mobile":20,"empty_cart_alignment":"center","empty_title":"No items in your cart.","font_for_empty_title":"montserrat_n7","font_for_empty_size_deskotop":30,"font_for_empty_size_mobile":20,"empty_cart_small_text":"Need help deciding? Check out our bestsellers or new arrivals!"}},"1658144214877708ed":{"type":"gallery2","blocks":{"cb56ca8f-3257-4dbe-ba59-e492dccf423c":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/1_dc718637-b334-45b9-8e28-c0bd6e9a9a6b.png","description":"","link":""}},"fba4442d-58b1-414a-883e-ddb263abc2f7":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/2_351d18e1-3225-4515-b736-ec86f4b4a7f6.png","description":"","link":""}},"6e989a0b-bc53-403c-944f-ffce3a72f69a":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/3_61f04850-0a03-4fbc-a5df-5e53c84c9063.png","description":"","link":""}},"faf0a713-02a3-4c3d-8762-53cf82d1e65f":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/4_eebed1fe-e6b6-435b-9672-2a2144e0dee9.png","description":"","link":""}},"463621da-b01a-4a1f-98e9-d115181afb1e":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/5_19cca7f2-41a9-43cf-adb9-1c1743ea757b.png","description":"","link":""}}},"block_order":["cb56ca8f-3257-4dbe-ba59-e492dccf423c","fba4442d-58b1-414a-883e-ddb263abc2f7","6e989a0b-bc53-403c-944f-ffce3a72f69a","faf0a713-02a3-4c3d-8762-53cf82d1e65f","463621da-b01a-4a1f-98e9-d115181afb1e"],"settings":{"section_style":"default","text_position":"top_center","columns":5,"aspect_ratio":"natural","overline":"","title":"WELCOME TO THE DILMAH ONLINE STORE","title_font_size_desktop":36,"title_font_size_mobile":20,"font_for_section":"montserrat_n7","subheading":"<p>A Sri Lankan family tea company founded in 1985 by Merrill J. Fernando.<br\/>The pioneers of the concept of \"single origin tea\" against industry trends, to commit to authenticity.<\/p>","link":"","link_text":"","text_max_width":50,"padding_top":36,"padding_bottom":36}},"shipping-banner":{"type":"shipping-banner","settings":{"show_shipping_banner":true,"shipping_amount":"75"}},"c6d9f79f-b63e-4c89-a2a8-e288e77f6944":{"type":"featured-cole-grid-carou","settings":{"custom_class":"index-tea-makers-slick","section_style":"contrast","title1":"BEST SELLERS","collection":"best-sellers","title2":"NEW ARRIVALS","collection2":"new-arrivals","title3":"NATURAL INFUSIONS","collection3":"natural-infusions","title4":"FOUNDER'S FAVOURITES","collection4":"founders-favorites","title5":"Teaware","collection5":"teaware","title6":"Gift a Tea","collection6":"gift-of-tea","title7":"Check All our tea","collection7":"all-products","products_per_row":4,"total_row":2,"aspect_ratio":"natural","overline":"","title":"TEAMAKER'S PICKS","font_for_main_title":"montserrat_n7","Htitle":"TEAMAKER'S PICKS","HStitle":"","Hdetail":"","tagList":"","heading_alignment":"center","text_max_width":36}},"gdpr":{"type":"gdpr","settings":{"hide_gdpr":false,"ecom_ask_again_n_days":2,"ecom_gdpr_title":"YOUR CONSENT TO OUR PRIVACY AND COOKIE POLICY","ecom_gdpr_title_text_color":"#007c85","ecom_bg_color":"#ffffff","ecom_border_color":"#ffffff","ecom_text_color":"#000000","ecom_gdpr_content":"<p>We use cookies that help to increase the performance of our website to serve you better, to provide social media features and to analyse our traffic. Click ACCEPT to give your consent to accept our cookies and start browsing the site or click to see a more detailed description in the <a href=\"https:\/\/www.dilmahtea.com\/privacy-and-terms\/privacy-and-cookie-policy\" target=\"_blank\" title=\"https:\/\/www.dilmahtea.com\/privacy-and-terms\/privacy-and-cookie-policy\">Privacy Policy<\/a> statement.<\/p>","text_container_padding":"20px 20px","ecom_gdpr_accept_text":"Accept","ecom_accept_btn_txt_color":"#ffffff","ecom_accept_btn_bg_color":"#007c85","ecom_accept_btn_padding":"10px 20px"}},"product-template-auction":{"type":"product-template-auction","custom_css":[".sumo-form-wrapper.listbuilder-popup {display: none !important;}"],"settings":{"product_vendor_enable":false,"social_sharing_products":false,"product_reviews_enable":false,"enable_payment_button":false}},"single_slide_Aftyiz":{"type":"single-slide","blocks":{"slide_PLwpNh":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/Inspirations_9375fa95-0b4e-49e2.jpg","mobile_image":"shopify:\/\/shop_images\/banner-mobile.jpg","video_url":"","overline":"","title":"Deliciously Fragrant","color_heading":"#ffffff","subheading":"Indulge in the aromatic taste of italian almond","link":"https:\/\/shop.dilmahtea.com\/collections\/t-series-designer-gourmet-teas","link_text":"Shop now","link_2":"#select-tea-section","link_text_2":"Customize Tea","is_samepage_link":true,"overlay_opacity":30,"overlay_color":"#000000","text_color":"#ffffff","text_max_width":50,"horizontal_text_position":"center","vertical_text_position":"middle","text_alignment_button_container":"left"}},"slide_WrigHW":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/September_2025_New_Size.jpg","video_url":"","overline":"","title":"","color_heading":"#3d4246","subheading":"","link":"https:\/\/shop.dilmahtea.com\/collections\/t-series-designer-gourmet-teas","link_text":"","link_2":"","link_text_2":"","is_samepage_link":false,"overlay_opacity":20,"overlay_color":"#000000","text_color":"#ffffff","text_max_width":48,"horizontal_text_position":"left","vertical_text_position":"middle","text_alignment_button_container":"center"}}},"block_order":["slide_PLwpNh","slide_WrigHW"],"name":"Single Slide Show","settings":{"aspect_ratio":"unconstrained","section_class":"","timer":7,"show_social":false}},"image_stripe_AiiY3w":{"type":"image-stripe","blocks":{"image_GPMWLB":{"type":"image","settings":{"block_image":"shopify:\/\/shop_images\/Ethical_Tea_banner_2f6b121c-004f-481f-865a-350fc7f4b4d0.jpg","width_number":"50.25","width_number_mobile":"100"}},"image_pnLCig":{"type":"image","settings":{"block_image":"shopify:\/\/shop_images\/MicrosoftTeams-image_18_354bbee9-63a5-48ce-a9ee-d24ea3b6ddd1.jpg","width_number":"24.875","width_number_mobile":"50"}},"image_yfCabf":{"type":"image","settings":{"block_image":"shopify:\/\/shop_images\/2_06dc0878-be28-4394-8e0a-1f12f7eb2cfd.jpg","width_number":"24.875","width_number_mobile":"50"}}},"block_order":["image_GPMWLB","image_pnLCig","image_yfCabf"],"name":"Image Stripe","settings":{}},"popups":{"type":"popups","settings":{}}},"content_for_index":["single_slide_Aftyiz","16348173678df9fa29","1658144214877708ed","1627616933a37c334b","1617343125ede5838f","c6d9f79f-b63e-4c89-a2a8-e288e77f6944","1627618715d629c2eb","1632757703d43adf55","1627632084938aa6d2","16173418000a2c021d","image_stripe_AiiY3w","1628834684f5b222af"],"blocks":{"11349500561483629931":{"type":"shopify:\/\/apps\/ReStock\/blocks\/app-embed\/b399b727-6c85-44fc-9e21-63114bd72054","disabled":false,"settings":{}},"15683396631634586217":{"type":"shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b","disabled":true,"settings":{"button_color":"#249d7c","button_icon":"chat_bubble","button_text":"no_text","button_horizontal_position":"bottom_right","button_vertical_position":"lowest","greeting_message":"Hello! Please message us if you have questions, or give an idea of what you’re looking for. We’re happy to make recommendations."}},"16278478101612877664":{"type":"shopify:\/\/apps\/pagefly-page-builder\/blocks\/app-embed\/83e179f7-59a0-4589-8c66-c0dddf959200","disabled":false,"settings":{}},"127709043890318779":{"type":"shopify:\/\/apps\/aiod-all-in-1-discount\/blocks\/install-snippets\/9537caf0-36d5-4981-a648-8961a8e85652","disabled":false,"settings":{"aiod_v2_call":"","aiod_dev_api_call":""}},"10641372206048101839":{"type":"shopify:\/\/apps\/rebuy-personalization-engine\/blocks\/rebuy-global-embed\/a26ae9b9-933b-40bf-bbc6-bf1220bbc4dc","disabled":false,"settings":{}},"14339172867238703359":{"type":"shopify:\/\/apps\/yotpo-product-reviews\/blocks\/reviews_tab\/eb7dfd7d-db44-4334-bc49-c893b51b36cf","disabled":true,"settings":{"product":""}},"7570552984445421165":{"type":"shopify:\/\/apps\/yotpo-product-reviews\/blocks\/settings\/eb7dfd7d-db44-4334-bc49-c893b51b36cf","disabled":true,"settings":{}},"6174324309569838175":{"type":"shopify:\/\/apps\/smile-io\/blocks\/smile-shopify-app\/2fae4e25-1841-4ea2-bc02-bd548478c4f6","disabled":true,"settings":{}},"16357531335331704164":{"type":"shopify:\/\/apps\/wheelify-spin-wheel-email-pop\/blocks\/wheelify\/505ff42c-abce-4466-9558-7e1d3b2cfcd7","disabled":false,"settings":{}},"11735689235857492391":{"type":"shopify:\/\/apps\/algolia-ai-search-discovery\/blocks\/autocomplete\/57bb7f86-d5fe-4d43-96ca-3953324494cf","disabled":true,"settings":{}}}},"presets":{"Chic":{"color_accent":"#bb4e39","color_text":"#1b1b1b","color_bg":"#ffffff","color_button":"#f4f4f4","color_border":"#dedede","color_input_text":"#606060","color_icon":"#9c9c9c","color_header_text":"#171717","color_header_bg":"#ffffff","color_header_border":"#dcdcdc","color_footer_text":"#ffffff","color_footer_bg":"#9d4737","color_footer_border":"#d96a55","color_footer_button_background":"#b45240","color_footer_button_text":"#ffffff","color_contrast_text":"#262626","color_contrast_bg":"#f9f9f9","color_contrast_border":"#d6d6d6","color_contrast_input_text":"#5e5e5e","color_contrast_icon":"#939393","color_drawer_text":"#151515","color_drawer_bg":"#ffffff","color_drawer_border":"#d6d6d6","color_drawer_input_text":"#5e5e5e","color_drawer_icon":"#939393","font_heading":"bauer_bodoni_n7","size_heading":18,"uppercase_headings":false,"font_body":"assistant_n4","size_body":15,"font_logo":"bauer_bodoni_n7","logo_uppercase":false,"font_logo_size":26,"share_facebook":true,"share_twitter":true,"share_pinterest":true,"social_twitter_link":"","social_facebook_link":"","social_pinterest_link":"","social_instagram_link":"","social_snapchat_link":"","social_tumblr_link":"","social_youtube_link":"","social_vimeo_link":"","search_max_result_size":4,"search_show_products":true,"search_show_articles":true,"search_show_pages":true,"search_show_price":true,"search_show_vendor":false,"swatch_option":"Color","chip_options":"Size","cart_quick_shop_enabled":true,"cart_quick_shop_show_quantity_input":false,"cart_notes_enable":true,"quick_cart_note":"Your subtotal today is [subtotal]. Shipping and taxes will calculated at checkout.","favicon":"","checkout_header_image":"","checkout_logo_image":"","checkout_logo_position":"left","checkout_logo_size":"medium","checkout_body_background_image":"","checkout_body_background_color":"#fff","checkout_input_background_color_mode":"white","checkout_sidebar_background_image":"","checkout_sidebar_background_color":"#fafafa","checkout_heading_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_body_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_accent_color":"#197bbd","checkout_button_color":"#197bbd","checkout_error_color":"#e32c2b","color_input_inactive_text":"#7C7C7C","color_sale_badge":"#bb4e39","color_sold_out_badge":"#1b1b1b","color_success_message":"#82b875","color_error_message":"#b6534c","color_contrast_input_inactive_text":"#a8a8a8","color_navigation_text":"#363636","color_navigation_bg":"#ffffff","color_navigation_feature":"#f4f4f4","color_drawer_input_inactive_text":"#bab8c7","color_quick_search_highlight":"#ffe898","color_navigation_border":"#e2e2e2","color_navigation_icon":"#aaaaaa","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"announcement-bar-0":{"type":"announcement","settings":{"background_color":"#24352d","text_color":"#ffffff","text":"Announce something here","link":""}},"1601761564951":{"type":"announcement","settings":{"background_color":"#24352d","text_color":"#ffffff","text":"Cycle through multiple messages","link":""}}},"block_order":["announcement-bar-0","1601761564951"],"settings":{"announcement_bar_enabled":true,"announcement_bar_timing":5}},"header":{"type":"header","settings":{"header_style":"default","nav_alignment":"left","detect_menu_length":false,"show_locale_selector":false,"show_currency_selector":true,"logo":"","logo_max_size":150,"menu":"main-menu","transparent_index_header_enabled":true,"transparent_logo":"","transparent_header_foreground_color":"#ffffff","transparent_header_border_color":"#ffffff","transparent_header_border_opacity":10}},"exit-intent":{"type":"exit-intent","settings":{"enable_exit_intent":false,"exit_intent_position":"bottom-right","exit_intent_image":"","exit_intent_heading":"Sign up for our newsletter","exit_intent_text":"Use this popup to capture customer email addresses at the last moment.","text_color":"#1b1b1b","bg_color":"#ffffff","border_color":"#dedede","input_text_color":"#1b1b1b"}},"footer":{"type":"footer","blocks":{"1602297933570":{"type":"text","settings":{"title":"About the shop","text":"<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>"}},"1602015986783":{"type":"link_list","settings":{"menu":"main-menu"}},"1602305412730":{"type":"link_list","settings":{"menu":"footer"}}},"block_order":["1602297933570","1602015986783","1602305412730"],"settings":{"show_headings":true,"show_payment_icons":true,"show_newsletter_signup":true,"newsletter_subheading":"Subscribe to our mailing list","show_locale_selector":true,"show_currency_selector":true}},"1601670854865":{"type":"quote--dynamic","blocks":{"1601670854865-0":{"type":"quote","settings":{"quote":"Absolutely unparalleled products and service. I'm confident that this store will be the next big thing in its industry.","author":"Hannah Joritz"}}},"block_order":["1601670854865-0"],"settings":{"section_style":"contrast","timer":7,"text_max_width":28}},"collection--template":{"type":"collection--template","settings":{"show_collection_image":true,"overlay_opacity":20,"overlay_color":"#000000","text_color":"#ffffff","show_border":true,"show_heading":true,"show_small_heading":true,"show_description":true,"heading_alignment":"left","text_max_width":38,"show_swatches":false,"products_per_row":3,"aspect_ratio":"natural","pagination":"click"}},"testimonials--static":{"type":"testimonials--static","settings":{"enabled":false,"text_position":"top_center","columns":3,"aspect_ratio":"natural","overline":"Testimonials","title":"Testimonials Section","subheading":"Use this section to showcase your product reviews.","link":"","link_text":"","text_max_width":36}},"featured-collection--static":{"type":"featured-collection--static","settings":{"enabled":true,"text_position":"top_center","collection":"","columns":3,"aspect_ratio":"natural","overline":"collection","title":"The Fall Collection","subheading":"Our latest collection resonates with inspired earth tones. All of our fabrics are created in italy and sourced from a variety of local mills.","link_text":"Shop now","text_max_width":36}},"gallery--static":{"type":"gallery--static","settings":{"enabled":false,"text_position":"top_center","columns":3,"aspect_ratio":"square","overline":"Gallery","title":"Gallery section","subheading":"Use this Section to display your favourite images. Automatically crop them to be uniform using the dropdown setting.","link":"","link_text":"","text_max_width":36}},"product--static":{"type":"product--static","settings":{"show_vendor":true,"show_swatches":false,"show_share_buttons":false,"show_quantity_input":true,"enable_payment_button":true,"enable_video_looping":true}},"text--static":{"type":"text--static","settings":{"enabled":false,"title":"Text","text":"<p>Use this text area to share information about your brand with your customers. Describe your shipping policy, return policy, or share announcements.<\/p>"}},"gallery-grid--static":{"type":"gallery-grid--static","settings":{"enabled":false,"columns":4,"aspect_ratio":"square","title":"Gallery","text":"<p>Let people know about where to find you on social media. Don't forget to add a <a>link<\/a>.<\/p>"}},"product-recommendations--static":{"type":"product-recommendations--static","settings":{"enabled":true,"heading":"Related","columns":4}},"page-about--template":{"type":"page-about--template","settings":{"overline":"about"}},"blog--template":{"type":"blog--template","settings":{"layout":"latest_featured","show_rss":true}},"1602299175982":{"type":"slideshow-split--dynamic","blocks":{"1602299175982-0":{"type":"slide","settings":{"image":"","mobile_image":"","video_url":""}},"1602299175982-1":{"type":"slide","settings":{"image":"","mobile_image":"","video_url":""}},"1602299175982-2":{"type":"slide","settings":{"image":"","mobile_image":"","video_url":""}}},"block_order":["1602299175982-0","1602299175982-1","1602299175982-2"],"settings":{"timer":7,"overline":"presenting","title":"The Slideshow Split","subheading":"When one image isn't enough. Use an arrangement of editorial photos with a similar tone and feel for a unique storytelling sequence.","link_text":"Shop now","overlay_opacity":60,"overlay_color":"#000000","text_color":"#ffffff","text_max_width":34,"horizontal_text_position":"center","vertical_text_position":"middle"}},"1602299320050":{"type":"featured-collection--dynamic","settings":{"section_style":"default","text_position":"top_center","collection":"","columns":3,"aspect_ratio":"natural","overline":"Collection","title":"Featured collection","subheading":"Add a subheading to provide more details about this collection.","link_text":"Shop now","text_max_width":24}},"1602299409613":{"type":"image-with-text--dynamic","settings":{"section_style":"contrast","enable_animation":true,"image":"","video_url":"","image_width":"two-third","image_position":"left","overline":"Image with text","title":"Image with text","subheading":"<p>Use this section to showcase your editorial photography or images from your look book. This Section looks best with two or three sentences of text.<\/p>","link_text":"Shop now","text_alignment":"left","text_color":"#000000","text_container_color":"","button_text_color":"#1b1b1b","button_border_color":"#dedede","text_max_width":36}},"1602299518294":{"type":"slideshow--dynamic","blocks":{"1602299518294-0":{"type":"slide","settings":{"image":"","video_url":"","overline":"","title":"This is your slideshow","subheading":"Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.","link_text":"Shop now","overlay_opacity":60,"overlay_color":"#000000","text_color":"#ffffff","text_max_width":41,"horizontal_text_position":"left","vertical_text_position":"middle"}},"1602299518294-1":{"type":"slide","settings":{"image":"","video_url":"","overline":"","title":"This is your slideshow","subheading":"Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.","link_text":"Shop now","overlay_opacity":60,"overlay_color":"#000000","text_color":"#ffffff","text_max_width":48,"horizontal_text_position":"right","vertical_text_position":"bottom"}}},"block_order":["1602299518294-0","1602299518294-1"],"settings":{"aspect_ratio":"full_height","timer":7}},"1602299855490":{"type":"featured-collection--dynamic","settings":{"section_style":"default","text_position":"middle_left","collection":"","columns":3,"aspect_ratio":"natural","overline":"Collection","title":"Featured collection","subheading":"Add a subheading to provide more details about this collection.","link_text":"Shop now","text_max_width":24}},"1602299921603":{"type":"featured-collection--dynamic","settings":{"section_style":"default","text_position":"middle_left","collection":"","columns":3,"aspect_ratio":"natural","overline":"Collection","title":"Featured collection","subheading":"Add a subheading to provide more details about this collection.","link_text":"Shop now","text_max_width":24}},"1602299989448":{"type":"slideshow--dynamic","blocks":{"1602299989448-0":{"type":"slide","settings":{"image":"","video_url":"","overline":"Slideshow","title":"This is your slideshow","subheading":"Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.","link_text":"Shop now","overlay_opacity":60,"overlay_color":"#000000","text_color":"#ffffff","text_max_width":39,"horizontal_text_position":"left","vertical_text_position":"middle"}},"1602299989448-1":{"type":"slide","settings":{"image":"","video_url":"","overline":"Slideshow","title":"This is your slideshow","subheading":"Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.","link_text":"Shop now","overlay_opacity":60,"overlay_color":"#000000","text_color":"#ffffff","text_max_width":40,"horizontal_text_position":"left","vertical_text_position":"top"}}},"block_order":["1602299989448-0","1602299989448-1"],"settings":{"aspect_ratio":"full_height","timer":7}},"1602300184343":{"type":"image-with-text--dynamic","settings":{"section_style":"default","enable_animation":true,"image":"","video_url":"","image_width":"two-third","image_position":"left","overline":"Image with text","title":"Image with text","subheading":"<p>Use this section to showcase your editorial photography or images from your look book. This Section looks best with two or three sentences of text.<\/p>","link_text":"Shop now","text_alignment":"left","text_color":"#000000","text_container_color":"","button_text_color":"#1b1b1b","button_border_color":"#dedede","text_max_width":36}},"1602300692658":{"type":"image-with-text-split--dynamic","settings":{"feature_image":"","feature_link":"","feature_description":"","feature_text_color":"","background_color":"#1f2030","feature_alignment":"left_bottom","overlay_image":"","image_text":"","text_color":"#ffffff","detail_alignment":"center_bottom","text_max_width":36,"gradient_color":"rgba(0,0,0,0)","gradient_length":30}},"1602300825789":{"type":"collection-list--dynamic","blocks":{"1605556242809":{"type":"collection","settings":{"collection":""}},"1605556246037":{"type":"collection","settings":{"collection":""}}},"block_order":["1605556242809","1605556246037"],"settings":{"section_style":"default","text_position":"top_center","columns":2,"aspect_ratio":"natural","overline":"Collections","title":"Collection list","subheading":"Add a subheading to provide more details about these collections.","text_max_width":36}},"1602300955150":{"type":"featured-collection--dynamic","settings":{"section_style":"default","text_position":"top_center","collection":"","columns":3,"aspect_ratio":"natural","overline":"Collection","title":"Featured collection","subheading":"Add a subheading to provide more details about this collection.","link_text":"Shop now","text_max_width":24}},"1602301004470":{"type":"slideshow--dynamic","blocks":{"1602301004470-0":{"type":"slide","settings":{"image":"","video_url":"","overline":"","title":"This is your slideshow","subheading":"Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.","link_text":"Shop now","overlay_opacity":60,"overlay_color":"#000000","text_color":"#ffffff","text_max_width":37,"horizontal_text_position":"center","vertical_text_position":"middle"}}},"block_order":["1602301004470-0"],"settings":{"aspect_ratio":"full_height","timer":7}},"1602301096982":{"type":"gallery--dynamic","settings":{"section_style":"default","text_position":"top_center","columns":3,"aspect_ratio":"square","overline":"Gallery","title":"Gallery section","subheading":"Use this Section to display your favourite images. Automatically crop them to be uniform using the dropdown setting.","link_text":"Follow us","text_max_width":32}},"page-contact--template":{"type":"page-contact--template","settings":{"image":""}},"1605556096757":{"type":"text-columns-with-images--dynamic","blocks":{"1605556096757-0":{"type":"column","settings":{"image":"","image_max_width":50,"title":"Column one","subheading":"Start here. Introduce your vision, or explain why what you do or sell is superior to your competitors.","text_max_width":36,"link_text":"Read more"}},"1605556096757-1":{"type":"column","settings":{"image":"","image_max_width":50,"title":"Column two","subheading":"Get into your process a bit. The quality of handiwork, proprietary knowledge, or materials that you use that make your products better.","text_max_width":36,"link_text":"Read more"}},"1605556096757-2":{"type":"column","settings":{"image":"","image_max_width":50,"title":"Column three","subheading":"End it with an action item that the user can take advantage of. Link to a more in-depth page, or go straight to a collection. Your call.","text_max_width":36,"link_text":"Read more"}}},"block_order":["1605556096757-0","1605556096757-1","1605556096757-2"],"settings":{"section_style":"default","columns":3,"overline":"","title":"","subheading":"","link":"","link_text":"","text_alignment":"center","text_max_width":36}}},"content_for_index":["1602299175982","1605556096757","1602299320050","1602299409613","1602299518294","1602299855490","1602299921603","1602299989448","1602300184343","1601670854865","1602300692658","1602300825789","1602300955150","1602301004470","1602301096982"]},"Natural":{"color_accent":"#ae877b","color_text":"#5b4c47","color_bg":"#fcf7ee","color_button":"#f4f4f4","color_border":"#e1d8ce","color_input_text":"#5b4c47","color_icon":"#5b4c47","color_header_text":"#534540","color_header_bg":"#fcf7ee","color_header_border":"#e1d8ce","color_footer_text":"#ffffff","color_footer_bg":"#ae877b","color_footer_border":"#9a766c","color_footer_button_background":"#927269","color_footer_button_text":"#ffffff","color_contrast_text":"#ffffff","color_contrast_bg":"#846b63","color_contrast_border":"#b69f97","color_contrast_input_text":"#ebd8d3","color_contrast_icon":"#ebd8d3","color_drawer_text":"#ffffff","color_drawer_bg":"#89695f","color_drawer_border":"#ab8d84","color_drawer_input_text":"#ebd8d3","color_drawer_icon":"#ebd8d3","font_heading":"mariposa_sans_n7","size_heading":18,"uppercase_headings":false,"font_body":"din_next_slab_n4","size_body":15,"font_logo":"mariposa_sans_n7","logo_uppercase":false,"font_logo_size":22,"share_facebook":true,"share_twitter":true,"share_pinterest":true,"social_twitter_link":"","social_facebook_link":"","social_pinterest_link":"","social_instagram_link":"","social_snapchat_link":"","social_tumblr_link":"","social_youtube_link":"","social_vimeo_link":"","search_max_result_size":4,"search_show_products":true,"search_show_articles":true,"search_show_pages":true,"search_show_price":true,"search_show_vendor":false,"swatch_option":"Color","chip_options":"Size","cart_quick_shop_enabled":true,"cart_quick_shop_show_quantity_input":false,"cart_notes_enable":true,"quick_cart_note":"Your subtotal today is [subtotal]. Shipping and taxes will calculated at checkout.","favicon":"","checkout_header_image":"","checkout_logo_image":"","checkout_logo_position":"left","checkout_logo_size":"medium","checkout_body_background_image":"","checkout_body_background_color":"#fff","checkout_input_background_color_mode":"white","checkout_sidebar_background_image":"","checkout_sidebar_background_color":"#fafafa","checkout_heading_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_body_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_accent_color":"#197bbd","checkout_button_color":"#197bbd","checkout_error_color":"#e32c2b","color_input_inactive_text":"#9c8881","color_sale_badge":"#c47961","color_sold_out_badge":"#1b1b1b","color_success_message":"#82b875","color_error_message":"#b6534c","color_contrast_input_inactive_text":"#ebd8d3","color_navigation_text":"#534540","color_navigation_bg":"#fcf7ee","color_navigation_feature":"#f0e8d9","color_drawer_input_inactive_text":"#ebd8d3","color_quick_search_highlight":"#ffe898","color_navigation_border":"#e2e2e2","color_navigation_icon":"#aaaaaa","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"announcement-bar-0":{"type":"announcement","settings":{"background_color":"","text_color":"#ffffff","text":"Announce something here","link":""}},"1602188457696":{"type":"announcement","settings":{"background_color":"#ae8979","text_color":"#ffffff","text":"You can cycle through multiple announcements","link":""}}},"block_order":["announcement-bar-0","1602188457696"],"settings":{"announcement_bar_enabled":true,"announcement_bar_timing":5}},"header":{"type":"header","settings":{"header_style":"default","nav_alignment":"left","detect_menu_length":false,"show_locale_selector":false,"show_currency_selector":true,"logo":"","logo_max_size":150,"menu":"main-menu","transparent_index_header_enabled":true,"transparent_logo":"","transparent_header_foreground_color":"#ffffff","transparent_header_border_color":"#ffffff","transparent_header_border_opacity":10}},"exit-intent":{"type":"exit-intent","settings":{"enable_exit_intent":false,"exit_intent_position":"bottom-right","exit_intent_image":"","exit_intent_heading":"Sign up for our newsletter","exit_intent_text":"Use this popup to capture customer email addresses at the last moment.","text_color":"#1b1b1b","bg_color":"#ffffff","border_color":"#dedede","input_text_color":"#1b1b1b"}},"footer":{"type":"footer","blocks":{"1602297933570":{"type":"text","settings":{"title":"About the shop","text":"<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>"}},"1602015986783":{"type":"link_list","settings":{"menu":"footer"}},"1605557765620":{"type":"link_list","settings":{"menu":"main-menu"}}},"block_order":["1602297933570","1602015986783","1605557765620"],"settings":{"show_headings":true,"show_payment_icons":true,"show_newsletter_signup":true,"newsletter_subheading":"Subscribe to our mailing list","show_locale_selector":true,"show_currency_selector":true}},"1601928793422":{"type":"slideshow--dynamic","blocks":{"1601928793422-0":{"type":"slide","settings":{"image":"","video_url":"","overline":"","title":"This is your slideshow","subheading":"Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.","link_text":"Shop now","overlay_opacity":50,"overlay_color":"#563d35","text_color":"#ffffff","text_max_width":39,"horizontal_text_position":"center","vertical_text_position":"middle"}}},"block_order":["1601928793422-0"],"settings":{"aspect_ratio":"full_height","timer":7}},"1601928812015":{"type":"gallery--dynamic","settings":{"section_style":"default","text_position":"top_center","columns":4,"aspect_ratio":"square","overline":"Gallery","title":"Gallery section","subheading":"Use this Section to display your favourite images from your social media channels","link":"","link_text":"","text_max_width":36}},"1601928819901":{"type":"featured-collection--dynamic","settings":{"section_style":"default","text_position":"middle_left","collection":"","columns":3,"aspect_ratio":"natural","overline":"Collection","title":"Featured collection","subheading":"Add a subheading to provide more details about this collection.","link_text":"Shop now","text_max_width":27}},"1601932384660":{"type":"slideshow--dynamic","blocks":{"1601932384660-0":{"type":"slide","settings":{"image":"","video_url":"","overline":"","title":"This is your slideshow","subheading":"Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect","link_text":"Shop now","overlay_opacity":50,"overlay_color":"#563d35","text_color":"#ffffff","text_max_width":39,"horizontal_text_position":"left","vertical_text_position":"middle"}}},"block_order":["1601932384660-0"],"settings":{"aspect_ratio":"full_height","timer":7}},"1601932468553":{"type":"image-with-text-split--dynamic","settings":{"feature_image":"","feature_link":"","feature_description":"","feature_text_color":"#ffffff","background_color":"#846b63","feature_alignment":"left_bottom","overlay_image":"","image_text":"","text_color":"#ffffff","detail_alignment":"center_bottom","text_max_width":36,"gradient_color":"rgba(0,0,0,0)","gradient_length":30}},"collection--template":{"type":"collection--template","settings":{"show_collection_image":true,"overlay_opacity":20,"overlay_color":"#000000","text_color":"#ffffff","show_border":true,"show_heading":true,"show_small_heading":true,"show_description":true,"heading_alignment":"center","text_max_width":38,"show_swatches":false,"products_per_row":4,"aspect_ratio":"natural","pagination":"click"}},"testimonials--static":{"type":"testimonials--static","settings":{"enabled":false,"text_position":"top_center","columns":3,"aspect_ratio":"natural","overline":"Testimonials","title":"Testimonials Section","subheading":"Use this section to showcase your product reviews.","link":"","link_text":"","text_max_width":36}},"featured-collection--static":{"type":"featured-collection--static","settings":{"enabled":true,"text_position":"top_center","collection":"","columns":3,"aspect_ratio":"natural","overline":"Collection","title":"Our favourites","subheading":"A small edit of our favourite products.","link_text":"Shop now","text_max_width":36}},"gallery--static":{"type":"gallery--static","settings":{"enabled":false,"text_position":"top_center","columns":3,"aspect_ratio":"square","overline":"Gallery","title":"Gallery section","subheading":"Use this Section to display your favourite images. Automatically crop them to be uniform using the dropdown setting.","link":"","link_text":"","text_max_width":36}},"1601934169652":{"type":"image-with-text--dynamic","settings":{"section_style":"default","enable_animation":true,"image":"","video_url":"","image_width":"two-third","image_position":"left","overline":"Image with text","title":"Image with text section","subheading":"<p>Use this section to showcase your editorial photography or images from your look book. This Section looks best with two or three sentences of text.<\/p>","link_text":"Shop now","text_alignment":"left","text_color":"#5b4c47","text_container_color":"","button_text_color":"#5b4c47","button_border_color":"#e1d8ce","text_max_width":40}},"1601934461161":{"type":"quote--dynamic","blocks":{"1601934461161-0":{"type":"quote","settings":{"quote":"Absolutely unparalleled products and service. I'm confident that this store will be the next big thing in its industry, and that its products will be timeless.","author":"Mabel Strawsbry"}}},"block_order":["1601934461161-0"],"settings":{"section_style":"default","timer":7,"text_max_width":28}},"1601934485262":{"type":"featured-collection--dynamic","settings":{"section_style":"default","text_position":"middle_left","collection":"","columns":3,"aspect_ratio":"natural","overline":"Collection","title":"Featured collection","subheading":"Add a subheading to provide more details about this collection.","link_text":"Shop now","text_max_width":27}},"1601934543722":{"type":"testimonials--dynamic","settings":{"section_style":"default","text_position":"top_center","columns":3,"aspect_ratio":"natural","overline":"Testimonials","title":"Don't take our word for it","subheading":"Our customers love our products. Here's what they have to say about them.","link":"","link_text":"","text_max_width":36}},"1601935379003":{"type":"collection-list-grid--dynamic","settings":{"section_style":"default","columns":2,"aspect_ratio":"natural","overline":"Collections","title":"Our favourite collections","subheading":"Most of our customers want just a few of these things!","heading_alignment":"center","text_max_width":36}},"1601939783439":{"type":"slideshow-split--dynamic","settings":{"timer":7,"overline":"","title":"The Slideshow Split","subheading":"Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.","link_text":"Shop now","overlay_opacity":50,"overlay_color":"#563d35","text_color":"#ffffff","text_max_width":39,"horizontal_text_position":"center","vertical_text_position":"middle"}},"1601940902242":{"type":"featured-collection--dynamic","settings":{"section_style":"default","text_position":"top_center","collection":"","columns":3,"aspect_ratio":"natural","overline":"Collection","title":"Featured collection","subheading":"Add a subheading to provide more details about this collection.","link_text":"Shop now","text_max_width":27}},"page-about--template":{"type":"page-about--template","settings":{"overline":"about"}},"page-contact--template":{"type":"page-contact--template","settings":{"image":""}},"1602022778607":{"type":"blog-posts--dynamic","blocks":{"1602291977947":{"type":"article","settings":{"article":""}}},"block_order":["1602291977947"],"settings":{"section_style":"default","columns":1,"aspect_ratio":"landscape","title":"Story","link_text":"Read more","text_max_width":48}},"1602023627625":{"type":"slideshow--dynamic","blocks":{"1602023627625-0":{"type":"slide","settings":{"image":"","video_url":"","overline":"","title":"This is your slideshow","subheading":"Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect","link_text":"Shop now","overlay_opacity":50,"overlay_color":"#563d35","text_color":"#ffffff","text_max_width":39,"horizontal_text_position":"left","vertical_text_position":"middle"}}},"block_order":["1602023627625-0"],"settings":{"aspect_ratio":"3_2","timer":7}},"1602023764873":{"type":"image-with-text--dynamic","settings":{"section_style":"default","enable_animation":true,"image":"","video_url":"","image_width":"two-third","image_position":"left","overline":"Image with text","title":"Image with text section","subheading":"<p>Use this section to showcase your editorial photography or images from your look book. This Section looks best with two or three sentences of text.<\/p>","link_text":"Shop now","text_alignment":"left","text_color":"#5b4c47","text_container_color":"","button_text_color":"#5b4c47","button_border_color":"#e1d8ce","text_max_width":40}},"product--static":{"type":"product--static","settings":{"show_vendor":false,"show_swatches":false,"show_share_buttons":false,"show_quantity_input":true,"enable_payment_button":true,"enable_video_looping":true}},"text--static":{"type":"text--static","settings":{"enabled":true,"title":"Text","text":"<p>Use this text area to share information about your brand with your customers. Describe your shipping policy, return policy, or share announcements.<\/p>"}},"gallery-grid--static":{"type":"gallery-grid--static","settings":{"enabled":false,"columns":4,"aspect_ratio":"square","title":"Gallery","text":"<p>Let people know about where to find you on social media. Don't forget to add a <a href='#'>link<\/a>.<\/p>"}},"product-recommendations--static":{"type":"product-recommendations--static","settings":{"enabled":true,"heading":"Related","columns":4}},"blog--template":{"type":"blog--template","settings":{"layout":"latest_featured","show_rss":true}},"list-collections--template":{"type":"list-collections--template","settings":{"display_type":"all","columns":3,"aspect_ratio":"natural","collection_title_alignment":"left","show_product_count":true}},"1602291559494":{"type":"text-columns-with-images--dynamic","blocks":{"1602291559494-0":{"type":"column","settings":{"image":"","image_max_width":50,"title":"Step one","subheading":"Start here. Introduce your vision, or explain why what you do or sell is superior to your competitors.","text_max_width":36,"link_text":"Read more"}},"1602291559494-1":{"type":"column","settings":{"image":"","image_max_width":50,"title":"Step two","subheading":"Get into your process a bit. The quality of handiwork or unique materials that you use that make your products better.","text_max_width":36,"link_text":"Read more"}},"1602291559494-2":{"type":"column","settings":{"image":"","image_max_width":50,"title":"Step three","subheading":"End it with an action item that the user can take advantage of. Link to a more in-depth page, or go straight to a collection.","text_max_width":36,"link_text":"Read more"}}},"block_order":["1602291559494-0","1602291559494-1","1602291559494-2"],"settings":{"section_style":"contrast","columns":3,"overline":"","title":"","subheading":"","link":"","link_text":"","text_alignment":"center","text_max_width":36}}},"content_for_index":["1601928793422","1602291559494","1601928819901","1601934485262","1601932384660","1601934169652","1601934461161","1601939783439","1601940902242","1601935379003","1601932468553","1602023764873","1601934543722","1602023627625","1602022778607","1601928812015"]},"Modern":{"color_accent":"#c47961","color_text":"#1b1b1b","color_bg":"#ffffff","color_button":"#f4f4f4","color_border":"#dedede","color_input_text":"#8b8b8b","color_icon":"#b1b1b1","color_header_text":"#1b1b1b","color_header_bg":"#ffffff","color_header_border":"#dedede","color_footer_text":"#ffffff","color_footer_bg":"#253734","color_footer_border":"#465552","color_footer_button_background":"#324340","color_footer_button_text":"#ffffff","color_contrast_text":"#363636","color_contrast_bg":"#f9f9f9","color_contrast_border":"#e2e2e2","color_contrast_input_text":"#838383","color_contrast_icon":"#919191","color_drawer_text":"#1b1b1b","color_drawer_bg":"#ffffff","color_drawer_border":"#dadada","color_drawer_input_text":"#919191","color_drawer_icon":"#b1b1b1","font_heading":"electra_n7","size_heading":18,"uppercase_headings":false,"font_body":"neue_haas_unica_n4","size_body":14,"font_logo":"electra_n7","logo_uppercase":true,"font_logo_size":22,"share_facebook":true,"share_twitter":true,"share_pinterest":true,"social_twitter_link":"","social_facebook_link":"","social_pinterest_link":"","social_instagram_link":"","social_snapchat_link":"","social_tumblr_link":"","social_youtube_link":"","social_vimeo_link":"","search_max_result_size":4,"search_show_products":true,"search_show_articles":true,"search_show_pages":true,"search_show_price":true,"search_show_vendor":false,"swatch_option":"Color","chip_options":"Size","cart_quick_shop_enabled":true,"cart_quick_shop_show_quantity_input":false,"cart_notes_enable":true,"quick_cart_note":"Your subtotal today is [subtotal]. Shipping and taxes will calculated at checkout.","favicon":"","checkout_header_image":"","checkout_logo_image":"","checkout_logo_position":"left","checkout_logo_size":"medium","checkout_body_background_image":"","checkout_body_background_color":"#fff","checkout_input_background_color_mode":"white","checkout_sidebar_background_image":"","checkout_sidebar_background_color":"#fafafa","checkout_heading_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_body_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_accent_color":"#197bbd","checkout_button_color":"#197bbd","checkout_error_color":"#e32c2b","color_input_inactive_text":"#8b8b8b","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"announcement-bar-0":{"type":"announcement","settings":{"background_color":"#203a36","text_color":"#ffffff","text":"Announce something here","link":""}},"51c6b612-4c82-4885-b651-5b184c8665ff":{"type":"announcement","settings":{"background_color":"#203a36","text_color":"#ffffff","text":"Cycle through multiple messages","link":""}}},"block_order":["announcement-bar-0","51c6b612-4c82-4885-b651-5b184c8665ff"],"settings":{"announcement_bar_enabled":true,"announcement_bar_timing":5}},"header":{"type":"header","settings":{"header_style":"default","nav_alignment":"left","detect_menu_length":false,"show_locale_selector":false,"show_currency_selector":true,"logo":"","logo_max_size":150,"menu":"main-menu","transparent_index_header_enabled":true,"transparent_logo":"","transparent_header_foreground_color":"#ffffff","transparent_header_border_color":"#ffffff","transparent_header_border_opacity":10}},"exit-intent":{"type":"exit-intent","settings":{"enable_exit_intent":false,"exit_intent_position":"bottom-right","exit_intent_image":"","exit_intent_heading":"Sign up for our newsletter","exit_intent_text":"Use this popup to capture customer email addresses at the last moment.","text_color":"#1b1b1b","bg_color":"#ffffff","border_color":"#dedede","input_text_color":"#1b1b1b"}},"footer":{"type":"footer","blocks":{"62c7cebd-df83-485d-aa6f-8ed9fd675c96":{"type":"text","settings":{"title":"About the shop","text":"<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>"}},"71054815-9750-443e-88a4-ce5b01013146":{"type":"link_list","settings":{"menu":"footer"}},"6891703d-c4fc-4833-8da7-8e24a36813b6":{"type":"link_list","settings":{"menu":"main-menu"}}},"block_order":["62c7cebd-df83-485d-aa6f-8ed9fd675c96","71054815-9750-443e-88a4-ce5b01013146","6891703d-c4fc-4833-8da7-8e24a36813b6"],"settings":{"show_headings":true,"show_payment_icons":true,"show_newsletter_signup":true,"newsletter_subheading":"Subscribe to our mailing list below and we'll keep you in the loop about our latest sales and promotions.","show_locale_selector":true,"show_currency_selector":true}},"1602100844222d406f":{"type":"quote--dynamic","blocks":{"1602100844222d406f-0":{"type":"quote","settings":{"quote":"Supremely beautiful slippers. Made ethically by hand with materials sourced from sustainable sources.","author":"bill presthaus"}}},"block_order":["1602100844222d406f-0"],"settings":{"section_style":"default","timer":7,"text_max_width":28}},"page-about--template":{"type":"page-about--template","blocks":{"7b5d858b-3e80-4dd0-b5d9-0e9bb3224d78":{"type":"image","settings":{"image":"","video_url":""}},"1d44ba34-cb21-4c39-8c03-f1a020695de8":{"type":"image","settings":{"image":"","video_url":""}},"560a5ff7-472e-4252-b14e-9b5f16641ac7":{"type":"image","settings":{"image":"","video_url":""}}},"block_order":["7b5d858b-3e80-4dd0-b5d9-0e9bb3224d78","1d44ba34-cb21-4c39-8c03-f1a020695de8","560a5ff7-472e-4252-b14e-9b5f16641ac7"],"settings":{"overline":"about"}},"collection--template":{"type":"collection--template","settings":{"show_collection_image":false,"overlay_opacity":20,"overlay_color":"#000000","text_color":"#ffffff","show_border":true,"show_heading":true,"show_small_heading":false,"show_description":false,"heading_alignment":"center","text_max_width":38,"show_swatches":false,"products_per_row":3,"aspect_ratio":"natural","pagination":"click"}},"testimonials--static":{"type":"testimonials--static","settings":{"enabled":false,"text_position":"top_center","columns":3,"aspect_ratio":"natural","overline":"Testimonials","title":"Testimonials Section","subheading":"Use this section to showcase your product reviews.","link":"","link_text":"","text_max_width":36}},"featured-collection--static":{"type":"featured-collection--static","settings":{"enabled":true,"text_position":"top_center","collection":"","columns":3,"aspect_ratio":"natural","overline":"Collection","title":"The Fall Collection","subheading":"Working hand-in-hand with luxury footwear makers, we've designed the perfect all the time slipper in a variety of colors.","link_text":"Shop now","text_max_width":36}},"gallery--static":{"type":"gallery--static","settings":{"enabled":false,"text_position":"top_center","columns":3,"aspect_ratio":"square","overline":"Gallery","title":"Gallery section","subheading":"Use this Section to display your favourite images. Automatically crop them to be uniform using the dropdown setting.","link":"","link_text":"","text_max_width":36}},"product--static":{"type":"product--static","settings":{"show_vendor":false,"show_swatches":false,"show_share_buttons":false,"show_quantity_input":true,"enable_payment_button":true,"enable_video_looping":true}},"text--static":{"type":"text--static","settings":{"enabled":false,"title":"Text","text":"<p>Use this text area to share information about your brand with your customers. Describe your shipping policy, return policy, or share announcements.<\/p>"}},"gallery-grid--static":{"type":"gallery-grid--static","settings":{"enabled":false,"columns":4,"aspect_ratio":"square","title":"Gallery","text":"<p>Let people know about where to find you on social media. Don&#x27;t forget to add a <a href=\"#\">link<\/a>.<\/p>"}},"product-recommendations--static":{"type":"product-recommendations--static","settings":{"enabled":true,"heading":"Related","columns":4}},"page-contact--template":{"type":"page-contact--template","settings":{"image":""}},"1602302639a7b60f3e":{"type":"slideshow--dynamic","blocks":{"1602302639a7b60f3e-0":{"type":"slide","settings":{"image":"","video_url":"","overline":"","title":"This is your slideshow","subheading":"Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.","link_text":"Shop now","overlay_opacity":50,"overlay_color":"#000000","text_color":"#ffffff","text_max_width":39,"horizontal_text_position":"center","vertical_text_position":"middle"}}},"block_order":["1602302639a7b60f3e-0"],"settings":{"aspect_ratio":"full_height","timer":7}},"1602302827aaa0807e":{"type":"featured-collection--dynamic","settings":{"section_style":"default","text_position":"top_center","collection":"","columns":3,"aspect_ratio":"natural","overline":"Collection","title":"Featured collection","subheading":"Add a subheading to provide more details about this collection.","link_text":"Shop now","text_max_width":24}},"1602302926ac40fa14":{"type":"slideshow--dynamic","blocks":{"1602302926ac40fa14-0":{"type":"slide","settings":{"image":"","video_url":"","overline":"Slideshow","title":"This is your slideshow","subheading":"Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.","link_text":"Shop now","overlay_opacity":30,"overlay_color":"#000000","text_color":"#ffffff","text_max_width":37,"horizontal_text_position":"left","vertical_text_position":"middle"}}},"block_order":["1602302926ac40fa14-0"],"settings":{"aspect_ratio":"full_height","timer":7}},"160230298895c3eda9":{"type":"featured-collection--dynamic","settings":{"section_style":"default","text_position":"middle_left","collection":"","columns":3,"aspect_ratio":"natural","overline":"Collection","title":"Featured collection","subheading":"Add a subheading to provide more details about this collection.","link_text":"Shop now","text_max_width":24}},"1602303073f053a328":{"type":"featured-collection--dynamic","settings":{"section_style":"default","text_position":"middle_left","collection":"","columns":3,"aspect_ratio":"natural","overline":"Collection","title":"Featured collection","subheading":"Add a subheading to provide more details about this collection.","link_text":"Shop now","text_max_width":24}},"160230308822ca402f":{"type":"slideshow--dynamic","blocks":{"160230308822ca402f-0":{"type":"slide","settings":{"image":"","video_url":"","overline":"","title":"This is your slideshow","subheading":"Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.","link_text":"Shop now","overlay_opacity":50,"overlay_color":"#000000","text_color":"#ffffff","text_max_width":37,"horizontal_text_position":"center","vertical_text_position":"middle"}}},"block_order":["160230308822ca402f-0"],"settings":{"aspect_ratio":"full_height","timer":7}},"160230316278a885f2":{"type":"image-with-text--dynamic","settings":{"section_style":"default","enable_animation":true,"image":"","video_url":"","image_width":"two-third","image_position":"left","overline":"Image with text","title":"Image with text section","subheading":"<p>Use this section to showcase your editorial photography or images from your look book. This Section looks best with two or three sentences of text.<\/p>","link_text":"Shop now","text_alignment":"left","text_color":"#000000","text_container_color":"rgba(0,0,0,0)","button_text_color":"#1b1b1b","button_border_color":"#dedede","text_max_width":36}},"1602303261a0f747d4":{"type":"slideshow--dynamic","blocks":{"1602303261a0f747d4-0":{"type":"slide","settings":{"image":"","video_url":"","overline":"Slideshow","title":"This is your slideshow","subheading":"Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.","link_text":"Shop now","overlay_opacity":50,"overlay_color":"#000000","text_color":"#ffffff","text_max_width":37,"horizontal_text_position":"left","vertical_text_position":"middle"}}},"block_order":["1602303261a0f747d4-0"],"settings":{"aspect_ratio":"full_height","timer":7}},"1602303455b937a2c3":{"type":"blog-posts--dynamic","settings":{"section_style":"default","columns":1,"aspect_ratio":"landscape","title":"Story","link_text":"Read more","text_max_width":35}},"1602303595e1ce026d":{"type":"gallery--dynamic","settings":{"section_style":"default","text_position":"top_center","columns":3,"aspect_ratio":"square","overline":"Gallery","title":"Gallery section","subheading":"Use this Section to display your favourite images. Automatically crop them to be uniform using the dropdown setting.","link":"","link_text":"","text_max_width":36}}},"content_for_index":["1602302639a7b60f3e","1602302827aaa0807e","1602302926ac40fa14","160230298895c3eda9","1602303073f053a328","160230308822ca402f","160230316278a885f2","1602100844222d406f","1602303261a0f747d4","1602303455b937a2c3","1602303595e1ce026d"]}},"platform_customizations":{"custom_css":["div#_a-auction-inputs {width: 500px !important; position: relative !important; margin-left: auto !important; margin-right: auto !important; margin-bottom: 100px !important; margin-top: 100px !important; overflow: hidden !important;}",".section.section--spacing-tall {padding-top: 25px !important; padding-bottom: 25px !important; padding-left: 25% !important; padding-right: 25% !important;}","._a-auction-input-container._a-margin-vertical-15 {overflow: hidden !important;}","div#_a-auction-inputs {overflow: hidden !important;}","@media screen and (max-width: 700px) {div#_a-auction-inputs {width: 300px !important; position: relative !important; margin-left: auto !important; margin-right: auto !important; margin-bottom: 100px !important; margin-top: 100px !important; overflow: hidden !important; }}","div#_a-featured-auctions {padding-top: 20px !important; padding-right: 10% !important; padding-bottom: 20px !important; padding-left: 10% !important;}"]}}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "color_accent": "#bb9107",
+    "color_text": "#333333",
+    "color_bg": "#ffffff",
+    "color_button": "#bb9107",
+    "color_border": "#ffffff",
+    "color_input_text": "#bb9107",
+    "color_icon": "#007c85",
+    "color_header_text": "#ffffff",
+    "color_header_bg": "#bb9107",
+    "color_header_border": "#ffffff",
+    "color_footer_text": "#ffffff",
+    "color_footer_bg": "#00494f",
+    "color_footer_border": "#bb9107",
+    "color_footer_button_background": "#bb9107",
+    "color_footer_button_text": "#ffffff",
+    "color_contrast_text": "#ffffff",
+    "color_contrast_bg": "#007c85",
+    "color_contrast_border": "#bc9307",
+    "color_contrast_input_text": "#ffffff",
+    "color_contrast_icon": "#ffffff",
+    "color_drawer_text": "#ffffff",
+    "color_drawer_bg": "#007c85",
+    "color_drawer_border": "#007c85",
+    "color_drawer_input_text": "#ffffff",
+    "color_drawer_icon": "#ffffff",
+    "logo_image_size": 90,
+    "navigation_icon_size": 25,
+    "section_padding_desktop": 40,
+    "enable_tags": "Special,Mood,Tea Type,Tea Flavour,Time Of Day,Caffeine Level,Tea Format,Tea Grading,Tea Strength",
+    "font_heading": "montserrat_n4",
+    "size_heading": 18,
+    "uppercase_headings": false,
+    "font_body": "ibm_plex_sans_n4",
+    "size_body": 16,
+    "font_logo": "montserrat_n4",
+    "logo_uppercase": false,
+    "font_logo_size": 19,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "https://twitter.com/Dilmah",
+    "social_facebook_link": "https://www.facebook.com/dilmah",
+    "social_pinterest_link": "https://www.pinterest.com/dilmah",
+    "social_instagram_link": "https://www.instagram.com/dilmahceylontea/",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "https://www.youtube.com/user/DilmahRealTea",
+    "social_vimeo_link": "",
+    "search_max_result_size": 6,
+    "search_show_products": true,
+    "search_show_articles": false,
+    "search_show_pages": true,
+    "search_show_price": true,
+    "search_show_vendor": false,
+    "swatch_option": "Color",
+    "chip_options": "Size",
+    "cart_quick_shop_enabled": true,
+    "cart_quick_shop_show_quantity_input": true,
+    "cart_notes_enable": true,
+    "quick_cart_note": "Your subtotal today is [subtotal]. Shipping and taxes will calculated at checkout.",
+    "favicon": "shopify://shop_images/Dilmah_Pure_Ceylon_Tea_Official_Logo.jpg",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify://shop_images/NEW_Dilmah_Pure_Ceylon_Tea_Official_Logo_60027d21-0b79-4ef0-acd1-e8c48f489738.jpg",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#197bbd",
+    "checkout_button_color": "#197bbd",
+    "checkout_error_color": "#e32c2b",
+    "color_input_inactive_text": "#9c8881",
+    "color_sale_badge": "#c47961",
+    "color_sold_out_badge": "#1b1b1b",
+    "color_success_message": "#82b875",
+    "color_error_message": "#b6534c",
+    "color_contrast_input_inactive_text": "#ebd8d3",
+    "color_navigation_text": "#534540",
+    "color_navigation_bg": "#fcf7ee",
+    "color_navigation_feature": "#f0e8d9",
+    "color_drawer_input_inactive_text": "#ebd8d3",
+    "color_quick_search_highlight": "#ffe898",
+    "color_navigation_border": "#e2e2e2",
+    "color_navigation_icon": "#aaaaaa",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "19e1dff7-4e3b-4408-99b3-4a84aa844d85": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "background_color": "#bb9107",
+              "text_color": "#ffffff",
+              "text": "Please note that there will be a slight delay in processing orders placed after 15th December in lieu of Christmas & New Year",
+              "link": ""
+            }
+          },
+          "4c0fb5de-f438-4cf6-9a08-0753df8e4d69": {
+            "type": "announcement",
+            "settings": {
+              "background_color": "#bb9107",
+              "text_color": "#ffffff",
+              "text": "Free Shipping on orders above US$75",
+              "link": "shopify://collections/all"
+            }
+          },
+          "941f0173-79e2-4de9-9a75-0b9dc0690ecb": {
+            "type": "announcement",
+            "settings": {
+              "background_color": "#bb9107",
+              "text_color": "#ffffff",
+              "text": "Subscribe to our Newsletter and get 10% Off on your first purchase",
+              "link": "shopify://collections/all"
+            }
+          }
+        },
+        "block_order": [
+          "19e1dff7-4e3b-4408-99b3-4a84aa844d85",
+          "4c0fb5de-f438-4cf6-9a08-0753df8e4d69",
+          "941f0173-79e2-4de9-9a75-0b9dc0690ecb"
+        ],
+        "settings": {
+          "announcement_bar_enabled": true,
+          "announcement_bar_timing": 5
+        }
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "44d1906b-a507-47fd-a172-b5626c047203": {
+            "type": "mega_nav",
+            "settings": {
+              "dropdown_parent_link": "Tea Gifts",
+              "featured_image_heading": "",
+              "featured_image_link_text": "",
+              "featured_image_link": "",
+              "feature_text": ""
+            }
+          },
+          "4dff8e3d-c9ef-4f19-89d2-0e8403106c36": {
+            "type": "mega_nav",
+            "settings": {
+              "dropdown_parent_link": "Teaware",
+              "featured_image_heading": "",
+              "featured_image_link_text": "",
+              "featured_image_link": "",
+              "feature_text": ""
+            }
+          },
+          "8018e053-ee02-4075-b4dc-f673748ff445": {
+            "type": "mega_nav",
+            "settings": {
+              "dropdown_parent_link": "Flavours & Moods",
+              "featured_image_heading": "",
+              "featured_image_link_text": "",
+              "featured_image_link": "",
+              "feature_text": "<p>Mention a new sale, product line, or blog post here. <a href=\"#\">Don't forget to add a link →</a></p>"
+            }
+          },
+          "8842c48e-7ec9-475f-a55d-8be652585bd7": {
+            "type": "mega_nav",
+            "settings": {
+              "dropdown_parent_link": "Tea Types",
+              "featured_image_heading": "",
+              "featured_image_link_text": "",
+              "featured_image_link": "",
+              "feature_text": "<p>Mention a new sale, product line, or blog post here. <a href=\"#\">Don't forget to add a link →</a></p>"
+            }
+          },
+          "79e917ab-bcfb-40f6-a7f9-c87d7088fccf": {
+            "type": "mega_nav",
+            "settings": {
+              "dropdown_parent_link": "Our Teas",
+              "featured_image_heading": "",
+              "featured_image_link_text": "",
+              "featured_image_link": "",
+              "feature_text": "<p>Mention a new sale, product line, or blog post here. <a href=\"#\">Don't forget to add a link →</a></p>"
+            }
+          },
+          "mega_nav_GwBDY4": {
+            "type": "mega_nav",
+            "settings": {
+              "dropdown_parent_link": "Cinnamon",
+              "featured_image_heading": "",
+              "featured_image_link_text": "",
+              "featured_image_link": "",
+              "feature_text": "<p>Mention a new sale, product line, or blog post here. <a href=\"#\">Don't forget to add a link →</a></p>"
+            }
+          }
+        },
+        "block_order": [
+          "44d1906b-a507-47fd-a172-b5626c047203",
+          "4dff8e3d-c9ef-4f19-89d2-0e8403106c36",
+          "8018e053-ee02-4075-b4dc-f673748ff445",
+          "8842c48e-7ec9-475f-a55d-8be652585bd7",
+          "79e917ab-bcfb-40f6-a7f9-c87d7088fccf",
+          "mega_nav_GwBDY4"
+        ],
+        "settings": {
+          "header_style": "default",
+          "nav_alignment": "right",
+          "detect_menu_length": false,
+          "show_locale_selector": false,
+          "show_currency_selector": true,
+          "logo_max_size": 300,
+          "menu": "",
+          "transparent_index_header_enabled": false,
+          "transparent_header_foreground_color": "#ffffff",
+          "transparent_header_border_color": "#bb9107",
+          "transparent_header_border_opacity": 10,
+          "show_less_menu_in_cart": true,
+          "cart_less_link": "shopify://collections/all",
+          "cart_less_link_text": "Shop"
+        }
+      },
+      "exit-intent": {
+        "type": "exit-intent",
+        "settings": {
+          "enable_exit_intent": false,
+          "exit_intent_position": "bottom-right",
+          "exit_intent_heading": "Sign up for our newsletter",
+          "exit_intent_text": "Use this popup to capture customer email addresses at the last moment.",
+          "text_color": "#1b1b1b",
+          "bg_color": "#ffffff",
+          "border_color": "#dedede",
+          "input_text_color": "#1b1b1b"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "1602015986783": {
+            "type": "link_list",
+            "settings": {
+              "menu": "footer"
+            }
+          },
+          "1605557765620": {
+            "type": "link_list",
+            "settings": {
+              "menu": ""
+            }
+          },
+          "e0943f59-96aa-41c2-a5f4-a349b799fdf4": {
+            "type": "link_list",
+            "settings": {
+              "menu": ""
+            }
+          },
+          "d8350a17-703c-4f0c-b992-85abe5802b6b": {
+            "type": "link_list",
+            "settings": {
+              "menu": ""
+            }
+          }
+        },
+        "block_order": [
+          "1602015986783",
+          "1605557765620",
+          "e0943f59-96aa-41c2-a5f4-a349b799fdf4",
+          "d8350a17-703c-4f0c-b992-85abe5802b6b"
+        ],
+        "settings": {
+          "show_headings": true,
+          "show_payment_icons": true,
+          "show_newsletter_signup": true,
+          "newsletter_subheading": "Subscribe to our mailing list",
+          "show_locale_selector": true,
+          "show_currency_selector": true
+        }
+      },
+      "collection--template": {
+        "type": "collection--template",
+        "settings": {
+          "show_collection_image": true,
+          "overlay_opacity": 20,
+          "overlay_color": "#000000",
+          "text_color": "#ffffff",
+          "header_font_style": "uppercase",
+          "show_border": true,
+          "show_heading": true,
+          "show_small_heading": true,
+          "show_description": true,
+          "heading_alignment": "left",
+          "text_max_width": 38,
+          "show_sort": true,
+          "show_filters": true,
+          "filter_type": "by_group",
+          "filter_style": "sidebar",
+          "show_swatches": true,
+          "products_per_row": 4,
+          "aspect_ratio": "portrait",
+          "per_page": 36,
+          "pagination": "click"
+        }
+      },
+      "testimonials--static": {
+        "type": "testimonials--static",
+        "settings": {
+          "enabled": false,
+          "text_position": "top_center",
+          "header_font_style": "normal",
+          "columns": 3,
+          "aspect_ratio": "natural",
+          "overline": "Testimonials",
+          "title": "Testimonials Section",
+          "subheading": "Use this section to showcase your product reviews.",
+          "link": "",
+          "link_text": "",
+          "text_max_width": 36
+        }
+      },
+      "featured-collection--static": {
+        "type": "featured-collection--static",
+        "settings": {
+          "enabled": true,
+          "header_font_style": "normal",
+          "text_position": "top_center",
+          "collection": "best-sellers",
+          "columns": 4,
+          "aspect_ratio": "square",
+          "overline": "",
+          "title": "Our Tea Lovers Also Like",
+          "subheading": "",
+          "link_text": "View All Products",
+          "text_max_width": 16
+        }
+      },
+      "gallery--static": {
+        "type": "gallery--static",
+        "settings": {
+          "enabled": false,
+          "text_position": "top_center",
+          "columns": 3,
+          "aspect_ratio": "square",
+          "overline": "Gallery",
+          "title": "Gallery section",
+          "subheading": "Use this Section to display your favourite images. Automatically crop them to be uniform using the dropdown setting.",
+          "link": "",
+          "link_text": "",
+          "text_max_width": 36
+        }
+      },
+      "page-about--template": {
+        "type": "page-about--template",
+        "settings": {
+          "overline": "about"
+        }
+      },
+      "page-contact--template": {
+        "type": "page-contact--template",
+        "settings": {}
+      },
+      "product--static": {
+        "type": "product--static",
+        "custom_css": [],
+        "settings": {
+          "title_font_picker": "montserrat_n7",
+          "title_font_size_desktop": 25,
+          "title_font_size_mobile": 20,
+          "show_vendor": false,
+          "show_swatches": false,
+          "show_share_buttons": false,
+          "show_quantity_input": true,
+          "enable_payment_button": true,
+          "enable_video_looping": true
+        }
+      },
+      "text--static": {
+        "type": "text--static",
+        "settings": {
+          "enabled": true,
+          "title": "",
+          "text": ""
+        }
+      },
+      "gallery-grid--static": {
+        "type": "gallery-grid--static",
+        "settings": {
+          "enabled": false,
+          "columns": 4,
+          "aspect_ratio": "square",
+          "title": "Gallery",
+          "text": "<p>Let people know about where to find you on social media. Don&#x27;t forget to add a <a href=\"#\">link</a>.</p>"
+        }
+      },
+      "product-recommendations--static": {
+        "type": "product-recommendations--static",
+        "settings": {
+          "enabled": true,
+          "heading": "Related",
+          "columns": 4
+        }
+      },
+      "blog--template": {
+        "type": "blog--template",
+        "settings": {
+          "layout": "latest_featured",
+          "show_rss": true
+        }
+      },
+      "list-collections--template": {
+        "type": "list-collections--template",
+        "settings": {
+          "display_type": "all",
+          "columns": 3,
+          "aspect_ratio": "natural",
+          "collection_title_alignment": "left",
+          "show_product_count": true
+        }
+      },
+      "16173418000a2c021d": {
+        "type": "collage--dynamic",
+        "blocks": {
+          "16173418000a2c021d-3": {
+            "type": "grid_item",
+            "settings": {
+              "vlink": "",
+              "size": "horizontal",
+              "overlay_color": "#000000",
+              "overline": "",
+              "heading": "",
+              "subheading": "",
+              "alignment": "right_bottom",
+              "text_max_width": 19,
+              "link": "https://www.mjffoundation.org/"
+            }
+          },
+          "16173418000a2c021d-1": {
+            "type": "grid_item",
+            "settings": {
+              "vlink": "https://www.dilmahconservation.org/",
+              "size": "small",
+              "overlay_color": "#000000",
+              "overline": "",
+              "heading": "",
+              "subheading": "",
+              "alignment": "left_bottom",
+              "text_max_width": 22,
+              "link": ""
+            }
+          },
+          "16173418000a2c021d-2": {
+            "type": "grid_item",
+            "settings": {
+              "vlink": "https://shop.dilmahtea.co.uk/pages/sustainability-highlights-at-dilmah",
+              "size": "small",
+              "overlay_color": "#000000",
+              "overline": "",
+              "heading": "",
+              "subheading": "",
+              "alignment": "left_bottom",
+              "text_max_width": 22,
+              "link": "https://estates.dilmahtea.com"
+            }
+          },
+          "slide_xdxwyr": {
+            "type": "slide",
+            "disabled": true,
+            "settings": {
+              "link": "shopify://products/rooibos-chocolate-turmeric-ginger-almond-20-string-tag-tea-bags"
+            }
+          },
+          "slide_MNFVm8": {
+            "type": "slide",
+            "disabled": true,
+            "settings": {
+              "link": "shopify://collections/dilmah-exquisitely-flavoured-tea-eft"
+            }
+          },
+          "slide_BNpVAn": {
+            "type": "slide",
+            "disabled": true,
+            "settings": {
+              "link": "https://shop.dilmahtea.com/collections/teawares"
+            }
+          },
+          "slide_LDtw3n": {
+            "type": "slide",
+            "disabled": true,
+            "settings": {
+              "link": "https://shop.dilmahtea.com/pages/dilmah-finest-ceylon-cinnamon"
+            }
+          },
+          "slide_XX9XnX": {
+            "type": "slide",
+            "disabled": true,
+            "settings": {
+              "link": "https://shop.dilmahtea.com/pages/customised-giftings"
+            }
+          }
+        },
+        "block_order": [
+          "16173418000a2c021d-3",
+          "16173418000a2c021d-1",
+          "16173418000a2c021d-2",
+          "slide_xdxwyr",
+          "slide_MNFVm8",
+          "slide_BNpVAn",
+          "slide_LDtw3n",
+          "slide_XX9XnX"
+        ],
+        "disabled": true,
+        "settings": {
+          "custom_class": "index-collage",
+          "section_style": "default",
+          "enable_animation": true,
+          "overline": "",
+          "title": "",
+          "subheading": "",
+          "heading_alignment": "center",
+          "text_max_width": 36,
+          "text_color": "#000000",
+          "text_container_color": "#ffffff",
+          "button_text_color": "#1b1b1b",
+          "button_border_color": "#dedede"
+        }
+      },
+      "1617343125ede5838f": {
+        "type": "featured-collection-grid--dynamic",
+        "disabled": true,
+        "settings": {
+          "section_style": "contrast",
+          "title1": "NEW ARRIVALS",
+          "collection": "new-arrivals",
+          "title2": "BEST SELLERS",
+          "collection2": "best-sellers",
+          "title3": "NATURAL INFUSIONS",
+          "collection3": "natural-infusions",
+          "title4": "Teaware and Gifts",
+          "collection4": "teaware-and-gifts",
+          "title5": "FOUNDER'S FAVOURITES",
+          "collection5": "founders-favorites",
+          "title6": "Gifts",
+          "collection6": "tea-gifts",
+          "products_per_row": 4,
+          "total_row": 2,
+          "aspect_ratio": "natural",
+          "overline": "",
+          "title": "TEAMAKER'S RECOMMENDATIONS",
+          "Htitle": "TEAMAKER'S RECOMMENDATIONS",
+          "HStitle": "",
+          "Hdetail": "",
+          "tagList": "",
+          "heading_alignment": "center",
+          "text_max_width": 36
+        }
+      },
+      "1627616933a37c334b": {
+        "type": "gallery--dynamic",
+        "blocks": {
+          "9ad7b262-50d2-46c9-8309-8aafa7d6a37b": {
+            "type": "image",
+            "settings": {
+              "description": "International Shipping",
+              "link": ""
+            }
+          },
+          "09ef5376-b893-4acf-bf81-0cc252e0c9a4": {
+            "type": "image",
+            "settings": {
+              "description": "100% Pure Ceylon Tea",
+              "link": ""
+            }
+          },
+          "efdadcd8-be60-4dfd-b534-7610ee527b20": {
+            "type": "image",
+            "settings": {
+              "description": "Exclusive Online Offers",
+              "link": ""
+            }
+          },
+          "59d90249-b723-4547-9f4c-da88f7e8e6a4": {
+            "type": "image",
+            "settings": {
+              "description": "Loyalty Rewards",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "9ad7b262-50d2-46c9-8309-8aafa7d6a37b",
+          "09ef5376-b893-4acf-bf81-0cc252e0c9a4",
+          "efdadcd8-be60-4dfd-b534-7610ee527b20",
+          "59d90249-b723-4547-9f4c-da88f7e8e6a4"
+        ],
+        "disabled": true,
+        "settings": {
+          "section_style": "default",
+          "text_position": "middle_left",
+          "columns": 4,
+          "aspect_ratio": "square",
+          "overline": "Gallery",
+          "title": "Welcome to Dilmah Global Shop",
+          "subheading": "A Sri Lankan family tea company founded by Merrill J. Fernando. The pioneers of the concept, “Single Origin Tea” established in 1985, against industry trends, to commit to authenticity.",
+          "link": "",
+          "link_text": "",
+          "text_max_width": 50
+        }
+      },
+      "1627618715d629c2eb": {
+        "type": "select-tea",
+        "blocks": {
+          "1627618715d629c2eb-0": {
+            "type": "column",
+            "settings": {
+              "image_max_width": 50,
+              "title": "Column one",
+              "subheading": "Start here. Introduce your vision, or explain why what you do or sell is superior to your competitors.",
+              "text_max_width": 36,
+              "link": "",
+              "link_text": "Read more"
+            }
+          },
+          "1627618715d629c2eb-1": {
+            "type": "column",
+            "settings": {
+              "image_max_width": 50,
+              "title": "Column two",
+              "subheading": "Get into your process a bit. The quality of handiwork, proprietary knowledge, or materials that you use that make your products better.",
+              "text_max_width": 36,
+              "link": "",
+              "link_text": "Read more"
+            }
+          },
+          "1627618715d629c2eb-2": {
+            "type": "column",
+            "settings": {
+              "image_max_width": 50,
+              "title": "Column three",
+              "subheading": "End it with an action item that the user can take advantage of. Link to a more in-depth page, or go straight to a collection. Your call.",
+              "text_max_width": 36,
+              "link": "",
+              "link_text": "Read more"
+            }
+          }
+        },
+        "block_order": [
+          "1627618715d629c2eb-0",
+          "1627618715d629c2eb-1",
+          "1627618715d629c2eb-2"
+        ],
+        "settings": {
+          "section_id": "select-tea-section",
+          "section_style": "default",
+          "columns": 4,
+          "overline": "Text columns with images",
+          "title": "Text columns with images section",
+          "subheading": "This section is designed for steps or policies. Tell your brand's story, describe how a product is made, or outline shipping stages.",
+          "link": "",
+          "link_text": "",
+          "text_alignment": "center",
+          "text_max_width": 50
+        }
+      },
+      "1627632084938aa6d2": {
+        "type": "image-with-text--dynamic",
+        "settings": {
+          "custom_class": "index-our-story",
+          "section_style": "default",
+          "enable_animation": false,
+          "video_url": "https://cdn.shopify.com/s/files/1/0525/3693/4552/files/Three_Generations_of_Family_Passion_in_Tea.mp4?v=1627633095",
+          "image_width": "one-half",
+          "image_position": "right",
+          "overline": "",
+          "title": "OUR STORY",
+          "title_font": "montserrat_n5",
+          "subheading": "<p>Sri Lankan family tea company Dilmah, founded by Merrill J. Fernando has championed quality, authenticity and variety in tea. Dilmah pioneered the concept of Single Origin Tea in 1988 when the family company went against industry trends to declare its commitment to authenticity. Garden fresh, unblended tea is a hallmark of Dilmah and offers a unique taste of unblended Ceylon Tea packed at source.<br/><br/>Dilmah is Ethical Tea, in that all packaging profits are retained in Sri Lanka and fund the MJF Charitable Foundation and Dilmah Conservation. We believe that Business is a Matter of Human Service.</p>",
+          "link": "",
+          "link_text": "Shop now",
+          "text_alignment": "left",
+          "text_color": "#000000",
+          "text_container_color": "",
+          "button_text_color": "#1b1b1b",
+          "button_border_color": "#dedede",
+          "text_max_width": 50
+        }
+      },
+      "1628834684f5b222af": {
+        "type": "blog-list",
+        "settings": {
+          "title": "Mixology",
+          "title2": "Gastronomy",
+          "title3": "Tea & Health",
+          "title4": "Tea Ideas",
+          "blog": "tea-mixology",
+          "blog-2": "tea-gastronomy",
+          "blog-3": "tea-and-health",
+          "blog-4": "tea-ideas",
+          "show_date": false,
+          "show_author": false,
+          "show_excerpt": false
+        }
+      },
+      "1632757703d43adf55": {
+        "type": "Brand",
+        "blocks": {
+          "1632757703d43adf55-0": {
+            "type": "slide",
+            "settings": {
+              "video_url": "",
+              "overline": "",
+              "title": "",
+              "subheading": "GARDEN<br> FRESH,<br>PICKED,<br>\nPPERFECTED,<br>\nPACKED AT SOURCE",
+              "link": "",
+              "link_text": "Shop now",
+              "overlay_opacity": 20,
+              "overlay_color": "linear-gradient(180deg, rgba(100, 98, 100, 0.27), rgba(0, 0, 0, 0.41) 100%)",
+              "text_color": "#ffffff",
+              "text_max_width": 48,
+              "horizontal_text_position": "left",
+              "vertical_text_position": "middle"
+            }
+          },
+          "1632757703d43adf55-1": {
+            "type": "slide",
+            "settings": {
+              "video_url": "",
+              "overline": "",
+              "title": "",
+              "subheading": "HANDPICKED<br>\nAND<br>\nHANDMADE<br>\nIN THE<br>\nTRADIONAL WAY",
+              "link": "",
+              "link_text": "Shop now",
+              "overlay_opacity": 20,
+              "overlay_color": "linear-gradient(180deg, rgba(100, 98, 100, 0.27), rgba(0, 0, 0, 0.41) 100%)",
+              "text_color": "#ffffff",
+              "text_max_width": 48,
+              "horizontal_text_position": "left",
+              "vertical_text_position": "middle"
+            }
+          },
+          "32e3f9b7-ee9a-409f-ab2c-24cc74281ef0": {
+            "type": "slide",
+            "settings": {
+              "video_url": "",
+              "overline": "",
+              "title": "",
+              "subheading": "OUR PROFITS<br> SHARED WITH<br> LESS FORTUNATE<br> COMMUNITIES",
+              "link": "",
+              "link_text": "",
+              "overlay_opacity": 0,
+              "overlay_color": "linear-gradient(180deg, rgba(100, 98, 100, 0.27), rgba(0, 0, 0, 0.41) 100%)",
+              "text_color": "#ffffff",
+              "text_max_width": 48,
+              "horizontal_text_position": "left",
+              "vertical_text_position": "middle"
+            }
+          },
+          "a37e4e19-a356-4006-8dc0-2ad17c43d426": {
+            "type": "slide",
+            "settings": {
+              "video_url": "",
+              "overline": "",
+              "title": "",
+              "subheading": "MADE WITH<br> KINDNESS TO<br> NATURE",
+              "link": "",
+              "link_text": "",
+              "overlay_opacity": 0,
+              "overlay_color": "linear-gradient(180deg, rgba(100, 98, 100, 0.27), rgba(0, 0, 0, 0.41) 100%)",
+              "text_color": "#ffffff",
+              "text_max_width": 48,
+              "horizontal_text_position": "left",
+              "vertical_text_position": "middle"
+            }
+          }
+        },
+        "block_order": [
+          "1632757703d43adf55-0",
+          "1632757703d43adf55-1",
+          "32e3f9b7-ee9a-409f-ab2c-24cc74281ef0",
+          "a37e4e19-a356-4006-8dc0-2ad17c43d426"
+        ],
+        "settings": {
+          "custom_class": "container-padding",
+          "aspect_ratio": "full_height",
+          "text": "<p>Our founder made a commitment to the 'purpose beyond profit'. A minimum of 15% of our pretax profits directly benefit people and the planet, efficiently and effectively fulfilling the philosophy of making 'business a matter of human service'. </p>"
+        }
+      },
+      "16348173678df9fa29": {
+        "type": "slideshow--dynamic",
+        "settings": {
+          "custom_class": "",
+          "aspect_ratio": "full_height",
+          "timer": 7
+        }
+      },
+      "cart--template": {
+        "type": "cart--template",
+        "blocks": {
+          "empty_cart_links_Un8kXj": {
+            "type": "empty_cart_links",
+            "settings": {
+              "link_text": "VIew Bestsellers >",
+              "url": "shopify://collections/best-sellers"
+            }
+          },
+          "empty_cart_links_eRmBrJ": {
+            "type": "empty_cart_links",
+            "settings": {
+              "link_text": "Explore New Arrivals >",
+              "url": "shopify://collections/new-arrivals"
+            }
+          },
+          "empty_cart_links_3gAUYY": {
+            "type": "empty_cart_links",
+            "settings": {
+              "link_text": "View All Products >",
+              "url": "shopify://collections/all"
+            }
+          }
+        },
+        "block_order": [
+          "empty_cart_links_Un8kXj",
+          "empty_cart_links_eRmBrJ",
+          "empty_cart_links_3gAUYY"
+        ],
+        "settings": {
+          "cart_ajax_enable": true,
+          "cart_notes_enable": false,
+          "font_for_title_cart": "montserrat_n7",
+          "collection": "dilmah-inteamate-gifts",
+          "enable_tc_checkbox": true,
+          "tc_text": "I agree with the",
+          "tc_link_text": "Terms & Conditions",
+          "tc_link": "",
+          "featured_collection_title": "Our Tea Lovers Also Like",
+          "font_for_empty_cart_alignment": "center",
+          "font_for_featured_collection_title": "montserrat_n7",
+          "font_for_featured_collection_title_deskotop": 20,
+          "font_for_featured_collection_title_mobile": 20,
+          "empty_cart_alignment": "center",
+          "empty_title": "No items in your cart.",
+          "font_for_empty_title": "montserrat_n7",
+          "font_for_empty_size_deskotop": 30,
+          "font_for_empty_size_mobile": 20,
+          "empty_cart_small_text": "Need help deciding? Check out our bestsellers or new arrivals!"
+        }
+      },
+      "1658144214877708ed": {
+        "type": "gallery2",
+        "blocks": {
+          "cb56ca8f-3257-4dbe-ba59-e492dccf423c": {
+            "type": "image",
+            "settings": {
+              "description": "",
+              "link": ""
+            }
+          },
+          "fba4442d-58b1-414a-883e-ddb263abc2f7": {
+            "type": "image",
+            "settings": {
+              "description": "",
+              "link": ""
+            }
+          },
+          "6e989a0b-bc53-403c-944f-ffce3a72f69a": {
+            "type": "image",
+            "settings": {
+              "description": "",
+              "link": ""
+            }
+          },
+          "faf0a713-02a3-4c3d-8762-53cf82d1e65f": {
+            "type": "image",
+            "settings": {
+              "description": "",
+              "link": ""
+            }
+          },
+          "463621da-b01a-4a1f-98e9-d115181afb1e": {
+            "type": "image",
+            "settings": {
+              "description": "",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "cb56ca8f-3257-4dbe-ba59-e492dccf423c",
+          "fba4442d-58b1-414a-883e-ddb263abc2f7",
+          "6e989a0b-bc53-403c-944f-ffce3a72f69a",
+          "faf0a713-02a3-4c3d-8762-53cf82d1e65f",
+          "463621da-b01a-4a1f-98e9-d115181afb1e"
+        ],
+        "settings": {
+          "section_style": "default",
+          "text_position": "top_center",
+          "columns": 5,
+          "aspect_ratio": "natural",
+          "overline": "",
+          "title": "WELCOME TO THE DILMAH ONLINE STORE",
+          "title_font_size_desktop": 36,
+          "title_font_size_mobile": 20,
+          "font_for_section": "montserrat_n7",
+          "subheading": "<p>A Sri Lankan family tea company founded in 1985 by Merrill J. Fernando.<br/>The pioneers of the concept of \"single origin tea\" against industry trends, to commit to authenticity.</p>",
+          "link": "",
+          "link_text": "",
+          "text_max_width": 50,
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "shipping-banner": {
+        "type": "shipping-banner",
+        "settings": {
+          "show_shipping_banner": true,
+          "shipping_amount": "75"
+        }
+      },
+      "c6d9f79f-b63e-4c89-a2a8-e288e77f6944": {
+        "type": "featured-cole-grid-carou",
+        "settings": {
+          "custom_class": "index-tea-makers-slick",
+          "section_style": "contrast",
+          "title1": "BEST SELLERS",
+          "collection": "best-sellers",
+          "title2": "NEW ARRIVALS",
+          "collection2": "new-arrivals",
+          "title3": "NATURAL INFUSIONS",
+          "collection3": "natural-infusions",
+          "title4": "FOUNDER'S FAVOURITES",
+          "collection4": "founders-favorites",
+          "title5": "Teaware",
+          "collection5": "teaware",
+          "title6": "Gift a Tea",
+          "collection6": "gift-of-tea",
+          "title7": "Check All our tea",
+          "collection7": "all-products",
+          "products_per_row": 4,
+          "total_row": 2,
+          "aspect_ratio": "natural",
+          "overline": "",
+          "title": "TEAMAKER'S PICKS",
+          "font_for_main_title": "montserrat_n7",
+          "Htitle": "TEAMAKER'S PICKS",
+          "HStitle": "",
+          "Hdetail": "",
+          "tagList": "",
+          "heading_alignment": "center",
+          "text_max_width": 36
+        }
+      },
+      "gdpr": {
+        "type": "gdpr",
+        "settings": {
+          "hide_gdpr": false,
+          "ecom_ask_again_n_days": 2,
+          "ecom_gdpr_title": "YOUR CONSENT TO OUR PRIVACY AND COOKIE POLICY",
+          "ecom_gdpr_title_text_color": "#007c85",
+          "ecom_bg_color": "#ffffff",
+          "ecom_border_color": "#ffffff",
+          "ecom_text_color": "#000000",
+          "ecom_gdpr_content": "<p>We use cookies that help to increase the performance of our website to serve you better, to provide social media features and to analyse our traffic. Click ACCEPT to give your consent to accept our cookies and start browsing the site or click to see a more detailed description in the <a href=\"https://www.dilmahtea.com/privacy-and-terms/privacy-and-cookie-policy\" target=\"_blank\" title=\"https://www.dilmahtea.com/privacy-and-terms/privacy-and-cookie-policy\">Privacy Policy</a> statement.</p>",
+          "text_container_padding": "20px 20px",
+          "ecom_gdpr_accept_text": "Accept",
+          "ecom_accept_btn_txt_color": "#ffffff",
+          "ecom_accept_btn_bg_color": "#007c85",
+          "ecom_accept_btn_padding": "10px 20px"
+        }
+      },
+      "product-template-auction": {
+        "type": "product-template-auction",
+        "custom_css": [
+          ".sumo-form-wrapper.listbuilder-popup {display: none !important;}"
+        ],
+        "settings": {
+          "product_vendor_enable": false,
+          "social_sharing_products": false,
+          "product_reviews_enable": false,
+          "enable_payment_button": false
+        }
+      },
+      "single_slide_Aftyiz": {
+        "type": "single-slide",
+        "blocks": {
+          "slide_PLwpNh": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify://shop_images/Inspirations_9375fa95-0b4e-49e2.jpg",
+              "mobile_image": "shopify://shop_images/banner-mobile.jpg",
+              "video_url": "",
+              "overline": "",
+              "title": "Deliciously Fragrant",
+              "color_heading": "#ffffff",
+              "subheading": "Indulge in the aromatic taste of italian almond",
+              "link": "https://shop.dilmahtea.com/collections/t-series-designer-gourmet-teas",
+              "link_text": "Shop now",
+              "link_2": "#select-tea-section",
+              "link_text_2": "Customize Tea",
+              "is_samepage_link": true,
+              "overlay_opacity": 30,
+              "overlay_color": "#000000",
+              "text_color": "#ffffff",
+              "text_max_width": 50,
+              "horizontal_text_position": "center",
+              "vertical_text_position": "middle",
+              "text_alignment_button_container": "left"
+            }
+          },
+          "slide_WrigHW": {
+            "type": "slide",
+            "settings": {
+              "video_url": "",
+              "overline": "",
+              "title": "",
+              "color_heading": "#3d4246",
+              "subheading": "",
+              "link": "https://shop.dilmahtea.com/collections/t-series-designer-gourmet-teas",
+              "link_text": "",
+              "link_2": "",
+              "link_text_2": "",
+              "is_samepage_link": false,
+              "overlay_opacity": 20,
+              "overlay_color": "#000000",
+              "text_color": "#ffffff",
+              "text_max_width": 48,
+              "horizontal_text_position": "left",
+              "vertical_text_position": "middle",
+              "text_alignment_button_container": "center"
+            }
+          }
+        },
+        "block_order": [
+          "slide_PLwpNh",
+          "slide_WrigHW"
+        ],
+        "name": "Single Slide Show",
+        "settings": {
+          "aspect_ratio": "unconstrained",
+          "section_class": "",
+          "timer": 7,
+          "show_social": false
+        }
+      },
+      "image_stripe_AiiY3w": {
+        "type": "image-stripe",
+        "blocks": {
+          "image_GPMWLB": {
+            "type": "image",
+            "settings": {
+              "width_number": "50.25",
+              "width_number_mobile": "100"
+            }
+          },
+          "image_pnLCig": {
+            "type": "image",
+            "settings": {
+              "width_number": "24.875",
+              "width_number_mobile": "50"
+            }
+          },
+          "image_yfCabf": {
+            "type": "image",
+            "settings": {
+              "width_number": "24.875",
+              "width_number_mobile": "50"
+            }
+          }
+        },
+        "block_order": [
+          "image_GPMWLB",
+          "image_pnLCig",
+          "image_yfCabf"
+        ],
+        "name": "Image Stripe",
+        "settings": {}
+      },
+      "popups": {
+        "type": "popups",
+        "settings": {}
+      }
+    },
+    "content_for_index": [
+      "single_slide_Aftyiz",
+      "16348173678df9fa29",
+      "1658144214877708ed",
+      "1627616933a37c334b",
+      "1617343125ede5838f",
+      "c6d9f79f-b63e-4c89-a2a8-e288e77f6944",
+      "1627618715d629c2eb",
+      "1632757703d43adf55",
+      "1627632084938aa6d2",
+      "16173418000a2c021d",
+      "image_stripe_AiiY3w",
+      "1628834684f5b222af"
+    ],
+    "blocks": {
+      "15683396631634586217": {
+        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "disabled": true,
+        "settings": {
+          "button_color": "#249d7c",
+          "button_icon": "chat_bubble",
+          "button_text": "no_text",
+          "button_horizontal_position": "bottom_right",
+          "button_vertical_position": "lowest",
+          "greeting_message": "Hello! Please message us if you have questions, or give an idea of what you’re looking for. We’re happy to make recommendations."
+        }
+      }
+    }
+  },
+  "presets": {
+    "Chic": {
+      "color_accent": "#bb4e39",
+      "color_text": "#1b1b1b",
+      "color_bg": "#ffffff",
+      "color_button": "#f4f4f4",
+      "color_border": "#dedede",
+      "color_input_text": "#606060",
+      "color_icon": "#9c9c9c",
+      "color_header_text": "#171717",
+      "color_header_bg": "#ffffff",
+      "color_header_border": "#dcdcdc",
+      "color_footer_text": "#ffffff",
+      "color_footer_bg": "#9d4737",
+      "color_footer_border": "#d96a55",
+      "color_footer_button_background": "#b45240",
+      "color_footer_button_text": "#ffffff",
+      "color_contrast_text": "#262626",
+      "color_contrast_bg": "#f9f9f9",
+      "color_contrast_border": "#d6d6d6",
+      "color_contrast_input_text": "#5e5e5e",
+      "color_contrast_icon": "#939393",
+      "color_drawer_text": "#151515",
+      "color_drawer_bg": "#ffffff",
+      "color_drawer_border": "#d6d6d6",
+      "color_drawer_input_text": "#5e5e5e",
+      "color_drawer_icon": "#939393",
+      "font_heading": "bauer_bodoni_n7",
+      "size_heading": 18,
+      "uppercase_headings": false,
+      "font_body": "assistant_n4",
+      "size_body": 15,
+      "font_logo": "bauer_bodoni_n7",
+      "logo_uppercase": false,
+      "font_logo_size": 26,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_snapchat_link": "",
+      "social_tumblr_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "search_max_result_size": 4,
+      "search_show_products": true,
+      "search_show_articles": true,
+      "search_show_pages": true,
+      "search_show_price": true,
+      "search_show_vendor": false,
+      "swatch_option": "Color",
+      "chip_options": "Size",
+      "cart_quick_shop_enabled": true,
+      "cart_quick_shop_show_quantity_input": false,
+      "cart_notes_enable": true,
+      "quick_cart_note": "Your subtotal today is [subtotal]. Shipping and taxes will calculated at checkout.",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_accent_color": "#197bbd",
+      "checkout_button_color": "#197bbd",
+      "checkout_error_color": "#e32c2b",
+      "color_input_inactive_text": "#7C7C7C",
+      "color_sale_badge": "#bb4e39",
+      "color_sold_out_badge": "#1b1b1b",
+      "color_success_message": "#82b875",
+      "color_error_message": "#b6534c",
+      "color_contrast_input_inactive_text": "#a8a8a8",
+      "color_navigation_text": "#363636",
+      "color_navigation_bg": "#ffffff",
+      "color_navigation_feature": "#f4f4f4",
+      "color_drawer_input_inactive_text": "#bab8c7",
+      "color_quick_search_highlight": "#ffe898",
+      "color_navigation_border": "#e2e2e2",
+      "color_navigation_icon": "#aaaaaa",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "announcement-bar-0": {
+              "type": "announcement",
+              "settings": {
+                "background_color": "#24352d",
+                "text_color": "#ffffff",
+                "text": "Announce something here",
+                "link": ""
+              }
+            },
+            "1601761564951": {
+              "type": "announcement",
+              "settings": {
+                "background_color": "#24352d",
+                "text_color": "#ffffff",
+                "text": "Cycle through multiple messages",
+                "link": ""
+              }
+            }
+          },
+          "block_order": [
+            "announcement-bar-0",
+            "1601761564951"
+          ],
+          "settings": {
+            "announcement_bar_enabled": true,
+            "announcement_bar_timing": 5
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "header_style": "default",
+            "nav_alignment": "left",
+            "detect_menu_length": false,
+            "show_locale_selector": false,
+            "show_currency_selector": true,
+            "logo": "",
+            "logo_max_size": 150,
+            "menu": "main-menu",
+            "transparent_index_header_enabled": true,
+            "transparent_logo": "",
+            "transparent_header_foreground_color": "#ffffff",
+            "transparent_header_border_color": "#ffffff",
+            "transparent_header_border_opacity": 10
+          }
+        },
+        "exit-intent": {
+          "type": "exit-intent",
+          "settings": {
+            "enable_exit_intent": false,
+            "exit_intent_position": "bottom-right",
+            "exit_intent_image": "",
+            "exit_intent_heading": "Sign up for our newsletter",
+            "exit_intent_text": "Use this popup to capture customer email addresses at the last moment.",
+            "text_color": "#1b1b1b",
+            "bg_color": "#ffffff",
+            "border_color": "#dedede",
+            "input_text_color": "#1b1b1b"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "1602297933570": {
+              "type": "text",
+              "settings": {
+                "title": "About the shop",
+                "text": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.</p>"
+              }
+            },
+            "1602015986783": {
+              "type": "link_list",
+              "settings": {
+                "menu": "main-menu"
+              }
+            },
+            "1602305412730": {
+              "type": "link_list",
+              "settings": {
+                "menu": "footer"
+              }
+            }
+          },
+          "block_order": [
+            "1602297933570",
+            "1602015986783",
+            "1602305412730"
+          ],
+          "settings": {
+            "show_headings": true,
+            "show_payment_icons": true,
+            "show_newsletter_signup": true,
+            "newsletter_subheading": "Subscribe to our mailing list",
+            "show_locale_selector": true,
+            "show_currency_selector": true
+          }
+        },
+        "1601670854865": {
+          "type": "quote--dynamic",
+          "blocks": {
+            "1601670854865-0": {
+              "type": "quote",
+              "settings": {
+                "quote": "Absolutely unparalleled products and service. I'm confident that this store will be the next big thing in its industry.",
+                "author": "Hannah Joritz"
+              }
+            }
+          },
+          "block_order": [
+            "1601670854865-0"
+          ],
+          "settings": {
+            "section_style": "contrast",
+            "timer": 7,
+            "text_max_width": 28
+          }
+        },
+        "collection--template": {
+          "type": "collection--template",
+          "settings": {
+            "show_collection_image": true,
+            "overlay_opacity": 20,
+            "overlay_color": "#000000",
+            "text_color": "#ffffff",
+            "show_border": true,
+            "show_heading": true,
+            "show_small_heading": true,
+            "show_description": true,
+            "heading_alignment": "left",
+            "text_max_width": 38,
+            "show_swatches": false,
+            "products_per_row": 3,
+            "aspect_ratio": "natural",
+            "pagination": "click"
+          }
+        },
+        "testimonials--static": {
+          "type": "testimonials--static",
+          "settings": {
+            "enabled": false,
+            "text_position": "top_center",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Testimonials",
+            "title": "Testimonials Section",
+            "subheading": "Use this section to showcase your product reviews.",
+            "link": "",
+            "link_text": "",
+            "text_max_width": 36
+          }
+        },
+        "featured-collection--static": {
+          "type": "featured-collection--static",
+          "settings": {
+            "enabled": true,
+            "text_position": "top_center",
+            "collection": "",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "collection",
+            "title": "The Fall Collection",
+            "subheading": "Our latest collection resonates with inspired earth tones. All of our fabrics are created in italy and sourced from a variety of local mills.",
+            "link_text": "Shop now",
+            "text_max_width": 36
+          }
+        },
+        "gallery--static": {
+          "type": "gallery--static",
+          "settings": {
+            "enabled": false,
+            "text_position": "top_center",
+            "columns": 3,
+            "aspect_ratio": "square",
+            "overline": "Gallery",
+            "title": "Gallery section",
+            "subheading": "Use this Section to display your favourite images. Automatically crop them to be uniform using the dropdown setting.",
+            "link": "",
+            "link_text": "",
+            "text_max_width": 36
+          }
+        },
+        "product--static": {
+          "type": "product--static",
+          "settings": {
+            "show_vendor": true,
+            "show_swatches": false,
+            "show_share_buttons": false,
+            "show_quantity_input": true,
+            "enable_payment_button": true,
+            "enable_video_looping": true
+          }
+        },
+        "text--static": {
+          "type": "text--static",
+          "settings": {
+            "enabled": false,
+            "title": "Text",
+            "text": "<p>Use this text area to share information about your brand with your customers. Describe your shipping policy, return policy, or share announcements.</p>"
+          }
+        },
+        "gallery-grid--static": {
+          "type": "gallery-grid--static",
+          "settings": {
+            "enabled": false,
+            "columns": 4,
+            "aspect_ratio": "square",
+            "title": "Gallery",
+            "text": "<p>Let people know about where to find you on social media. Don't forget to add a <a>link</a>.</p>"
+          }
+        },
+        "product-recommendations--static": {
+          "type": "product-recommendations--static",
+          "settings": {
+            "enabled": true,
+            "heading": "Related",
+            "columns": 4
+          }
+        },
+        "page-about--template": {
+          "type": "page-about--template",
+          "settings": {
+            "overline": "about"
+          }
+        },
+        "blog--template": {
+          "type": "blog--template",
+          "settings": {
+            "layout": "latest_featured",
+            "show_rss": true
+          }
+        },
+        "1602299175982": {
+          "type": "slideshow-split--dynamic",
+          "blocks": {
+            "1602299175982-0": {
+              "type": "slide",
+              "settings": {
+                "image": "",
+                "mobile_image": "",
+                "video_url": ""
+              }
+            },
+            "1602299175982-1": {
+              "type": "slide",
+              "settings": {
+                "image": "",
+                "mobile_image": "",
+                "video_url": ""
+              }
+            },
+            "1602299175982-2": {
+              "type": "slide",
+              "settings": {
+                "image": "",
+                "mobile_image": "",
+                "video_url": ""
+              }
+            }
+          },
+          "block_order": [
+            "1602299175982-0",
+            "1602299175982-1",
+            "1602299175982-2"
+          ],
+          "settings": {
+            "timer": 7,
+            "overline": "presenting",
+            "title": "The Slideshow Split",
+            "subheading": "When one image isn't enough. Use an arrangement of editorial photos with a similar tone and feel for a unique storytelling sequence.",
+            "link_text": "Shop now",
+            "overlay_opacity": 60,
+            "overlay_color": "#000000",
+            "text_color": "#ffffff",
+            "text_max_width": 34,
+            "horizontal_text_position": "center",
+            "vertical_text_position": "middle"
+          }
+        },
+        "1602299320050": {
+          "type": "featured-collection--dynamic",
+          "settings": {
+            "section_style": "default",
+            "text_position": "top_center",
+            "collection": "",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Collection",
+            "title": "Featured collection",
+            "subheading": "Add a subheading to provide more details about this collection.",
+            "link_text": "Shop now",
+            "text_max_width": 24
+          }
+        },
+        "1602299409613": {
+          "type": "image-with-text--dynamic",
+          "settings": {
+            "section_style": "contrast",
+            "enable_animation": true,
+            "image": "",
+            "video_url": "",
+            "image_width": "two-third",
+            "image_position": "left",
+            "overline": "Image with text",
+            "title": "Image with text",
+            "subheading": "<p>Use this section to showcase your editorial photography or images from your look book. This Section looks best with two or three sentences of text.</p>",
+            "link_text": "Shop now",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "text_container_color": "",
+            "button_text_color": "#1b1b1b",
+            "button_border_color": "#dedede",
+            "text_max_width": 36
+          }
+        },
+        "1602299518294": {
+          "type": "slideshow--dynamic",
+          "blocks": {
+            "1602299518294-0": {
+              "type": "slide",
+              "settings": {
+                "image": "",
+                "video_url": "",
+                "overline": "",
+                "title": "This is your slideshow",
+                "subheading": "Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.",
+                "link_text": "Shop now",
+                "overlay_opacity": 60,
+                "overlay_color": "#000000",
+                "text_color": "#ffffff",
+                "text_max_width": 41,
+                "horizontal_text_position": "left",
+                "vertical_text_position": "middle"
+              }
+            },
+            "1602299518294-1": {
+              "type": "slide",
+              "settings": {
+                "image": "",
+                "video_url": "",
+                "overline": "",
+                "title": "This is your slideshow",
+                "subheading": "Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.",
+                "link_text": "Shop now",
+                "overlay_opacity": 60,
+                "overlay_color": "#000000",
+                "text_color": "#ffffff",
+                "text_max_width": 48,
+                "horizontal_text_position": "right",
+                "vertical_text_position": "bottom"
+              }
+            }
+          },
+          "block_order": [
+            "1602299518294-0",
+            "1602299518294-1"
+          ],
+          "settings": {
+            "aspect_ratio": "full_height",
+            "timer": 7
+          }
+        },
+        "1602299855490": {
+          "type": "featured-collection--dynamic",
+          "settings": {
+            "section_style": "default",
+            "text_position": "middle_left",
+            "collection": "",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Collection",
+            "title": "Featured collection",
+            "subheading": "Add a subheading to provide more details about this collection.",
+            "link_text": "Shop now",
+            "text_max_width": 24
+          }
+        },
+        "1602299921603": {
+          "type": "featured-collection--dynamic",
+          "settings": {
+            "section_style": "default",
+            "text_position": "middle_left",
+            "collection": "",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Collection",
+            "title": "Featured collection",
+            "subheading": "Add a subheading to provide more details about this collection.",
+            "link_text": "Shop now",
+            "text_max_width": 24
+          }
+        },
+        "1602299989448": {
+          "type": "slideshow--dynamic",
+          "blocks": {
+            "1602299989448-0": {
+              "type": "slide",
+              "settings": {
+                "image": "",
+                "video_url": "",
+                "overline": "Slideshow",
+                "title": "This is your slideshow",
+                "subheading": "Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.",
+                "link_text": "Shop now",
+                "overlay_opacity": 60,
+                "overlay_color": "#000000",
+                "text_color": "#ffffff",
+                "text_max_width": 39,
+                "horizontal_text_position": "left",
+                "vertical_text_position": "middle"
+              }
+            },
+            "1602299989448-1": {
+              "type": "slide",
+              "settings": {
+                "image": "",
+                "video_url": "",
+                "overline": "Slideshow",
+                "title": "This is your slideshow",
+                "subheading": "Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.",
+                "link_text": "Shop now",
+                "overlay_opacity": 60,
+                "overlay_color": "#000000",
+                "text_color": "#ffffff",
+                "text_max_width": 40,
+                "horizontal_text_position": "left",
+                "vertical_text_position": "top"
+              }
+            }
+          },
+          "block_order": [
+            "1602299989448-0",
+            "1602299989448-1"
+          ],
+          "settings": {
+            "aspect_ratio": "full_height",
+            "timer": 7
+          }
+        },
+        "1602300184343": {
+          "type": "image-with-text--dynamic",
+          "settings": {
+            "section_style": "default",
+            "enable_animation": true,
+            "image": "",
+            "video_url": "",
+            "image_width": "two-third",
+            "image_position": "left",
+            "overline": "Image with text",
+            "title": "Image with text",
+            "subheading": "<p>Use this section to showcase your editorial photography or images from your look book. This Section looks best with two or three sentences of text.</p>",
+            "link_text": "Shop now",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "text_container_color": "",
+            "button_text_color": "#1b1b1b",
+            "button_border_color": "#dedede",
+            "text_max_width": 36
+          }
+        },
+        "1602300692658": {
+          "type": "image-with-text-split--dynamic",
+          "settings": {
+            "feature_image": "",
+            "feature_link": "",
+            "feature_description": "",
+            "feature_text_color": "",
+            "background_color": "#1f2030",
+            "feature_alignment": "left_bottom",
+            "overlay_image": "",
+            "image_text": "",
+            "text_color": "#ffffff",
+            "detail_alignment": "center_bottom",
+            "text_max_width": 36,
+            "gradient_color": "rgba(0,0,0,0)",
+            "gradient_length": 30
+          }
+        },
+        "1602300825789": {
+          "type": "collection-list--dynamic",
+          "blocks": {
+            "1605556242809": {
+              "type": "collection",
+              "settings": {
+                "collection": ""
+              }
+            },
+            "1605556246037": {
+              "type": "collection",
+              "settings": {
+                "collection": ""
+              }
+            }
+          },
+          "block_order": [
+            "1605556242809",
+            "1605556246037"
+          ],
+          "settings": {
+            "section_style": "default",
+            "text_position": "top_center",
+            "columns": 2,
+            "aspect_ratio": "natural",
+            "overline": "Collections",
+            "title": "Collection list",
+            "subheading": "Add a subheading to provide more details about these collections.",
+            "text_max_width": 36
+          }
+        },
+        "1602300955150": {
+          "type": "featured-collection--dynamic",
+          "settings": {
+            "section_style": "default",
+            "text_position": "top_center",
+            "collection": "",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Collection",
+            "title": "Featured collection",
+            "subheading": "Add a subheading to provide more details about this collection.",
+            "link_text": "Shop now",
+            "text_max_width": 24
+          }
+        },
+        "1602301004470": {
+          "type": "slideshow--dynamic",
+          "blocks": {
+            "1602301004470-0": {
+              "type": "slide",
+              "settings": {
+                "image": "",
+                "video_url": "",
+                "overline": "",
+                "title": "This is your slideshow",
+                "subheading": "Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.",
+                "link_text": "Shop now",
+                "overlay_opacity": 60,
+                "overlay_color": "#000000",
+                "text_color": "#ffffff",
+                "text_max_width": 37,
+                "horizontal_text_position": "center",
+                "vertical_text_position": "middle"
+              }
+            }
+          },
+          "block_order": [
+            "1602301004470-0"
+          ],
+          "settings": {
+            "aspect_ratio": "full_height",
+            "timer": 7
+          }
+        },
+        "1602301096982": {
+          "type": "gallery--dynamic",
+          "settings": {
+            "section_style": "default",
+            "text_position": "top_center",
+            "columns": 3,
+            "aspect_ratio": "square",
+            "overline": "Gallery",
+            "title": "Gallery section",
+            "subheading": "Use this Section to display your favourite images. Automatically crop them to be uniform using the dropdown setting.",
+            "link_text": "Follow us",
+            "text_max_width": 32
+          }
+        },
+        "page-contact--template": {
+          "type": "page-contact--template",
+          "settings": {
+            "image": ""
+          }
+        },
+        "1605556096757": {
+          "type": "text-columns-with-images--dynamic",
+          "blocks": {
+            "1605556096757-0": {
+              "type": "column",
+              "settings": {
+                "image": "",
+                "image_max_width": 50,
+                "title": "Column one",
+                "subheading": "Start here. Introduce your vision, or explain why what you do or sell is superior to your competitors.",
+                "text_max_width": 36,
+                "link_text": "Read more"
+              }
+            },
+            "1605556096757-1": {
+              "type": "column",
+              "settings": {
+                "image": "",
+                "image_max_width": 50,
+                "title": "Column two",
+                "subheading": "Get into your process a bit. The quality of handiwork, proprietary knowledge, or materials that you use that make your products better.",
+                "text_max_width": 36,
+                "link_text": "Read more"
+              }
+            },
+            "1605556096757-2": {
+              "type": "column",
+              "settings": {
+                "image": "",
+                "image_max_width": 50,
+                "title": "Column three",
+                "subheading": "End it with an action item that the user can take advantage of. Link to a more in-depth page, or go straight to a collection. Your call.",
+                "text_max_width": 36,
+                "link_text": "Read more"
+              }
+            }
+          },
+          "block_order": [
+            "1605556096757-0",
+            "1605556096757-1",
+            "1605556096757-2"
+          ],
+          "settings": {
+            "section_style": "default",
+            "columns": 3,
+            "overline": "",
+            "title": "",
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "text_alignment": "center",
+            "text_max_width": 36
+          }
+        }
+      },
+      "content_for_index": [
+        "1602299175982",
+        "1605556096757",
+        "1602299320050",
+        "1602299409613",
+        "1602299518294",
+        "1602299855490",
+        "1602299921603",
+        "1602299989448",
+        "1602300184343",
+        "1601670854865",
+        "1602300692658",
+        "1602300825789",
+        "1602300955150",
+        "1602301004470",
+        "1602301096982"
+      ]
+    },
+    "Natural": {
+      "color_accent": "#ae877b",
+      "color_text": "#5b4c47",
+      "color_bg": "#fcf7ee",
+      "color_button": "#f4f4f4",
+      "color_border": "#e1d8ce",
+      "color_input_text": "#5b4c47",
+      "color_icon": "#5b4c47",
+      "color_header_text": "#534540",
+      "color_header_bg": "#fcf7ee",
+      "color_header_border": "#e1d8ce",
+      "color_footer_text": "#ffffff",
+      "color_footer_bg": "#ae877b",
+      "color_footer_border": "#9a766c",
+      "color_footer_button_background": "#927269",
+      "color_footer_button_text": "#ffffff",
+      "color_contrast_text": "#ffffff",
+      "color_contrast_bg": "#846b63",
+      "color_contrast_border": "#b69f97",
+      "color_contrast_input_text": "#ebd8d3",
+      "color_contrast_icon": "#ebd8d3",
+      "color_drawer_text": "#ffffff",
+      "color_drawer_bg": "#89695f",
+      "color_drawer_border": "#ab8d84",
+      "color_drawer_input_text": "#ebd8d3",
+      "color_drawer_icon": "#ebd8d3",
+      "font_heading": "mariposa_sans_n7",
+      "size_heading": 18,
+      "uppercase_headings": false,
+      "font_body": "din_next_slab_n4",
+      "size_body": 15,
+      "font_logo": "mariposa_sans_n7",
+      "logo_uppercase": false,
+      "font_logo_size": 22,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_snapchat_link": "",
+      "social_tumblr_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "search_max_result_size": 4,
+      "search_show_products": true,
+      "search_show_articles": true,
+      "search_show_pages": true,
+      "search_show_price": true,
+      "search_show_vendor": false,
+      "swatch_option": "Color",
+      "chip_options": "Size",
+      "cart_quick_shop_enabled": true,
+      "cart_quick_shop_show_quantity_input": false,
+      "cart_notes_enable": true,
+      "quick_cart_note": "Your subtotal today is [subtotal]. Shipping and taxes will calculated at checkout.",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_accent_color": "#197bbd",
+      "checkout_button_color": "#197bbd",
+      "checkout_error_color": "#e32c2b",
+      "color_input_inactive_text": "#9c8881",
+      "color_sale_badge": "#c47961",
+      "color_sold_out_badge": "#1b1b1b",
+      "color_success_message": "#82b875",
+      "color_error_message": "#b6534c",
+      "color_contrast_input_inactive_text": "#ebd8d3",
+      "color_navigation_text": "#534540",
+      "color_navigation_bg": "#fcf7ee",
+      "color_navigation_feature": "#f0e8d9",
+      "color_drawer_input_inactive_text": "#ebd8d3",
+      "color_quick_search_highlight": "#ffe898",
+      "color_navigation_border": "#e2e2e2",
+      "color_navigation_icon": "#aaaaaa",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "announcement-bar-0": {
+              "type": "announcement",
+              "settings": {
+                "background_color": "",
+                "text_color": "#ffffff",
+                "text": "Announce something here",
+                "link": ""
+              }
+            },
+            "1602188457696": {
+              "type": "announcement",
+              "settings": {
+                "background_color": "#ae8979",
+                "text_color": "#ffffff",
+                "text": "You can cycle through multiple announcements",
+                "link": ""
+              }
+            }
+          },
+          "block_order": [
+            "announcement-bar-0",
+            "1602188457696"
+          ],
+          "settings": {
+            "announcement_bar_enabled": true,
+            "announcement_bar_timing": 5
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "header_style": "default",
+            "nav_alignment": "left",
+            "detect_menu_length": false,
+            "show_locale_selector": false,
+            "show_currency_selector": true,
+            "logo": "",
+            "logo_max_size": 150,
+            "menu": "main-menu",
+            "transparent_index_header_enabled": true,
+            "transparent_logo": "",
+            "transparent_header_foreground_color": "#ffffff",
+            "transparent_header_border_color": "#ffffff",
+            "transparent_header_border_opacity": 10
+          }
+        },
+        "exit-intent": {
+          "type": "exit-intent",
+          "settings": {
+            "enable_exit_intent": false,
+            "exit_intent_position": "bottom-right",
+            "exit_intent_image": "",
+            "exit_intent_heading": "Sign up for our newsletter",
+            "exit_intent_text": "Use this popup to capture customer email addresses at the last moment.",
+            "text_color": "#1b1b1b",
+            "bg_color": "#ffffff",
+            "border_color": "#dedede",
+            "input_text_color": "#1b1b1b"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "1602297933570": {
+              "type": "text",
+              "settings": {
+                "title": "About the shop",
+                "text": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.</p>"
+              }
+            },
+            "1602015986783": {
+              "type": "link_list",
+              "settings": {
+                "menu": "footer"
+              }
+            },
+            "1605557765620": {
+              "type": "link_list",
+              "settings": {
+                "menu": "main-menu"
+              }
+            }
+          },
+          "block_order": [
+            "1602297933570",
+            "1602015986783",
+            "1605557765620"
+          ],
+          "settings": {
+            "show_headings": true,
+            "show_payment_icons": true,
+            "show_newsletter_signup": true,
+            "newsletter_subheading": "Subscribe to our mailing list",
+            "show_locale_selector": true,
+            "show_currency_selector": true
+          }
+        },
+        "1601928793422": {
+          "type": "slideshow--dynamic",
+          "blocks": {
+            "1601928793422-0": {
+              "type": "slide",
+              "settings": {
+                "image": "",
+                "video_url": "",
+                "overline": "",
+                "title": "This is your slideshow",
+                "subheading": "Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.",
+                "link_text": "Shop now",
+                "overlay_opacity": 50,
+                "overlay_color": "#563d35",
+                "text_color": "#ffffff",
+                "text_max_width": 39,
+                "horizontal_text_position": "center",
+                "vertical_text_position": "middle"
+              }
+            }
+          },
+          "block_order": [
+            "1601928793422-0"
+          ],
+          "settings": {
+            "aspect_ratio": "full_height",
+            "timer": 7
+          }
+        },
+        "1601928812015": {
+          "type": "gallery--dynamic",
+          "settings": {
+            "section_style": "default",
+            "text_position": "top_center",
+            "columns": 4,
+            "aspect_ratio": "square",
+            "overline": "Gallery",
+            "title": "Gallery section",
+            "subheading": "Use this Section to display your favourite images from your social media channels",
+            "link": "",
+            "link_text": "",
+            "text_max_width": 36
+          }
+        },
+        "1601928819901": {
+          "type": "featured-collection--dynamic",
+          "settings": {
+            "section_style": "default",
+            "text_position": "middle_left",
+            "collection": "",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Collection",
+            "title": "Featured collection",
+            "subheading": "Add a subheading to provide more details about this collection.",
+            "link_text": "Shop now",
+            "text_max_width": 27
+          }
+        },
+        "1601932384660": {
+          "type": "slideshow--dynamic",
+          "blocks": {
+            "1601932384660-0": {
+              "type": "slide",
+              "settings": {
+                "image": "",
+                "video_url": "",
+                "overline": "",
+                "title": "This is your slideshow",
+                "subheading": "Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect",
+                "link_text": "Shop now",
+                "overlay_opacity": 50,
+                "overlay_color": "#563d35",
+                "text_color": "#ffffff",
+                "text_max_width": 39,
+                "horizontal_text_position": "left",
+                "vertical_text_position": "middle"
+              }
+            }
+          },
+          "block_order": [
+            "1601932384660-0"
+          ],
+          "settings": {
+            "aspect_ratio": "full_height",
+            "timer": 7
+          }
+        },
+        "1601932468553": {
+          "type": "image-with-text-split--dynamic",
+          "settings": {
+            "feature_image": "",
+            "feature_link": "",
+            "feature_description": "",
+            "feature_text_color": "#ffffff",
+            "background_color": "#846b63",
+            "feature_alignment": "left_bottom",
+            "overlay_image": "",
+            "image_text": "",
+            "text_color": "#ffffff",
+            "detail_alignment": "center_bottom",
+            "text_max_width": 36,
+            "gradient_color": "rgba(0,0,0,0)",
+            "gradient_length": 30
+          }
+        },
+        "collection--template": {
+          "type": "collection--template",
+          "settings": {
+            "show_collection_image": true,
+            "overlay_opacity": 20,
+            "overlay_color": "#000000",
+            "text_color": "#ffffff",
+            "show_border": true,
+            "show_heading": true,
+            "show_small_heading": true,
+            "show_description": true,
+            "heading_alignment": "center",
+            "text_max_width": 38,
+            "show_swatches": false,
+            "products_per_row": 4,
+            "aspect_ratio": "natural",
+            "pagination": "click"
+          }
+        },
+        "testimonials--static": {
+          "type": "testimonials--static",
+          "settings": {
+            "enabled": false,
+            "text_position": "top_center",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Testimonials",
+            "title": "Testimonials Section",
+            "subheading": "Use this section to showcase your product reviews.",
+            "link": "",
+            "link_text": "",
+            "text_max_width": 36
+          }
+        },
+        "featured-collection--static": {
+          "type": "featured-collection--static",
+          "settings": {
+            "enabled": true,
+            "text_position": "top_center",
+            "collection": "",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Collection",
+            "title": "Our favourites",
+            "subheading": "A small edit of our favourite products.",
+            "link_text": "Shop now",
+            "text_max_width": 36
+          }
+        },
+        "gallery--static": {
+          "type": "gallery--static",
+          "settings": {
+            "enabled": false,
+            "text_position": "top_center",
+            "columns": 3,
+            "aspect_ratio": "square",
+            "overline": "Gallery",
+            "title": "Gallery section",
+            "subheading": "Use this Section to display your favourite images. Automatically crop them to be uniform using the dropdown setting.",
+            "link": "",
+            "link_text": "",
+            "text_max_width": 36
+          }
+        },
+        "1601934169652": {
+          "type": "image-with-text--dynamic",
+          "settings": {
+            "section_style": "default",
+            "enable_animation": true,
+            "image": "",
+            "video_url": "",
+            "image_width": "two-third",
+            "image_position": "left",
+            "overline": "Image with text",
+            "title": "Image with text section",
+            "subheading": "<p>Use this section to showcase your editorial photography or images from your look book. This Section looks best with two or three sentences of text.</p>",
+            "link_text": "Shop now",
+            "text_alignment": "left",
+            "text_color": "#5b4c47",
+            "text_container_color": "",
+            "button_text_color": "#5b4c47",
+            "button_border_color": "#e1d8ce",
+            "text_max_width": 40
+          }
+        },
+        "1601934461161": {
+          "type": "quote--dynamic",
+          "blocks": {
+            "1601934461161-0": {
+              "type": "quote",
+              "settings": {
+                "quote": "Absolutely unparalleled products and service. I'm confident that this store will be the next big thing in its industry, and that its products will be timeless.",
+                "author": "Mabel Strawsbry"
+              }
+            }
+          },
+          "block_order": [
+            "1601934461161-0"
+          ],
+          "settings": {
+            "section_style": "default",
+            "timer": 7,
+            "text_max_width": 28
+          }
+        },
+        "1601934485262": {
+          "type": "featured-collection--dynamic",
+          "settings": {
+            "section_style": "default",
+            "text_position": "middle_left",
+            "collection": "",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Collection",
+            "title": "Featured collection",
+            "subheading": "Add a subheading to provide more details about this collection.",
+            "link_text": "Shop now",
+            "text_max_width": 27
+          }
+        },
+        "1601934543722": {
+          "type": "testimonials--dynamic",
+          "settings": {
+            "section_style": "default",
+            "text_position": "top_center",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Testimonials",
+            "title": "Don't take our word for it",
+            "subheading": "Our customers love our products. Here's what they have to say about them.",
+            "link": "",
+            "link_text": "",
+            "text_max_width": 36
+          }
+        },
+        "1601935379003": {
+          "type": "collection-list-grid--dynamic",
+          "settings": {
+            "section_style": "default",
+            "columns": 2,
+            "aspect_ratio": "natural",
+            "overline": "Collections",
+            "title": "Our favourite collections",
+            "subheading": "Most of our customers want just a few of these things!",
+            "heading_alignment": "center",
+            "text_max_width": 36
+          }
+        },
+        "1601939783439": {
+          "type": "slideshow-split--dynamic",
+          "settings": {
+            "timer": 7,
+            "overline": "",
+            "title": "The Slideshow Split",
+            "subheading": "Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.",
+            "link_text": "Shop now",
+            "overlay_opacity": 50,
+            "overlay_color": "#563d35",
+            "text_color": "#ffffff",
+            "text_max_width": 39,
+            "horizontal_text_position": "center",
+            "vertical_text_position": "middle"
+          }
+        },
+        "1601940902242": {
+          "type": "featured-collection--dynamic",
+          "settings": {
+            "section_style": "default",
+            "text_position": "top_center",
+            "collection": "",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Collection",
+            "title": "Featured collection",
+            "subheading": "Add a subheading to provide more details about this collection.",
+            "link_text": "Shop now",
+            "text_max_width": 27
+          }
+        },
+        "page-about--template": {
+          "type": "page-about--template",
+          "settings": {
+            "overline": "about"
+          }
+        },
+        "page-contact--template": {
+          "type": "page-contact--template",
+          "settings": {
+            "image": ""
+          }
+        },
+        "1602022778607": {
+          "type": "blog-posts--dynamic",
+          "blocks": {
+            "1602291977947": {
+              "type": "article",
+              "settings": {
+                "article": ""
+              }
+            }
+          },
+          "block_order": [
+            "1602291977947"
+          ],
+          "settings": {
+            "section_style": "default",
+            "columns": 1,
+            "aspect_ratio": "landscape",
+            "title": "Story",
+            "link_text": "Read more",
+            "text_max_width": 48
+          }
+        },
+        "1602023627625": {
+          "type": "slideshow--dynamic",
+          "blocks": {
+            "1602023627625-0": {
+              "type": "slide",
+              "settings": {
+                "image": "",
+                "video_url": "",
+                "overline": "",
+                "title": "This is your slideshow",
+                "subheading": "Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect",
+                "link_text": "Shop now",
+                "overlay_opacity": 50,
+                "overlay_color": "#563d35",
+                "text_color": "#ffffff",
+                "text_max_width": 39,
+                "horizontal_text_position": "left",
+                "vertical_text_position": "middle"
+              }
+            }
+          },
+          "block_order": [
+            "1602023627625-0"
+          ],
+          "settings": {
+            "aspect_ratio": "3_2",
+            "timer": 7
+          }
+        },
+        "1602023764873": {
+          "type": "image-with-text--dynamic",
+          "settings": {
+            "section_style": "default",
+            "enable_animation": true,
+            "image": "",
+            "video_url": "",
+            "image_width": "two-third",
+            "image_position": "left",
+            "overline": "Image with text",
+            "title": "Image with text section",
+            "subheading": "<p>Use this section to showcase your editorial photography or images from your look book. This Section looks best with two or three sentences of text.</p>",
+            "link_text": "Shop now",
+            "text_alignment": "left",
+            "text_color": "#5b4c47",
+            "text_container_color": "",
+            "button_text_color": "#5b4c47",
+            "button_border_color": "#e1d8ce",
+            "text_max_width": 40
+          }
+        },
+        "product--static": {
+          "type": "product--static",
+          "settings": {
+            "show_vendor": false,
+            "show_swatches": false,
+            "show_share_buttons": false,
+            "show_quantity_input": true,
+            "enable_payment_button": true,
+            "enable_video_looping": true
+          }
+        },
+        "text--static": {
+          "type": "text--static",
+          "settings": {
+            "enabled": true,
+            "title": "Text",
+            "text": "<p>Use this text area to share information about your brand with your customers. Describe your shipping policy, return policy, or share announcements.</p>"
+          }
+        },
+        "gallery-grid--static": {
+          "type": "gallery-grid--static",
+          "settings": {
+            "enabled": false,
+            "columns": 4,
+            "aspect_ratio": "square",
+            "title": "Gallery",
+            "text": "<p>Let people know about where to find you on social media. Don't forget to add a <a href='#'>link</a>.</p>"
+          }
+        },
+        "product-recommendations--static": {
+          "type": "product-recommendations--static",
+          "settings": {
+            "enabled": true,
+            "heading": "Related",
+            "columns": 4
+          }
+        },
+        "blog--template": {
+          "type": "blog--template",
+          "settings": {
+            "layout": "latest_featured",
+            "show_rss": true
+          }
+        },
+        "list-collections--template": {
+          "type": "list-collections--template",
+          "settings": {
+            "display_type": "all",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "collection_title_alignment": "left",
+            "show_product_count": true
+          }
+        },
+        "1602291559494": {
+          "type": "text-columns-with-images--dynamic",
+          "blocks": {
+            "1602291559494-0": {
+              "type": "column",
+              "settings": {
+                "image": "",
+                "image_max_width": 50,
+                "title": "Step one",
+                "subheading": "Start here. Introduce your vision, or explain why what you do or sell is superior to your competitors.",
+                "text_max_width": 36,
+                "link_text": "Read more"
+              }
+            },
+            "1602291559494-1": {
+              "type": "column",
+              "settings": {
+                "image": "",
+                "image_max_width": 50,
+                "title": "Step two",
+                "subheading": "Get into your process a bit. The quality of handiwork or unique materials that you use that make your products better.",
+                "text_max_width": 36,
+                "link_text": "Read more"
+              }
+            },
+            "1602291559494-2": {
+              "type": "column",
+              "settings": {
+                "image": "",
+                "image_max_width": 50,
+                "title": "Step three",
+                "subheading": "End it with an action item that the user can take advantage of. Link to a more in-depth page, or go straight to a collection.",
+                "text_max_width": 36,
+                "link_text": "Read more"
+              }
+            }
+          },
+          "block_order": [
+            "1602291559494-0",
+            "1602291559494-1",
+            "1602291559494-2"
+          ],
+          "settings": {
+            "section_style": "contrast",
+            "columns": 3,
+            "overline": "",
+            "title": "",
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "text_alignment": "center",
+            "text_max_width": 36
+          }
+        }
+      },
+      "content_for_index": [
+        "1601928793422",
+        "1602291559494",
+        "1601928819901",
+        "1601934485262",
+        "1601932384660",
+        "1601934169652",
+        "1601934461161",
+        "1601939783439",
+        "1601940902242",
+        "1601935379003",
+        "1601932468553",
+        "1602023764873",
+        "1601934543722",
+        "1602023627625",
+        "1602022778607",
+        "1601928812015"
+      ]
+    },
+    "Modern": {
+      "color_accent": "#c47961",
+      "color_text": "#1b1b1b",
+      "color_bg": "#ffffff",
+      "color_button": "#f4f4f4",
+      "color_border": "#dedede",
+      "color_input_text": "#8b8b8b",
+      "color_icon": "#b1b1b1",
+      "color_header_text": "#1b1b1b",
+      "color_header_bg": "#ffffff",
+      "color_header_border": "#dedede",
+      "color_footer_text": "#ffffff",
+      "color_footer_bg": "#253734",
+      "color_footer_border": "#465552",
+      "color_footer_button_background": "#324340",
+      "color_footer_button_text": "#ffffff",
+      "color_contrast_text": "#363636",
+      "color_contrast_bg": "#f9f9f9",
+      "color_contrast_border": "#e2e2e2",
+      "color_contrast_input_text": "#838383",
+      "color_contrast_icon": "#919191",
+      "color_drawer_text": "#1b1b1b",
+      "color_drawer_bg": "#ffffff",
+      "color_drawer_border": "#dadada",
+      "color_drawer_input_text": "#919191",
+      "color_drawer_icon": "#b1b1b1",
+      "font_heading": "electra_n7",
+      "size_heading": 18,
+      "uppercase_headings": false,
+      "font_body": "neue_haas_unica_n4",
+      "size_body": 14,
+      "font_logo": "electra_n7",
+      "logo_uppercase": true,
+      "font_logo_size": 22,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_snapchat_link": "",
+      "social_tumblr_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "search_max_result_size": 4,
+      "search_show_products": true,
+      "search_show_articles": true,
+      "search_show_pages": true,
+      "search_show_price": true,
+      "search_show_vendor": false,
+      "swatch_option": "Color",
+      "chip_options": "Size",
+      "cart_quick_shop_enabled": true,
+      "cart_quick_shop_show_quantity_input": false,
+      "cart_notes_enable": true,
+      "quick_cart_note": "Your subtotal today is [subtotal]. Shipping and taxes will calculated at checkout.",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_accent_color": "#197bbd",
+      "checkout_button_color": "#197bbd",
+      "checkout_error_color": "#e32c2b",
+      "color_input_inactive_text": "#8b8b8b",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "announcement-bar-0": {
+              "type": "announcement",
+              "settings": {
+                "background_color": "#203a36",
+                "text_color": "#ffffff",
+                "text": "Announce something here",
+                "link": ""
+              }
+            },
+            "51c6b612-4c82-4885-b651-5b184c8665ff": {
+              "type": "announcement",
+              "settings": {
+                "background_color": "#203a36",
+                "text_color": "#ffffff",
+                "text": "Cycle through multiple messages",
+                "link": ""
+              }
+            }
+          },
+          "block_order": [
+            "announcement-bar-0",
+            "51c6b612-4c82-4885-b651-5b184c8665ff"
+          ],
+          "settings": {
+            "announcement_bar_enabled": true,
+            "announcement_bar_timing": 5
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "header_style": "default",
+            "nav_alignment": "left",
+            "detect_menu_length": false,
+            "show_locale_selector": false,
+            "show_currency_selector": true,
+            "logo": "",
+            "logo_max_size": 150,
+            "menu": "main-menu",
+            "transparent_index_header_enabled": true,
+            "transparent_logo": "",
+            "transparent_header_foreground_color": "#ffffff",
+            "transparent_header_border_color": "#ffffff",
+            "transparent_header_border_opacity": 10
+          }
+        },
+        "exit-intent": {
+          "type": "exit-intent",
+          "settings": {
+            "enable_exit_intent": false,
+            "exit_intent_position": "bottom-right",
+            "exit_intent_image": "",
+            "exit_intent_heading": "Sign up for our newsletter",
+            "exit_intent_text": "Use this popup to capture customer email addresses at the last moment.",
+            "text_color": "#1b1b1b",
+            "bg_color": "#ffffff",
+            "border_color": "#dedede",
+            "input_text_color": "#1b1b1b"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "62c7cebd-df83-485d-aa6f-8ed9fd675c96": {
+              "type": "text",
+              "settings": {
+                "title": "About the shop",
+                "text": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.</p>"
+              }
+            },
+            "71054815-9750-443e-88a4-ce5b01013146": {
+              "type": "link_list",
+              "settings": {
+                "menu": "footer"
+              }
+            },
+            "6891703d-c4fc-4833-8da7-8e24a36813b6": {
+              "type": "link_list",
+              "settings": {
+                "menu": "main-menu"
+              }
+            }
+          },
+          "block_order": [
+            "62c7cebd-df83-485d-aa6f-8ed9fd675c96",
+            "71054815-9750-443e-88a4-ce5b01013146",
+            "6891703d-c4fc-4833-8da7-8e24a36813b6"
+          ],
+          "settings": {
+            "show_headings": true,
+            "show_payment_icons": true,
+            "show_newsletter_signup": true,
+            "newsletter_subheading": "Subscribe to our mailing list below and we'll keep you in the loop about our latest sales and promotions.",
+            "show_locale_selector": true,
+            "show_currency_selector": true
+          }
+        },
+        "1602100844222d406f": {
+          "type": "quote--dynamic",
+          "blocks": {
+            "1602100844222d406f-0": {
+              "type": "quote",
+              "settings": {
+                "quote": "Supremely beautiful slippers. Made ethically by hand with materials sourced from sustainable sources.",
+                "author": "bill presthaus"
+              }
+            }
+          },
+          "block_order": [
+            "1602100844222d406f-0"
+          ],
+          "settings": {
+            "section_style": "default",
+            "timer": 7,
+            "text_max_width": 28
+          }
+        },
+        "page-about--template": {
+          "type": "page-about--template",
+          "blocks": {
+            "7b5d858b-3e80-4dd0-b5d9-0e9bb3224d78": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "video_url": ""
+              }
+            },
+            "1d44ba34-cb21-4c39-8c03-f1a020695de8": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "video_url": ""
+              }
+            },
+            "560a5ff7-472e-4252-b14e-9b5f16641ac7": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "video_url": ""
+              }
+            }
+          },
+          "block_order": [
+            "7b5d858b-3e80-4dd0-b5d9-0e9bb3224d78",
+            "1d44ba34-cb21-4c39-8c03-f1a020695de8",
+            "560a5ff7-472e-4252-b14e-9b5f16641ac7"
+          ],
+          "settings": {
+            "overline": "about"
+          }
+        },
+        "collection--template": {
+          "type": "collection--template",
+          "settings": {
+            "show_collection_image": false,
+            "overlay_opacity": 20,
+            "overlay_color": "#000000",
+            "text_color": "#ffffff",
+            "show_border": true,
+            "show_heading": true,
+            "show_small_heading": false,
+            "show_description": false,
+            "heading_alignment": "center",
+            "text_max_width": 38,
+            "show_swatches": false,
+            "products_per_row": 3,
+            "aspect_ratio": "natural",
+            "pagination": "click"
+          }
+        },
+        "testimonials--static": {
+          "type": "testimonials--static",
+          "settings": {
+            "enabled": false,
+            "text_position": "top_center",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Testimonials",
+            "title": "Testimonials Section",
+            "subheading": "Use this section to showcase your product reviews.",
+            "link": "",
+            "link_text": "",
+            "text_max_width": 36
+          }
+        },
+        "featured-collection--static": {
+          "type": "featured-collection--static",
+          "settings": {
+            "enabled": true,
+            "text_position": "top_center",
+            "collection": "",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Collection",
+            "title": "The Fall Collection",
+            "subheading": "Working hand-in-hand with luxury footwear makers, we've designed the perfect all the time slipper in a variety of colors.",
+            "link_text": "Shop now",
+            "text_max_width": 36
+          }
+        },
+        "gallery--static": {
+          "type": "gallery--static",
+          "settings": {
+            "enabled": false,
+            "text_position": "top_center",
+            "columns": 3,
+            "aspect_ratio": "square",
+            "overline": "Gallery",
+            "title": "Gallery section",
+            "subheading": "Use this Section to display your favourite images. Automatically crop them to be uniform using the dropdown setting.",
+            "link": "",
+            "link_text": "",
+            "text_max_width": 36
+          }
+        },
+        "product--static": {
+          "type": "product--static",
+          "settings": {
+            "show_vendor": false,
+            "show_swatches": false,
+            "show_share_buttons": false,
+            "show_quantity_input": true,
+            "enable_payment_button": true,
+            "enable_video_looping": true
+          }
+        },
+        "text--static": {
+          "type": "text--static",
+          "settings": {
+            "enabled": false,
+            "title": "Text",
+            "text": "<p>Use this text area to share information about your brand with your customers. Describe your shipping policy, return policy, or share announcements.</p>"
+          }
+        },
+        "gallery-grid--static": {
+          "type": "gallery-grid--static",
+          "settings": {
+            "enabled": false,
+            "columns": 4,
+            "aspect_ratio": "square",
+            "title": "Gallery",
+            "text": "<p>Let people know about where to find you on social media. Don&#x27;t forget to add a <a href=\"#\">link</a>.</p>"
+          }
+        },
+        "product-recommendations--static": {
+          "type": "product-recommendations--static",
+          "settings": {
+            "enabled": true,
+            "heading": "Related",
+            "columns": 4
+          }
+        },
+        "page-contact--template": {
+          "type": "page-contact--template",
+          "settings": {
+            "image": ""
+          }
+        },
+        "1602302639a7b60f3e": {
+          "type": "slideshow--dynamic",
+          "blocks": {
+            "1602302639a7b60f3e-0": {
+              "type": "slide",
+              "settings": {
+                "image": "",
+                "video_url": "",
+                "overline": "",
+                "title": "This is your slideshow",
+                "subheading": "Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.",
+                "link_text": "Shop now",
+                "overlay_opacity": 50,
+                "overlay_color": "#000000",
+                "text_color": "#ffffff",
+                "text_max_width": 39,
+                "horizontal_text_position": "center",
+                "vertical_text_position": "middle"
+              }
+            }
+          },
+          "block_order": [
+            "1602302639a7b60f3e-0"
+          ],
+          "settings": {
+            "aspect_ratio": "full_height",
+            "timer": 7
+          }
+        },
+        "1602302827aaa0807e": {
+          "type": "featured-collection--dynamic",
+          "settings": {
+            "section_style": "default",
+            "text_position": "top_center",
+            "collection": "",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Collection",
+            "title": "Featured collection",
+            "subheading": "Add a subheading to provide more details about this collection.",
+            "link_text": "Shop now",
+            "text_max_width": 24
+          }
+        },
+        "1602302926ac40fa14": {
+          "type": "slideshow--dynamic",
+          "blocks": {
+            "1602302926ac40fa14-0": {
+              "type": "slide",
+              "settings": {
+                "image": "",
+                "video_url": "",
+                "overline": "Slideshow",
+                "title": "This is your slideshow",
+                "subheading": "Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.",
+                "link_text": "Shop now",
+                "overlay_opacity": 30,
+                "overlay_color": "#000000",
+                "text_color": "#ffffff",
+                "text_max_width": 37,
+                "horizontal_text_position": "left",
+                "vertical_text_position": "middle"
+              }
+            }
+          },
+          "block_order": [
+            "1602302926ac40fa14-0"
+          ],
+          "settings": {
+            "aspect_ratio": "full_height",
+            "timer": 7
+          }
+        },
+        "160230298895c3eda9": {
+          "type": "featured-collection--dynamic",
+          "settings": {
+            "section_style": "default",
+            "text_position": "middle_left",
+            "collection": "",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Collection",
+            "title": "Featured collection",
+            "subheading": "Add a subheading to provide more details about this collection.",
+            "link_text": "Shop now",
+            "text_max_width": 24
+          }
+        },
+        "1602303073f053a328": {
+          "type": "featured-collection--dynamic",
+          "settings": {
+            "section_style": "default",
+            "text_position": "middle_left",
+            "collection": "",
+            "columns": 3,
+            "aspect_ratio": "natural",
+            "overline": "Collection",
+            "title": "Featured collection",
+            "subheading": "Add a subheading to provide more details about this collection.",
+            "link_text": "Shop now",
+            "text_max_width": 24
+          }
+        },
+        "160230308822ca402f": {
+          "type": "slideshow--dynamic",
+          "blocks": {
+            "160230308822ca402f-0": {
+              "type": "slide",
+              "settings": {
+                "image": "",
+                "video_url": "",
+                "overline": "",
+                "title": "This is your slideshow",
+                "subheading": "Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.",
+                "link_text": "Shop now",
+                "overlay_opacity": 50,
+                "overlay_color": "#000000",
+                "text_color": "#ffffff",
+                "text_max_width": 37,
+                "horizontal_text_position": "center",
+                "vertical_text_position": "middle"
+              }
+            }
+          },
+          "block_order": [
+            "160230308822ca402f-0"
+          ],
+          "settings": {
+            "aspect_ratio": "full_height",
+            "timer": 7
+          }
+        },
+        "160230316278a885f2": {
+          "type": "image-with-text--dynamic",
+          "settings": {
+            "section_style": "default",
+            "enable_animation": true,
+            "image": "",
+            "video_url": "",
+            "image_width": "two-third",
+            "image_position": "left",
+            "overline": "Image with text",
+            "title": "Image with text section",
+            "subheading": "<p>Use this section to showcase your editorial photography or images from your look book. This Section looks best with two or three sentences of text.</p>",
+            "link_text": "Shop now",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "text_container_color": "rgba(0,0,0,0)",
+            "button_text_color": "#1b1b1b",
+            "button_border_color": "#dedede",
+            "text_max_width": 36
+          }
+        },
+        "1602303261a0f747d4": {
+          "type": "slideshow--dynamic",
+          "blocks": {
+            "1602303261a0f747d4-0": {
+              "type": "slide",
+              "settings": {
+                "image": "",
+                "video_url": "",
+                "overline": "Slideshow",
+                "title": "This is your slideshow",
+                "subheading": "Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.",
+                "link_text": "Shop now",
+                "overlay_opacity": 50,
+                "overlay_color": "#000000",
+                "text_color": "#ffffff",
+                "text_max_width": 37,
+                "horizontal_text_position": "left",
+                "vertical_text_position": "middle"
+              }
+            }
+          },
+          "block_order": [
+            "1602303261a0f747d4-0"
+          ],
+          "settings": {
+            "aspect_ratio": "full_height",
+            "timer": 7
+          }
+        },
+        "1602303455b937a2c3": {
+          "type": "blog-posts--dynamic",
+          "settings": {
+            "section_style": "default",
+            "columns": 1,
+            "aspect_ratio": "landscape",
+            "title": "Story",
+            "link_text": "Read more",
+            "text_max_width": 35
+          }
+        },
+        "1602303595e1ce026d": {
+          "type": "gallery--dynamic",
+          "settings": {
+            "section_style": "default",
+            "text_position": "top_center",
+            "columns": 3,
+            "aspect_ratio": "square",
+            "overline": "Gallery",
+            "title": "Gallery section",
+            "subheading": "Use this Section to display your favourite images. Automatically crop them to be uniform using the dropdown setting.",
+            "link": "",
+            "link_text": "",
+            "text_max_width": 36
+          }
+        }
+      },
+      "content_for_index": [
+        "1602302639a7b60f3e",
+        "1602302827aaa0807e",
+        "1602302926ac40fa14",
+        "160230298895c3eda9",
+        "1602303073f053a328",
+        "160230308822ca402f",
+        "160230316278a885f2",
+        "1602100844222d406f",
+        "1602303261a0f747d4",
+        "1602303455b937a2c3",
+        "1602303595e1ce026d"
+      ]
+    }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      "div#_a-auction-inputs {width: 500px !important; position: relative !important; margin-left: auto !important; margin-right: auto !important; margin-bottom: 100px !important; margin-top: 100px !important; overflow: hidden !important;}",
+      ".section.section--spacing-tall {padding-top: 25px !important; padding-bottom: 25px !important; padding-left: 25% !important; padding-right: 25% !important;}",
+      "._a-auction-input-container._a-margin-vertical-15 {overflow: hidden !important;}",
+      "div#_a-auction-inputs {overflow: hidden !important;}",
+      "@media screen and (max-width: 700px) {div#_a-auction-inputs {width: 300px !important; position: relative !important; margin-left: auto !important; margin-right: auto !important; margin-bottom: 100px !important; margin-top: 100px !important; overflow: hidden !important; }}",
+      "div#_a-featured-auctions {padding-top: 20px !important; padding-right: 10% !important; padding-bottom: 20px !important; padding-left: 10% !important;}"
+    ]
+  }
+}
