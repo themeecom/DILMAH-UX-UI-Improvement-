@@ -874,6 +874,7 @@
           "6e989a0b-bc53-403c-944f-ffce3a72f69a": {
             "type": "image",
             "settings": {
+              "image": "shopify://shop_images/3_61f04850-0a03-4fbc-a5df-5e53c84c9063.png",
               "description": "",
               "link": ""
             }
@@ -881,6 +882,7 @@
           "faf0a713-02a3-4c3d-8762-53cf82d1e65f": {
             "type": "image",
             "settings": {
+              "image": "shopify://shop_images/4_eebed1fe-e6b6-435b-9672-2a2144e0dee9.png",
               "description": "",
               "link": ""
             }
@@ -888,6 +890,7 @@
           "463621da-b01a-4a1f-98e9-d115181afb1e": {
             "type": "image",
             "settings": {
+              "image": "shopify://shop_images/5_19cca7f2-41a9-43cf-adb9-1c1743ea757b.png",
               "description": "",
               "link": ""
             }
