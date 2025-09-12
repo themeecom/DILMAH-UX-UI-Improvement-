@@ -1016,6 +1016,7 @@
           "slide_WrigHW": {
             "type": "slide",
             "settings": {
+              "image": "shopify://shop_images/September_2025_New_Size.jpg",
               "video_url": "",
               "overline": "",
               "title": "",
