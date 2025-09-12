@@ -858,6 +858,7 @@
           "cb56ca8f-3257-4dbe-ba59-e492dccf423c": {
             "type": "image",
             "settings": {
+              "image": "shopify://shop_images/1_dc718637-b334-45b9-8e28-c0bd6e9a9a6b.png",
               "description": "",
               "link": ""
             }
@@ -865,6 +866,7 @@
           "fba4442d-58b1-414a-883e-ddb263abc2f7": {
             "type": "image",
             "settings": {
+              "image": "shopify://shop_images/2_351d18e1-3225-4515-b736-ec86f4b4a7f6.png",
               "description": "",
               "link": ""
             }
