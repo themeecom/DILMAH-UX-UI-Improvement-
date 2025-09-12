@@ -1,0 +1,1893 @@
+{% comment %} <section class="section account">
+
+  <h1 class="account__heading type-heading-display"><i class='far fa-user profile_icon'></i>{{ 'customer.account.title' | t }}</h1>
+	<div class="rewards-wrap">{% if customer %} Your Points Balance : <span class="sweettooth-points-balance"></span> {% endif %}</div>
+  <h2 class="account__section-heading type-heading-1"><i class="fa fa-history profile_icon"></i>{{ 'customer.orders.title' | t }}</h2>
+<style>
+    .rewards-wrap{
+    	text-align: right;
+    }
+  </style>
+  {% paginate customer.orders by 20 %}
+    {% if customer.orders.size != 0 %}
+      <div class="account__table">
+      <table class="responsive-table">
+        <thead>
+          <tr>
+            <th>{{ 'customer.orders.order_number' | t }}</th>
+            <th>{{ 'customer.orders.date' | t }}</th>
+            <th>{{ 'customer.orders.payment_status' | t }}</th>
+            <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+            <th>{{ 'customer.orders.total' | t }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in customer.orders %}
+            <tr class="responsive-table-row">
+              <td data-label="{{ 'customer.orders.order_number' | t }}">{{ order.name | link_to: order.customer_url }}</td>
+              <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: "%B %d, %Y" }}</td>
+              <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
+              <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+              <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      </div>
+    {% else %}
+      <p class="tc">{{ 'customer.orders.none' | t }}</p>
+    {% endif %}
+
+    {% if paginate.pages > 1 %}
+      {% render 'pagination' with
+        type: 'general.pagination.orders',
+        paginate: paginate
+      %}
+    {% endif %}
+
+  {% endpaginate %}
+
+  <h2 class="account__section-heading type-heading-1"><i class="fa fa-address-book profile_icon"></i>{{ 'customer.account.details' | t }}</h2>
+  <div class="type-body-regular tc">
+    {{ customer.default_address | format_address }}
+    <a class="tc underline db" href="{{ routes.account_addresses_url }}">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
+  </div>
+
+  <div class="account__logout"><a class="underline" href="{{ routes.account_logout_url }}">{{ 'general.menu.logout' | t }}</a></div>
+</section> {% endcomment %}
+
+
+<!-- ecom user tags -->
+{% assign dob = "" %}
+{% assign gender = "" %}
+{% assign organization = "" %}
+{% assign profession = "" %}
+
+{% for tag in customer.tags %}
+ {% assign firstPart = tag | split:"_" | first %}
+ {% assign lastPart = tag | split:"_" | last %}
+
+{% if firstPart == "dob" %} 
+ {% assign dob = lastPart %}
+{% endif %}
+
+{% if firstPart == "gender" %} 
+ {% assign gender = lastPart %}
+{% endif %}
+
+{% if firstPart == "orgnization" %} 
+ {% assign organization = lastPart %}
+{% endif %}
+
+{% if firstPart == "profession" %} 
+ {% assign profession = lastPart %}
+{% endif %}
+
+{% endfor %}
+<script>
+  let dob = "{{- dob -}}";
+  let gender = "{{- gender -}}";
+  let organization = "{{- organization -}}";
+  let profession = "{{- profession -}}";
+</script>
+<!-- ecom user tags / -->
+
+
+<div class="main">
+
+  <span class="one" id="1">
+     {% render 'pages--customer-sidebar'  %}
+  </span>
+  <span class="two" id="two">
+<div id="myDashboardArea">
+    <div class="dashboardArea">
+      <div class="dashboardArea-top">
+        <h1>Dashboard</h1>
+        <a href="{{ routes.account_logout_url }}"><div class="account__logout1"><i class="fa-solid fa-power-off"></i><span class="myAccLogOutTxt">{{ 'general.menu.logout' | t }}</span></div></a>
+      </div>
+      <div class="dashboardPart1" id="dashboardPart1">
+        <div class="mainDashCardCover">
+          <div class="dash-card">
+            <h2>{{ customer.first_name }} {{ customer.last_name }}</h2>
+            <p><i class="fa-solid fa-user" style="margin-right:5px;"></i>{{ customer.email }}</p>
+            <div class="dashTopCardIcon">
+              <i class="fa-solid fa-user fa-4x"></i>
+            </div>
+            
+          </div>
+          <div class="dash-card">
+            <h2>Reward Points</h2>
+<!--             <p><span style="font-size:24px;font-weight:700;" class="swell-point-balance" ></span> points</p> -->
+            <span style="font-size:24px;font-weight:700;" class="sweettooth-points-balance"></span>
+            <div class="dashTopCardIcon">
+              <i class="fa fa-usd fa-4x" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        
+      <div class="cardsArea">
+    
+<!--         <div class="addressCard">
+          <div class="cRect"></div>
+          <div class="cTitle"> <p>Account Information</p></div>
+          <div class="cInfo">
+            <p class="personName">{{ customer.first_name }} {{ customer.last_name }}</p>
+            <p>Birthday : {{  }}</p>
+            <p>Gender : {{  }}</p>
+            <p>Email : {{ customer.email }}</p>
+            <p>Contact : {{ customer.phone }}</p>
+          </div>
+          <div class="b-checkbox-section">
+            <button class="updateBtn" onclick="updateAddress()">Update</button>
+          </div>
+        </div> -->
+ {% paginate customer.addresses by paginate_by %}       
+
+         {% for address in customer.addresses %}
+        <div class="addressCard" id="address{{ forloop.index }}">
+          <div class="cRect"></div>
+          {% if address == customer.default_address %}
+             <div class="cTitle"> <p>{{ 'customer.addresses.default' | t }} Address</p></div>
+          {% else %}
+            <div class="cTitle"> <p>Other Address</p></div>
+          {% endif %}
+          <div class="cInfo">
+             <p class="personName"><span class="first">{{ address.first_name }}</span> <span class="last">{{ address.last_name }}</span></p>
+            <p class="email">Email : <span>{{ address.email }}</span></p>
+            <p class="contact">Contact : <span> {{ address.phone  }} </span></p>
+            <p class="address">Address : <span class="address1"> {{ address.address1  }} </span> <span class="address2">{{ address.address2 }} </span></p>
+             <p class="company"> Company : <span> {{ address.company }}</span> </p>
+            <p class="city">City: <span>{{ address.city  }}</span></p>
+            <p class="country">Country :<span> {{ address.country }} </span></p>
+            <p class="province">Province :<span>{{ address.province }}</span></p>
+            <p class="zipcode">Zip Code:<span>{{ address.zip }}</span></span>
+            <button class="changeBtn" onclick="updateAddress('address{{ forloop.index }}')">Change</button>
+
+           {% form 'customer_address', address , class:"data-ecom" %} {% endform %}
+          </div>
+          <div class="b-checkbox-section">
+          <input type="checkbox" id="cardCheckBox"><p>Use my shipping address</p>
+          </div>
+        </div>
+          {% endfor %}
+      </div>
+      <center><button class="addressCardsBtn" onclick="addNewAddress()" >Add New Address</button></center>
+    </div>
+    </div>
+<!-- modal -->
+<!--   edit or update existing addresssssssssssssssssssssssssssss -->
+{% comment %} <form action="#" class="addressForm" style="display:none" id="addressForm1"> {% endcomment %}
+{% form 'customer_address', customer.default_address, style:"display:none", class:"addressForm1" %}
+
+        <div class="addressFormInput">
+          <label><i class="fa fa-envelope" aria-hidden="true"></i>Email Address</label>
+          <input type="email" id="email_ecom" placeholder="Enter email address">
+        </div>
+  
+        <div class="addressFormInput">
+          <label><i class="fa fa-user" aria-hidden="true"></i>First Name</label>
+          <input type="text"
+                  name="address[first_name]"
+                  placeholder="{{ 'customer.addresses.first_name' | t }}"
+                  id="AddressFirstName_ecom"
+                  class="input"
+                  value="{{ form.first_name }}"
+                  autocapitalize="words">
+        </div>
+
+        <div class="addressFormInput">
+          <label><i class="fa fa-user" aria-hidden="true"></i>Last Name</label>
+          <input type="text"
+                  name="address[last_name]"
+                  placeholder="{{ 'customer.addresses.last_name' | t }}"
+                  id="AddressLastName_ecom"
+                  class="input"
+                  value="{{ form.last_name }}"
+                  autocapitalize="words">
+        </div>
+
+        <div class="addressFormInput">
+          <label><i class="fa fa-phone" aria-hidden="true"></i>Phone Number</label>
+          <input type="tel"
+                  name="address[phone]"
+                  placeholder="{{ 'customer.addresses.phone' | t }}"
+                  id="AddressPhone_ecom"
+                  class="input"
+                  value="{{ form.phone }}"
+                  pattern="[0-9\-]*">
+        </div>
+
+        <div class="addressFormInput">
+          <label for="AddressAddress1_{{ form.id }}" class="label--above"><i class="fa fa-phone" aria-hidden="true"></i>
+              Address One
+            </label>
+            <input type="text"
+                  name="address[address1]"
+                  placeholder="{{ 'customer.addresses.address1' | t }}"
+                  id="AddressAddress1_ecom"
+                  class="input"
+                  value="{{ form.address1 }}"
+                  autocapitalize="words">
+        </div>
+
+  
+
+      <div class="addressFormInput">
+        <label for="AddressAddress2_{{ form.id }}" class="label--above"><i class="fa fa-phone" aria-hidden="true"></i>
+                Address Two
+              </label>
+  <input type="text"
+                  name="address[address2]"
+                  placeholder="{{ 'customer.addresses.address2' | t }}"
+                  id="AddressAddress2_ecom"
+                  class="input"
+                  value="{{ form.address2 }}"
+                  autocapitalize="words">
+  </div>
+       
+
+<!--         <div class="addressFormInput">
+          <label><i class="fa fa-briefcase" aria-hidden="true"></i>Profession</label>
+          <input type="text" placeholder="enter profession">
+        </div> -->
+
+        <div class="addressFormInput">
+          <label><i class="fa fa-sitemap" aria-hidden="true"></i>Organization</label>
+          <input type="text"
+                  name="address[company]"
+                  placeholder="{{ 'customer.addresses.company' | t }}"
+                  id="AddressCompany_ecom"
+                  class="input"
+                  value="{{ form.company }}"
+                  autocapitalize="words">
+        </div>
+
+        <div class="addressFormInput">
+          <label><i class="fa fa-road" aria-hidden="true"></i>Street(Name & Number)</label>
+          <input type="text"
+                  name="address[city]"
+                  placeholder="{{ 'customer.addresses.city' | t }}"
+                  id="AddressCity_ecom"
+                  class="input"
+                  value="{{ form.city }}"
+                  autocapitalize="words">
+        </div>
+
+        <div class="addressFormInput">
+          <label><i class="fa fa-map-marker" aria-hidden="true"></i>Post Code</label>
+          <input  type="text"
+                  name="address[zip]"
+                  placeholder="{{ 'customer.addresses.zip' | t }}"
+                  id="AddressZip_ecom"
+                  class="input"
+                  value="{{ form.zip }}"
+                  autocapitalize="characters">
+        </div>
+
+        <div class="addressFormInput">
+          <label><i class="fa fa-flag" aria-hidden="true"></i>State/Province</label>
+          <input type="text" data-address-province
+              name="address[province]"
+              placeholder="{{ 'customer.addresses.province' | t }}"
+              id="AddressProvince_ecom"
+              class="input"
+              data-default="{{ form.province }}">
+        </div>
+
+        <div class="addressFormInput" >
+          <label><i class="fa fa-globe" aria-hidden="true"></i>Country</label>
+          <select data-address-country
+              name="address[country]"
+              placeholder="{{ 'customer.addresses.country' | t }}"
+              id="AddressCountry_ecom"
+              class="address-country-option input"
+              data-form-id="{{ form.id }}"
+              data-default="{{ form.country }}">
+
+            <option>select country</option>
+    <option value="AF">Afghanistan</option>
+    <option value="AX">Aland Islands</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+    <option value="AO">Angola</option>
+    <option value="AI">Anguilla</option>
+    <option value="AQ">Antarctica</option>
+    <option value="AG">Antigua and Barbuda</option>
+    <option value="AR">Argentina</option>
+    <option value="AM">Armenia</option>
+    <option value="AW">Aruba</option>
+    <option value="AU">Australia</option>
+    <option value="AT">Austria</option>
+    <option value="AZ">Azerbaijan</option>
+    <option value="BS">Bahamas</option>
+    <option value="BH">Bahrain</option>
+    <option value="BD">Bangladesh</option>
+    <option value="BB">Barbados</option>
+    <option value="BY">Belarus</option>
+    <option value="BE">Belgium</option>
+    <option value="BZ">Belize</option>
+    <option value="BJ">Benin</option>
+    <option value="BM">Bermuda</option>
+    <option value="BT">Bhutan</option>
+    <option value="BO">Bolivia</option>
+    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+    <option value="BA">Bosnia and Herzegovina</option>
+    <option value="BW">Botswana</option>
+    <option value="BV">Bouvet Island</option>
+    <option value="BR">Brazil</option>
+    <option value="IO">British Indian Ocean Territory</option>
+    <option value="BN">Brunei Darussalam</option>
+    <option value="BG">Bulgaria</option>
+    <option value="BF">Burkina Faso</option>
+    <option value="BI">Burundi</option>
+    <option value="KH">Cambodia</option>
+    <option value="CM">Cameroon</option>
+    <option value="CA">Canada</option>
+    <option value="CV">Cape Verde</option>
+    <option value="KY">Cayman Islands</option>
+    <option value="CF">Central African Republic</option>
+    <option value="TD">Chad</option>
+    <option value="CL">Chile</option>
+    <option value="CN">China</option>
+    <option value="CX">Christmas Island</option>
+    <option value="CC">Cocos (Keeling) Islands</option>
+    <option value="CO">Colombia</option>
+    <option value="KM">Comoros</option>
+    <option value="CG">Congo</option>
+    <option value="CD">Congo, Democratic Republic of the Congo</option>
+    <option value="CK">Cook Islands</option>
+    <option value="CR">Costa Rica</option>
+    <option value="CI">Cote D'Ivoire</option>
+    <option value="HR">Croatia</option>
+    <option value="CU">Cuba</option>
+    <option value="CW">Curacao</option>
+    <option value="CY">Cyprus</option>
+    <option value="CZ">Czech Republic</option>
+    <option value="DK">Denmark</option>
+    <option value="DJ">Djibouti</option>
+    <option value="DM">Dominica</option>
+    <option value="DO">Dominican Republic</option>
+    <option value="EC">Ecuador</option>
+    <option value="EG">Egypt</option>
+    <option value="SV">El Salvador</option>
+    <option value="GQ">Equatorial Guinea</option>
+    <option value="ER">Eritrea</option>
+    <option value="EE">Estonia</option>
+    <option value="ET">Ethiopia</option>
+    <option value="FK">Falkland Islands (Malvinas)</option>
+    <option value="FO">Faroe Islands</option>
+    <option value="FJ">Fiji</option>
+    <option value="FI">Finland</option>
+    <option value="FR">France</option>
+    <option value="GF">French Guiana</option>
+    <option value="PF">French Polynesia</option>
+    <option value="TF">French Southern Territories</option>
+    <option value="GA">Gabon</option>
+    <option value="GM">Gambia</option>
+    <option value="GE">Georgia</option>
+    <option value="DE">Germany</option>
+    <option value="GH">Ghana</option>
+    <option value="GI">Gibraltar</option>
+    <option value="GR">Greece</option>
+    <option value="GL">Greenland</option>
+    <option value="GD">Grenada</option>
+    <option value="GP">Guadeloupe</option>
+    <option value="GU">Guam</option>
+    <option value="GT">Guatemala</option>
+    <option value="GG">Guernsey</option>
+    <option value="GN">Guinea</option>
+    <option value="GW">Guinea-Bissau</option>
+    <option value="GY">Guyana</option>
+    <option value="HT">Haiti</option>
+    <option value="HM">Heard Island and Mcdonald Islands</option>
+    <option value="VA">Holy See (Vatican City State)</option>
+    <option value="HN">Honduras</option>
+    <option value="HK">Hong Kong</option>
+    <option value="HU">Hungary</option>
+    <option value="IS">Iceland</option>
+    <option value="IN">India</option>
+    <option value="ID">Indonesia</option>
+    <option value="IR">Iran, Islamic Republic of</option>
+    <option value="IQ">Iraq</option>
+    <option value="IE">Ireland</option>
+    <option value="IM">Isle of Man</option>
+    <option value="IL">Israel</option>
+    <option value="IT">Italy</option>
+    <option value="JM">Jamaica</option>
+    <option value="JP">Japan</option>
+    <option value="JE">Jersey</option>
+    <option value="JO">Jordan</option>
+    <option value="KZ">Kazakhstan</option>
+    <option value="KE">Kenya</option>
+    <option value="KI">Kiribati</option>
+    <option value="KP">Korea, Democratic People's Republic of</option>
+    <option value="KR">Korea, Republic of</option>
+    <option value="XK">Kosovo</option>
+    <option value="KW">Kuwait</option>
+    <option value="KG">Kyrgyzstan</option>
+    <option value="LA">Lao People's Democratic Republic</option>
+    <option value="LV">Latvia</option>
+    <option value="LB">Lebanon</option>
+    <option value="LS">Lesotho</option>
+    <option value="LR">Liberia</option>
+    <option value="LY">Libyan Arab Jamahiriya</option>
+    <option value="LI">Liechtenstein</option>
+    <option value="LT">Lithuania</option>
+    <option value="LU">Luxembourg</option>
+    <option value="MO">Macao</option>
+    <option value="MK">Macedonia, the Former Yugoslav Republic of</option>
+    <option value="MG">Madagascar</option>
+    <option value="MW">Malawi</option>
+    <option value="MY">Malaysia</option>
+    <option value="MV">Maldives</option>
+    <option value="ML">Mali</option>
+    <option value="MT">Malta</option>
+    <option value="MH">Marshall Islands</option>
+    <option value="MQ">Martinique</option>
+    <option value="MR">Mauritania</option>
+    <option value="MU">Mauritius</option>
+    <option value="YT">Mayotte</option>
+    <option value="MX">Mexico</option>
+    <option value="FM">Micronesia, Federated States of</option>
+    <option value="MD">Moldova, Republic of</option>
+    <option value="MC">Monaco</option>
+    <option value="MN">Mongolia</option>
+    <option value="ME">Montenegro</option>
+    <option value="MS">Montserrat</option>
+    <option value="MA">Morocco</option>
+    <option value="MZ">Mozambique</option>
+    <option value="MM">Myanmar</option>
+    <option value="NA">Namibia</option>
+    <option value="NR">Nauru</option>
+    <option value="NP">Nepal</option>
+    <option value="NL">Netherlands</option>
+    <option value="AN">Netherlands Antilles</option>
+    <option value="NC">New Caledonia</option>
+    <option value="NZ">New Zealand</option>
+    <option value="NI">Nicaragua</option>
+    <option value="NE">Niger</option>
+    <option value="NG">Nigeria</option>
+    <option value="NU">Niue</option>
+    <option value="NF">Norfolk Island</option>
+    <option value="MP">Northern Mariana Islands</option>
+    <option value="NO">Norway</option>
+    <option value="OM">Oman</option>
+    <option value="PK">Pakistan</option>
+    <option value="PW">Palau</option>
+    <option value="PS">Palestinian Territory, Occupied</option>
+    <option value="PA">Panama</option>
+    <option value="PG">Papua New Guinea</option>
+    <option value="PY">Paraguay</option>
+    <option value="PE">Peru</option>
+    <option value="PH">Philippines</option>
+    <option value="PN">Pitcairn</option>
+    <option value="PL">Poland</option>
+    <option value="PT">Portugal</option>
+    <option value="PR">Puerto Rico</option>
+    <option value="QA">Qatar</option>
+    <option value="RE">Reunion</option>
+    <option value="RO">Romania</option>
+    <option value="RU">Russian Federation</option>
+    <option value="RW">Rwanda</option>
+    <option value="BL">Saint Barthelemy</option>
+    <option value="SH">Saint Helena</option>
+    <option value="KN">Saint Kitts and Nevis</option>
+    <option value="LC">Saint Lucia</option>
+    <option value="MF">Saint Martin</option>
+    <option value="PM">Saint Pierre and Miquelon</option>
+    <option value="VC">Saint Vincent and the Grenadines</option>
+    <option value="WS">Samoa</option>
+    <option value="SM">San Marino</option>
+    <option value="ST">Sao Tome and Principe</option>
+    <option value="SA">Saudi Arabia</option>
+    <option value="SN">Senegal</option>
+    <option value="RS">Serbia</option>
+    <option value="CS">Serbia and Montenegro</option>
+    <option value="SC">Seychelles</option>
+    <option value="SL">Sierra Leone</option>
+    <option value="SG">Singapore</option>
+    <option value="SX">Sint Maarten</option>
+    <option value="SK">Slovakia</option>
+    <option value="SI">Slovenia</option>
+    <option value="SB">Solomon Islands</option>
+    <option value="SO">Somalia</option>
+    <option value="ZA">South Africa</option>
+    <option value="GS">South Georgia and the South Sandwich Islands</option>
+    <option value="SS">South Sudan</option>
+    <option value="ES">Spain</option>
+    <option value="LK">Sri Lanka</option>
+    <option value="SD">Sudan</option>
+    <option value="SR">Suriname</option>
+    <option value="SJ">Svalbard and Jan Mayen</option>
+    <option value="SZ">Swaziland</option>
+    <option value="SE">Sweden</option>
+    <option value="CH">Switzerland</option>
+    <option value="SY">Syrian Arab Republic</option>
+    <option value="TW">Taiwan, Province of China</option>
+    <option value="TJ">Tajikistan</option>
+    <option value="TZ">Tanzania, United Republic of</option>
+    <option value="TH">Thailand</option>
+    <option value="TL">Timor-Leste</option>
+    <option value="TG">Togo</option>
+    <option value="TK">Tokelau</option>
+    <option value="TO">Tonga</option>
+    <option value="TT">Trinidad and Tobago</option>
+    <option value="TN">Tunisia</option>
+    <option value="TR">Turkey</option>
+    <option value="TM">Turkmenistan</option>
+    <option value="TC">Turks and Caicos Islands</option>
+    <option value="TV">Tuvalu</option>
+    <option value="UG">Uganda</option>
+    <option value="UA">Ukraine</option>
+    <option value="AE">United Arab Emirates</option>
+    <option value="GB">United Kingdom</option>
+    <option value="US">United States</option>
+    <option value="UM">United States Minor Outlying Islands</option>
+    <option value="UY">Uruguay</option>
+    <option value="UZ">Uzbekistan</option>
+    <option value="VU">Vanuatu</option>
+    <option value="VE">Venezuela</option>
+    <option value="VN">Viet Nam</option>
+    <option value="VG">Virgin Islands, British</option>
+    <option value="VI">Virgin Islands, U.s.</option>
+    <option value="WF">Wallis and Futuna</option>
+    <option value="EH">Western Sahara</option>
+    <option value="YE">Yemen</option>
+    <option value="ZM">Zambia</option>
+    <option value="ZW">Zimbabwe</option>
+              
+          </select>
+        </div>
+
+        <div class="addressFormInput setDeafAddress">
+          {{ form.set_as_default_checkbox }}
+          <label for="address_default_address_{{ form.id }}" class="ma0 ml1">
+            {{ 'customer.addresses.set_default' | t }}
+          </label>
+        </div>
+        
+    
+        <button type="submit" class="profileBtn">Update and Save</button>
+        <button type="button" class="cancelBtn" onclick="backToDashPart1()">Cancel</button>
+        {% endform %}
+       {% if paginate.pages > 1 %}
+      {% render 'pagination' with
+        type: 'general.pagination.addresses',
+        paginate: paginate
+      %}
+    {% endif %}
+
+  {% endpaginate %}
+<!--       </form> -->
+<!-- add new address -->
+
+<!--   <form action="#" class="addressForm" style="display:none" id="addressForm2"> -->
+  
+{% form 'customer_address', customer.new_address , class:"addressForm", style:"display:none", id:"addressForm2"  %}
+  
+        <div class="addressFormInput">
+          <label><i class="fa fa-user" aria-hidden="true"></i>First Name</label>
+          <input type="text"
+                  name="address[first_name]"
+                  placeholder="{{ 'customer.addresses.first_name' | t }}"
+                  id="AddressFirstNameNew"
+                  class="input"
+                  value="{{ form.first_name }}"
+                  autocapitalize="words">
+        </div>
+
+        <div class="addressFormInput">
+          <label><i class="fa fa-user" aria-hidden="true"></i>Last Name</label>
+          <input type="text"
+                  name="address[last_name]"
+                  placeholder="{{ 'customer.addresses.last_name' | t }}"
+                  id="AddressLastNameNew"
+                  class="input"
+                  value="{{ form.last_name }}"
+                  autocapitalize="words">
+        </div>
+
+        <div class="addressFormInput">
+          <label><i class="fa fa-phone" aria-hidden="true"></i>Phone Number</label>
+          <input type="tel"
+                  name="address[phone]"
+                  placeholder="{{ 'customer.addresses.phone' | t }}"
+                  id="AddressPhoneNew"
+                  class="input"
+                  value="{{ form.phone }}"
+                  pattern="[0-9\-]*">
+        </div>
+
+<!--         <div class="addressFormInput">
+          <label><i class="fa fa-envelope" aria-hidden="true"></i>Email Address</label>
+          <input type="email" placeholder="Enter email address">
+        </div> -->
+
+<!--         <div class="addressFormInput">
+          <label><i class="fa fa-briefcase" aria-hidden="true"></i>Profession</label>
+          <input type="text" placeholder="enter profession">
+        </div> -->
+
+        <div class="addressFormInput">
+          <label><i class="fa fa-sitemap" aria-hidden="true"></i>Organization</label>
+          <input type="text"
+                  name="address[company]"
+                  placeholder="{{ 'customer.addresses.company' | t }}"
+                  id="AddressCompanyNew"
+                  class="input"
+                  value="{{ form.company }}"
+                  autocapitalize="words">
+        </div>
+
+        <div class="addressFormInput">
+          <label><i class="fa fa-road" aria-hidden="true"></i>Street(Name & Number)</label>
+          <input type="text"
+                  name="address[city]"
+                  placeholder="{{ 'customer.addresses.city' | t }}"
+                  id="AddressCityNew"
+                  class="input"
+                  value="{{ form.city }}"
+                  autocapitalize="words">
+        </div>
+
+        <div class="addressFormInput">
+          <label><i class="fa fa-map-marker" aria-hidden="true"></i>Post Code</label>
+          <input type="text"
+                  name="address[zip]"
+                  placeholder="{{ 'customer.addresses.zip' | t }}"
+                  id="AddressZipNew"
+                  class="input"
+                  value="{{ form.zip }}"
+                  autocapitalize="characters">
+        </div>
+
+        <div class="addressFormInput">
+          <label><i class="fa fa-flag" aria-hidden="true"></i>State/Province</label>
+          <input type="text" data-address-province
+              name="address[province]"
+              placeholder="{{ 'customer.addresses.province' | t }}"
+              id="AddressProvinceNew"
+              class="input"
+              data-default="{{ form.province }}">
+        </div>
+
+        <div class="addressFormInput" >
+          <label><i class="fa fa-globe" aria-hidden="true"></i>Country</label>
+          <select data-address-country
+              name="address[country]"
+              placeholder="{{ 'customer.addresses.country' | t }}"
+              id="AddressCountryNew"
+              class="input"
+              data-form-id="{{ form.id }}"
+              data-default="{{ form.country }}">
+
+            <option>select country</option>
+    <option value="AF">Afghanistan</option>
+    <option value="AX">Aland Islands</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+    <option value="AO">Angola</option>
+    <option value="AI">Anguilla</option>
+    <option value="AQ">Antarctica</option>
+    <option value="AG">Antigua and Barbuda</option>
+    <option value="AR">Argentina</option>
+    <option value="AM">Armenia</option>
+    <option value="AW">Aruba</option>
+    <option value="AU">Australia</option>
+    <option value="AT">Austria</option>
+    <option value="AZ">Azerbaijan</option>
+    <option value="BS">Bahamas</option>
+    <option value="BH">Bahrain</option>
+    <option value="BD">Bangladesh</option>
+    <option value="BB">Barbados</option>
+    <option value="BY">Belarus</option>
+    <option value="BE">Belgium</option>
+    <option value="BZ">Belize</option>
+    <option value="BJ">Benin</option>
+    <option value="BM">Bermuda</option>
+    <option value="BT">Bhutan</option>
+    <option value="BO">Bolivia</option>
+    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+    <option value="BA">Bosnia and Herzegovina</option>
+    <option value="BW">Botswana</option>
+    <option value="BV">Bouvet Island</option>
+    <option value="BR">Brazil</option>
+    <option value="IO">British Indian Ocean Territory</option>
+    <option value="BN">Brunei Darussalam</option>
+    <option value="BG">Bulgaria</option>
+    <option value="BF">Burkina Faso</option>
+    <option value="BI">Burundi</option>
+    <option value="KH">Cambodia</option>
+    <option value="CM">Cameroon</option>
+    <option value="CA">Canada</option>
+    <option value="CV">Cape Verde</option>
+    <option value="KY">Cayman Islands</option>
+    <option value="CF">Central African Republic</option>
+    <option value="TD">Chad</option>
+    <option value="CL">Chile</option>
+    <option value="CN">China</option>
+    <option value="CX">Christmas Island</option>
+    <option value="CC">Cocos (Keeling) Islands</option>
+    <option value="CO">Colombia</option>
+    <option value="KM">Comoros</option>
+    <option value="CG">Congo</option>
+    <option value="CD">Congo, Democratic Republic of the Congo</option>
+    <option value="CK">Cook Islands</option>
+    <option value="CR">Costa Rica</option>
+    <option value="CI">Cote D'Ivoire</option>
+    <option value="HR">Croatia</option>
+    <option value="CU">Cuba</option>
+    <option value="CW">Curacao</option>
+    <option value="CY">Cyprus</option>
+    <option value="CZ">Czech Republic</option>
+    <option value="DK">Denmark</option>
+    <option value="DJ">Djibouti</option>
+    <option value="DM">Dominica</option>
+    <option value="DO">Dominican Republic</option>
+    <option value="EC">Ecuador</option>
+    <option value="EG">Egypt</option>
+    <option value="SV">El Salvador</option>
+    <option value="GQ">Equatorial Guinea</option>
+    <option value="ER">Eritrea</option>
+    <option value="EE">Estonia</option>
+    <option value="ET">Ethiopia</option>
+    <option value="FK">Falkland Islands (Malvinas)</option>
+    <option value="FO">Faroe Islands</option>
+    <option value="FJ">Fiji</option>
+    <option value="FI">Finland</option>
+    <option value="FR">France</option>
+    <option value="GF">French Guiana</option>
+    <option value="PF">French Polynesia</option>
+    <option value="TF">French Southern Territories</option>
+    <option value="GA">Gabon</option>
+    <option value="GM">Gambia</option>
+    <option value="GE">Georgia</option>
+    <option value="DE">Germany</option>
+    <option value="GH">Ghana</option>
+    <option value="GI">Gibraltar</option>
+    <option value="GR">Greece</option>
+    <option value="GL">Greenland</option>
+    <option value="GD">Grenada</option>
+    <option value="GP">Guadeloupe</option>
+    <option value="GU">Guam</option>
+    <option value="GT">Guatemala</option>
+    <option value="GG">Guernsey</option>
+    <option value="GN">Guinea</option>
+    <option value="GW">Guinea-Bissau</option>
+    <option value="GY">Guyana</option>
+    <option value="HT">Haiti</option>
+    <option value="HM">Heard Island and Mcdonald Islands</option>
+    <option value="VA">Holy See (Vatican City State)</option>
+    <option value="HN">Honduras</option>
+    <option value="HK">Hong Kong</option>
+    <option value="HU">Hungary</option>
+    <option value="IS">Iceland</option>
+    <option value="IN">India</option>
+    <option value="ID">Indonesia</option>
+    <option value="IR">Iran, Islamic Republic of</option>
+    <option value="IQ">Iraq</option>
+    <option value="IE">Ireland</option>
+    <option value="IM">Isle of Man</option>
+    <option value="IL">Israel</option>
+    <option value="IT">Italy</option>
+    <option value="JM">Jamaica</option>
+    <option value="JP">Japan</option>
+    <option value="JE">Jersey</option>
+    <option value="JO">Jordan</option>
+    <option value="KZ">Kazakhstan</option>
+    <option value="KE">Kenya</option>
+    <option value="KI">Kiribati</option>
+    <option value="KP">Korea, Democratic People's Republic of</option>
+    <option value="KR">Korea, Republic of</option>
+    <option value="XK">Kosovo</option>
+    <option value="KW">Kuwait</option>
+    <option value="KG">Kyrgyzstan</option>
+    <option value="LA">Lao People's Democratic Republic</option>
+    <option value="LV">Latvia</option>
+    <option value="LB">Lebanon</option>
+    <option value="LS">Lesotho</option>
+    <option value="LR">Liberia</option>
+    <option value="LY">Libyan Arab Jamahiriya</option>
+    <option value="LI">Liechtenstein</option>
+    <option value="LT">Lithuania</option>
+    <option value="LU">Luxembourg</option>
+    <option value="MO">Macao</option>
+    <option value="MK">Macedonia, the Former Yugoslav Republic of</option>
+    <option value="MG">Madagascar</option>
+    <option value="MW">Malawi</option>
+    <option value="MY">Malaysia</option>
+    <option value="MV">Maldives</option>
+    <option value="ML">Mali</option>
+    <option value="MT">Malta</option>
+    <option value="MH">Marshall Islands</option>
+    <option value="MQ">Martinique</option>
+    <option value="MR">Mauritania</option>
+    <option value="MU">Mauritius</option>
+    <option value="YT">Mayotte</option>
+    <option value="MX">Mexico</option>
+    <option value="FM">Micronesia, Federated States of</option>
+    <option value="MD">Moldova, Republic of</option>
+    <option value="MC">Monaco</option>
+    <option value="MN">Mongolia</option>
+    <option value="ME">Montenegro</option>
+    <option value="MS">Montserrat</option>
+    <option value="MA">Morocco</option>
+    <option value="MZ">Mozambique</option>
+    <option value="MM">Myanmar</option>
+    <option value="NA">Namibia</option>
+    <option value="NR">Nauru</option>
+    <option value="NP">Nepal</option>
+    <option value="NL">Netherlands</option>
+    <option value="AN">Netherlands Antilles</option>
+    <option value="NC">New Caledonia</option>
+    <option value="NZ">New Zealand</option>
+    <option value="NI">Nicaragua</option>
+    <option value="NE">Niger</option>
+    <option value="NG">Nigeria</option>
+    <option value="NU">Niue</option>
+    <option value="NF">Norfolk Island</option>
+    <option value="MP">Northern Mariana Islands</option>
+    <option value="NO">Norway</option>
+    <option value="OM">Oman</option>
+    <option value="PK">Pakistan</option>
+    <option value="PW">Palau</option>
+    <option value="PS">Palestinian Territory, Occupied</option>
+    <option value="PA">Panama</option>
+    <option value="PG">Papua New Guinea</option>
+    <option value="PY">Paraguay</option>
+    <option value="PE">Peru</option>
+    <option value="PH">Philippines</option>
+    <option value="PN">Pitcairn</option>
+    <option value="PL">Poland</option>
+    <option value="PT">Portugal</option>
+    <option value="PR">Puerto Rico</option>
+    <option value="QA">Qatar</option>
+    <option value="RE">Reunion</option>
+    <option value="RO">Romania</option>
+    <option value="RU">Russian Federation</option>
+    <option value="RW">Rwanda</option>
+    <option value="BL">Saint Barthelemy</option>
+    <option value="SH">Saint Helena</option>
+    <option value="KN">Saint Kitts and Nevis</option>
+    <option value="LC">Saint Lucia</option>
+    <option value="MF">Saint Martin</option>
+    <option value="PM">Saint Pierre and Miquelon</option>
+    <option value="VC">Saint Vincent and the Grenadines</option>
+    <option value="WS">Samoa</option>
+    <option value="SM">San Marino</option>
+    <option value="ST">Sao Tome and Principe</option>
+    <option value="SA">Saudi Arabia</option>
+    <option value="SN">Senegal</option>
+    <option value="RS">Serbia</option>
+    <option value="CS">Serbia and Montenegro</option>
+    <option value="SC">Seychelles</option>
+    <option value="SL">Sierra Leone</option>
+    <option value="SG">Singapore</option>
+    <option value="SX">Sint Maarten</option>
+    <option value="SK">Slovakia</option>
+    <option value="SI">Slovenia</option>
+    <option value="SB">Solomon Islands</option>
+    <option value="SO">Somalia</option>
+    <option value="ZA">South Africa</option>
+    <option value="GS">South Georgia and the South Sandwich Islands</option>
+    <option value="SS">South Sudan</option>
+    <option value="ES">Spain</option>
+    <option value="LK">Sri Lanka</option>
+    <option value="SD">Sudan</option>
+    <option value="SR">Suriname</option>
+    <option value="SJ">Svalbard and Jan Mayen</option>
+    <option value="SZ">Swaziland</option>
+    <option value="SE">Sweden</option>
+    <option value="CH">Switzerland</option>
+    <option value="SY">Syrian Arab Republic</option>
+    <option value="TW">Taiwan, Province of China</option>
+    <option value="TJ">Tajikistan</option>
+    <option value="TZ">Tanzania, United Republic of</option>
+    <option value="TH">Thailand</option>
+    <option value="TL">Timor-Leste</option>
+    <option value="TG">Togo</option>
+    <option value="TK">Tokelau</option>
+    <option value="TO">Tonga</option>
+    <option value="TT">Trinidad and Tobago</option>
+    <option value="TN">Tunisia</option>
+    <option value="TR">Turkey</option>
+    <option value="TM">Turkmenistan</option>
+    <option value="TC">Turks and Caicos Islands</option>
+    <option value="TV">Tuvalu</option>
+    <option value="UG">Uganda</option>
+    <option value="UA">Ukraine</option>
+    <option value="AE">United Arab Emirates</option>
+    <option value="GB">United Kingdom</option>
+    <option value="US">United States</option>
+    <option value="UM">United States Minor Outlying Islands</option>
+    <option value="UY">Uruguay</option>
+    <option value="UZ">Uzbekistan</option>
+    <option value="VU">Vanuatu</option>
+    <option value="VE">Venezuela</option>
+    <option value="VN">Viet Nam</option>
+    <option value="VG">Virgin Islands, British</option>
+    <option value="VI">Virgin Islands, U.s.</option>
+    <option value="WF">Wallis and Futuna</option>
+    <option value="EH">Western Sahara</option>
+    <option value="YE">Yemen</option>
+    <option value="ZM">Zambia</option>
+    <option value="ZW">Zimbabwe</option>
+            
+          </select>
+        </div>
+  
+        <button type="submit" class="profileBtn">Save Address</button>
+        <button type="button" class="cancelBtn" onclick="backToDashPart1()">Cancel</button>
+{% endform %}
+<!--       </form> -->
+<!--   end of modal -->
+  
+
+</div>
+
+<div id="myProfileArea" style="display:none" class="dashboardArea">
+  <div class="dashboardArea">
+      <div class="dashboardArea-top">
+        <h1>My Profile</h1>
+        <a href="{{ routes.account_logout_url }}"><div class="account__logout1"><i class="fa-solid fa-power-off"></i><span class="myAccLogOutTxt">{{ 'general.menu.logout' | t }}</span></div></a>
+      </div>
+  </div>
+  <div class="myProfileArea">
+    <div class="myProfileLeft">
+      <div class="profileCard">
+        <div class="pRect"></div>
+        <div class="cTitle"> <p>Account Information</p></div>
+<!--         action="https://erp.dilmahtea.com/api/update-customer" method="post" -->
+       
+            <div class="pInfo">
+              <div class="profileAccInfoTbl">
+                
+                <input type="hidden" name="customer_id" placeholder="{{ customer.id }}" value="{{ customer.id }}">
+                <input type="hidden" name="store_id" placeholder="61718167738" value="61718167738">
+
+                <table class="profileInfo">
+               <tr>
+                  <td>First Name</td><td> : </td><td> <input name="first_name" type="text" value="{{ customer.first_name }}"></td>
+                </tr>
+                <tr>
+                  <td>Last Name</td><td> : </td><td><input name="last_name" type="text" value="{{ customer.last_name }}"></td>
+                </tr>
+                <tr>
+                  <td>Phone Number</td><td> : </td><td><input name="phone" type="phone" value="{{ customer.phone }}"></td>
+                </tr>
+                <tr>
+                  <td>Email Address</td><td> : </td><td><input type="email" name="email" value="{{ customer.email }}"></td>
+                </tr> 
+              </table>
+              </div>
+              <div class="profileAccInfoTbl">
+              <table class="profileInfo">
+              <tr>
+                <td>D.O.B</td><td> : </td><td><input name="dob" type="date" value="{{ dob }}"></td>
+              </tr>
+              <tr>
+                <td>Gender</td><td> : </td><td>
+                  <select name="gender">
+                    <option value="Male"  {% if gender == "Male" %} selected{% endif %}>Male</option>
+                    <option value="Female" {% if gender == "Female" %} selected{% endif %}>Female</option>
+                  </select></td>
+              </tr> 
+              <tr>
+                <td>Profession</td><td> : </td><td><input name="profession" type="text" value="{{ profession }}"></td>
+              </tr>
+              <tr>
+                <td>Organization</td><td> : </td><td><input name="organization" type="text" value="{{ organization }}"></td>
+              </tr>
+            </table>
+              <button onclick="updateAccountDetails()" class="changeProfileInfoBtn" type="button">Update</button>
+            </div>
+            </div>
+
+        <script id="script_{{ customer.id }}">
+          {% for tag in customer.metafields.my_fields %}
+          tag is - {{ tag }}
+            {% endfor %}
+        </script>
+      </div>
+      
+    </div>
+    <div class="myProfileRight" style="display:none;">
+      {% form 'customer', customer %}
+        {% endform %}
+      <form action="#" >
+        <div class="profileFormInput">
+          <label><i class="fa fa-user" aria-hidden="true"></i>First Name</label>
+          <input type="text" placeholder="Enter first name">
+        </div>
+
+        <div class="profileFormInput">
+          <label><i class="fa fa-user" aria-hidden="true"></i>Last Name</label>
+          <input type="text" placeholder="Enter last name">
+        </div>
+
+        <div class="profileFormInput">
+          <label><i class="fa fa-phone" aria-hidden="true"></i>Phone Number</label>
+          <input type="phone" placeholder="Enter phone number">
+        </div>
+
+        <div class="profileFormInput">
+          <label><i class="fa fa-envelope" aria-hidden="true"></i>Email Address</label>
+          <input type="email" placeholder="Enter email address">
+        </div>
+
+        <div class="profileFormInput">
+          <label><i class="fa fa-calendar-o" aria-hidden="true"></i>Date Of Birth</label>
+          <input type="date" placeholder="dd/mm/yy">
+        </div>
+
+        <div class="profileFormInput">
+          <label><i class="fa fa-male" aria-hidden="true"></i>Gender</label>
+          <select name="gender" id="">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+
+        <div class="profileFormInput">
+          <label><i class="fa fa-briefcase" aria-hidden="true"></i>Profession</label>
+          <input type="text" placeholder="enter profession">
+        </div>
+
+        <div class="profileFormInput">
+          <label><i class="fa fa-sitemap" aria-hidden="true"></i>Organization</label>
+          <input type="text" placeholder="enter organization name">
+        </div>
+
+        <button type="submit" class="profileBtn">Update and Save</button>
+      
+      </form>
+    </div>
+  </div>
+  
+</div>
+
+<div id="myOrdersArea" style="display:none" class="dashboardArea">
+    <div class="dashboardArea">
+      <div class="dashboardArea-top">
+        <h1>My Orders</h1>
+        <a href="{{ routes.account_logout_url }}"><div class="account__logout1"><i class="fa-solid fa-power-off"></i><span class="myAccLogOutTxt">{{ 'general.menu.logout' | t }}</span></div></a>
+      </div>
+
+
+    
+
+
+{% paginate customer.orders by 99999999999999999 %}
+      {% if customer.orders.size != 0 %}
+
+      <div class="orderCardTbl">
+        <div class="orderTblRect"></div>
+        <div class="ordTitle"> <p>Track Order ID : #12214</p></div>
+        <div class="orderTblBody">
+
+           <table class="responsive-table" cellspacing="0">
+          <thead>
+            <tr>
+              <th>{{ 'customer.orders.order_number' | t }}</th>
+              <th>{{ 'customer.orders.date' | t }}</th>
+              <th>{{ 'customer.orders.payment_status' | t }}</th>
+              <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+              <th colspan="2">{{ 'customer.orders.total' | t }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in customer.orders %}
+              <tr class="responsive-table-row">
+                <td data-label="{{ 'customer.orders.order_number' | t }}"> {{ order.name | link_to: order.customer_url }}</td>
+                <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: "%B %d, %Y" }}</td>
+                <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
+                <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+                <td ><button onclick="openOrdInDetails('track{{ order.order_number }}')">Track Order</button></td>
+                <script id="track{{ order.order_number }}">
+                  {% assign orderStatus = "" %}
+                  {% for tag in order.tags %}
+                  {% if tag contains "status:" %}
+                  {% assign orderStatus = tag |  replace: "status:", "" | strip  %}
+                  {% endif %}
+                  {% endfor %}
+                      {
+                        "orderID": "{{ order.name }}",
+                          "create_at" : "{{ order.created_at | date: "%B %d, %Y" }}",
+                          "cancel_at": "{{ order.cancelled_at | date: "%B %d, %Y" }}",
+                          "payment_status" : "{{ order.fulfillment_status }}",
+                          "total": "{{ order.total_price | money }}",
+                          "tag" : "{{ orderStatus }}",
+                        "billing_address": {
+                            "email": "{{order.email}}",
+                            "address1": "{{ order.billing_address.address1 }}",
+                            "address2": "{{ order.billing_address.address2 }}",
+                            "contact": "{{ order.billing_address.phone }}",
+                            "city": "{{ order.billing_address.city }}",
+                            "first_name": "{{ order.billing_address.first_name }}",
+                            "last_name": "{{ order.billing_address.last_name }}",
+                            "country": "{{ order.billing_address.country }}",
+                            "province": "{{ order.billing_address.province }}",
+                            "zip": "{{ order.billing_address.zip }}"
+                        },
+                        "shipping_address": {
+                            "email": "{{order.email}}",
+                            "address1": "{{ order.shipping_address.address1 }}",
+                            "address2": "{{ order.shipping_address.address2 }}",
+                            "contact": "{{ order.shipping_address.phone }}",
+                            "city": "{{ order.shipping_address.city }}",
+                            "first_name": "{{ order.shipping_address.first_name }}",
+                            "last_name": "{{ order.shipping_address.last_name }}",
+                            "country": "{{ order.shipping_address.country }}",
+                            "province": "{{ order.shipping_address.province }}",
+                            "zip": "{{ order.shipping_address.zip }}"
+                        },
+                        "financial_status": "{{ order.financial_status }}",
+                        "shipping_address_elem": "{{ order.shipping_address | format_address }}",
+                        "billing_address_elem": "{{ order.billing_address | format_address }}",
+                        "fullfilment_status": "{{ order.fulfillment_status }}",
+                        "line_items": 
+                              [
+                        {% for line_item in order.line_items %}
+                        {
+                          "title": "{{line_item.title}}",
+                          "sku": "{{ line_item.sku }}",
+                          "qty" : "{{ line_item.quantity }}",
+                          "unitPrice": "{{ line_item.final_price | money}}",
+                          "total": "{{ line_item.original_line_price | money}}"
+                        } {% if forloop.last == false %}
+                          ,
+                            {% endif %}
+                        {% endfor %}      
+                        ]
+                      }
+                </script>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </span>
+          
+        </div>
+    </div>
+       
+    <!--   <span class="three">
+         <div class="rewards-wrap">{% if customer %} Your Points Balance : <span class="sweettooth-points-balance"></span> {% endif %}</div>
+        <div class="account__logout"><a class="underline" href="{{ routes.account_logout_url }}">{{ 'general.menu.logout' | t }}</a></div>
+       
+      </span> -->
+          {% else %}
+        <p class="tc">{{ 'customer.orders.none' | t }}</p>
+      {% endif %}
+  
+      {% if paginate.pages > 1 %}
+        <div class="pagination" id="pagination" style="display:none;">
+        {% render 'pagination' with
+          type: 'general.pagination.orders',
+          paginate: paginate
+        %}</div>
+      {% endif %}
+  
+    {% endpaginate %}
+
+
+  </div>
+
+  <div class="OrderDetails"  id="ordInDetails">
+<!--     top start -->
+  <div class="orderCard1" style="display:none;">
+        <div class="rRect"></div>
+        <div class="ordTitle"> <p>Track Order</p></div>
+        <div class="ordNumber">
+          <form class="checkOrdForm">
+            <label><i class="fa fa-shopping-bag" aria-hidden="true"></i><span style="padding:0px 8px">Order Number</span></label>
+            <br>
+            <input type="text" class="ordFormInput">
+            <button class="orderBtn">Check Order Status</button>
+          </form>
+        </div>
+    </div>
+
+    <div class="orderCard2">
+        <div class="rRect"></div>
+        <div class="ordTitle"> <p>Track Order ID : #12214</p></div>
+        <div class="ordNumber">
+          
+          <div class="ordTrackingLine">
+          <div style="margin-bottom:55px">
+              <div style="width:120%;">
+                <div class="order-tracking ">
+                    <img class="ecomOrdImg orderAccepted-default" src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/1-b.png?v=1659766211">
+                    <img class="ecomOrdImg orderAccepted-processing ecom_hide" src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/order-created.gif?v=1659763023">
+                    <img class="ecomOrdImg orderAccepted-complete ecom_hide" src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/1_b0d78cfc-5ee2-47b2-a82e-bd822d6ca789.png?v=1659766211">
+                </div>
+                <div class="order-tracking ">
+                    <img class="ecomOrdImg packageConfirm-default" src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/2-b.png?v=1659766211">
+                    <img class="ecomOrdImg packageConfirm-processing ecom_hide" src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/processing.gif?v=1659763023">
+                    <img class="ecomOrdImg packageConfirm-complete ecom_hide" src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/2_0db8a734-1fd1-4f34-bdd2-1c5af0541cc4.png?v=1659766211">
+                </div>
+                <div class="order-tracking">
+                    <img class="ecomOrdImg orderProcessing-default" src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/3-b..png?v=1659766211">
+                    <img class="ecomOrdImg orderProcessing-processing ecom_hide" src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/packed.gif?v=1659763023">
+                    <img class="ecomOrdImg orderProcessing-complete ecom_hide" src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/3_824452bc-7393-44fd-afce-e128756a1686.png?v=1659766211">
+                    </span>
+                </div>
+                <div class="order-tracking">
+                    <img class="ecomOrdImg productionClosed-default" src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/4-b_1.png?v=1659933958">
+                    <img class="ecomOrdImg productionClosed-processing ecom_hide" src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/shipping.gif?v=1659763023">
+                    <img class="ecomOrdImg productionClosed-complete ecom_hide" src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/4_0bb37f2d-f234-4f46-bf62-fd8979b48d5a.png?v=1659766211">
+                </div>
+              </div>
+          </div>
+      </div>
+
+        </div>
+    </div>
+<!--     top end -->
+    <div class="orderDetailsCard">
+      <p style="cursor: pointer;" onclick="this.closest(`#ordInDetails`).classList.remove('orderInDetailsShow')">&lt; Back to Order Page</p>
+        <button class="ordPrintBtn"><i class="fa fa-print" aria-hidden="true"></i>Print</button>
+        <h2>Order #12220</h2>
+        <h4>May 05,2022</h4>
+        <hr>
+        <button class="trackOrdBtn">Track Order</button>
+        <button class="ordPrintBtn">Recorder</button>
+
+        <h3>Line Items</h3>
+    </div>
+        <table class="responsive-table orderItem" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>SKU</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+           <tbody>
+              <tr class="responsive-table-row">
+                <td>ecom-test</td>
+                <td>82786-001-001</td>
+                <td>Us$0.00</td>
+                <td>1</td>
+                <td>US$0.00</td>
+              </tr>
+            <tr class="responsive-table-row">
+                <td>ecom-test</td>
+                <td>82786-001-001</td>
+                <td>Us$0.00</td>
+                <td>1</td>
+                <td>US$0.00</td>
+            </tr>
+
+            <tr class="responsive-table-row">
+                <td colspan="4" style="text-align: left;padding-left: 50px;">Subtotal</td>
+                <td>US$0.00</td>
+            </tr>
+
+            <tr class="responsive-table-row">
+                <td colspan="4" style="text-align: left;padding-left: 50px;">Total</td>
+                <td>US$0.00 USD</td>
+            </tr>
+          </tbody>
+        </table>
+              <div class="myOrdersCards">
+        <div class="myOrdersaddressCard shipping">
+          <div class="cTitle"> <p>Shipping Address</p></div>
+          <div class="cInfo" style="padding:20px">
+            <p class="personName">{{ customer.first_name }} {{ customer.last_name }}</p>
+            <p>Email &nbsp;: {{ customer.email }}</p>
+            <p>Contact &nbsp;: {{ customer.phone }}</p>
+            <p>Address &nbsp;: {{ customer.addresses }}</p>
+          </div>
+        </div>
+
+        <div class="myOrdersaddressCard billing">
+          <div class="cTitle"> <p>Billing Address</p></div>
+          <div class="cInfo" style="padding:20px">
+            <p class="personName">{{ customer.first_name }} {{ customer.last_name }}</p>
+            <p>Email &nbsp;: {{ customer.email }}</p>
+            <p>Contact &nbsp;: {{ customer.phone }}</p>
+            <p>Address &nbsp;: {{ customer.addresses }}</p>
+          </div>
+        </div>
+      </div>
+
+       <div class="myOrderStatusCards ">
+        <div class="paymentCard">
+          
+            <p class="personName">Payment Status</p>
+            <p class="status">Paid</p>
+          
+        </div>
+
+        <div class="fulfilmentCard">
+          
+            <p class="personName">Fulfilment Status</p>
+            <p class="status">Unfulfilled</p>
+          
+        </div>
+        `
+      </div>
+  </div>
+</div>
+
+<div id="reviewsArea" style="display:none" class="dashboardArea">
+  <div class="dashboardArea">
+      <div class="dashboardArea-top">
+        <h1>Reviews and Rewards Points</h1>
+        <a href="{{ routes.account_logout_url }}"><div class="account__logout1"><i class="fa-solid fa-power-off"></i><span class="myAccLogOutTxt">{{ 'general.menu.logout' | t }}</span></div></a>
+      </div>
+  </div>
+
+
+      {% if customer.orders.size != 0 %}
+      <div class="orderCardTbl">
+        <div class="orderTblRect"></div>
+        <div class="ordTitle"> <p>Total 5 Reviews</p></div>
+        <div class="orderTblBody">
+
+           <table class="responsive-table" cellspacing="0">
+          <thead>
+            <tr>
+              <th>{{ 'customer.orders.order_number' | t }}</th>
+              <th>{{ 'customer.orders.date' | t }}</th>
+              <th>{{ 'customer.orders.payment_status' | t }}</th>
+              <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+              <th>{{ 'customer.orders.total' | t }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in customer.orders %}
+              <tr class="responsive-table-row">
+                <td data-label="{{ 'customer.orders.order_number' | t }}">{{ order.name | link_to: order.customer_url }}</td>
+                <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: "%B %d, %Y" }}</td>
+                <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
+                <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </span>
+          
+        </div>
+    </div>
+       
+    <!--   <span class="three">
+         <div class="rewards-wrap">{% if customer %} Your Points Balance : <span class="sweettooth-points-balance"></span> {% endif %}</div>
+        <div class="account__logout"><a class="underline" href="{{ routes.account_logout_url }}">{{ 'general.menu.logout' | t }}</a></div>
+       
+      </span> -->
+          {% else %}
+        <p class="tc">{{ 'customer.orders.none' | t }}</p>
+      {% endif %}
+  
+      {% if paginate.pages > 1 %}
+        <div class="pagination" id="pagination" style="display:none;">
+        {% render 'pagination' with
+          type: 'general.pagination.orders',
+          paginate: paginate
+        %}</div>
+      {% endif %}
+  
+  
+</div>
+
+<div id="creditArea" style="display:none" class="dashboardArea">
+  <div class="dashboardArea">
+      <div class="dashboardArea-top">
+        <h1>Store Credit</h1>
+        <a href="{{ routes.account_logout_url }}"><div class="account__logout1"><i class="fa-solid fa-power-off"></i><span class="myAccLogOutTxt">{{ 'general.menu.logout' | t }}</span></div></a>
+      </div>
+  </div>
+
+  <div class="storeCredit">
+    <div class="storeInfo">
+      
+      <div class="storeInfoRow">
+        <p><b>Balance :</b></p>
+        <p>Your current balance is : $ <span class="sweettooth-points-balance" style="font-size:24px;font-weight:700;"></span></p>
+        <hr>
+      </div>
+
+      <div class="storeInfoRow">
+        <p><b>Reward Points Balance Information :</b></p>
+        <p>Your current balanace is XX reward points. This can be converted to $XX/XX discount on your next order.</p>
+        <hr>
+      </div>
+
+      <div class="storeInfoRow">
+        <p><b>Current Exchange Rates :</b></p>
+        <p>You can convert reward points to store credit. Each 100 points can be redeemed for $1.00</p>
+        <hr>
+      </div>
+
+      <div class="storeInfoRow">
+        <p><b>Balance Limitations :</b></p>
+        <p>Minimum balance to order to redeem: 1reward point</p>
+        <hr>
+      </div>
+
+      <div class="storeInfoRow">
+        <p><b>Each earned reward points record expires in 365 days :</b></p>
+        <p>Refer to reward points history to see if a specific record expires and when</p>
+        <hr>
+      </div>
+      
+    </div>
+
+
+      {% if customer.orders.size != 0 %}
+      <div class="orderCardTbl">
+        <div class="orderTblRect"></div>
+        <div class="ordTitle"> <p>Credit History</p></div>
+        <div class="orderTblBody">
+
+           <table class="responsive-table" cellspacing="0">
+          <thead>
+            <tr>
+              <th>{{ 'customer.orders.order_number' | t }}</th>
+              <th>{{ 'customer.orders.date' | t }}</th>
+              <th>{{ 'customer.orders.payment_status' | t }}</th>
+              <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+              <th>{{ 'customer.orders.total' | t }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in customer.orders %}
+              <tr class="responsive-table-row">
+                <td data-label="{{ 'customer.orders.order_number' | t }}">{{ order.name | link_to: order.customer_url }}</td>
+                <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: "%B %d, %Y" }}</td>
+                <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
+                <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </span>
+          
+        </div>
+    </div>
+       
+    <!--   <span class="three">
+         <div class="rewards-wrap">{% if customer %} Your Points Balance : <span class="sweettooth-points-balance"></span> {% endif %}</div>
+        <div class="account__logout"><a class="underline" href="{{ routes.account_logout_url }}">{{ 'general.menu.logout' | t }}</a></div>
+       
+      </span> -->
+          {% else %}
+        <p class="tc">{{ 'customer.orders.none' | t }}</p>
+      {% endif %}
+  
+      {% if paginate.pages > 1 %}
+        <div class="pagination" id="pagination" style="display:none;">
+        {% render 'pagination' with
+          type: 'general.pagination.orders',
+          paginate: paginate
+        %}</div>
+      {% endif %}
+  
+
+    
+  </div>
+          
+</div>
+
+<div id="changePasswordArea" style="display:none" class="dashboardArea">
+  <div class="dashboardArea">
+      <div class="dashboardArea-top">
+        <h1>Change Paasword</h1>
+        <a href="{{ routes.account_logout_url }}"><div class="account__logout1"><i class="fa-solid fa-power-off"></i><span class="myAccLogOutTxt">{{ 'general.menu.logout' | t }}</span></div></a>
+      </div>
+
+      <div class="changePasswordForm">
+        {% form 'reset_customer_password' %}
+        {{ form.errors | default_errors }}
+          <div class="passwordFormInput">
+              <label for="password" class="passwordChangeformLabel">New Password</label>
+              <input type="password" placeholder="Enter new password" name="customer[password]">
+          </div>
+    
+          <div class="passwordFormInput">
+              <label for="password_confirmation" class="passwordChangeformLabel">ConfirmPassword</label>
+              <input type="password" placeholder="Confirm password" name="customer[password_confirmation]">
+          </div>
+            <button type="submit" class="changePasswordBtn" value="Reset password">Submit</button>
+      {% endform %}
+  </div>
+    
+  </div>
+
+</div>
+  
+  
+</div>
+<style>
+img.ecomOrdImg {
+    width: 3.3vw;
+}
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+</style>
+
+<script>
+// const ecom_element = document.getElementById("order");
+// ecom_element.addEventListener("click", myFunction);
+
+var sidePanelCollapeseIcon = document.getElementById("sidePanelCollapeseIcon");
+var toggle = false;
+// transform: rotateY(0deg) rotate(90deg)
+// function showSidePanel(){
+//   toggle =!toggle
+//   document.getElementById("1").style.display = toggle ? "block" : "none";
+//   sidePanelCollapeseIcon.style.transform = toggle ? "rotate(-90deg)" : "rotate(90deg)";
+//   sidePanelCollapeseIcon.style.marginTop= toggle ? "20px" : "0px";
+  
+// }
+
+// function myFunction() {
+//   document.getElementById("two").style.display = "block";
+//    document.getElementById("pagination").style.display = "block";
+// }
+
+var myDashboardArea = document.getElementById("myDashboardArea");
+var myProfileArea = document.getElementById("myProfileArea");
+var myOrdersArea = document.getElementById("myOrdersArea");
+var reviewsArea = document.getElementById("reviewsArea");
+var creditArea = document.getElementById("creditArea");
+var changePasswordArea = document.getElementById("changePasswordArea");
+
+var dashboardPart1 = document.getElementById("dashboardPart1");
+var addressForm1 = document.querySelector(".addressForm1");
+var addressForm2 = document.getElementById("addressForm2");
+
+function updateAddress(formID){
+  //get update form elements
+  const firstName = document.getElementById("AddressFirstName_ecom");
+  const lastName = document.getElementById("AddressLastName_ecom");
+  const phoneNumber = document.getElementById("AddressPhone_ecom");
+  const companyAddress = document.getElementById("AddressCompany_ecom");
+  const city = document.getElementById("AddressCity_ecom");
+  const postalCode = document.getElementById("AddressZip_ecom");
+  const stateProvince = document.getElementById("AddressProvince_ecom");
+  const country = document.getElementById("AddressCountry_ecom");
+  const email = document.getElementById("email_ecom");
+  const address1 = document.getElementById("AddressAddress1_ecom");
+    const address2 = document.getElementById("AddressAddress2_ecom");
+    const editForm = document.querySelector(".addressForm1");
+    const defaultAddress = document.querySelector(".addressForm1 input[type=checkbox]")
+    
+    const setFirstName = document.querySelector(`#${formID} .personName .first`).innerText;
+    const setLastName = document.querySelector(`#${formID} .personName .last`).innerText;
+    const setEmail = document.querySelector(`#${formID} .email span`).innerText;
+    const setContact = document.querySelector(`#${formID} .contact span`).innerText;
+    const setAddress1 = document.querySelector(`#${formID} .address span.address1`).innerText;
+    const setAddress2 = document.querySelector(`#${formID} .address span.address2`).innerText;
+    const setCity = document.querySelector(`#${formID} .city span`).innerText;
+    const setCountry = document.querySelector(`#${formID} .country span`).innerText;
+    const setProvince = document.querySelector(`#${formID} .province span`).innerText;
+    const setZipCode = document.querySelector(`#${formID} .zipcode span`).innerText;
+    const setCompany = document.querySelector(`#${formID} .company span`).innerText;
+        const setFormAction = document.querySelector(`#${formID} form`).action;
+    const setDefault = document.querySelector(`#${formID} #cardCheckBox`).checked;
+    
+    firstName.value = setFirstName;
+    lastName.value = setLastName;
+    phoneNumber.value = setContact;
+    companyAddress.value = setCompany;
+    city.value = setCity;
+    postalCode.value = setZipCode;
+    stateProvince.value = setProvince;
+    // country.value = setCountry;
+    email.value = setEmail;
+    address1.value = setAddress1;
+    address2.value = setAddress2;
+    editForm.action = setFormAction;
+    defaultAddress.checked = setDefault;
+
+    const countryOptions = document.querySelector("#AddressCountry_ecom").options;
+    for(let option of countryOptions) {
+      const optionText = option.innerText.trim();
+      if(optionText == setCountry.trim()) {
+        option.selected = true;
+        option.value = optionText;
+      }
+    }
+    console.log(setFirstName, setLastName, setEmail, setContact, setAddress1, setAddress2, setCity,
+setCountry,
+setProvince,
+setZipCode);
+  
+  dashboardPart1.style.display="none";
+  addressForm1.style.display="block";
+  addressForm2.style.display="none";
+}
+  
+function addNewAddress(){
+  dashboardPart1.style.display="none";
+  addressForm1.style.display="none";
+  addressForm2.style.display="block";
+}
+
+function backToDashPart1(){
+  dashboardPart1.style.display="block";
+  addressForm1.style.display="none";
+  addressForm2.style.display="none";
+}
+
+var ordInDetails = document.getElementById("ordInDetails");
+
+
+function closeOrdInDetails(){
+	ordInDetails.style.display="none";
+}
+
+function openOrdInDetails(elemName) {
+    const orderDetails = JSON.parse( document.querySelector(`#${elemName}`).innerText );
+    console.log(" :- ",orderDetails);
+
+//status:order-accepted 
+//status:packing-confirmed
+//status:order-processing
+//status:production-closed
+
+    const orderHeadingInPrint = document.querySelector(`.orderDetailsCard h2`);
+    orderHeadingInPrint.innerText = orderDetails.orderID;
+
+    const orderCreateDateInPrint = document.querySelector(`.orderDetailsCard h4`);
+    orderCreateDateInPrint.innerText = orderDetails.create_at;
+
+    const lineItemTable = document.querySelector(`.OrderDetails .rte-table .responsive-table.orderItem tbody`);
+    lineItemTable.innerHTML = "";
+
+    //going through the line items and show in the line items table
+    for(let item of orderDetails.line_items) {
+        let row = `<tr class="responsive-table-row"> `;
+        row += `<td> ${item.title} </td>`;
+        row += `<td> ${item.sku} </td>`;
+        row += `<td> ${item.unitPrice} </td>`;
+        row += `<td> ${item.qty} </td>`;
+        row += `<td> ${item.total} </td>`;
+        lineItemTable.innerHTML += row;
+    }
+    lineItemTable.innerHTML += `<tr> <td colspan="4" style="text-align: left;padding-left: 50px;">Total</td> <td>${orderDetails.total}</td> </tr>`;
+
+    const shippingAddress = document.querySelector(".myOrdersCards .myOrdersaddressCard.shipping .cInfo");
+      shippingAddress.innerHTML = orderDetails.shipping_address_elem;
+    const billingAddress = document.querySelector(".myOrdersCards .myOrdersaddressCard.billing .cInfo");
+    billingAddress.innerHTML = orderDetails.billing_address_elem;
+    const financialStatus = document.querySelector(".myOrderStatusCards .paymentCard .status");
+      financialStatus.innerHTML = orderDetails.financial_status;
+    const fullfillmentStatus = document.querySelector(".myOrderStatusCards .fulfilmentCard .status");
+      fullfillmentStatus.innerHTML = orderDetails.fullfilment_status;
+
+    //show processing images 
+    //get all images and add ecom hide class
+    const allOrdTrackImg = document.querySelectorAll(`.order-tracking .ecomOrdImg`);
+    for(let ordImg of allOrdTrackImg) {
+        ordImg.classList.add("ecom_hide");
+    }
+
+    const allDefault = document.querySelectorAll(`.ecomOrdImg[class*='-default']`);
+    for(let ordImg of allDefault) {
+        ordImg.classList.remove("ecom_hide");
+    }
+    
+    if(orderDetails.tag.trim() != "") {
+        const tag = orderDetails.tag.trim();
+        
+        if(tag == "order-accepted") {
+            document.querySelector(`.orderAccepted-default`).classList.add("ecom_hide");
+            document.querySelector(`.orderAccepted-processing`).classList.remove("ecom_hide");
+        }
+        if(tag == "order-processing") {
+            document.querySelector(`.orderAccepted-default`).classList.add("ecom_hide");
+            document.querySelector(`.orderAccepted-processing`).classList.add("ecom_hide");
+            document.querySelector(`.orderAccepted-complete`).classList.remove("ecom_hide");
+
+            document.querySelector(`.packageConfirm-default`).classList.add("ecom_hide");
+            document.querySelector(`.packageConfirm-processing`).classList.remove("ecom_hide");
+        }
+        if(tag == "packing-confirmed") {
+           document.querySelector(`.orderAccepted-default`).classList.add("ecom_hide");
+           document.querySelector(`.orderAccepted-processing`).classList.add("ecom_hide");
+           document.querySelector(`.orderAccepted-complete`).classList.remove("ecom_hide");
+            
+            document.querySelector(`.packageConfirm-default`).classList.add("ecom_hide");
+            document.querySelector(`.packageConfirm-processing`).classList.add("ecom_hide");
+            document.querySelector(`.packageConfirm-complete`).classList.remove("ecom_hide");
+
+            document.querySelector(`.orderProcessing-default`).classList.add("ecom_hide");
+            document.querySelector(`.orderProcessing-processing`).classList.remove("ecom_hide");
+        }
+        if(tag == "production-closed") {
+            document.querySelector(`.orderAccepted-default`).classList.add("ecom_hide");
+           document.querySelector(`.orderAccepted-processing`).classList.add("ecom_hide");
+           document.querySelector(`.orderAccepted-complete`).classList.remove("ecom_hide");
+            
+            document.querySelector(`.packageConfirm-default`).classList.add("ecom_hide");
+            document.querySelector(`.packageConfirm-processing`).classList.add("ecom_hide");
+            document.querySelector(`.packageConfirm-complete`).classList.remove("ecom_hide");
+
+            document.querySelector(`.orderProcessing-default`).classList.add("ecom_hide");
+            document.querySelector(`.orderProcessing-processing`).classList.remove("ecom_hide");
+            
+        }
+       
+    }
+    
+    //show the modal
+    const orderDetailsModal = document.querySelector("#ordInDetails");
+    orderDetailsModal.classList.add("orderInDetailsShow");
+    
+}
+
+  // disable update button till change the input fields
+  const pinfoElems = document.querySelectorAll(`.pInfo input:not([type="submit"]), .pInfo select`);
+  const changeProfileInfoBtn = document.querySelector(`.changeProfileInfoBtn`);
+  changeProfileInfoBtn.setAttribute("disabled","");
+  
+  for(let item of pinfoElems) {
+      item.addEventListener("input", function(e){
+          changeProfileInfoBtn.removeAttribute("disabled")
+      });
+  }
+
+  //update account details
+async function updateAccountDetails () {
+    const allProfileInputs = document.querySelectorAll(`#myProfileArea input`);
+    for(let input of allProfileInputs) {
+        input.classList.remove("input-error");
+    }
+  
+    changeProfileInfoBtn.disabled = true;
+    const first_name = document.querySelector(`[name="first_name"]`);
+    const last_name = document.querySelector(`[name="last_name"]`);
+    const phone = document.querySelector(`[name="phone"]`);
+    const email = document.querySelector(`[name="email"]`);
+    const dob = document.querySelector(`[name="dob"]`);
+    const gender = document.querySelector(`[name="gender"]`);
+    const profession = document.querySelector(`[name="profession"]`);
+    const organization = document.querySelector(`[name="organization"]`);
+    const customer_id = document.querySelector(`[name="customer_id"]`);
+    const store_id = document.querySelector(`[name="store_id"]`);
+    
+    const url = "https://erp.dilmahtea.com/api/update-customer";
+
+    const form = new FormData();
+    form.append("first_name", first_name.value);
+    form.append("last_name", last_name.value);
+    form.append("phone",phone.value);
+    form.append("email",email.value);
+    form.append("dob",dob.value);
+    form.append("gender",gender.value);
+    form.append("profession",profession.value);
+    form.append("organization",organization.value);
+    form.append("customer_id",customer_id.value);
+    form.append("store_id",store_id.value);
+
+    let dotCount = 0;
+    const maxDotCount = 5;
+    let processingTimeout = setInterval(function(){
+      let html = "Processing";
+      for(let i = 0; i < dotCount; i++){
+        html += ".";
+      }
+        
+      dotCount += 1;
+      if(dotCount >= maxDotCount) {
+        dotCount =  0;
+      }
+      changeProfileInfoBtn.innerHTML = html;
+      console.log("123");
+    }, 200);
+  
+    const _fetch = await fetch(url, {
+        method: "POST",
+        body: form
+    });
+
+    const result = await _fetch.text();
+    clearInterval(processingTimeout);
+    changeProfileInfoBtn.innerHTML = "Update";
+    changeProfileInfoBtn.disabled = false;
+    if(result.trim() == "success") {
+      showSnackBar("Your account has been updated");
+    } else {
+      const errorMsg = JSON.parse(result.trim());
+      
+      if(errorMsg.phone) {
+        phone.classList.add("input-error");
+        showSnackBar("Phone number is invalid. Please check and update.");
+        return;
+      }
+      showSnackBar("Some important fields are missing. Please check and update");
+    }
+    console.log(result)
+}
+  
+  function setCustomerData () {
+    console.log("runnsing set custoemr")
+    document.querySelector(`[name="dob"]`).value = dob.trim()
+    document.querySelector(`[name="profession"]`).value = profession.trim();
+    document.querySelector(`[name="organization"]`).value = orgnization.trim();
+
+    for(let dropOption of document.querySelector(`[name="gender"]`).options) {
+        if(dropOption.value.toLowerCase() == gender.toLowerCase().trim() ) {
+            dropOption.selected = true;
+        }
+    }
+    document.querySelector(`[name="gender"]`).dispatchEvent(new Event("change"));
+}
+window.addEventListener("DOMContentLoaded",  setCustomerData);
+</script> 

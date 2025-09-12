@@ -1,0 +1,361 @@
+{% assign quick_shop_enabled = false %}
+
+{% if settings.cart_quick_shop_enabled and product.available %}
+  {% assign quick_shop_enabled = true %}
+{% endif %}
+
+{% assign includes_aspect_ratio = false %}
+
+{% if aspect_ratio != blank and aspect_ratio != 'natural' %}
+  {% assign includes_aspect_ratio = true %}
+{% endif %}
+
+<div class="product-item{% if includes_aspect_ratio %} product-item--{{ aspect_ratio }}{% endif %}">
+  {% comment %}
+  <div class="ecom-carousel-review review-count-{{ product.metafields.reviews.rating.value | default: "0" }}">{{ product.metafields.reviews.rating.value | default: "0" }} <i class="spr-icon spr-icon-star" aria-hidden="true"></i></div>
+  {% endcomment %}
+  {% if product.featured_media != blank or product.media.size > 1 %}
+
+    {% if from == "bundle" %}
+    {% else %}
+    <a href="{{ product.url | within: collection }}" class="product-item__image-wrapper db mb3{% unless product.available %} o-50{% endunless %}">
+    {% endif %}
+
+      {% if quick_shop_enabled %}
+      
+      {% comment %}
+      <button type="button" class="product-item__quick-shop-button active bttn">
+          <span>{{ 'products.product.add_to_quick_shop' | t }}</span>
+        </button>
+      {% endcomment %}
+      
+      {% endif %}
+
+      {% if product.media.size > 1 %}
+        <div class="product-item__images">
+          {% comment %} used for size {% endcomment %}
+          <div class="product-item__sizer">
+            {% render 'image' with
+              image: product.media[0].preview_image,
+              id: product.media[0].id,
+              disable_style: includes_aspect_ratio,
+           	  lazy_load:false,
+              productTitle:product.title
+            %}
+          </div>
+          <div class="product-item__image first">
+            {% render 'image' with
+              image: product.media[0].preview_image,
+              id: product.media[0].id,
+              lazy_load:false,
+              disable_style: includes_aspect_ratio,
+              productTitle:product.title
+            %}
+          </div>
+          <div class="product-item__image not-first">
+            {% render 'image' with
+              image: product.media[1].preview_image,
+              id: product.media[1].id,
+              lazy_load:false,
+              disable_style: includes_aspect_ratio,
+              productTitle:product.title
+            %}
+          </div>
+        </div>
+
+ <!-- product-item.liquid -->
+        {% comment %} product label START {% endcomment %}
+        {% if product.metafields.custom.product_lable.value %}
+            <div class="ecom-product-label"  style="background-color:  {{ product.metafields.custom.product_lable_colour.value }};">
+                    <div class="productLabel">   
+                        <p class="ecom-product-lable-text">
+                          {{ product.metafields.custom.product_lable.value }}
+                        </p>
+                         <div class="ecom-sup" background-color="{{ product.metafields.custom.product_lable_colour.value }};"></div>
+                          <div class="ecom-sup-2" style="z-index: -1;"></div>
+                    </div>
+            <script>
+              console.log("label product {{ product.title }}");
+            </script>
+            </div>
+        {% endif %}
+        {% comment %} product label END {% endcomment %}
+        
+        
+      {% else %}
+        <div class="product-item__image">
+          {% render 'image' with
+            image: product.featured_media.preview_image,
+            id: product.featured_media.id,
+            disable_style: includes_aspect_ratio,
+            lazy_load:false,
+            productTitle:product.title
+          %}
+        </div>
+      {% endif %}
+
+      {% if from == "bundle" %}
+      {% else %}
+      </a>
+      {% endif %}
+
+    {% if quick_shop_enabled %}
+      <div class="quick-shop">
+        {% render 'quick-shop-product-form' with product: product %}
+      </div>
+    {% endif %}
+<span class="coll_save">
+    {% comment %} SALE BADGE {% endcomment %}
+    {% if product.compare_at_price > product.price %}
+      <div class="badge type-body-small ttu lh-title absolute top-0 right-0 mt3 mr3 bg-sale same-as-bg">
+        {{ product.compare_at_price_max | minus: product.price | times: 100.0 | divided_by: product.compare_at_price_max | money_without_currency | times: 100 | remove: '.0'}}% off
+      </div>
+    {% endif %}
+</span>
+
+    {% comment %} SOLD OUT BADGE {% endcomment %}
+    {% unless product.available %}
+      <div class="badge type-body-small ttu lh-title absolute top-0 right-0 mt3 mr3 bg-sold-out same-as-bg">
+        {{ 'products.product.sold_out' | t }}
+      </div>
+    {% endunless %}
+
+  {% else %}
+    <div class="product-item__image-wrapper mb3{% unless product.available %} o-50{% endunless %}">
+      <div class="product-item__image">
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="product-item__details-wrapper relative">
+    {% comment %} PRODUCT SWATCHES {% endcomment %}
+    {% if swatches_enabled %}
+      {% for option in product.options_with_values %}
+        {%- assign file_extension = 'png' -%}
+        {%- assign opt = option.name | downcase -%}
+        {%- assign opt_setting = settings.swatch_option | downcase -%}
+
+        {% if opt == opt_setting %}
+          <a href="{{ product.url }}" class="product-item__swatches-wrapper absolute">
+            <p class="product-item__swatch-heading mt0 mb1">
+              {{ 'collections.general.swatch_heading' | t: option_name: option.name | append: 's' }}
+            </p>
+            <div class="product-item__swatches">
+              {% for color in option.values %}
+                <div
+                  class="product-item__swatch"
+                  style="background-image: url({{ color | handle | append: '.' | append: file_extension | file_url }})"
+                ></div>
+              {% endfor %}
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+        
+{% assign words = product.title | split: ' ' %}
+
+{% capture titlecase %}{% for word in words %}{{ word }} {% endfor %}{% endcapture %}
+
+    <div class="ecom-carousel-product">
+      <div class="ecom-carousel-prod-title">
+        <a href="{{ product.url }}">{{ titlecase }}  </a> 
+        <!-- yotpo review  START -->
+        <div class="ecom-yotpo-title-review-wrap"> <div class="yotpo bottomLine" data-product-id="{{ product.id }}"> </div> </div>
+        <!-- yotpo review END -->
+      </div>
+      <div class="ecom-carousel-price2">
+        {% if product.metafields.product.Bundle-code.value == blank %}
+          {% render 'product-item-price-carousel' with product: product %}
+        {% endif %}
+      </div>
+      <div class="ecom-carousel-product-btn">
+        {% if product.metafields.product.Bundle-code.value %}
+          <div class="product-td-wrap">
+              <div class="aiod-bundle-discount-wrap" data-offer_id="{{product.metafields.product.Bundle-code.value}}"></div>
+          </div>
+        {% else %}
+        {% if product.available %}
+          <div class="addtocart_btn product_btn ecom ecom_addToCart" data-variant="{{ product.variants.first.id }}"><span style="display:none" class="loading_{{ product.variants.first.id }}">
+            <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/loading-gif-png-5.gif?v=1615441250" style="width: 35px;"></span>
+            <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0610/9265/9449/files/Frame_18_4.png?v=1699264346" />
+          </div>
+        {% endif %} 
+         {% unless product.available %}
+          <div class="addtocart_btn_sold product_btn ecom" data-variant="{{ product.variants.first.id }}" disabled>
+            <span style="display:none" class="loading_{{ product.variants.first.id }}">
+            <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/loading-gif-png-5.gif?v=1615441250" style="width: 35px;"></span>
+            <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0610/9265/9449/files/Frame_18_4.png?v=1699264346" />
+          
+          </div>
+        {% endunless %}
+    {% endif %}
+      </div>
+    </div>
+ 
+  </div>
+</div>
+
+
+{% if template.name == 'collection' %}
+<style>
+/*-- valentines bundle product styles - start --*/
+.cart_row .csapps-bunlde-wrapper {
+    display: none;
+}
+.cart_row .aiod-bundle-discount-wrap {
+    margin-top: -70px;
+  padding:0;
+}
+.cart_row .csapp_bundle_title {
+    display: none;
+}
+.cart_row .cs-price-heading {
+    display: none;
+}
+.cart_row .csapp_bundle_saveprice {
+    display: none;
+}
+.cart_row .csapps-bunlde-tiers {
+    margin-top: 86px;
+    padding: 0;
+}
+.cart_row .csapps-total_price {
+    margin-bottom: 2px !important;
+}
+.cart_row .csapps-btn_wrapper button {
+    width: 68%;
+    border-radius: 25px;
+    min-height: 45px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding:4px;
+    transition: all .4s;
+}
+
+.cart_row .csapps-btn_wrapper button:hover {
+    background: #ad820b;
+  border-color:#ad820b;
+}
+  
+.cart_row .csbundle-total-price.money {
+    font-size: 18px;
+    color: #f53449;
+    font-weight: 500;
+}
+
+@media only screen and (min-width:820px) and (max-width:960px){
+  .cart_row .csapps-btn_wrapper button {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width:768px) and (max-width:819px){
+  .cart_row .csapps-btn_wrapper button {
+    width: 95%;
+  }
+}
+
+@media only screen and (min-width:608px) and (max-width:767px){
+  .cart_row .csapps-bunlde-tiers {
+    margin-top: 64px;
+    padding: 0;
+  }
+  .cart_row .csapps-btn_wrapper button{
+    width:95%;
+  }
+  .cart_row .csapps-total_price{
+    margin-top:30px !important;
+  }
+}
+
+@media only screen and (max-width:608px){
+  .cart_row .csapps-bunlde-tiers {
+    margin-top: 58px;
+  }
+  .cart_row .csapps-btn_wrapper button{
+    width:95%;
+  }
+  .product-td-wrap {
+    width: 40vw;
+  }
+  .cart_row .csbundle-total-price.money{
+    display:block;
+  }
+}
+  
+/*-- valentines bundle product styles - end --*/
+  </style>
+{% endif %}
+
+
+
+{% comment %}
+<style>
+  /*  added on 12/31/2021  */
+  a.ecom_quickView.Quickview-btn.product_btn {
+    border: 1px solid black;
+    border-radius: 25px;
+    padding: 8px 16px;
+    min-height: 45px;
+    margin-top: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 2;
+    letter-spacing: 1px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+/*   @media only screen and (min-width: 760px) and (max-width: 812px) {
+    a.ecom_quickView.Quickview-btn.product_btn {
+      font-size: 8px;
+      padding: 10px;
+    }
+  } */
+  @media (max-width: 320px) {
+    a.ecom_quickView.Quickview-btn.product_btn {
+      padding: 6px;
+      letter-spacing: 0;
+    }
+  }
+  
+  
+  .ecom_addToCart,
+  a.ecom_quickView , button.addtocart_btn_sold.product_btn.ecom{
+    width: 65%;
+    padding: 4px !important;
+    height: auto !important;
+    line-height: 1.5 !important;
+    font-size: 12px !important;
+    text-align: center;
+    min-height:45px;
+  }
+  
+  @media (max-width: 1100px) {
+    .ecom_addToCart,
+    a.ecom_quickView , button.addtocart_btn_sold.product_btn.ecom{
+      width: 75%;
+      max-width: unset !important;
+    }
+  }
+  
+  @media (max-width: 607px) {
+    .ecom_addToCart,
+    a.ecom_quickView{
+      width: 55%;
+      max-width: unset !important;
+    }
+  }
+
+  @media only screen and (max-width:768px){
+    button.addtocart_btn_sold.product_btn.ecom{
+      width:100%;
+    }
+  }
+  
+</style>
+{% endcomment %}

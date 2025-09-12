@@ -1,0 +1,227 @@
+{% render 'single-content--slideshow' with
+  id: section.id,
+  aspect_ratio: section.settings.aspect_ratio,
+  timer: section.settings.timer,
+  slides: section.blocks,
+  section_class:section.settings.section_class
+  
+%}
+
+   {%- if section.settings.show_social -%}
+          <div class="footer__social-icons">
+            {%- render 'social-icons' -%}
+          </div>
+        {%- endif -%}
+{% schema %}
+  {
+    "name": "Single Slideshow",
+    "class": "section-dynamic",
+    "settings": [
+      {
+        "type": "select",
+        "id": "aspect_ratio",
+        "label": "Image aspect ratio",
+        "options": [
+          { "value": "full_height", "label": "Full height" },
+          { "value": "3_2", "label": "Cropped" },
+          { "value": "unconstrained", "label": "Natural" }
+        ],
+        "default": "full_height"
+      },
+       {
+            "type": "text",
+            "id": "section_class",
+            "label": "Section Name"
+          },
+      {
+        "id": "timer",
+        "type": "range",
+        "label": "Time between slides",
+        "default": 7,
+        "min": 5,
+        "max": 15,
+        "step": 1
+      },
+      {
+        "type": "checkbox",
+        "id": "show_social",
+        "label": "Show Social",
+        "default": false
+      }
+    ],
+    "max_blocks": 8,
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "1440 x 960px minimum recommended."
+          },
+{
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo",
+            "info": "500 x 500px minimum recommended."
+          },
+          {
+            "type": "image_picker",
+            "id": "mobile_image",
+            "label": "Mobile image",
+            "info": "Optional"
+          },
+          {
+            "type": "url",
+            "id": "video_url",
+            "label": "Video link",
+            "info": "Direct link to .mp4 video file. [Learn more here](https://help.fluorescent.co/lorenza/full-width-image.html#upload-a-video)."
+          },
+          {
+            "type": "text",
+            "id": "overline",
+            "label": "Small heading"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+          "type": "color",
+          "id": "color_heading",
+          "label": "Headings",
+          "default": "#3d4246"
+          },
+          {
+            "type": "textarea",
+            "id": "subheading",
+            "label": "Subheading"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          },
+          {
+            "type": "text",
+            "id": "link_text",
+            "label": "Button text",
+            "default": "Shop now",
+            "info": "The entire slide will become a link if this setting is left blank."
+          },
+          
+          {
+            "type": "url",
+            "id": "link_2",
+            "label": "Link 2"
+          },
+          {
+            "type": "text",
+            "id": "link_text_2",
+            "label": "Button text 2",
+            "default": "Shop now 2",
+          },
+          {
+            "type": "checkbox",
+            "label": "Is samepage link",
+            "id": "is_samepage_link",
+            "default": false,
+            "visible_if": "{{ block.settings.link_2 != blank }}"
+          },
+          
+          {
+            "type": "header",
+            "content": "Style"
+          },
+          {
+            "type": "range",
+            "id": "overlay_opacity",
+            "label": "Overlay opacity",
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "default": 20
+          },
+          {
+            "type": "color",
+            "id": "overlay_color",
+            "label": "Overlay color",
+            "default": "#000000"
+          },
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text color",
+            "default": "#ffffff"
+          },
+          {
+            "type": "range",
+            "id": "text_max_width",
+            "label": "Max width of text",
+            "min": 16,
+            "max": 50,
+            "step": 1,
+            "default": 48
+          },
+          {
+            "type": "select",
+            "id": "horizontal_text_position",
+            "label": "Horizontal text position",
+            "options": [
+              { "value": "left", "label": "Left" },
+              { "value": "center", "label": "Center" },
+              { "value": "right", "label": "Right" }
+            ],
+            "default": "left"
+          },
+          {
+            "type": "select",
+            "id": "vertical_text_position",
+            "label": "Vertical text position",
+            "options": [
+              { "value": "top", "label": "Top" },
+              { "value": "middle", "label": "Middle" },
+              { "value": "bottom", "label": "Bottom" }
+            ],
+            "default": "middle"
+          },
+          {
+            "type": "text_alignment",
+            "id": "text_alignment_button_container",
+            "label": "Text Alignment Button Container",
+            "default": "left"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Single Slide Show",
+        "category": "Image",
+        "blocks": [
+          {
+            "type": "slide",
+            "settings": {
+              "title": "This is your slideshow",
+              "subheading": "Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.",
+              "horizontal_text_position": "left",
+              "vertical_text_position": "middle"
+            }
+          },
+          {
+            "type": "slide",
+            "settings": {
+              "title": "This is your slideshow",
+              "subheading": "Use it to set your brand's tone and create a first impression with your customers. Vibrant imagery with a lot of background accent works well for a full-screen effect.",
+              "horizontal_text_position": "left",
+              "vertical_text_position": "middle"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

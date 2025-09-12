@@ -1,0 +1,140 @@
+{% assign total_products = total_row | times: products_per_row %}
+{% assign item_width = '' %}
+
+{% assign modifiers = '' %}
+{% assign modifiers = modifiers | append: ' section--' | append: section_style %}
+
+{% unless section_style == 'contrast' %}
+  {% assign modifiers = modifiers | append: ' section--bordered' %}
+{% endunless %}
+
+{%- case products_per_row -%}
+  {%- when 2 -%}
+    {%- assign item_width = 'one-half' -%}
+  {%- when 3 -%}
+    {%- assign item_width = 'one-third' -%}
+  {%- when 4 -%}
+    {%- assign item_width = 'one-quarter' -%}
+{%- endcase -%}
+
+{% assign grid_modifiers = '' %}
+
+{% assign grid_modifiers = grid_modifiers | append: ' grid-display--' | append: item_width %}
+{% assign grid_modifiers = grid_modifiers | append: ' grid-display--has-products' %}
+{% assign grid_modifiers = grid_modifiers | append: ' grid-display--' | append: aspect_ratio %}
+
+
+<section
+  data-section-id="{{ id }}"
+  data-section-type="featured-collection-grid"
+  class="section featured-collection-grid{{ modifiers }}"
+>
+
+  
+
+  <div class="grid-display{{ grid_modifiers }}">
+    {% if featured_collection != blank %}
+    
+    
+      {%- for product in featured_collection.products limit: 6 -%}
+        <div class="grid-display__item animates">
+         {%
+            render 'product-item', product: product,
+            aspect_ratio: aspect_ratio
+          %}
+        </div>
+      {%- endfor -%}
+    <div class="grid-display__item animates">
+{% if featured_collection.alt  != blank %}
+{% assign midBannerAltTxt = featured_collection.alt %}
+{% else %} 
+{% assign midBannerAltTxt = featured_collection.handle %}
+{% endif %}
+      
+{% if featured_collection.image %}
+  <img display="block"
+    
+    srcset="{%- if featured_collection.width >= 165 -%}{{ featured_collection | image_url: width: 165 }} 165w,{%- endif -%}
+
+      {%- if featured_collection.width >= 360 -%}{{ featured_collection | image_url: width: 360 }} 360w,{%- endif -%}
+
+      {%- if featured_collection.width >= 533 -%}{{ featured_collection | image_url: width: 533 }} 533w,{%- endif -%}
+
+      {%- if featured_collection.width >= 720 -%}{{ featured_collection | image_url: width: 720 }} 720w,{%- endif -%}
+
+      {%- if featured_collection.width >= 940 -%}{{ featured_collection | image_url: width: 940 }} 940w,{%- endif -%}
+
+      {%- if featured_collection.width >= 1066 -%}{{ featured_collection | image_url: width: 1066 }} 1066w,{%- endif -%}
+
+      {{ featured_collection | image_url }} {{ featured_collection.width }}w"
+
+      src="{{ featured_collection | image_url: width: 533 }}"
+  
+      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+  
+      alt="{{ midBannerAltTxt | escape }}"
+  
+      loading="lazy"
+  
+      width="{{ featured_collection.width }}"
+  
+      height="{{ featured_collection.height }}"
+    />
+{% else %}
+  <img  src="{{ featured_collection.products.first | img_url: '500x' }}"   display="block"  
+    srcset="{%- if featured_collection.products.first.width >= 165 -%}{{ featured_collection.products.first | image_url: width: 165 }} 165w,{%- endif -%}
+
+      {%- if featured_collection.products.first.width >= 360 -%}{{ featured_collection.products.first | image_url: width: 360 }} 360w,{%- endif -%}
+
+      {%- if featured_collection.products.first.width >= 533 -%}{{ featured_collection.products.first | image_url: width: 533 }} 533w,{%- endif -%}
+
+      {%- if featured_collection.products.first.width >= 720 -%}{{ featured_collection.products.first | image_url: width: 720 }} 720w,{%- endif -%}
+
+      {%- if featured_collection.products.first.width >= 940 -%}{{ featured_collection.products.first | image_url: width: 940 }} 940w,{%- endif -%}
+
+      {%- if featured_collection.products.first.width >= 1066 -%}{{ featured_collection.products.first | image_url: width: 1066 }} 1066w,{%- endif -%}
+
+      {{ featured_collection.products.first | image_url }} {{ featured_collection.products.first.width }}w"
+
+      src="{{ featured_collection.products.first | image_url: width: 533 }}"
+  
+      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+  
+      alt="{{ midBannerAltTxt | escape }}"
+  
+      loading="lazy"
+  
+      width="{{ featured_collection.products.first.width }}"
+  
+      height="{{ featured_collection.products.first.height }}"
+    />
+{% endif %}
+      
+      <a href="{{featured_collection.url}}" class="shop_now_btn {{featured_collection }}">SHOP NOW</a>
+        </div>
+
+    {% else %}
+      {% for i in (1..total_products) %}
+        <div class="featured-collection__item animates featured-collection__item--{{ products_per_row }}">
+          <div class="w-100">
+            {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+            <div class="product-item__placeholder">
+              {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+
+            <h2 class="type-body-regular mt3">
+              {{ 'homepage.onboarding.product_title' | t }}
+            </h2>
+            <p class="price-item price-item--regular ma0 meta">{{ 2000 | money }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+  <style>
+  		.section.section--contrast .meta {
+    		color: var(--color-text-meta);
+		}
+  </style>
+</section>
+

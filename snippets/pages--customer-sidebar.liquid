@@ -1,0 +1,107 @@
+<div class="side-list " data-template-name="{{ template.name }}">
+    <ul>
+
+      <div class="sideBarMyAcBackBtn"  id="sidePanelOpenIcon">
+        <li class="sideBarListItems" style="background-color:black;"><i class="fa fa-arrow-circle-right"></i><span></span></li></li>
+      </div>
+<!--  onclick="hideSidePanel()" -->
+      <div class="sideBarMyAcListItem" id="sidePanelHideIcon" onclick="showHidePanel(this);" data-open="false">
+        <li class="sideBarListItems" style="background-color:#ddebec;color:#2b7179;padding:14px;">
+          <i class="fa fa-arrow-circle-right expandIconMyAcSidePanel" aria-hidden="true"></i>
+          <span id="sidePanelContent">My Account</span>
+          </li>
+      </div>
+      
+      <a href= "#"><div class="activeSideBarItem" id="dashboard1" onclick="setActiveDash()">
+        <li class="activeListItem" id="dashboard2"><i class="fa fa-tachometer"></i>
+          <div class=sidebarTxt><span id="sidePanelContent">Dashboard</span></div></li>
+      </div></a>
+      
+      <a  href="#"><div class="sideBarListArea" id="profile1" onclick="setActiveProf()">
+        <li class="sideBarListItems" id="profile2"><i class="fa fa-user"></i>
+          <div class=sidebarTxt><span id="sidePanelContent">My Profile</span></div></li></li>
+      </div></a>
+
+      <a  href="#"><div class="sideBarListArea" id="orders1" onclick="setActiveOrders()">
+        <li class="sideBarListItems" id="orders2"><i class="fa fa-archive" aria-hidden="true"></i>
+          <div class=sidebarTxt><span id="sidePanelContent">My Orders</span></div></li></li>
+      </div></a>
+
+      <a  href="#" style="display:none;"><div class="sideBarListArea" id="reviews1" onclick="setActiveReviews()">
+        <li class="sideBarListItems" id="reviews2"><i class="fa fa-star-half-o" aria-hidden="true"></i>
+          <div class=sidebarTxt><span id="sidePanelContent">Reviews & Reward Points</span></div></li></li>
+      </div></a>
+
+      <a  href="#"><div class="sideBarListArea" id="credit1" onclick="setActiveCredit()">
+        <li class="sideBarListItems" id="credit2"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+          <div class=sidebarTxt><span id="sidePanelContent">Store Credit</span></div></li></li>
+      </div></a>
+
+      <a  href="#"><div class="sideBarListArea" id="password1" onclick="setActivePassword()">
+        <li class="sideBarListItems" id="password2"><i class="fa fa-shield" aria-hidden="true"></i>&nbsp;
+          <div class=sidebarTxt><span id="sidePanelContent">Change Password</span></div></li></li>
+      </div></a>
+
+      <div class="sidebarBottom"><li></li>
+      </div>
+
+
+      
+<!--      <li class="sideBarListItems"><a {% if template.name != "account" %} href= " /account" {% endif %} id="order"><i class="fa fa-history profile_icon ecom-side-i"></i>{{ 'customer.orders.title' | t }}</a></li> -->
+<!--    <li class="sideBarListItems"><a href="{{ routes.account_addresses_url }}"><i class="fa fa-address-book profile_icon ecom-side-i"></i>{{ 'customer.account.details' | t }}</a></li> -->
+<!--     </li> -->
+      
+<!--        <li class="sideBarListItems"><a  href="{{ routes.account_addresses_url }}">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></li></li> -->
+    </ul>
+</div>
+
+<script>
+var dashboard1 = document.getElementById("dashboard1");
+var dashboard2 = document.getElementById("dashboard2");
+
+var profile1 = document.getElementById("profile1");
+var profile2 = document.getElementById("profile2");
+
+var orders1 = document.getElementById("orders1");
+var orders2 = document.getElementById("orders2");
+
+var reviews1 = document.getElementById("reviews1");
+var reviews2 = document.getElementById("reviews2");
+
+var credit1 = document.getElementById("credit1");
+var credit2 = document.getElementById("credit2");
+
+
+var password1 = document.getElementById("password1");
+var password2 = document.getElementById("password2");
+
+var sidePanelOpenIcon = document.getElementById("sidePanelOpenIcon");
+var sidePanelHideIcon = document.getElementById("sidePanelHideIcon");
+var sidePanelContent = document.getElementById("sidePanelContent");
+
+
+let currentTop = -12;
+$(window).scroll(function(e){ 
+    
+  var $el = $('.side-list '); 
+    
+  var isPositionFixed = ($el.css('position') == 'fixed');
+
+  if ($(this).scrollTop() > 54 ){ 
+    $el.css({ 'top': '-64px'}); 
+      currentTop -64;
+  }
+    
+  if ($(this).scrollTop() < 54 && $(this).scrollTop() >0 ){
+    $el.css({'top': currentTop + "px"}); 
+      currentTop -=1.9;
+  } 
+
+  if($(this).scrollTop() <10) {
+      console.log("inside min 10", $(this).scrollTop());
+      $el.css({"top": "-12px"})
+      currentTop = -12;
+  }
+    
+});
+</script>

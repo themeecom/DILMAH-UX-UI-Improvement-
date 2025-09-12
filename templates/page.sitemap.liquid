@@ -1,0 +1,44 @@
+{% render 'pages--page' %}
+
+{% liquid 
+assign links = linklists[menu].links
+assign header_is_transparent = false
+%}
+
+<div class="sitemap_container collection__container ">
+
+<ul class="main_list">
+	
+  {% for link in linklists.main-menu-1.links %}
+  <li class="main_list_item"><a href="{{link.url}}">{{link.title}}  </a></li>
+  		{%if link.levels >0 %}
+  			<ul class="child_1_list">
+  			{%for child_1 in link.links%}
+              <li class="child_1_list_item"> <a href="{{child_1.url}}">{{child_1.title}} </a></li>
+              		{%if child_1.levels> 0%}
+              			<ul class="child_2_list">
+                          {%for child_2 in child_1.links%}
+                          <li class="child_2_list_item"><a href="{{child_2.url}}">{{child_2.title}} </a></li>
+                          {%endfor%}
+              			</ul>
+              		{%endif%}
+  			{%endfor%}
+  			</ul>
+  		{%endif%}
+  {%endfor%}
+</ul>
+
+</div>
+
+<style>
+  .main_list{
+    list-style-type: disclosure-open;
+  }
+  .child_1_list{
+    list-style-type: disclosure-closed;
+  }
+  .child_2_list {
+    list-style-type: disc;
+  }
+  
+</style>

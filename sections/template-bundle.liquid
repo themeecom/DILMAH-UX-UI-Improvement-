@@ -1,0 +1,561 @@
+<div class="product-page-wrapper">
+ 
+  <!--  product--static | START  -->
+  {% render 'pages--product' with
+    show_vendor: section.settings.show_vendor,
+    show_swatches: section.settings.show_swatches,
+    show_quantity_input: section.settings.show_quantity_input,
+    show_share_buttons: section.settings.show_share_buttons,
+    enable_payment_button: section.settings.enable_payment_button,
+    enable_video_looping: section.settings.enable_video_looping,
+  %}
+  <!--  product--static | END  -->
+  
+  <!--  text--static | START  -->
+  {% render 'content--static-text' with
+    id: section.id,
+    enabled: section.settings.enabled,
+    heading: section.settings.title,
+    text: section.settings.text,
+  %}
+  <!--  text--static | END  -->
+  
+  <!--  gallery-grid--static | START  -->
+  {% render 'content--gallery-grid' with
+    id: section.id,
+    enabled: section.settings.enabled,
+    columns: section.settings.columns,
+    aspect_ratio: section.settings.aspect_ratio,
+    heading: section.settings.title,
+    text: section.settings.text,
+    blocks: section.blocks,
+  %}
+  <!--  gallery-grid--static | END  -->
+</div>
+
+<div class="product-page-wrapper">
+  
+  <div class="pro-brewing-info-main">
+    {% if product.metafields.product.Recommended %}
+    <p class="brewing-info-title">Brewing Information</p>
+    {% endif %}
+    <div class="pro-brewing-info">
+      {% if product.metafields.product.Recommended %}
+      <div class="brewing_info_des">
+        <div class="brewing_info_img">
+          <img class="bi-img" alt="Image of a teapot" title="A teapot" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/1_b8825fd4-d43a-4f1f-82c0-8c82447cce92.jpg?v=1632501466" width="50px" height="50px" />
+        </div>
+        <p class="brewing_info-p"> {{ product.metafields.product.Recommended }}</p>
+      </div>
+      {% endif %}
+
+      {% if product.metafields.product.temp %}
+      <div class="brewing_info_des">
+        <div class="brewing_info_img">                                        
+          <img class="bi-img" alt="A cup of Dilmah tea" title="Cup of Dilmah tea" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/2_5b437e0b-2379-48d0-9c5b-802117a49a85.jpg?v=1632501465" width="50px" height="50px" />
+        </div>
+        <p class="brewing_info-p">{{ product.metafields.product.temp }}</p>
+      </div>
+      {% endif %}
+
+      {% if product.metafields.product.serving %}
+      <div class="brewing_info_des">
+        <div class="brewing_info_img">                                 
+          <img class="bi-img" alt="An image of a timer and a teapot" title="A timer and a teapot"  src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/3_b0f070f3-8846-4151-a383-96adf6c1c58d.jpg?v=1632501465" width="50px" height="50px" />
+        </div>
+        <p class="brewing_info-p">{{ product.metafields.product.serving }}</p>
+      </div>
+      {% endif %}
+
+      {% if  product.metafields.product.water %}
+      <div class="brewing_info_des">
+        <div class="brewing_info_img">                                         
+          <img style="margin: 0;" class="bi-img ecom-serve-img" alt="An image of a cup of tea" title="Image of a cup of tea" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/4_de2d1bb4-7d5e-4c5b-8ee7-5f8de7b74dbd.jpg?v=1632501465" width="50px" height="50px" />
+        </div>
+        <p class="brewing_info-p">{{ product.metafields.product.water }}</p>
+      </div>
+      {% endif %}
+
+      {% if  product.metafields.product.minutes %}
+      <div class="brewing_info_des">
+        <div class="brewing_info_img">                                         
+          <img style="margin: 0;" class="last-img bi-img ecom-serve-img" alt="An image of a cup of tea" title="Image of a cup of tea" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/5_baa51a6e-1f50-46fa-b824-8694515abbcc.jpg?v=1632501466" width="50px" height="50px" />
+        </div>
+        <p class="brewing_info-p">{{ product.metafields.product.minutes }}</p>
+      </div>
+      {% endif %}
+    </div>
+
+  </div>
+  
+  <hr style="border: 1px solid #d2d2d2;">
+  
+  <div class="review_wrapper">
+
+  
+  </div>
+  
+  
+  {{ 'section-multicolumn.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="test900 multicolumn background-{{ section.settings.background_style }}{% if section.settings.title == blank %} no-heading{% endif %}">
+  <div class="page-width">
+    <div class="title-wrapper-with-link title-wrapper--self-padded-mobile{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}">
+      <h2 class="title">
+        {% comment %}
+        {{ section.settings.title | escape }}
+        {% endcomment %}
+        
+        <h2 class="text_varieties">Select tea varieties</h2>
+        
+        
+        
+      </h2>
+      {%- if section.settings.button_label != blank and section.settings.swipe_on_mobile -%}
+        <a href="{{ section.settings.button_link }}" class="link underlined-link large-up-hide">{{ section.settings.button_label | escape }}</a>
+      {%- endif -%}
+    </div>
+    
+    
+    <slider-component class="slider-mobile-gutter">
+      <ul class="multicolumn-list grid grid--1-col{% if section.blocks.size > 3 and section.settings.image_width != 'full' %} grid--2-col-tablet grid--4-col-desktop{% elsif section.blocks.size > 3 and section.settings.image_width == 'full' %} grid--2-col-tablet{% else %} grid--3-col-tablet{% endif %}{% if section.settings.swipe_on_mobile and section.blocks.size > 1 %} slider slider--mobile grid--peek{% endif %}"
+        id="Slider-{{ section.id }}"
+        role="list"
+      >
+        {%- liquid
+          assign highest_ratio = 0
+          for block in section.blocks
+            if block.settings.image.aspect_ratio > highest_ratio
+              assign highest_ratio = block.settings.image.aspect_ratio
+            endif
+          endfor
+        -%}
+        {%- for block in section.blocks -%}
+          <li class="multicolumn-list__item grid__item_2{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if section.settings.column_alignment == 'center' %} center{% endif %}   item_{{ block.settings.pid  }}"  data-id="{{ block.settings.pid  }}" {{ block.shopify_attributes }}   >
+            <div class="multicolumn-card">
+              {%- if block.settings.image != blank -%}
+                {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
+                  {% assign spaced_image = true %}
+                {% endif %}
+                <div class="multicolumn-card__image-wrapper multicolumn-card__image-wrapper--{{ section.settings.image_width }}-width{% if section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spacing{% endif %}">
+                  <div class="media media--transparent media--{{ section.settings.image_ratio }} ecom_media media--transparent"
+                    {% if section.settings.image_ratio == 'adapt' %}
+                      style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
+                    {% endif %}>
+                    <img
+                      srcset="{%- if block.settings.image.width >= 275 -%}{{ block.settings.image | img_url: '275x' }} 275w,{%- endif -%}
+                        {%- if block.settings.image.width >= 550 -%}{{ block.settings.image | img_url: '550x' }} 550w,{%- endif -%}
+                        {%- if block.settings.image.width >= 710 -%}{{ block.settings.image | img_url: '710x' }} 710w,{%- endif -%}
+                        {%- if block.settings.image.width >= 1420 -%}{{ block.settings.image | img_url: '1420x' }} 1420w,{%- endif -%}
+                        {{ block.settings.image | img_url: 'master' }} {{ block.settings.image.width }}w"
+                      src="{{ block.settings.image | img_url: '550x' }}"
+                      sizes="(min-width: 990px) {% if section.blocks.size <= 2 %}710px{% else %}550px{% endif %},
+                        (min-width: 750px) {% if section.blocks.size == 1 %}710px{% else %}550px{% endif %},
+                        calc(100vw - 30px)"
+                      alt="{{ block.settings.image.alt }}"
+                      height="{{ block.settings.image.height }}"
+                      width="{{ block.settings.image.width }}"
+                      loading="lazy"
+                    >
+                  </div>
+                </div>
+              {%- endif -%}
+              <div class="multicolumn-card__info">
+                {%- if block.settings.title != blank -%}
+                  <h3>{{ block.settings.title | escape }}</h3>
+               
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+              </div>
+              
+              <div class="mul_qty"><input type="text" class="multi_qty_{{ block.settings.pid  }}" value="5"></div>
+              
+              <div class="add_btn">
+                
+                <button class="mul_BTN add_multi_BTN" data-id="{{ block.settings.pid  }}">Add </button>
+                <button class="mul_BTN Remove_multi_BTN"  data-id="{{ block.settings.pid  }}">Remove </button>
+                
+              </div>
+              <div class="alert_mulAdd alert_{{ block.settings.pid  }}"></div>
+              
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {%- if section.settings.swipe_on_mobile -%}
+        <div class="slider-buttons no-js-hidden medium-hide{% if section.blocks.size < 2 %} small-hide{% endif %}">
+          <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">{% render 'icon-caret' %}</button>
+          <div class="slider-counter caption">
+            <span class="slider-counter--current">1</span>
+            <span aria-hidden="true"> / </span>
+            <span class="visually-hidden">{{ 'accessibility.of' | t }}</span>
+            <span class="slider-counter--total">{{ section.blocks.size }}</span>
+          </div>
+          <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">{% render 'icon-caret' %}</button>
+        </div>
+      {%- endif -%}
+    </slider-component>
+    
+    {% comment %}
+    <div class="center{% if section.settings.swipe_on_mobile %} small-hide medium-hide{% endif %}">
+      {%- if section.settings.button_label != blank -%}
+        <a class="button button--primary"{% if section.settings.button_link == blank %} aria-disabled="true" role="link"{% else %} href="{{ section.settings.button_link }}"{% endif %}>
+          {{ section.settings.button_label | escape }}
+        </a>
+      {%- endif-%}
+    </div>
+    {% endcomment %}
+    
+  </div>
+</div>
+
+  
+  
+       
+  <!-- product-recommendations--static | START -->
+  {% render 'content--product-recommendations' with
+    id: section.id,
+    enabled: section.settings.enabled,
+    heading: section.settings.heading,
+    columns: section.settings.columns,
+  %}
+  <!-- product-recommendations--static | END -->
+</div>
+
+
+
+<style>
+  @media only screen and (max-width: 768px) {
+    div#shopify-product-reviews {
+    width: 100% !important;
+}
+  }
+  </style>
+
+
+
+
+
+
+<style>
+p.ingredients-title {
+    font-weight: 700;
+      margin-top: 25px
+}
+</style>
+
+<style>
+  /***************brewing info product********************/
+  .pro-brewing-info-main {
+    width: 100%;
+    margin: 20px auto 40px;
+  }
+  img.bi-img {
+    width: 40%;
+    height: auto;
+}
+  p.brewing-info-title {
+    text-align: center !important;
+    font-size: 1.5em;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  p.brewing-info-title {
+    font-weight: 700;
+  }
+  .product-page-related-products .sitewide--title-wrapper {
+    margin-top: 23px;
+  }
+  .pro-brewing-info {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    justify-items: center;
+    grid-column-gap: 5px;
+  }
+  .brewing_info_img {
+    text-align: center;
+  }
+  @media only screen and (max-width: 768px) {
+    .pro-brewing-info {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      justify-items: center;
+      grid-row-gap: 30px;
+    }
+    .brewing_info_des:last-child {
+      grid-column: 1/span 2;
+    }
+    img.last-img {
+      width: 25%;
+      height: auto;
+    }
+  }
+  
+  
+</style>
+
+<style>
+  h2.spr-header-title {
+    font-size: 15px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    color: #333 !important;
+    line-height: 26px !important;
+  }
+  span.spr-summary-actions {
+    border: 1px solid #777 !important;
+}
+  span.spr-summary-actions a {
+    color: #111 !important;
+}
+  .spr-form-input {
+    background: transparent !important;
+  }
+  .spr-form-label {
+    background: white !important;
+    font-weight: 500;
+  }
+  #shopify-product-reviews .spr-icon-star, #shopify-product-reviews .spr-icon-star-empty, #shopify-product-reviews .spr-icon-star-half-alt, .product__reviews .spr-icon-star, .product__reviews .spr-icon-star-empty, .product__reviews .spr-icon-star-half-alt {
+    color: #bc9307;
+}
+  input.spr-button.spr-button-primary.button.button-primary.btn.btn-primary {
+    border-radius: 25px !important;
+    transition: 0.4s !important;
+  }
+  input.spr-button.spr-button-primary.button.button-primary.btn.btn-primary:hover {
+    background: #bc9307 !important;
+  }
+  .spr-form input, .spr-form textarea {
+    border: 1px solid #ccc !important;
+  }
+  .spr-form-review-body .spr-form-input.spr-form-input-textarea {
+    border: 1px solid #ccc !important;
+  }
+  #shopify-product-reviews {
+    padding: 20px 0 !important;
+  }
+  
+  .product-form__quantity {
+    max-width: 123px;
+}
+  
+  .cart_button button {
+    max-width: 152px;
+    margin-right: 10px;
+}
+  
+  
+  
+/*-------------------------------------*/  
+  
+.multicolumn-list {
+
+  display: grid;
+  grid-template-columns: 25% 25% 25%;
+    
+}  
+.multicolumn-list li {
+    list-style-type: none;
+}  
+.ecom_media.media--transparent {
+    padding: 0 !important;
+}  
+
+li.multicolumn-list__item.grid__item_2 {
+    text-align: center;
+}  
+button.mul_BTN {
+    background: #007c85;
+    color: white;
+    padding: 4px 10px;
+    border: 0;
+    border-radius: 2px;
+    width: 71px;
+}  
+.mul_qty input {
+    width: 52px;
+    height: 35px;
+    border: 1px solid #007c85;
+    color: black;
+    text-align: center;
+}  
+.mul_qty {
+    margin-bottom: 8px;
+}  
+
+.multicolumn-card__info h3 {
+    margin: 0;
+    font-weight: 600;
+    margin-top: 23px;
+
+}  
+ 
+ 
+.media.media--transparent.media--adapt.ecom_media.media--transparent img {
+    width: 126px;
+    height: auto;
+}  
+
+button#product-addtocart-button {
+    background: #ef6943;
+    border: #ef6943;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'signika_regular','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    margin: 0;
+    padding: 7px 15px;
+    width: 42%;
+    font-size: 2rem;
+    line-height: 3.8rem;
+    box-sizing: border-box;
+    vertical-align: middle;
+}  
+  
+li.multicolumn-list__item.active {
+    border: 1px solid #ede1e1;
+    background: #f9f9f9;
+}  
+ 
+  
+button#product-addtocart-button .counter {
+    margin: 0 6px;
+}  
+li.multicolumn-list__item.grid__item_2 {
+    padding: 13px;
+    border-bottom: 1px solid #e9dada;
+}
+  
+button.mul_BTN.add_multi_BTN.disabled {
+    background: #007c8591;
+}  
+ 
+ h2.text_varieties {
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: capitalize;
+} 
+  
+.multicolumn-list__item .add_btn {
+    display: flex;
+    justify-content: center;
+}
+  
+  
+button.mul_BTN.Remove_multi_BTN {
+    display: none;
+}
+li.multicolumn-list__item.active .add_multi_BTN {
+    display: none;
+}  
+li.multicolumn-list__item.active .Remove_multi_BTN {
+    display: block;
+}    
+.alert_mulAdd {
+    color: red;
+}  
+  
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+.multicolumn-list {
+
+  display: grid;
+  grid-template-columns: 50% 50%;
+    
+} 
+  
+  .add_btn button {
+    
+    margin: 0 0 8px 0;
+/*     width: 100%; */
+}
+  .multicolumn-card__info h3 {
+    margin-top: 0px;
+    font-size: 12px;
+    line-height: 21px;
+    min-height: 48px;
+}
+  
+  
+  button#product-addtocart-button {
+  
+    width: 100%;
+  
+  }
+  .multicolumn-card img {
+      height: auto;
+  }
+  
+}  
+/*-------------------------------------*/  
+</style>
+
+<script>
+
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.multicolumn.name",
+  "class": "spaced-section spaced-section--full-width",
+  "tag": "section",
+  "settings": [
+  
+    
+  
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "product image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Column",
+          "label": "title"
+        },
+{
+          "type": "text",
+          "id": "pid",
+          "default": "Product ID",
+          "label": "Product ID"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+          "label": "t:sections.multicolumn.blocks.column.settings.text.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.multicolumn.presets.name",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

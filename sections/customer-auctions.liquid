@@ -1,0 +1,157 @@
+{{ '_auction.css' | asset_url | stylesheet_tag }}
+<style>
+    ._a-auction-customer-header-active {
+        border-bottom: 3px solid {{ block.settings.menu_active_link_colour }};
+    }
+    ._a-auction-customer-header-inactive:hover {
+        border-bottom: 3px solid {{ block.settings.menu_inactive_link_colour }};
+    }
+    ._a-auction-customer-multi-row button {
+        background: {{ block.settings.view_auction_button }};
+        border: 1px solid {{ block.settings.view_auction_button }};
+    }
+    ._a-auction-customer-multi-row button:hover {
+        background: {{ block.settings.view_auction_button_hover }};
+        border: 1px solid {{ block.settings.view_auction_button_hover }};
+    }
+</style>
+<div>
+    <div class="_a-grid-container _a-padding-vert-20">
+        <div class="_a-row _a-display-none _a-banner _a-banner-error _a-display-flex _a-flex-space-between _a-margin-bottom-20" id="_a-banner-div">
+            <div class="_a-display-flex _a-flex-auto _a-flex-dir-col _a-banner-message">{{ 'auction_pro_template.js.error' | t }}</div>
+            <div class="_a-display-flex"><span class="_a-banner-close" id="_a-banner-close-btn">X</span></div>
+        </div>
+        {% if block.settings.include_title %}
+            <h1 class="_a-margin-bottom-0">{{ 'customer_auctions.auction_title' | t }}</h1>
+        {% endif %}
+    </div>
+    {% if customer %}
+        {% assign customer_derples = '68ec6d3993ad84bf05477ba6d7c256f706696e8e3bd592c816ff98a72ad4d8e4d781280c2e4f1f1448e383ce' | append: shop.domain | append: customer.id | append: customer.email | hmac_sha256: '0eefd9aa5e74df94d89a506aa360f6d2fb16952b6f963d9392ad64e646fb531bb981eb22fa5ead2e4b83cef7b6967518ef9bfac65f5ae91f5ab1197bcf1a7204' %}      
+        <span class="_a-hide" id="_a-customer-info" data-customer-derples="{{ customer_derples }}" data-customer-id="{{customer.id}}" data-customer-email="{{customer.email}}" data-customer-first-name="{{customer.first_name}}" data-customer-last-name="{{customer.last_name}}"></span>
+    {% endif %}  
+    <div class="_a-margin-vertical-50-100 _a-text-center" id="_a-auction-loading">
+        <div class="_a-lds-ring _a-lds-ring-dark"><div></div><div></div><div></div><div></div></div>
+    </div>
+    <div class="_a-auction-customer-panel _a-margin-bottom-30 _a-display-none" id="_a-auction-container" data-shop-domain="{{ shop.domain }}" data-shop-id="{{ shop.id }}" data-currency="{% if block.settings.currency_format != null and block.settings.currency_format != "" %}{{ block.settings.currency_format }}{% else %}{{ shop.money_with_currency_format }}{% endif %}" data-shop-currency="{{ shop.currency }}" data-primary-locale="{{ request.locale.primary }}" data-root-url="{{ request.locale.root_url }}">
+        <div class="_a-auction-customer-panel-header">
+            <div data-view="all">{{ 'customer_auctions.auction_table_header_all' | t }}</div>
+            <div data-view="active">{{ 'customer_auctions.auction_table_header_active' | t }}</div>
+            <div data-view="auctions-won">{{ 'customer_auctions.auction_table_header_auctions_won' | t }}</div>
+            <div data-view="complete">{{ 'customer_auctions.auction_table_header_completed' | t }}</div>
+        </div>
+        <div>
+            <div class="_a-grid-container _a-padding-20">
+                <form class="_a-display-flex _a-form-customer-auction">
+                    <div class="_a-auction-search-div">
+                        <input class="_a-current-bid-input _a-input-customer-auction _a-width-100" name="q" id="_a-auction-form-q" placeholder="{{ 'customer_auctions.search' | t }}">
+                        <button class="_a-auction-search-delete _a-display-none" id="_a-auction-query-delete" type="button">
+                            <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM7.707 6.293a1 1 0 0 0-1.414 1.414L8.586 10l-2.293 2.293a1 1 0 1 0 1.414 1.414L10 11.414l2.293 2.293a1 1 0 1 0 1.414-1.414L11.414 10l2.293-2.293a1 1 0 0 0-1.414-1.414L10 8.586 7.707 6.293z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <select class="_a-current-bid-input _a-input-customer-auction" name="auction_sort" id="_a-auction-form-sort">
+                        <option value="" selected="">{{ 'customer_auctions.sort' | t }}:</option>
+                        <option value="time-asc">{{ 'customer_auctions.sort_time_ending_soonest' | t }}</option>
+                        <option value="time-desc">{{ 'customer_auctions.sort_time_newly_listed' | t }}</option>
+                        <option value="price-asc">{{ 'customer_auctions.sort_price_lowest' | t }}</option>
+                        <option value="price-desc">{{ 'customer_auctions.sort_price_highest' | t }}</option>
+                        <option value="bids-asc">{{ 'customer_auctions.sort_bids_lowest' | t }}</option>
+                        <option value="bids-desc">{{ 'customer_auctions.sort_bids_highest' | t }}</option>
+                    </select>
+                    <button class="_a-auction-search-btn _a-input-customer-auction" id="_a-form-btn" type="button">
+                        <svg class="_a-icon-search icon-search1">
+                            <use xlink:href="#icon-search1">
+                                <symbol id="icon-search1" viewBox="0 0 32 32">
+                                    <path d="M31.008 27.231l-7.58-6.447c-0.784-0.705-1.622-1.029-2.299-0.998 1.789-2.096 2.87-4.815 2.87-7.787 0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12c2.972 0 5.691-1.081 7.787-2.87-0.031 0.677 0.293 1.515 0.998 2.299l6.447 7.58c1.104 1.226 2.907 1.33 4.007 0.23s0.997-2.903-0.23-4.007zM12 20c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z"></path>
+                                </symbol>
+                            </use>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            <div class="_a-grid-container _a-display-none _a-padding-20 _a-text-center" id="_a-auction-no-results">
+                <h2>{{ 'customer_auctions.search_no_results' | t }}</h2>
+            </div>
+            <div class="_a-display-none _a-margin-vertical-50-100 _a-text-center" id="_a-auction-loading-table">
+                <div class="_a-lds-ring _a-lds-ring-dark"><div></div><div></div><div></div><div></div></div>
+            </div>
+            <div class="_a-grid-container _a-auction-customer-grid">
+                <!--  AUCTION ITEMS GO HERE -->
+            </div>
+            <table class="_a-auction-customer-table" id="_a-auction-items">
+                <thead>
+                    <tr>
+                        <th class="_a-auction-customer-th-img"></th>
+                        <th class="_a-auction-customer-th-title">{{ 'customer_auctions.auction_table_title' | t }}</th>
+                        <th>{{ 'auction_pro_template.js.end_date' | t }}</th>
+                        <th class="_a-auction-customer-th-bids">{{ 'customer_auctions.auction_table_bids' | t }}</th>
+                        <th class="_a-auction-customer-th-bid-count">{{ 'customer_auctions.auction_table_bid_count' | t }}</th>
+                        <th>{{ 'customer_auctions.auction_table_actions' | t }}</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="_a-auction-pagination" id="_a-auction-pagination-div">
+            <div class="_a-auction-pagination-div-left">
+                <button class="_a-border-right-width-0 _a-auction-pagination-btn" type="button"><</button>
+            </div>
+            <div class="_a-auction-pagination-div-right">
+                <button class="_a-auction-pagination-btn" type="button">></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="_a-language-data" type="application/json">{"auction_end": "{{ 'auction_pro_template.js.auction_end' | t }}","auction_login_error": "{{ 'customer_auctions.auction_login_error' | t }}","auction_login_link": "{{ 'customer_auctions.auction_login_link' | t }}","auction_view": "{{ 'customer_auctions.auction_view' | t }}","auction_view_bid_history": "{{ 'customer_auctions.auction_view_bid_history' | t }}","auction_won": "{{ 'customer_auctions.auction_won' | t }}","bid": "{{ 'auction_pro_template.js.bid' | t }}","auction_table_automatic_bid_history": "{{ 'customer_auctions.auction_table_automatic_bid_history' | t }}","auction_table_bid_count": "{{ 'customer_auctions.auction_table_bid_count' | t }}","auction_table_bid_history": "{{ 'customer_auctions.auction_table_bid_history' | t }}","bid_current": "{{ 'auction_pro_template.template.bid_current' | t }}","bid_starting": "{{ 'auction_pro_template.template.bid_starting' | t }}","bid_verb": "{{ 'auction_pro_template.template.bid_verb' | t }}","bids": "{{ 'auction_pro_template.js.bids' | t }}","buy_it_now": "{{ 'auction_pro_template.template.buy_it_now' | t }}","buy_it_now_price": "{{ 'auction_pro_template.template.buy_it_now_price' | t }}","auction_table_currency": "{{ 'customer_auctions.auction_table_currency' | t }}","date": "{{ 'auction_pro_template.js.date' | t }}","days": "{{ 'auction_pro_template.js.timer.days' | t }}","empty": "{{ 'customer_auctions.empty' | t }}","end_date": "{{ 'auction_pro_template.js.end_date' | t }}","generic_error_message": "{{ 'auction_pro_template.js.error' | t }}","hours": "{{ 'auction_pro_template.js.timer.hours' | t }}","minutes": "{{ 'auction_pro_template.js.timer.minutes' | t }}","search_no_results": "{{ 'customer_auctions.search_no_results' | t }}"}</script>
+<script src="{{ '_lazysizes.min.js' | asset_url }}" defer></script>
+<script src="{{ '_auction-customer.js' | asset_url }}" defer></script>
+{% schema %}
+{
+    "name": "Customer auctions",
+    "settings": [
+        {
+            "type": "header",
+            "content": "t:auction.header_dashboard_options"
+        },
+        {
+            "id": "include_title",
+            "type": "checkbox",
+            "label": "t:auction.include_title",
+            "default": true
+        },
+        {
+            "id": "menu_active_link_colour",
+            "type": "color",
+            "label": "t:auction.menu_active_link_colour",
+            "default": "#06f"
+        },
+        {
+            "id": "menu_inactive_link_colour",
+            "type": "color",
+            "label": "t:auction.menu_inactive_link_colour",
+            "default": "#5c9dff"
+        },
+        {
+            "id": "view_auction_button",
+            "type": "color",
+            "label": "t:auction.view_auction_button",
+            "default": "#0066ff"
+        },
+        {
+            "id": "view_auction_button_hover",
+            "type": "color",
+            "label": "t:auction.view_auction_button_hover",
+            "default": "#0052cc"
+        },
+        {
+            "type": "header",
+            "content": "t:auction.header_currency_options"
+        },
+        {
+            "id": "currency_format",
+            "type": "text",
+            "label": "t:auction.currency_format"
+        }
+    ]
+}
+{% endschema %}

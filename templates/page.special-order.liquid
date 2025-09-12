@@ -1,0 +1,780 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/css/intlTelInput.css" integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/intlTelInput.min.js" integrity="sha512-L3moecKIMM1UtlzYZdiGlge2+bugLObEFLOFscaltlJ82y0my6mTUugiz6fQiSc5MaS7Ce0idFJzabEAl43XHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+{% comment %}
+{% render 'pages--page' %}
+{% endcomment %}
+
+
+
+
+<section
+  class="page section faq_page"
+  data-section-id="{{ id }}"
+  data-section-type="page"
+>
+  <header class="page__header center">
+    {% unless overline == blank %}
+      <div class="page__overline overline ma0 mb3 tc">
+        {{ overline }}
+      </div>
+    {% endunless %}
+
+    <h1 class="type-heading-1 tc mt0 mb5">{{ page.title }}</h1>
+  </header>
+
+  {%- if blocks.size > 0 -%}
+    <div class="about__grid about__grid--{{ blocks.size }}">
+      {%- for block in section.blocks -%}
+        <div class="about__block about__block--{{ forloop.index }}">
+
+          {%- if block.settings.image == blank and block.settings.video_url == blank -%}
+            <div class="placeholder-image">
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.image != blank -%}
+            {% render 'image' with
+              image: block.settings.image,
+              disable_style: true
+            %}
+          {%- endif -%}
+
+          {% if block.settings.video_url != blank %}
+            <video class="about__block-video" autoplay playsinline loop muted src="{{ block.settings.video_url }}"></video>
+          {% endif %}
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  <div class="page__content center">
+    <div class="rte">
+      {{ page.content }}
+    </div>
+    <p>Please fill below form and send us your requirements, we will contact you within 24 - 48 Hours.
+</p>
+    <br>
+    
+  </div>
+  
+  
+  
+  <div class="special_order_row">
+  
+  
+  <div class="special_form">
+  
+        {% form 'contact', class: 'contact__form' %}
+
+          {% if form.posted_successfully? %}
+            <p class="contact__success">
+              {{ 'contact.form.post_success' | t }}
+            </p>
+          {% endif %}
+
+          {{ form.errors | default_errors }}
+
+          <div class="contact__form-input-side-by-side2 special_order">
+            <div class="relative">
+               <label for="ContactFormName" class="lable_special">
+                 Full Name <span>*</span>
+                </label>
+                <input
+                  type="text"
+                  name="contact[full_name]"
+                  id="ContactFormName"
+                  class="input"
+                  placeholder="e.g. John"
+                  value=""  required>
+              
+            </div>
+
+           
+          </div>
+
+     <div class="contact__form-input-side-by-side special_order">
+           <div class="relative">
+               <label for="ContactFormName" class="lable_special">
+                 Email <span>*</span>
+                </label>
+                           
+              <input
+        type="email"
+        name="contact[email]"
+        id="ContactFormEmail"
+        class="input"
+        placeholder="e.g. name@domain.com"
+        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+        spellcheck="false"
+        autocomplete="off"
+        autocapitalize="off"
+      required>
+             
+              
+            </div>
+
+            <div class="relative">
+              
+              <label for="ContactFormEmail" class="lable_special">
+                Phone number<span>*</span>
+              </label>
+              
+           
+              
+              <input  type="tel" class="form-field-input form-field-text input-reset input w-100 input" name="contact[Phone_Number]"  id="mobile" value="{{ cart.attributes["Phone Number"] }}" required>
+
+              
+            </div>
+       
+       
+       
+       
+          </div>
+    
+    
+     <div class="contact__form-input-side-by-side special_order">
+           <div class="relative">
+               <label for="ContactFormName" class="lable_special">
+                 Product Category
+                </label>
+             
+             
+             
+             <select name="contact[product_category]"  id="product_category" title="Product Category" class="input">
+               <option value="">Select Product Category</option>
+               <option value="Premium Ceylon Single Origin Tea">Premium Ceylon Single Origin Tea</option>
+               <option value="Exceptional Range">Exceptional Range</option>
+               <option value="Single Region Selection">Single Region Selection</option>
+               <option value="Watte">Watte</option>
+               <option value="Fun Tea Selection">Fun Tea Selection</option>
+               <option value="Infusion">Infusion</option>
+               <option value="Organic Tea Selection">Organic Tea Selection</option>
+               <option value="Natural Green Tea Selection">Natural Green Tea Selection</option>
+               <option value="Vivid Tea Selection">Vivid Tea Selection</option>
+               <option value="Silver Jubilee Gourmet">Silver Jubilee Gourmet</option>
+               <option value="Tea Maker's Private Reserve">Tea Maker's Private Reserve</option>
+               <option value="Ceylon Orange Pekoe">Ceylon Orange Pekoe</option>
+               <option value="Gift of Tea">Gift of Tea</option>
+               <option value="t-Series, Designer Gourmet Teas">t-Series, Designer Gourmet Teas</option>
+               <option value="Decaffeinated Tea">Decaffeinated Tea</option>
+               <option value="Ceylon Silver tips">Ceylon Silver tips</option>
+               <option value="Accessories">Accessories</option>
+               <option value="Ceylon Gold">Ceylon Gold</option>
+               <option value="Tea Cordial">Tea Cordial</option>
+               <option value="Help me Find the Perfect Tea">Help me Find the Perfect Tea</option>
+             </select>
+             
+             
+             
+             
+             
+             
+             
+              
+            </div>
+
+            <div class="relative">
+              
+              <label for="ContactFormEmail" class="lable_special">
+               Product Type
+              </label>
+              
+              
+              
+              <select name="contact[product_type]"  id="product_type" title="Product Type" class="input">
+                 <option value="">Select Product Type</option>
+                <option value="Black Tea">Black Tea</option>
+                
+                <option value="Green Tea">Green Tea</option>
+                    <option value="White Tea">White Tea</option>
+                <option value="Oolong Tea">Oolong Tea</option>
+                
+                <option value="Earl Grey">Earl Grey</option>
+                <option value="Herbal Infusion">Herbal Infusion</option>
+                <option value="Flavoured Tea">Flavoured Tea</option>
+            
+                
+                <option value="Decaf Tea">Decaf Tea</option>
+                 <option value="Organic Tea">Organic Tea</option>
+                
+                <option value="Iced Tea">Iced Tea </option>
+              </select>
+              
+              
+              
+              
+            </div>
+          </div>
+    
+    
+     <div class="contact__form-input-side-by-side special_order">
+           <div class="relative">
+               <label for="ContactFormName" class="lable_special">
+                 Tea format
+                </label>
+         
+             
+             
+             <select name="contact[tea_format]"  id="tea_format" title="Tea format" class="input">
+               <option value="">Select Tea Format</option>
+               <option value="Loose Leaf Tea">Loose Leaf Tea</option>
+               <option value="Pot Bags/ Tagless Bags">Pot Bags/ Tagless Bags</option>
+               
+               
+               <option value="String & Tag Bags/Cup Bags">String & Tag Bags/Cup Bags</option>
+               
+               <option value="Individually Paper Wrapped Bags">Individually Paper Wrapped Bags</option>
+               
+               
+               <option value="Individually Foil Wrapped Bags">Individually Foil Wrapped Bags</option>
+                
+               
+               
+               <option value="Luxury Leaf Tea Bags">Luxury Leaf Tea Bags</option>
+                <option value="Tea Sachets">Tea Sachets</option>
+             </select>
+             
+             
+              
+       </div>
+    
+    </div>
+    
+    
+    
+         
+
+          <div class="relative">
+            <label for="ContactFormMessage" class="lable_special">
+              Message
+            </label>
+            
+            
+            <textarea
+              rows="5"
+              name="contact[body]"
+              id="ContactFormMessage"
+              class="input-reset input w-100"
+              placeholder="Write any additional information here..."
+            >
+
+              {%- if form.body -%}
+                {{- form.body -}}
+              {%- endif -%}
+            </textarea>
+            
+          </div>
+
+    
+    
+         <div class="relative"  style="
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+">
+    <input type="checkbox" id="newslatter_chek" name="newslatter_chek" value="newslatter_chek" style="
+    width: 16px;
+">
+    <label for="newslatter_chek"> Signup for Our Newsletter</label>
+</div>  
+<div class="relative" style="
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;height: 28px;margin-bottom: 23px;
+" >  
+<input type="checkbox" id="privacy" name="privacy" style="
+    width: 16px;
+" value="privacy" Required>
+<label for="privacy">Confirm acceptance of our Privacy Policy</label>
+</div>
+    
+          <button type="submit" class="bttn bttn--full bttn--primary special_orderBtn">Send my Order</button>
+
+        {% endform %}
+
+
+    
+  </div>
+  <div class="special_right">
+    
+    <div class="right-info">
+  
+     <ul>
+        <li class="telephone">
+          <span class="icon">
+          </span>
+          <span class="icon-text">
+          <span >
+            <font style="vertical-align: inherit;">
+               <font style="vertical-align: inherit;color: #999;">Phone number: </font>
+            </font>
+            <span>
+              <a href="tel:+44 (0) 1933 422 060"><font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">+94 11 482 2000</font>
+                </font>
+              </a>
+            </span>
+          </span>
+     
+          </span>
+          
+        </li>
+        
+        <li class="email">
+          <span class="icon"></span> <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Email: </font></font><span><a href="mailto:orders@dilmahtea.co.uk"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">orders@dilmahtea.com</font></font></a></span></span></li>
+        <!--<li class="email"><span>Postadres:&nbsp;<span>&nbsp;&nbsp;&nbsp;</span></span></li>-->
+        <li class="address">
+          <span class="icon"></span>
+          <span class="address_text">
+          <span class="head"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            
+            Dilmah Ceylon Tea Company PLC, </font></font></span> 
+            
+            <span><font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">111, Negombo Road,</font></font></span>
+            <span><font style="vertical-align: inherit;">Peliyagoda (11830), <font style="vertical-align: inherit;"></font></font></span>
+            <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sri Lanka.</font></font></span>
+            
+            
+          </span> 
+        </li>
+   
+    
+    </ul>
+  
+  
+  
+  </div>
+    
+    
+    </div>
+
+
+</div>
+
+
+
+
+<style>
+  
+  .special_form {
+      width: 60%;
+  }
+  
+  .contact__form-input-side-by-side.special_order {
+    display: flex;
+    justify-content: space-between;
+}
+  .contact__form-input-side-by-side.special_order .relative {
+    width: 47%;
+}
+  
+label.lable_special {
+    font-weight: 500;
+}  
+  
+ .special_order_row {
+    display: flex;
+    justify-content: space-between;
+} 
+  
+  
+
+  
+  
+.form-wrapper {
+    width: 53%;
+  float: left;
+      padding: 0 0 0 23px;
+}
+  .special_right {
+    width: 36%;
+}
+ .right-info {
+    
+   float: left;
+   margin-bottom: 24px;
+} 
+.fieldset.fieldset-row {
+    width: 100%;
+    float: left;
+    margin: 0 0 7px;
+}  
+.fieldset-row .field {
+    width: 50%;
+    float: left;
+ 
+}  
+.right-info ul {
+    padding: 44px 41px 48px;
+    background: #ededed;
+    float: left;
+    margin: 0;
+    border-radius: 0;
+} 
+  
+.right-info ul li {
+    list-style: none;
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 20px;
+}  
+.mid-content .form-wrapper .fieldset .fieldset.fieldset-row .field:first-child {
+    padding-right: 21px;
+}  
+.mid-content .form-wrapper .fieldset .fieldset.fieldset-row.wide .field:first-child {
+    padding-right: 0;
+}  
+ 
+.fieldset-row .field.topic {
+    width: 100%;
+}  
+.field.comment.required {
+    width: 100%;
+} 
+  
+.field.choice.newsletter {
+    width: 100%;
+    text-align: left;
+    float: left;
+    position: relative;
+    color: #007c85 !important;
+    font-weight: bold;
+    padding-left: 34px;
+} 
+
+ .field.choice.newsletter input {
+   
+       position: absolute;
+    top: 0;
+    left: 0;
+    width: 21px;
+    height: 21px;
+    padding: 0;
+    margin: 0;
+    z-index: 100;
+    opacity: 1;
+    cursor: pointer;
+} 
+  
+
+  .field.choice.is_confirmed {
+    position: relative;
+}
+  
+.field.choice.is_confirmed input {
+      
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 21px;
+    height: 21px;
+    padding: 0;
+    margin: 0;
+    z-index: 100;
+    opacity: 1;
+    cursor: pointer;
+}
+ .field.choice.is_confirmed label {
+    padding-left: 32px;
+} 
+  
+  
+button.action.submit.primary {
+    background-image: none;
+    background: #2d9699;
+    border: 1px solid #2d9699;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'signika_regular','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    padding: 7px 15px;
+    width: 180px;
+    font-size: 1.4rem;
+    line-height: 3.4rem;
+    box-sizing: border-box;
+    vertical-align: middle;
+}  
+ .actions-toolbar {
+    padding: 14px;
+}
+li.telephone span.icon:before {
+    -webkit-font-smoothing: antialiased;
+    font-size: 27px;
+    line-height: 27px;
+    color: #007c85;
+    content: "\e937";
+    font-family: 'dilmah-icons';
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
+}  
+ li.email span.icon:before {
+    -webkit-font-smoothing: antialiased;
+    font-size: 25px;
+    line-height: 24px;
+    color: #007c85;
+    content: "\e943";
+    font-family: 'dilmah-icons';
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+   text-align: center;
+ 
+ } 
+  
+  
+  
+  li.address span.icon:before{
+      -webkit-font-smoothing: antialiased;
+    font-size: 32px;
+    line-height: 32px;
+    color: #007c85;
+    content: "\e942";
+    font-family: 'dilmah-icons';
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
+  }
+  
+.mid-content .right-info ul li.telephone .icon {
+    margin: 8px 22px 0 0;
+    display: inline-block;
+    text-decoration: none;
+} 
+  
+   .mid-content .right-info ul li .icon {
+    width: 45px;
+    height: 45px;
+}
+  .mid-content .right-info ul li span {
+    font-size: 1.6rem;
+    color: #007c85;
+}
+  
+  .mid-content .right-info ul li span.time {
+    float: left;
+    font-size: 1.4rem;
+    color: #666;
+}
+  
+  .mid-content .right-info ul li span span a {
+    color: #007c85;
+    text-decoration: none;
+}
+ .mid-content .right-info ul li.address .icon {
+    width: 45px;
+    height: 110px;
+    margin: 0;
+    padding-left: 1px;
+    display: inline-block;
+    text-decoration: none;
+}  
+ li.telephone {
+    display: flex;
+} 
+  
+li.address {
+    display: flex;
+}  
+span.address_text {
+    display: flex;
+    flex-direction: column;
+}  
+  
+  li.informatoin {
+    display: flex;
+    flex-direction: column;
+   
+}
+  li.informatoin span {
+    margin-left: 45px;
+}
+  
+  input[type="submit"] {
+    border: 0;
+}
+  
+.field font {
+    text-transform: capitalize;
+}  
+  
+
+  .icon {
+   
+    margin-right: 10px;
+}
+button.bttn.bttn--full.bttn--primary.special_orderBtn {
+    width: unset;
+}  
+label.lable_special span {
+    color: #dd8a8a;
+    font-family: 'Open Sans';
+}  
+  
+li.address {
+    border-bottom: 0 !important;
+}  
+  
+  @media only screen and (max-width: 768px){
+  
+  .form-wrapper {
+        width: 100%;
+      float: left;
+      padding: 0;
+    
+    
+    }
+     .right-info {
+        width: 100%;
+       float: left;
+    } 
+    
+    .fieldset-row .field {
+        width: 100%;
+        float: left;
+    }
+    .mid-content .form-wrapper .fieldset .fieldset.fieldset-row .field:first-child {
+        padding-right: 0;
+    } 
+    
+  }
+  
+  
+  @media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+
+    li.address span.icon:before {
+    
+      font-size: 22px;
+    
+    }
+    
+    li.email span.icon:before {
+    
+      font-size: 18px;
+    
+    }
+    li.telephone span.icon:before {
+    
+      font-size: 18px;
+    
+    }
+    
+    .special_order_row {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    
+    .special_form {
+        width: 100%;
+    }
+    .special_right {
+        width: 100%;
+        margin-top: 31px;
+    }
+    
+    
+}  
+  
+</style>
+  
+  
+  
+  
+  
+  
+  
+</section>
+    <style>
+
+    .tc_text {
+        margin-left: 35%;
+        margin-right: 6%;
+    }
+
+    .tc_wrapper {
+        position: relative;
+    }
+
+    .tc_button {
+        position: absolute;
+        right: 8%;
+        bottom: 0px;
+        top: 300px;
+    }
+.tc_button a {
+        text-decoration: none;
+    }
+    .tc_button a span {
+        text-decoration: none;
+        font-size: 1.2em;
+        font-weight: 600;
+        color:  #017d85;
+    }
+    .tc_button a span:hover {
+        color: #015358;
+    }
+
+    .tc_button a:visited {
+        color: black;
+    }
+      @media only screen and (max-width: 1024px) {
+        .tc_text {
+          margin-left: 50%;
+          margin-right: 6%;
+        }
+      }
+
+    @media only screen and (max-width: 425px) {
+        .tc_text {
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+        .tc_button {
+        	position: initial;
+        	padding-top: 20px;
+        }
+    }
+     .iti.iti--allow-dropdown {
+          width: 100%;
+      } 
+
+      
+    </style>
+
+<script>
+   //===========================================================
+  console.log('ddddd -- >>  ');
+   const phoneInputField = document.querySelector("#mobile");
+   const phoneInput = window.intlTelInput(phoneInputField, {
+     preferredCountries: ["lk"],
+     utilsScript:
+       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+   });
+  
+    const info = document.querySelector(".alert-info");
+
+    function process(event) {
+     event.preventDefault();
+
+
+    }
+  </script>

@@ -1,0 +1,521 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Lorenza",
+    "theme_version": "3.1.3",
+    "theme_author": "Fluorescent Design Inc.",
+    "theme_documentation_url": "https://help.fluorescent.co/lorenza",
+    "theme_support_url": "https://help.fluorescent.co/lorenza"
+  },
+  {
+    "name": "Theme",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent",
+        "default": "#C47961"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_button",
+        "label": "Button background",
+        "default": "#F4F4F4"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Border",
+        "default": "#dedede"
+      },
+      {
+        "type": "color",
+        "id": "color_input_text",
+        "label": "Input text",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "color",
+        "id": "color_icon",
+        "label": "Icon",
+        "default": "#AAAAAA"
+      },
+      {
+        "type": "color",
+        "id": "color_success",
+        "label": "Success",
+        "default": "#00730b"
+      },
+      {
+        "type": "color",
+        "id": "color_error",
+        "label": "Error",
+        "default": "#dd2200"
+      },
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "color",
+        "id": "color_header_text",
+        "label": "Text",
+        "default": "#1B1B1B"
+      },
+      {
+        "type": "color",
+        "id": "color_header_bg",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_header_border",
+        "label": "Border",
+        "default": "#DEDEDE"
+      },
+      {
+        "type": "header",
+        "content": "Footer"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_text",
+        "label": "Text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_bg",
+        "label": "Background",
+        "default": "#253734"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_border",
+        "label": "Border",
+        "default": "#465552"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_button_background",
+        "label": "Button background",
+        "default": "#324340"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_button_text",
+        "label": "Button text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Contrast",
+        "info": "Contrast colors are provided to offer an alternative to your default color scheme. Selecting the \"Contrast\" option from the \"Style\" dropdown at the top of a Section activates these colors."
+      },
+      {
+        "type": "color",
+        "id": "color_contrast_text",
+        "label": "Text",
+        "default": "#363636"
+      },
+      {
+        "type": "color",
+        "id": "color_contrast_bg",
+        "label": "Background",
+        "default": "#f9f9f9"
+      },
+      {
+        "type": "color",
+        "id": "color_contrast_border",
+        "label": "Border",
+        "default": "#e2e2e2"
+      },
+      {
+        "type": "color",
+        "id": "color_contrast_input_text",
+        "label": "Input text",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "color",
+        "id": "color_contrast_icon",
+        "label": "Icon",
+        "default": "#AAAAAA"
+      },
+      {
+        "type": "header",
+        "content": "Popovers"
+      },
+      {
+        "type": "color",
+        "id": "color_drawer_text",
+        "label": "Text",
+        "default": "#1B1B1B"
+      },
+      {
+        "type": "color",
+        "id": "color_drawer_bg",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_drawer_border",
+        "label": "Border",
+        "default": "#dedede"
+      },
+      {
+        "type": "color",
+        "id": "color_drawer_input_text",
+        "label": "Input text",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "color",
+        "id": "color_drawer_icon",
+        "label": "Icon",
+        "default": "#AAAAAA"
+      }
+    ]
+  },
+  {
+    "name": "Ecom Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Logo",
+      },
+      {
+        "type": "number",
+        "id": "logo_image_size",
+        "label": "Logo image Size (desktop) in px",
+        "default": 80
+      },
+
+      {
+        "type": "number",
+        "id": "navigation_desktop_font_size",
+        "label": "Navigation font size (Desktop)",
+        "default": 12
+      },
+
+      {
+        "type": "number",
+        "id": "navigation_icon_size",
+        "label": "Navigation Icon size (desktop)px",
+        "default": 25
+      },
+      {
+        "type": "number",
+        "id": "section_padding_desktop",
+        "label": "Section Paddding (desktop)",
+        "default": 80
+      },
+      {
+        "type": "text",
+        "id": "enable_tags",
+        "label": "Enable tag group"
+      }
+    ]
+  },
+  {
+    "name": "Fonts",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Headings",
+        "default": "electra_n7"
+      },
+      {
+        "type": "range",
+        "id": "size_heading",
+        "min": 14,
+        "max": 26,
+        "step": 1,
+        "label": "Heading size",
+        "default": 18
+      },
+      {
+        "type": "checkbox",
+        "id": "uppercase_headings",
+        "label": "Display headings in uppercase",
+        "default": false
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body",
+        "default": "neue_haas_unica_n4"
+      },
+      {
+        "type": "range",
+        "id": "size_body",
+        "min": 14,
+        "max": 18,
+        "step": 1,
+        "label": "Body size",
+        "default": 14
+      },
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_logo",
+        "label": "Logo font",
+        "default": "electra_n7"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_uppercase",
+        "label": "Display logo in uppercase",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "font_logo_size",
+        "min": 16,
+        "max": 40,
+        "step": 1,
+        "label": "Logo font size",
+        "default": 22
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social sharing options"
+      },
+      {
+        "type": "checkbox",
+        "id": "share_facebook",
+        "label": "Share on Facebook",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_twitter",
+        "label": "Tweet on Twitter",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_pinterest",
+        "label": "Pin on Pinterest",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Sharing links"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter link",
+        "info": "https://twitter.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook link",
+        "info": "https://facebook.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest link",
+        "info": "https://pinterest.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram link",
+        "info": "https://instagram.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_snapchat_link",
+        "label": "Snapchat link",
+        "info": "https://snapchat.com/add/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_link",
+        "label": "Tumblr link",
+        "info": "https://shopify.tumblr.com"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "Youtube link",
+        "info": "https://youtube.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_link",
+        "label": "Vimeo link",
+        "info": "https://vimeo.com/shopify"
+      }
+    ]
+  },
+  {
+    "name": "Search",
+    "settings": [
+      {
+        "id": "search_max_result_size",
+        "type": "range",
+        "label": "Results per category",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 4
+      },
+      {
+        "id": "search_show_products",
+        "type": "checkbox",
+        "label": "Show products",
+        "default": true
+      },
+      {
+        "id": "search_show_articles",
+        "type": "checkbox",
+        "label": "Show articles",
+        "default": true
+      },
+      {
+        "id": "search_show_pages",
+        "type": "checkbox",
+        "label": "Show pages",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Product results"
+      },
+      {
+        "id": "search_show_price",
+        "type": "checkbox",
+        "label": "Show price",
+        "default": true
+      },
+      {
+        "id": "search_show_vendor",
+        "type": "checkbox",
+        "label": "Show vendor",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "Product",
+    "settings": [
+      {
+        "type": "text",
+        "id": "swatch_option",
+        "label": "Option for swatches",
+        "info": "Option name to use for displaying swatches.",
+        "default": "Color"
+      },
+      {
+        "type": "text",
+        "id": "chip_options",
+        "label": "Option for chips",
+        "info": "Options you want to display as chips. Use a list seprated by commas: Size, Material, Fabric.",
+        "default": "Size"
+      },
+      {
+        "type": "header",
+        "content": "Information popup",
+        "info": "Add a popup to display extra information about your products, like a size guide."
+      },
+      {
+        "type": "text",
+        "id": "variant_popup_option",
+        "label": "Option name for Information popup",
+        "info": "Option name that will display a link to the information popup",
+        "default": "Size"
+      },
+      {
+        "type": "text",
+        "id": "variant_popup_text",
+        "label": "Information popup link text",
+        "default": "Size guide"
+      },
+      {
+        "type": "page",
+        "id": "variant_popup_page",
+        "label": "Information popup content",
+        "info": "Choose a page as a source for the popup content. You can add text, tables, or images to this page."
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_ajax",
+        "label": "Show notification when item is added to cart",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_quick_shop_enabled",
+        "label": "Enable quick shop",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_quick_shop_show_quantity_input",
+        "label": "Show quick shop quantity input",
+        "info": "If quantity inputs are hidden, quantities will default to 1.",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable cart notes",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "quick_cart_note",
+        "label": "Quick cart note",
+        "default": "Your subtotal today is [subtotal]. Shipping and taxes will calculated at checkout."
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Will be scaled down to 32x32px"
+      }
+    ]
+  }
+]

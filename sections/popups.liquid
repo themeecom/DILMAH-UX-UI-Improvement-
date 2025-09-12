@@ -1,0 +1,227 @@
+<style>
+    ecom-popup-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 300;
+        background: var(--popup-bg);
+    }
+
+    ecom-popup-wrapper .popup-data-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 35%;
+        background: white;
+        padding: 20px 20px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    ecom-popup-wrapper .popup-data-container .popup-image {
+        position: relative;
+        display: block;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    ecom-popup-wrapper .popup-data-container .popup-image .popup-image-elem {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    ecom-popup-wrapper .popup-data-container .close-popup {
+        position: absolute;
+        right: -5px;
+        top: -5px;
+        line-height: 1;
+        border: 1px solid #000000;
+        padding: 4px 7px;
+        border-radius: 25px;
+        width: fit-content;
+        z-index: 1;
+        background: white;
+        cursor: pointer;
+    }
+
+    ecom-popup-wrapper .popup-data-container .popup-title {
+        position: relative;
+        display: block;
+        text-align: center;
+        line-height: 1;
+    }
+
+    ecom-popup-wrapper .popup-data-container .popup-bottom-text {
+        position: relative;
+        display: block;
+        text-align: center;
+        line-height: 1;
+    }
+
+    ecom-popup-wrapper {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    ecom-popup-wrapper.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @media only screen and (max-width: 768px) {
+        ecom-popup-wrapper .popup-data-container {
+            width: 100%;
+            max-width: 93%;
+            left: 48%;
+        }
+    }
+</style>
+<div class="ecom-popup-container">
+    {% for block in section.blocks %}
+        {% if block.settings.view_in_url != blank and block.settings.view_in_url != request.path %}
+          {% continue %}
+        {% endif %}
+       <ecom-popup-wrapper class="popup-wrapper" open-after="{{ block.settings.show_popup_after_loaded }}" show-per-day="{{ block.settings.show_per_day }}" 
+        style="--popup-bg:{{ block.settings.bg_color }}" banner-url="{{ block.id }}">
+            <div class="popup-data-container">
+                <div class="close-popup">X</div>
+                {% if block.settings.popup_title != blank %}
+                    <div class="popup-title">{{ block.settings.popup_title }}</div>
+                {% endif %}
+                {% if block.settings.image_popup != blank %}
+                    <div class="popup-image">
+                        {% if block.settings.banner_url != blank %} <a href="{{ block.settings.banner_url }}"> {% endif %}
+                            <img class="popup-image-elem" src="{{ block.settings.image_popup | image_url }}">
+                        {% if block.settings.banner_url != blank %} </a> {% endif %}
+                    </div>
+                {% endif %}
+                {% if block.settings.popup_bottom != blank %}
+                    <div class="popup-bottom-text">{{ block.settings.popup_bottom }}</div>
+                {% endif %}
+            </div>
+       </ecom-popup-wrapper>
+    {% endfor %}
+</div>
+
+<script>
+    class EcomPopupWrapper extends HTMLElement {
+        constructor() {
+            super();
+            this.timeoutId = null;
+        }
+
+        connectedCallback() {
+            const openAfter = parseInt(this.getAttribute("open-after")) || 0;
+            const showPerDay = parseInt(this.getAttribute("show-per-day")) || 0;
+            const closeBtn = this.querySelector(".close-popup");
+
+            // cookie key based on popup unique ID (to avoid conflict if multiple popups)
+            const popupKey = "ecom-popup-" + (this.getAttribute("banner-url") || this.innerText).replace(/[^a-z0-9]/gi, "_");   
+            
+            // helper to set cookie
+            const setCookie = (name, days) => {
+                let expires = "";
+                if (days > 0) {
+                    const date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=1" + expires + "; path=/";
+            };
+
+            // helper to check cookie
+            const hasCookie = (name) => {
+                return document.cookie.split("; ").some(c => c.startsWith(name + "="));
+            };
+
+
+            // only show if cookie not set OR showPerDay == 0
+            if (showPerDay === 0 || !hasCookie(popupKey)) {
+                document.addEventListener("DOMContentLoaded", () => {
+                    this.timeoutId = setTimeout(() => {
+                    this.classList.add("active"); // fade in
+                    if (showPerDay > 0) {
+                        setCookie(popupKey, showPerDay);
+                    }
+                    }, openAfter * 1000);
+                });
+            }
+
+            // close only this popup
+            if (closeBtn) {
+            closeBtn.addEventListener("click", () => {
+                this.classList.remove("active"); // fade out
+                clearTimeout(this.timeoutId);
+            });
+            }
+        }
+    }
+
+    customElements.define("ecom-popup-wrapper", EcomPopupWrapper);
+</script>
+
+{% schema %}
+{
+    "name": "Ecom Popups",
+    "class": "ecom-popup-container",
+    "blocks": [
+        {
+            "type": "popup-block",
+            "name": "Popup Block",
+            "settings": [
+                {
+                    "type": "color_background",
+                    "label": "Color Background",
+                    "id": "bg_color"
+                },
+                {
+                    "type": "image_picker",
+                    "label": "Popup Image",
+                    "id": "image_popup"
+                },
+                {
+                    "type": "url",
+                    "label": "Banner URL",
+                    "id": "banner_url"
+                },
+                {
+                    "type": "text",
+                    "label": "Popup Title",
+                    "id": "popup_title"
+                },
+                {
+                    "type": "text",
+                    "label": "Popup Bottom",
+                    "id": "popup_bottom"
+                },
+                {
+                    "type": "url",
+                    "id": "view_in_url",
+                    "label": "View only in"
+                },
+                {
+                    "type": "number",
+                    "id": "show_popup_after_loaded",
+                    "label": "Shop Popup After page load (Seconds)",
+                    "default": 0,
+                    "info": "0 = Show immediate after load"
+                },
+                {
+                    "type": "number",
+                    "id": "show_per_day",
+                    "label": "Show per day (0 for everytime)",
+                    "default":1
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

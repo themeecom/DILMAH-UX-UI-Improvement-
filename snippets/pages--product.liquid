@@ -1,0 +1,1650 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign enable_image_zoom = section.settings.enable_image_zoom -%}
+{%- assign compare_at_price = current_variant.compare_at_price -%}
+{%- assign price = current_variant.price -%}
+{%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
+{%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
+
+{% assign show_price_comparison = false %}
+
+<input type="hidden" id="ecom-tags" values="{{ product.tags | join:"," }}">
+{% assign comingSoon = false %}
+{% assign preorder = false %}
+
+{% for tag in product.tags %}
+
+{% if tag contains "pre-order" %}
+  {% assign preorder = true %}
+{% endif %}
+
+{% if tag contains "coming-soon" %}
+  {% assign comingSoon = true %}
+{% endif %}
+  
+{% if tag contains 'Unique' %}
+{% assign Unique = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'Tea Type' %}
+{% assign Tea-Type = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'accompaniment pairings' %}
+{% assign Accompaniment-Pairings = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'Caffeine Level' %}
+{% assign Caffeine-Level = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'number of tea bags' %}
+{% assign Number-of-Tea-Bags = tag | split: "-"| last  %}  
+{% endif %}
+
+{% if tag contains 'Material' %}
+{% assign Material = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'price' %}
+{% assign Price = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'Time Of Day' %}
+{% assign Time-of-Day = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'Tea Format' %}
+{% assign Tea-Format = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'servings' %}
+{% assign Servings = tag | split: "-"| last  %}  
+{% endif %}
+
+{% if tag contains 'Colour' %}
+{% assign Colour = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'gift card' %}
+{% assign Gift-Card = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'Tea Flavour' %}
+{% assign Tea-Flavour = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'Tea Strength' %}
+{% assign Tea-Strength = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'Tea format' %}
+{% assign Tea-Format = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'Category' %}
+{% assign Category = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'Tea Grading' %}
+{% assign Tea-Grading = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'Mood' %}
+{% assign Mood = tag | split: "_"| last  %}  
+{% endif %}
+
+{% if tag contains 'grams' %}
+{% assign grams = tag | split: "-"| last  %}  
+{% endif %}
+
+{% if tag contains 'accompaniment pairings-' %}
+
+
+{%assign tags = tag | split: "-"| last%}
+
+{% assign accomp = accomp |append : ", " | append: tags    %}
+
+{% endif %}
+{% endfor %}
+
+
+{% if current_variant.compare_at_price > current_variant.price %}
+  {% assign show_price_comparison = true %}
+{% endif %}
+
+{% assign accomp = accomp | remove_first: "," %}
+
+
+<style>
+  {{ section.settings.title_font_picker | font_face }}
+  .product__title {
+    font-family:  {{ section.settings.title_font_picker.family }};
+    font-style: {{ section.settings.title_font_picker.style }};
+    font-weight: {{ section.settings.title_font_picker.weight }};
+    font-size: {{ section.settings.title_font_size_desktop }}px;
+  }
+  @media only screen and (max-width: 768px) {
+    .product__title {
+      font-size: {{ section.settings.title_font_size_mobile }}px;
+    }
+  }
+</style>
+
+{% capture product_heading %}
+  {% if show_vendor %}
+    <p class="product__vendor overline mt0">{{ product.vendor | link_to_vendor }}</p>
+  {% endif %}
+
+  {% if product.available %}
+    <span class="instock_ale">IN STOCK</span>
+  {% endif %}
+
+  
+  <h1 class="product__title type-heading-display mt0 mb1" data-preorder="{{ preorder }}" data-comingsoon="{{ comingSoon }}">
+    {% if preorder == true %}
+     <span class="preorder"> PRE-ORDER </span>
+    {% endif %}
+  {{ product.title }}
+  </h1>
+
+  {% if product.tags contains "on_auction" %}
+        <div class="product__description mt5 rte" style="margin-top: 0px;">
+          {{ product.description }}
+  {% endif %}
+  
+<!-- added on 9/25/2021 -->
+  <!-- added on 9/25/2021 -->
+  {% unless product.tags contains "on_auction" %}
+  <!-- yotpo review  START -->
+<div class="ecom-yotpo-title-review-wrap">
+  <div class="yotpo-widget-instance" data-yotpo-instance-id="824555" data-yotpo-product-id="{{product.id}}" data-yotpo-cart-product-id="{{item.product.id}}" 
+    data-yotpo-section-id="{{template.name}}"></div>
+</div>
+<!-- yotpo review END -->
+    {% endunless %}
+
+
+  <!-------------------------------------------------------------------------------->
+  {% if product.metafields.product.shortDES %}
+
+     <p class="short_des_ecom"> {{ product.metafields.product.shortDES }}</p>
+
+ {% endif %}
+    <!-----------------------------------------------ecom  new add------------------>
+
+<div class="product-info-bag">
+  
+   {% if Number-of-Tea-Bags %}
+   <p class="product-info-bag-pr"><span class="icon-ecom-bag ic-pro-info"></span> {{Number-of-Tea-Bags}} bags per pack</p>  
+  {% endif %}
+    {% if Servings %}
+   <p class="product-info-bag-pr"><span class="icon-ecom-cup ic-pro-info"></span> {{Servings}} servings per pack</p>  
+  {% endif %}
+{% if grams %}
+    <p class="product-info-bag-pr"><span class="icon-ecom-grams ic-pro-info"></span> {{grams}} grams per pack </p>
+
+  {% endif %}                
+                </div>
+   <!--------------------------->
+
+  
+{% unless product.tags contains "on_auction" %}
+  
+  <div class="product__price" style="display: none !important;">
+    <s data-compare-price class="mr1 meta{% if show_price_comparison == false %} hide{% endif %}">
+      {% if show_price_comparison %}
+        {{ current_variant.compare_at_price | money }}
+      {% endif %}
+      <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+    </s>
+    <span data-product-price class="product-price-m ecom_pro_price" data-price="{{ current_variant.price }}">{{ current_variant.price | money }}</span>
+    <!--   added on 10/2/2021 tax included   -->
+    {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
+    <span class="product__policies rte type-body-small tc mb0" data-product-policies>
+      {%- if shop.taxes_included -%}
+      {{ 'products.product.include_taxes' | t }}
+      {%- endif -%}
+      {%- if shop.shipping_policy.body != blank -%}
+      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+      {%- endif -%}
+    </span>
+    {%- endif -%}
+    <!--   added on 10/2/2021 tax included | END   -->
+    <!--   added on 10/2/2021 product availability   -->
+    {% comment %}
+    {% if product.available %}
+    <span class="instock_ale">IN STOCK</span>
+    {% endif %}
+    {% endcomment %}
+    <!--   added on 10/2/2021 tax included | END   -->
+    {% render 'unit-price' item: current_variant %}
+  </div>
+  
+  {% if comingSoon %}
+    <div class="cart_button">
+      <button type="submit" name="add" data-commingsoon="true" aria-disabled="true" aria-label="Sold out" class="bttn product-form__cart-submit mt2 bttn--secondary" data-lang-available="Add to cart" data-lang-unavailable="Unavailable" data-lang-sold-out="Sold out" data-add-to-cart="" disabled="disabled">
+        Coming Soon
+      </button>
+    </div>
+  {% endif %}
+{% endunless %}
+  
+  <div class="product__reviews hidden mb3">
+    <span class="product__reviews-stars hidden"></span>
+    <a href="#" class="product__reviews-trigger accent"></a>
+  </div>
+
+  {% if product.metafields.custom.pdf_upload.value %}
+    <a class="sampleDownloadPDF" href="{{ product.metafields.custom.pdf_upload.value.url }}">
+      <i class="fa fa-angle-double-right" aria-hidden="true"></i> Preview the Sample Pages of the Book
+    </a>
+  {% endif %}
+
+{% endcapture %}
+<section
+  class="product"
+  data-section-id="{{ section.id }}"
+  data-section-type="product"
+>
+  {% if product.media.size > 0 and product.media[0].media_type == 'image' %}
+    <div class="product__media-action">
+      <button type="button" class="product__media-action-button">
+        {% render 'icon-plus' %}
+      </button>
+    </div>
+  {% endif %}
+
+  <div class="product__mobile-header">
+    {{ product_heading }}
+  </div>
+
+  
+      <div class="Customize_box">
+ 
+        
+        
+        
+        <div class="edit_box" style="display:none">
+  <div class="content-style-close">&#x2715</div>
+  <div class="tab-panal">
+  <div class="content-tab active">Content</div>
+  <div class="style-tab">Style</div>
+  </div>
+        <div class="edit_box_body">
+  <div class="content-section">
+    <br>
+    <div class="form-lg">
+        <lable>
+          Header text: </lable> <input type="text" value="header" id="header_topicttxt" />
+     </div>
+     <div class="form-lg">
+        <lable>
+          Footer text: </lable><input type="text" value="Artisanally made tea from Darjeeling, lying on the foothills of the Himalayas at 7,000 feet elevation" id="footer_topicttxt" />
+      </div>
+     <div class="form-lg img">
+        <lable>
+          Upload image: </lable><input type="file" id="file" />
+      </div>
+    
+   
+ </div>
+
+  <div class="style-section" style="display:none">
+     <br>
+      <div class="form-lg">
+        <lable>
+         Header Size: 
+        </lable>
+        <input id="header_slider" type ="range" min ="0" max="150" value ="63"/>
+      </div>
+      <div class="form-lg">
+        <lable>
+          Footer Size: </lable><input id="footer_slider" type ="range" min ="0" max="100" value ="25"/>
+      </div>
+    
+    <div class="form-lg">
+        <lable>
+          zoom Image: </lable> <input id="Imagezoom_slider" type ="range" min ="100" max="1000" value ="0"/>
+      </div>
+    
+     <div class="form-lg">
+        <lable>
+          Image rotate: </lable><input id="Image_slider" type ="range" min ="1" max="360" value ="0"/>
+      </div>
+     
+    
+    <div class="form-group">
+         <div class="form-lg">
+           <lable> Header Color</lable>
+           <input id="header_color" type ="color"  value ="0"/>
+         </div>
+       <div class="form-lg">
+           <lable>Footer Color</lable>
+          <input id="footer_color" type ="color"  value ="0"/>
+         </div>
+    </div>
+    
+    <div class="form-group option-radio">
+      <lable> Font style:</lable>
+      <input type="radio" class="radio_fontfamily" id="option1" name="family" value="Comic Sans MS">
+      <label for="option1">Option 1</label><br>
+      <input type="radio" class="radio_fontfamily" id="option2" name="family" value="Arial Black">
+      <label for="option2">Option 2</label><br>
+      <input type="radio" class="radio_fontfamily" id="option3" name="family" value="Courier New">
+      <label for="option3">Option 3</label>
+     </div>
+ </div>
+          </div>
+  
+          <div class="customize_row">
+
+           <div id="Customize_btn" style="display: none;">Customize</div>
+
+           <div id="design_confirm">Process Design</div>
+
+           <input type="hidden" style="display:block" id="imgURL">
+
+          </div>
+          
+          
+</div> 
+      </div>
+ 
+       
+  <div class="product__media" id="product_img_canva" style="display:none">
+    {% if product.media.size > 0 %}
+      {%- for media in product.media -%}
+        <div class="product__media-wrapper" data-media-id="{{ media.id }}">
+          {% render 'media', media: media, featured_media: featured_media, loop:forloop.index %}
+        </div>
+      {%- endfor -%}
+    {% else %}
+      <div class="product__image">
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+    {% endif %}
+  </div>
+ {%- comment -%}    {%- endcomment -%}   
+  
+  
+  
+  
+<div class="product-slider"> 
+  {% unless comingSoon == false %}
+    <div class="badge type-body-small absolute same-as-bg mt2 ml2">Coming Soon</div>
+  {% endunless %}
+  {%if product.tags contains "buy-more-save-more" %}
+    <img src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/label-buy-more-save-more.png" class="buy-more-save-more" >
+  {% endif %}
+   <div id="slider" {% if product.tags contains "on_auction" %} id="auto-slider"  {% else %}id="slider" {% endif %} class="flexslider">
+            <ul class="slides">
+               {% for media in product.media %}
+                {% case media.media_type %}
+                  {% when 'image' %}
+                      <li data-isvideo="false" >
+                        <img loading="lazy"  
+                          
+                          srcset="{%- if media.preview_image.width >= 165 -%}{{ media.preview_image | image_url: width: 165 }} 165w,{%- endif -%}
+
+                          {%- if media.preview_image.width >= 360 -%}{{ media.preview_image | image_url: width: 360 }} 360w,{%- endif -%}
+                    
+                          {%- if media.preview_image.width >= 533 -%}{{ media.preview_image | image_url: width: 533 }} 533w,{%- endif -%}
+                    
+                          {%- if media.preview_image.width >= 720 -%}{{ media.preview_image | image_url: width: 720 }} 720w,{%- endif -%}
+                    
+                          {%- if media.preview_image.width >= 940 -%}{{ media.preview_image | image_url: width: 940 }} 940w,{%- endif -%}
+                    
+                          {%- if media.preview_image.width >= 1066 -%}{{ media.preview_image | image_url: width: 1066 }} 1066w,{%- endif -%}
+                    
+                          {{ media.preview_image | image_url }} {{ media.preview_image.width }}w"
+
+                          src="{{ media.preview_image | image_url: width: 533 }}"
+                      
+                          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                      
+                          alt="{{ media.preview_image.alt | escape }}"
+
+                          loading="lazy"
+                      
+                          width="{{ media.preview_image.width }}"
+                      
+                          height="{{ media.preview_image.height }}"
+                          
+                          
+                          />
+                      </li>
+                  {% when 'video' %}
+                    <li class="product-single__media" data-media-id="{{ media.id }}" data-isvideo="true" data-ecom-media-id="{{  media.id }}">
+                      {{ media | video_tag: controls: false, loop:true, autoplay: true, style: "width:100%; height: auto;", muted: true, id: media.id}}
+                    </li>
+                {% endcase %}
+                 
+           {% endfor %}
+          </ul>
+        </div>
+  
+       <div id="carousel" {% if product.tags contains "on_auction" %} id="auto-carousel" {% else %} id="carousel" {% endif %} class="flexslider">
+          <ul class="slides">
+             {% for media in product.media %}
+            {% case media.media_type %}
+                  {% when 'image' %}
+                      <li data-isVideo="false"  data-img-id = "{{ media.id }}">
+                        <img  loading="lazy" src="{{ media.preview_image | img_url: '110x110', scale: 2 }}" alt="{{ media.preview_image.alt | escape }}" />
+                      </li>
+                  {% when 'video' %}
+                    <li class="product-single__media" data-media-id="{{ media.id }}" data-isVideo="true">
+                      {{ media | video_tag: controls: false, loop:true, autoplay: true, style: "width:100%; height: auto;", muted: true , data-ecom-vid: media.id}}
+                      <div class="ecom_thumbplay" data-ecommedia-id="{{ media.id }}" 
+                       hidden  style='background-image: url("https://cdn.shopify.com/s/files/1/0630/5421/7457/files/play-icon_1.jpg?v=1660376140"); width: 100px; height: 100px;'>
+                      </div>
+                    </li>
+                {% endcase %}
+             {% endfor %}
+                
+          </ul>
+        </div>
+ </div> 
+  
+  
+  {%- if first_3d_model -%}
+    <button
+      aria-label="{{ 'products.product.view_in_space_label' | t }}"
+      class="product__view-in-space bttn bttn--full"
+      data-in-your-space
+      data-shopify-xr
+      data-shopify-model3d-id="{{ first_3d_model.id }}"
+      data-shopify-title="{{ product.title | escape }}"
+      data-shopify-xr-hidden
+    >
+      <span>
+        {% render 'icon-3d' %}
+        <span class='product-single__view-in-space-text'>{{ 'products.product.view_in_space' | t }}</span>
+      </span>
+    </button>
+  {%- endif -%}
+
+  <div class="product__meta">
+    <div class="product__meta-inner">
+
+      <div class="product__header">
+        {{ product_heading }}
+      </div>
+      
+
+
+      
+      
+<!--     form   -->
+      {% render 'product-form' with
+        product: product,
+        show_vendor: show_vendor,
+        current_variant: current_variant,
+        show_dynamic_checkout: enable_payment_button,
+        show_swatches: show_swatches,
+        show_quantity_input: show_quantity_input,
+      %}
+<!--    form | END    -->
+      
+      
+
+      <!--    added on 9/20/2021    -->
+      <div class="additional-attributes-wrapper table-wrapper">
+        <div class="ecom_attributs format_wrapper">
+            <p class="format-title ecom-p-td-cf">Tea Format</p>
+            {% for tag in product.tags %}
+         
+            {% assign dtag = tag | downcase %}
+            {% if dtag contains 'format_' %}
+            {% assign tagName = dtag |replace:" ",""|replace:" ",""|replace:" ",""|replace:" ",""%}
+        
+            {% case tagName %}
+            {% when 'teaformat_looseleaftea' %}
+          
+            <div class="format-looseleaf ecom-cf-td-main">
+                
+                <div class="format_img ecom-tea-icons">
+                    <img loading="lazy"
+              class="format-img" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/loose_leaf_tea_eca49ace-03c3-43d2-99a8-77190269c2ce.jpg?v=1633238616" alt="Dilmah Loose Leaf" />
+                </div>
+                <div class="format_des mini_des">
+                    <p class="format-mini-title mini-title ecom-p-td-cf">Loose Leaf</p>
+                </div>
+            </div>
+            {% when 'teaformat_individuallyfoilwrappedteabags' %}
+          
+            <div class="format_level ecom-cf-td-main">
+                
+                <div class="format_img ecom-tea-icons">
+                    <img class="format-img" loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/foil_wrap_bags.png?v=1755081759" alt="Dilmah Individually Foil Wrapped" />
+                </div>
+                <div class="format_des mini_des">
+                    <p class="format-mini-title mini-title ecom-p-td-cf">Individually Foil Wrapped</p>
+                </div>
+            </div>
+            {% when 'teaformat_sachets' %}
+          
+            <div class="format_level ecom-cf-td-main">
+               
+                <div class="format_img ecom-tea-icons">
+                    <img class="format-img" loading="lazy"
+                      src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/tea_sachet_1cdd2632-56cf-438a-a3dd-d8414e2f8894.png?v=1633238616" alt="Dilmah Sachets"  />
+                </div>
+                <div class="format_des mini_des">
+                    <p class="format-mini-title mini-title ecom-p-td-cf">Sachets</p>
+                </div>
+            </div>
+            {% when 'teaformat_teacupbags' %}
+           
+            <div class="format_level ecom-cf-td-main">
+                
+                <div class="format_img ecom-tea-icons">
+                    <img class="format-img" loading="lazy"
+                      src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/String_tea_bags-_cup_bags.png?v=1755081759" alt="Dilmah Tea Bag" />
+                </div>
+                <div class="format_des mini_des">
+                    <p class="format-mini-title mini-title ecom-p-td-cf">Teabags</p>
+                </div>
+            </div>
+            {% else %}
+           >
+            {% endcase %}
+            {% endif%}
+            {% endfor %}
+        </div> <!-- format_wrapper -->
+    
+    
+    
+        <div class="ecom_attributs caffeine_wrapper">
+           <p class="caffeine-title ecom-p-td-cf">Caffeine</p>
+            {% for tag in product.tags %}
+            {% assign dtag = tag | downcase %}
+            {% if dtag contains 'caffeine' %}
+            {% assign tagName = dtag |replace:" ",""|replace:" ",""|replace:" ",""|replace:" ",""%}
+            {% case tagName %}
+            {% when 'caffeinelevel_medium' %}
+           
+            <div class="caffeine_level ecom-cf-td-main">
+                <div class="caffeine_des mini_des">
+                   
+                </div>
+                <div class="caffeine_img ecom-tea-icons">
+                    <img class="caffeine-img" loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/Caffeine-Medium.jpg?v=1633154476" alt="Dilmah Caffeine Medium" />
+                </div>
+                <div class="caffeine_des mini_des">
+                    <p class="caffeine-mini-title mini-title ecom-p-td-cf">Medium</p>
+                </div>
+            </div>
+            {% when 'caffeinelevel_low' %}
+          
+            <div class="caffeine_level ecom-cf-td-main">
+               
+                <div class="caffeine_img ecom-tea-icons">
+                    <img class="caffeine-img"loading="lazy"
+                      src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/Caffeine-Low.jpg?v=1633154476" alt="Dilmah Caffeine Low" />
+                </div>
+                <div class="caffeine_des mini_des">
+                    <p class="caffeine-mini-title mini-title ecom-p-td-cf">Low</p>
+                </div>
+            </div>
+            {% when 'caffeinelevel_free' %}
+           
+            <div class="caffeine_level ecom-cf-td-main">
+                
+                <div class="caffeine_img ecom-tea-icons">
+                    <img class="caffeine-img" loading="lazy"
+                      src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/Caffeine-Free.jpg?v=1633154476" alt="Dilmah Caffeine Free" />
+                </div>
+                <div class="caffeine_des mini_des">
+                    <p class="caffeine-mini-title mini-title ecom-p-td-cf">Free</p>
+                </div>
+            </div>
+            {% else %}
+         
+            {% endcase %}
+            {% endif%}
+            {% endfor %}
+        </div> <!-- caffeine_wrapper -->
+    
+    
+    
+        <div class="ecom_attributs grades_wrapper">
+            {% for tag in product.tags %}
+            {% assign dtag = tag | downcase %}
+            {% if dtag contains 'grading_' %}
+            {% assign tagName = dtag |replace:" ",""|replace:" ",""|replace:" ",""|replace:" ",""%}
+            {% case tagName %}
+            {% when 'teagrading_pekoe' %}
+        
+            <div class="grades_level ecom-cf-td-main">
+                <div class="grades_des mini_des">
+                    <p class="grades-title ecom-p-td-cf">Grades</p>
+                </div>
+                <div class="grades_img ecom-tea-icons">
+                    <img class="grades-img" loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0559/4097/2713/files/tea_grades.png?v=1622028559" alt="Dilmah Tea Grade" />
+                </div>
+                <div class="grades_des mini_des">
+                    <p class="grades-mini-title mini-title ecom-p-td-cf">Pekoe</p>
+                </div>
+            </div>
+            {% when 'teagrading_flowerypekoe' %}
+          
+            <div class="grades_level ecom-cf-td-main">
+                <div class="grades_des mini_des">
+                    <p class="grades-title ecom-p-td-cf">Grades</p>
+                </div>
+                <div class="grades_img ecom-tea-icons">
+                    <img class="grades-img" loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0559/4097/2713/files/tea_grades.png?v=1622028559" alt="Dilmah Tea Grade" />
+                </div>
+                <div class="grades_des mini_des">
+                    <p class="grades-mini-title mini-title ecom-p-td-cf">Flowerypekoe</p>
+                </div>
+            </div>
+            {% when 'teagrading_orangepekoe' %}
+          
+            <div class="grades_level ecom-cf-td-main">
+                <div class="grades_des mini_des">
+                    <p class="grades-title ecom-p-td-cf">Grades</p>
+                </div>
+                <div class="grades_img ecom-tea-icons">
+                    <img class="grades-img" loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0559/4097/2713/files/tea_grades.png?v=1622028559" alt="Dilmah Tea Grade" />
+                </div>
+                <div class="grades_des mini_des">
+                    <p class="grades-mini-title mini-title ecom-p-td-cf">Orangepekoe</p>
+                </div>
+            </div>
+            {% when 'teagrading_dust' %}
+          
+            <div class="grades_level ecom-cf-td-main">
+                <div class="grades_des mini_des">
+                    <p class="grades-title ecom-p-td-cf">Grades</p>
+                </div>
+                <div class="grades_img ecom-tea-icons">
+                    <img class="grades-img" loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0559/4097/2713/files/tea_grades.png?v=1622028559" alt="Dilmah Tea Grade" />
+                </div>
+                <div class="grades_des mini_des">
+                    <p class="grades-mini-title mini-title ecom-p-td-cf">Dust</p>
+                </div>
+            </div>
+            {% when 'teagrading_fannings' %}
+          
+            <div class="grades_level ecom-cf-td-main">
+                <div class="grades_des mini_des">
+                    <p class="grades-title ecom-p-td-cf">Grades</p>
+                </div>
+                <div class="grades_img ecom-tea-icons">
+                    <img class="grades-img" loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0559/4097/2713/files/tea_grades.png?v=1622028559" alt="Dilmah Tea Grade" />
+                </div>
+                <div class="grades_des mini_des">
+                    <p class="grades-mini-title mini-title ecom-p-td-cf">Fannings</p>
+                </div>
+            </div>
+            {% when 'teagrading_silvertips' %}
+      
+            <div class="grades_level ecom-cf-td-main">
+                <div class="grades_des mini_des">
+                    <p class="grades-title ecom-p-td-cf">Grades</p>
+                </div>
+                <div class="grades_img ecom-tea-icons">
+                    <img class="grades-img" loading="lazy"
+                      src="https://cdn.shopify.com/s/files/1/0559/4097/2713/files/tea_grades.png?v=1622028559" alt="Dilmah Tea Grade" />
+                </div>
+                <div class="grades_des mini_des">
+                    <p class="grades-mini-title mini-title ecom-p-td-cf">Silvertips</p>
+                </div>
+            </div>
+            {% else %}
+          
+            {% endcase %}
+            {% endif%}
+            {% endfor %}
+        </div> <!-- grades_wrapper -->
+    
+    
+    
+        <div class="ecom_attributs time_wrapper" style="display:none">
+            
+                <p class="time-title ecom-p-td-cf">Time of Day</p>
+             <div class="tod_wrapp">
+            {% for tag in product.tags %}
+            {% assign dtag = tag | downcase %}
+            {% if dtag contains 'time' %}
+               <script>
+               $('.time_wrapper').show();
+               
+               </script>
+               
+            {% assign tagName = dtag |replace:" ",""|replace:" ",""|replace:" ",""|replace:" ",""%}
+          
+         
+            {% case tagName %}
+          
+        
+         
+            {% when 'timeofday_allday' %}
+          
+            <div class="time_of_day ecom-cf-td-main">
+            
+                <div class="time_img ecom-tea-icons">
+                    <img class="time-title2" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/05.jpg?v=1632654575" alt="Dilmah All Day Tea" />
+                </div>
+                <div class="time_des mini_des">
+                    <p class="time-mini-title mini-title ecom-p-td-cf">All Day</p>
+                </div>
+            </div>
+            {% when 'timeofday_afternoon' %}
+       
+            <div class="time_of_day ecom-cf-td-main">
+               
+                <div class="time_img ecom-tea-icons">
+                    <img class="time-title2" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/02.jpg?v=1632654576" alt="Dilmah Afternoon Tea" />
+                </div>
+                <div class="time_des mini_des">
+                    <p class="time-mini-title mini-title ecom-p-td-cf">Afternoon</p>
+                </div>
+            </div>
+            {% when 'timeofday_morning' %}
+          
+            <div class="time_of_day ecom-cf-td-main">
+              
+                <div class="time_img ecom-tea-icons">
+                    <img class="time-title2" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/01.jpg?v=1632654576" alt="Dilmah Morning Tea" />
+                </div>
+                <div class="time_des mini_des">
+                    <p class="time-mini-title mini-title ecom-p-td-cf">Morning</p>
+                </div>
+            </div>
+            {% when 'timeofday_night' %}
+          
+            <div class="time_of_day ecom-cf-td-main">
+              
+                <div class="time_img ecom-tea-icons">
+                    <img class="time-title2" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/04.jpg?v=1632654576" alt="Dilmah Night Tea" />
+                </div>
+                <div class="time_des mini_des">
+                    <p class="time-mini-title mini-title ecom-p-td-cf">Night</p>
+                </div>
+            </div>
+            {% when 'timeofday_evening' %}
+         
+            <div class="time_of_day ecom-cf-td-main">
+              
+                <div class="time_img ecom-tea-icons">
+                    <img class="time-title2" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/03.jpg?v=1632654576" alt="Dilmah Evening Tea" />
+                </div>
+                <div class="time_des mini_des">
+                    <p class="time-mini-title mini-title ecom-p-td-cf">Evening</p>
+                </div>
+            </div>
+           
+            {% else %}
+          
+            {% endcase %}
+            {% endif%}
+            {% endfor %}
+               </div>  <!--tod_wrapp -->
+        </div> <!-- time_wrapper -->
+    
+    
+        
+        <div class="ecom_attributs mood_wrapper">
+          <p class="mood-title ecom-p-td-cf">Mood</p>
+            {% for tag in product.tags %}
+            {% assign dtag = tag | downcase %}
+            {% if dtag contains 'mood_' %}
+            {% assign tagName = dtag |replace:" ",""|replace:" ",""|replace:" ",""|replace:" ",""%}
+          
+           
+            {% case tagName %}
+            {% when 'mood_energetic' %}
+           
+            <div class="mood_level ecom-cf-td-main">
+                
+                <div class="mood_img ecom-tea-icons">
+                    <img class="mood-img" src="https://cdn.shopify.com/s/files/1/0559/4097/2713/files/mood_dc58e66b-27d1-447c-814f-26c84ec2a6ec.png?v=1622028468" alt="Dilmah Energetic Tea" />
+                </div>
+                <div class="mood_des mini_des">
+                    <p class="mood-mini-title mini-title ecom-p-td-cf">Energetic</p>
+                </div>
+            </div>
+            {% when 'mood_calming' %}
+          
+            <div class="mood_level ecom-cf-td-main">
+               
+                <div class="mood_img ecom-tea-icons">
+                    <img class="mood-img" src="https://cdn.shopify.com/s/files/1/0559/4097/2713/files/mood_dc58e66b-27d1-447c-814f-26c84ec2a6ec.png?v=1622028468" alt="Dilmah Calming Tea" />
+                </div>
+                <div class="mood_des mini_des">
+                    <p class="mood-mini-title mini-title ecom-p-td-cf">Calming</p>
+                </div>
+            </div>
+            {% when 'mood_rejuvenating' %}
+           
+            <div class="mood-_level ecom-cf-td-main">
+                <div class="mood-_des">
+                   
+                </div>
+                <div class="mood_img ecom-tea-icons">
+                    <img class="mood--img" src="https://cdn.shopify.com/s/files/1/0559/4097/2713/files/mood_dc58e66b-27d1-447c-814f-26c84ec2a6ec.png?v=1622028468" alt="Dilmah Rejuvenating Tea" />
+                </div>
+                <div class="mood_des mini_des">
+                    <p class="mood-mini-title mini-title ecom-p-td-cf">Rejuvenating</p>
+                </div>
+            </div>
+            {% when 'mood_adventurous' %}
+           
+            <div class="mood_level ecom-cf-td-main">
+               
+                <div class="mood_img ecom-tea-icons">
+                    <img class="mood-img" src="https://cdn.shopify.com/s/files/1/0559/4097/2713/files/mood_dc58e66b-27d1-447c-814f-26c84ec2a6ec.png?v=1622028468" alt="Dilmah Adventurous Tea" />
+                </div>
+                <div class="mood_des mini_des">
+                    <p class="mood-mini-title mini-title ecom-p-td-cf">Adventurous</p>
+                </div>
+            </div>
+            {% when 'mood_de-stress' %}
+          
+            <div class="mood_level ecom-cf-td-main">
+                
+                <div class="mood_img ecom-tea-icons">
+                    <img class="mood-img" src="https://cdn.shopify.com/s/files/1/0559/4097/2713/files/mood_dc58e66b-27d1-447c-814f-26c84ec2a6ec.png?v=1622028468" alt="Dilmah Destress Tea" />
+                </div>
+                <div class="mood_des mini_des">
+                    <p class="mood-mini-title mini-title ecom-p-td-cf">Destress</p>
+                </div>
+            </div>
+            {% else %}
+          
+            {% endcase %}
+            {% endif%}
+            {% endfor %}
+        </div> <!-- mood_wrapper -->
+    </div>
+          
+      
+      
+      <!--   serve with & accomplishment/pair with --- added on 10/2/2021     -->
+      <div class="ecom_attributs serve_and_acc_with_wrapper">
+        <div class="serve_with">
+          {% for tag in product.tags %}
+          {% assign dtag = tag | downcase %}
+
+          {% if dtag contains 'serve' %}
+
+          {% assign tagName = dtag |replace:" ",""|replace:" ",""|replace:" ",""|replace:" ",""%}
+
+          {% case tagName %}
+
+          {% when 'servewith-best-takenstraight' %}
+          {% when 'serve with-besttakenstraightorwithhoney' %}
+          <img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/2_b8e2bd4b-eab4-4176-8aa2-fe8487c9d5b4.jpg" alt="Dilmah Serve With Honey" >
+
+          {% when 'servewith-besttakenstraightwithatouchofsugar' %}
+         
+          
+          {% when 'servewith-besttakenstraight' %}
+         
+          {% when 'servewith-freshmintleaves' %}
+          {% when 'servewith-ginger' %}
+          <img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/5_b3fcbd25-9933-4a31-977b-e165b46267f0.jpg" alt="Dilmah Serve With Ginger" >
+          {% when 'serve with-honey' %}
+          <img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/3_d9c96ac3-04d0-47f8-a24c-add46598914b.jpg" alt="Dilmah Serve With Sugar" >
+          {% when 'servewith-lemon' %}
+          {% when 'servewith-mintleaf' %}
+          <img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/6_87b6d6d3-bc6d-414d-8b00-981772966225.jpg" alt="Dilmah Serve With Fresh Mint Leaves" >
+          {% when 'servewith-rosepetal(garnish)' %}
+
+          {% when 'servewith-sliveroffreshginger' %}
+          <img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/5_b3fcbd25-9933-4a31-977b-e165b46267f0.jpg" alt="Dilmah Serve With Silver Of Fresh Ginger" >
+
+          {% when 'servewith-twistoflemon' %}
+          <img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/7_c5fa571c-be61-4478-a1e6-d475a53c16a3.jpg" alt="Dilmah Serve With Twist Of Lemon" >
+          {% when 'servewith-twistoforange' %}
+          <img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/2_b8e2bd4b-eab4-4176-8aa2-fe8487c9d5b4.jpg" alt="Dilmah Serve With Honey" >
+          {% when 'servewith-twistoforangeorhoney' %}
+          <img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/2_b8e2bd4b-eab4-4176-8aa2-fe8487c9d5b4.jpg" alt="Dilmah Serve With Honey" >
+
+
+          {% endcase' %}
+
+          {% endif%}
+
+
+          {% endfor' %}
+        </div>
+        
+      </div>
+      
+      
+
+      {%- comment -%}
+        Live region for announcing updated price and availability to screen readers
+      {%- endcomment -%}
+      <p class="visually-hidden" data-product-status
+        aria-live="polite"
+        role="status"
+      ></p>
+
+      {%- comment -%}
+        Live region for announcing that the product form has been submitted and the
+        product is in the process being added to the cart
+      {%- endcomment -%}
+      <p class="visually-hidden" data-loader-status
+        aria-live="assertive"
+        role="alert"
+        aria-hidden="true"
+      >{{ 'products.product.loader_label' | t }}</p>
+     
+      {% if product.tags contains "on_auction" %}
+        {% else %}
+      <div class="product__description mt5 rte" data-available="{{ product.available }}" closed>
+        <div class="description-content-wrapper">
+        {{ product.description }}
+       
+        <!-- display advent calendar only this product - start -->
+          {% if product.title == 'Christmas Tea Advent Calendar' %}
+            
+            <script type="text/javascript">
+            _linkedin_partner_id = "833923";
+            window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+            window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+            </script><script type="text/javascript">
+            (function(l) {
+            if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+            window.lintrk.q=[]}
+            var s = document.getElementsByTagName("script")[0];
+            var b = document.createElement("script");
+            b.type = "text/javascript";b.async = true;
+            b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+            s.parentNode.insertBefore(b, s);})(window.lintrk);
+            </script>
+            <noscript>
+            <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=833923&fmt=gif" />
+            </noscript>
+          {% endif %}
+          <!-- display advent calendar only this product - end -->
+          </div>
+          <span class="read-more-btn">Read More</span>
+        </div>
+        {% endif %}
+      <!-----------------------------------------------ecom  new add------------------>
+
+      {% assign accompSize = accomp | size %}
+      {% if accompSize > 3 %}
+        <div class="ecom_attributs acc_with">
+          <p class="acc_with_text_main">Accompaniments/Pair with</p>
+          <p class="accomplishments">{{accomp}}</p>
+        </div>
+      {% endif %}
+<!--    added on 9/20/2021 | END    -->
+      
+      <br>
+       <!-----------------------------------------------ecom  new add------------------>
+   
+      
+<!--   add customer review was here     -->
+      
+     <!-- added on 9/25/2021 -->
+      {% comment %} {% endcomment %}
+      <div style="display: none">
+      <div style="display: flex; width: 50%;" id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+      </div>
+      
+  <!-- added on 9/25/2021 | END -->
+
+      {% if show_share_buttons %}
+        <div class="product__social-sharing{% if product.description contains 'accordion__group' %} hidden{% endif %}">
+          {% render 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}
+        </div>
+      {% endif %}
+
+      <div class="yotpo-review-container">
+        <div class="yotpo-wrapper">
+          <div class="yotpo-widget-instance" 
+            data-yotpo-instance-id="234945" 
+            data-yotpo-product-id="{{product.id}}" 
+            data-yotpo-name="{{ product.title | escape }}" 
+            data-yotpo-url="{{ shop.url }}{{ product.url }}" 
+            data-yotpo-image-url="{{ product.featured_image | product_img_url: "large" | prepend: "https:" | replace: '?', '%3F' | replace: '&','%26'}}" 
+            data-yotpo-price="{{ product.price | divided_by: 100.00 }}" 
+            data-yotpo-currency="{{ shop.currency }}" 
+            data-yotpo-description="{{ product.description | escape }}">
+          </div>
+        </div>
+        <div class="read-more-yotpo">Reviews</div>
+      </div>
+    </div>
+  </div>
+
+  {%- assign images = product.media | where: 'media_type', 'image' -%}
+  
+  {% comment %} {% endcomment %}
+  {% render 'lightbox' with images: images %}
+ 
+   {% render 'reviews-drawer' with product: product %}
+ 
+  
+</section>
+
+{% unless product == empty %}
+  <script type="application/json" id="ProductJson-{{ section.id }}">
+    {{ product | json }}
+  </script>
+  <script type="application/json" id="ModelJson-{{ section.id }}">
+    {{ product.media | where: 'media_type', 'model' | json }}
+  </script>
+{% endunless %}
+
+
+
+<style>
+
+.advent-calendar-video{
+  width:100%;
+/*   max-width:1000px; */
+  margin:0 auto;
+  margin-top:2rem;
+}
+
+.sampleDownloadPDF{
+        margin-top: 3rem;
+        margin-bottom: 0;
+        display: block;
+        color: #007c85;
+        text-decoration: underline;
+        font-size: 14px;
+        text-transform: capitalize;
+        font-weight: 600;
+      }
+  .sampleDownloadPDF:hover{
+    color:#054c52;
+  }
+  .ecom_attributs {
+    margin-right: 5px;
+  }
+  .ecom_attributs.format_wrapper {
+    margin-right: 15px;
+    flex: 0 0 26%;
+  }
+  @media only screen and (max-width: 768px) {
+    .ecom_attributs.format_wrapper {
+      flex: 0 0 55%;
+    }
+  }
+ .ecom_attributs img {
+    width: 65px;
+       margin: 0 auto;
+    position: relative;
+    left: 50%;
+    margin-left: -32px;
+  } 
+    .ecom-tea-icons {
+      height: 105px !important;
+  }
+  .serve_with img {
+    width: 132px;
+}
+  
+  p.format-title.ecom-p-td-cf {
+    text-align: center !important;
+}
+  p.format-mini-title mini-title.ecom-p-td-cf {
+    text-align: center !important;
+}
+  .product-info-bag {
+      display: flex;
+      flex-wrap: wrap;
+  }
+  p.product-info-bag-pr {
+    font-size: 0.78em;
+    color: gray;
+    margin-right: 0.8em;
+  }
+  
+  
+  
+  .cf-td-descrption {
+    display: flex;
+    flex-wrap: wrap;
+}
+  
+  
+  .ecom-cf-td-main {
+    display: inline-flex;
+    margin: 10px 0;
+    width: 183px;
+}
+  .cfl-img, .td-img {
+    width: auto;
+    height: 33px;
+}
+  .cf_des, .td_des {
+    margin: 0 10px;
+}
+  .cf-title, .td-title {
+    color: #808080c2;
+}
+  .ecom-p-td-cf {
+    line-height: 5px;
+    font-size: 13px;
+    margin-top: 8px;
+}
+  
+  
+
+  
+.format_level.ecom-cf-td-main {
+    display: inline-block;
+    max-width: 47%;
+}  
+  
+  
+ </style> 
+
+<style>
+  img.test400.image__img.lazyautosizes.ls-is-cached.lazyloaded {
+    display: none;
+}
+  h2.spr-header-title {
+    font-size: 15px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    color: #333 !important;
+    line-height: 26px !important;
+  }
+  span.spr-summary-actions {
+    border: 1px solid #777 !important;
+}
+  span.spr-summary-actions a {
+    color: #111 !important;
+}
+  .spr-form-input {
+    background: transparent !important;
+  }
+  .spr-form-label {
+    background: white !important;
+    font-weight: 500;
+  }
+  #shopify-product-reviews .spr-icon-star, #shopify-product-reviews .spr-icon-star-empty, #shopify-product-reviews .spr-icon-star-half-alt, .product__reviews .spr-icon-star, .product__reviews .spr-icon-star-empty, .product__reviews .spr-icon-star-half-alt {
+    color: #bc9307;
+}
+  input.spr-button.spr-button-primary.button.button-primary.btn.btn-primary {
+    border-radius: 25px !important;
+    transition: 0.4s !important;
+  }
+  input.spr-button.spr-button-primary.button.button-primary.btn.btn-primary:hover {
+    background: #bc9307 !important;
+  }
+  .spr-form input, .spr-form textarea {
+    border: 1px solid #ccc !important;
+  }
+  .spr-form-review-body .spr-form-input.spr-form-input-textarea {
+    border: 1px solid #ccc !important;
+  }
+  #shopify-product-reviews {
+    padding: 20px 0 !important;
+  }
+</style>
+<!-- 9/26 -->
+<style>
+  .time_of_day.ecom-cf-td-main {
+    position: relative;
+  }
+/*   img.time-title {
+    position: absolute;
+    width: 13%;
+    right: 0;
+  } */
+  .ecom-cf-td-main {
+    width: 205px;
+  }
+/*   p.time-title.ecom-p-td-cf {
+    font-weight: 500;
+  } */
+</style>
+<!-- 9/26 | END -->
+
+<!-- added on 10/2/2021 -->
+<style>
+  .product__price {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  span.product-price-m {
+    margin-right: 1em;
+    margin-bottom:12px;
+  }
+  @media only screen and (min-width: 1000px) {
+    span.product-price-m {
+      font-size: 1.9em;
+      font-weight: 400;
+    }
+  }
+  @media only screen and (max-width: 1000px) {
+    span.product-price-m {
+      font-size: 1.5em;
+      font-weight: 400;
+    }
+  }
+
+  span.product__policies.rte.type-body-small.tc.mb0 {
+    margin-right: 3em;
+  }
+  span.instock_ale {
+    padding: 5px 7px;
+    letter-spacing: 0.06em;
+    font-size: 8px;
+    border-radius: 6px;
+    background: #05af05;
+    font-weight: bold;
+    color: white;
+  }
+  @media only screen and (max-width: 768px) {
+    span.instock_ale {
+      font-size: 8px;
+    }
+  }
+  
+  
+  .additional-attributes-wrapper.table-wrapper {
+    column-gap: 5px;
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    justify-content: flex-start;
+    position: relative;
+    top: 15px;
+  }
+  .format_des {
+    display: block;
+  }
+  .ecom-p-td-cf {
+    line-height: 1em;
+    font-size: 1em;
+    margin-top: 0;
+  }
+  .ecom-cf-td-main {
+    display: block;
+    width: 100%;
+  }
+  
+  p.format-mini-title mini-title.ecom-p-td-cf {
+    font-size: 0.9em;
+  }
+  p.mood-mini-title mini-title.ecom-p-td-cf {
+    font-size: 0.9em;
+  }
+  p.caffeine-mini-title mini-title.ecom-p-td-cf {
+    font-size: 0.9em;
+  }
+  p.grades-mini-title mini-title.ecom-p-td-cf {
+    font-size: 0.9em;
+  }
+  p.time-mini-title mini-title.ecom-p-td-cf {
+    font-size: 0.9em;
+  }
+
+/*  serve with  */
+  .serve_and_acc_with_wrapper {
+    display: flex;
+    align-items: center;
+    padding-top: 1em;
+  }
+  .serve_with {
+    display: flex;
+  }
+  .serve_with img {
+    width: 50%;
+  }
+  .serve_wrap {
+    display: flex;
+  }
+  p.serve_with_text_main {
+    font-weight: bold;
+    font-size: 0.9em;
+  }
+  p.mini-text {
+    text-align: center !important;
+    font-size: 0.65em;
+
+  }
+  .serve {
+    text-align: center;
+  }
+  .serve_with {
+    flex-basis: 50%;
+  }
+  p.acc_with_text_main {
+    font-size: 1em;
+    font-weight: 700;
+  }
+  p.accomplishments {
+    font-size: 15px;
+    font-weight: 400 !important;
+  }
+  @media only screen and (max-width: 768px) {
+    .serve_and_acc_with_wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .ecom_attributs p {
+    font-weight: 600;
+}
+  .ecom-none {
+    display: none;
+}
+/*  time of day wrapper  */
+  .tod_wrapp {
+    display: flex;
+  }
+  .time_of_day {
+    margin-right: 10px;
+  }
+  .time-title {
+    text-align: center !important;
+  }
+  
+  .ecom-cf-td-main {
+    min-width: 65px;
+}
+.mini-title {
+    font-size: 0.9em;
+    font-weight: 400 !important;
+}
+  
+  .ecom-cf-td-main {
+    position: relative;
+}
+  .mini_des {
+    position: absolute;
+    bottom: 4px;
+    width: 100%;
+  }
+  .ecom_attributs p {
+    text-align: center !important;
+  }
+  .ecom_attributs.acc_with p {
+    text-align: left !important;
+  }
+  #Quantity-product--static {
+    width: 4em;
+    border: 1px solid #007c85;
+    height: 25px;
+    padding: 14px 10px;
+    background: #ececd0;
+  }
+  
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance:textfield;
+  }
+  
+  p.short_des_ecom {
+    font-size: 14px;
+    margin: 11px 0 16px;
+  }
+</style>
+<!-- added on 10/2/2021 | END -->
+
+<!-- 2025-07-22 | DILMAH NEW LAYOUT -->
+<style>
+  .plus-minus-with-price {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+  
+  .plus-minus-with-price .product-form__submit-button-wrapper {
+      width: 23%;
+  }
+  
+  .plus-minus-with-price .product-form__submit-button-wrapper .product-form__controls-group {
+      margin-top: 0;
+  }
+  
+  .plus-minus-with-price .product__price.next-to-buttons {
+      margin-top: 0;
+  }
+  
+  .plus-minus-with-price .product-form__item.product-form__quantity {
+      margin-top: 0px;
+      padding-bottom: 0;
+      max-width: unset;
+      width: unset;
+      column-gap: 0;
+      justify-content: center;
+  }
+  
+  .plus-minus-with-price .product__price.next-to-buttons .product-price-m.ecom_pro_price {
+      margin-bottom: 0;
+      margin-right: 0;
+      font-size: 1.1em;
+      color: #bb9107;
+  }
+
+  .plus-minus-with-price .tax-info-wrapper {
+    flex: 0 0 100%;
+  }
+
+
+
+  /* read more button */
+  /* Content wrapper with animated height */
+  .description-content-wrapper {
+    overflow: hidden;
+    transition: height 0.4s ease;
+    position: relative;
+  }
+  
+  /* Fade-out effect at bottom when collapsed */
+  .product__description[closed] .description-content-wrapper::after {
+    {% comment %} content: ''; {% endcomment %}
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2.5em; /* Height of fade effect */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), white);
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Read More button */
+  .read-more-btn {
+    display: block;
+    color: black;
+    font-weight: unset;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s;
+    position: absolute;
+    right: 5px;
+    background: white;
+    bottom: 0;
+    line-height: 0.8;
+    margin-top: 0;
+    text-decoration: underline;
+  }
+  
+  .read-more-btn:hover {
+    color: #0056b3;
+  }
+  /* read more button END */
+
+  .yotpo-display-m .yotpo-main-layout .yotpo-head .yotpo-headline {
+    text-align: center !important;
+  }
+  @media only screen and (max-width: 768px) {
+    .read-more-btn {
+      right: 0;
+    }
+    .plus-minus-with-price .product-form__submit-button-wrapper {
+      width: 44%;
+    }
+  }
+
+  .read-more-yotpo {display: none;}
+
+  .yotpo-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  
+  .yotpo-wrapper.expanded {
+    max-height: 4000px; /* adjust as needed */
+  }
+  
+  .read-more-yotpo {
+    display: block;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 12px 0;
+    text-align: left;
+    position: relative;
+  }
+  
+  .read-more-yotpo:after {
+    position: absolute;
+    top: 50%;
+    left: 36%;
+    transform: translate(-50%, -50%) rotate(135deg);
+    border-top: 3px solid black;
+    border-right: 3px solid black;
+    content: " ";
+    width: 10px;
+    height: 10px;
+  }
+  @media (max-width: 768px) {
+
+  }
+</style>
+<!-- 2025-07-22 | DILMAH NEW LAYOUT END -->
+
+
+<script>
+
+  $(document).ready(function() {
+  // Handler for .ready() called.
+    $('.ecom_attributs').filter(function(){
+      return this.childNodes.length < 5
+    }).addClass('ecom-none');
+  });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.querySelector(".product__description");
+  const wrapper = container.querySelector(".description-content-wrapper");
+  const btn = container.querySelector(".read-more-btn");
+
+  const collapsedHeight = 103; // Set collapsed height (in pixels)
+
+  // Initial setup based on "closed" attribute
+  function setInitialHeight() {
+    if (container.hasAttribute("closed")) {
+      wrapper.style.height = collapsedHeight + "px";
+      btn.textContent = "Read More>";
+    } else {
+      wrapper.style.height = wrapper.scrollHeight + "px";
+      btn.textContent = "Read Less";
+    }
+  }
+
+  setInitialHeight();
+
+  btn.addEventListener("click", () => {
+    const isClosed = container.hasAttribute("closed");
+
+    if (isClosed) {
+      container.removeAttribute("closed");
+      wrapper.style.height = wrapper.scrollHeight + "px";
+      btn.textContent = "Read Less";
+    } else {
+      container.setAttribute("closed", "");
+      wrapper.style.height = collapsedHeight + "px";
+      btn.textContent = "Read More";
+    }
+  });
+
+  // Optional: handle window resize
+  window.addEventListener("resize", () => {
+    if (!container.hasAttribute("closed")) {
+      wrapper.style.height = wrapper.scrollHeight + "px";
+    }
+  });
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // if (window.innerWidth > 768) return;
+  console.log("running for review");
+
+  const container = document.querySelector(".yotpo-review-container");
+  const toggleButton = container.querySelector(".read-more-yotpo");
+  const wrapper = container.querySelector(".yotpo-wrapper");
+
+  function waitForElement(selector, timeout = 10000) {
+    return new Promise((resolve, reject) => {
+      const intervalTime = 200;
+      let timeElapsed = 0;
+
+      const interval = setInterval(() => {
+        const el = document.querySelector(selector);
+        if (el) {
+          clearInterval(interval);
+          resolve(el);
+        }
+        timeElapsed += intervalTime;
+        if (timeElapsed >= timeout) {
+          clearInterval(interval);
+          reject("Element not found in time");
+        }
+      }, intervalTime);
+    });
+  }
+
+  waitForElement(".yotpo-bottom-line-basic-text")
+    .then(el => {
+      const text = el.textContent;
+      const numbers = text.match(/\d+/g); // Get all numbers
+
+      if (numbers && numbers.length > 0) {
+        const reviewCount = numbers[numbers.length - 1]; // Use last number
+        const label = `Reviews (${reviewCount})`;
+        toggleButton.textContent = label;
+        toggleButton.dataset.originalText = label;
+      } else {
+        toggleButton.textContent = "Reviews";
+      }
+    })
+    .catch(() => {
+      toggleButton.textContent = "Reviews";
+    });
+
+  let expanded = false;
+  toggleButton.addEventListener("click", () => {
+    expanded = !expanded;
+    wrapper.classList.toggle("expanded", expanded);
+    toggleButton.textContent = expanded
+      ? "Hide Reviews"
+      : toggleButton.dataset.originalText || "Reviews";
+  });
+});
+</script>

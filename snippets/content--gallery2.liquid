@@ -1,0 +1,431 @@
+{% assign modifiers = '' %}
+
+{% assign modifiers = modifiers | append: ' section--' | append: section_style %}
+
+{% unless section_style == 'contrast' %}
+  {% assign modifiers = modifiers | append: ' section--bordered' %}
+{% endunless %}
+
+{% assign modifiers = modifiers | append: ' carousel--columns-' | append: columns %}
+
+{% assign carousel_text_position = text_position | split: '_' | first %}
+{% assign carousel_text_alignment = text_position | split: '_' | last %}
+
+{% assign modifiers = modifiers | append: ' carousel--text-position-' | append: carousel_text_position %}
+{% assign modifiers = modifiers | append: ' carousel--text-alignment-' | append: carousel_text_alignment %}
+{% assign modifiers = modifiers | append: ' carousel--items-' | append: blocks.size %}
+{% assign modifiers = modifiers | append: ' gallery--' | append: aspect_ratio %}
+
+{% assign minimum_items_for_wrap_around = columns | plus: 2 %}
+{% assign items_needed = minimum_items_for_wrap_around | minus: blocks.size %}
+
+{% if carousel_text_position == 'top' and items_needed <= 0 or blocks.size == 0 %}
+  {% assign modifiers = modifiers | append: ' carousel--columns-wrap-around' %}
+{% endif %}
+
+
+<style>
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  .section-{{ section.id }}-padding .welcome_text_heading {
+   font-size: {{section.settings.title_font_size_mobile}}px; 
+  }
+  .section-{{ section.id }}-padding * {
+    font-family: {{section.settings.font_for_section.family}};
+    font-weight: {{section.settings.font_for_section.weight}};
+    font-style: {{section.settings.font_for_section.style}};
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding .welcome_text_heading {
+      font-size: {{ section.settings.title_font_size_desktop}}px;
+    }
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+<section
+  data-section-id="{{ id }}"
+  data-section-type="gallery"
+  class="section gallery carousel{{ modifiers }} section-{{ section.id }}-padding"
+  data-text-position={{ carousel_text_position }}
+  data-text-alignment={{ carousel_text_alignment }}
+>
+  {% render 'text-block' with
+    id: id,
+    modifiers: 'mb5 animation__staggered-children-fade-in',
+    heading_alignment: carousel_text_alignment,
+    text_max_width: text_max_width,
+    overline: overline,
+    heading: heading,
+    subheading: subheading,
+    link: link,
+    link_text: link_text
+  %}
+
+  {% render 'carousel-navigation' %}
+{% if template != "page.christmas" %}
+  <div class="{% if template.name == "index"  %} gallery__slides carousel__slides2 {% else %} ecom_gallery__slides {%endif %}" data-carousel3>
+    
+    
+    
+    {% if blocks.size > 0 %}
+      {%- for block in blocks -%}
+   
+        <div class="gallery__slide carousel__slide animates {% if template == "page.christmas" %} christmasPic-{{ forloop.index }} {% endif %} {% if template.name == "index"  %} ecom-welcome {% else %} ecom_blog_header  {%endif %}" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}">
+
+          {% if block.settings.link != blank %}
+            <a href="{{ block.settings.link }}" class="{% if template == "page.christmas" %} xmas_gallery__image {% else %}gallery__image {% endif %}">
+          {% else %}
+            <div class="{% if template == "page.christmas" %} xmas_gallery__image {% else %}gallery__image {% endif %}">
+          {% endif %}
+
+            {% if block.settings.image != blank %}
+              {% render 'image' with
+                image: block.settings.image
+              %}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+
+          {% if block.settings.link != blank %}
+            </a>
+          {% else %}		
+         
+      </div>
+          {% endif %}
+
+          {% unless block.settings.description == blank %}
+            <div
+              class="gallery__description type-body-regular mt3 mb0"
+              data-theme-editor-setting="section.{{ id }}.block.{{ block.id }}.description"
+            >
+              {{ block.settings.description }}
+            </div>
+          {% endunless %}
+        </div>
+      {%- endfor -%}
+    {% else %}
+      {% for i in (1..minimum_items_for_wrap_around) %}
+        <div class="gallery__slide carousel__slide animates ecom-welcome">
+        
+          <div class="gallery__image ecom-welcome">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            
+            </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endif %}
+              
+{% if template == "page.christmas" %}
+<!--   christmas page section desktop - start -->
+  <div class="{% if template == "page.christmas" %} christmasTeaAwaitsArea {% endif %} {% if template.name == "index"  %} gallery__slides carousel__slides2 {% else %} ecom_gallery__slides {%endif %}" data-carousel3>
+    
+    
+    
+    {% if blocks.size > 0 %}
+      {%- for block in blocks -%}
+   
+        <div class="gallery__slide carousel__slide animates {% if template == "page.christmas" %} christmasPic-{{ forloop.index }} {% endif %} {% if template.name == "index"  %} ecom-welcome {% else %} ecom_blog_header  {%endif %}" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}">
+
+          {% if block.settings.link != blank %}
+            <a href="{{ block.settings.link }}" class="{% if template == "page.christmas" %} xmas_gallery__image {% else %}gallery__image {% endif %}">
+          {% else %}
+            <div class="{% if template == "page.christmas" %} xmas_gallery__image {% else %}gallery__image {% endif %}">
+          {% endif %}
+
+            {% if block.settings.image != blank %}
+              {% render 'image' with
+                image: block.settings.image
+              %}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+
+          {% if block.settings.link != blank %}
+            </a>
+          {% else %}		
+         
+      </div>
+          {% endif %}
+
+          {% unless block.settings.description == blank %}
+            <div
+              class="gallery__description type-body-regular mt3 mb0"
+              data-theme-editor-setting="section.{{ id }}.block.{{ block.id }}.description"
+            >
+              {{ block.settings.description }}
+            </div>
+          {% endunless %}
+        </div>
+      {%- endfor -%}
+    {% else %}
+      {% for i in (1..minimum_items_for_wrap_around) %}
+        <div class="gallery__slide carousel__slide animates ecom-welcome">
+        
+          <div class="gallery__image ecom-welcome">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            
+            </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+<!--   christmas page section desktop - end -->
+
+<!--   christmas page section mobile - start -->
+  <div class="{% if template == "page.christmas" %} christmasTeaAwaitsAreaOnMob {% endif %} {% if template.name == "index"  %} gallery__slides carousel__slides2 {% else %} ecom_gallery__slides {%endif %}" data-carousel3>
+    
+    
+    
+    {% if blocks.size > 0 %}
+      {%- for block in blocks -%}
+   
+        <div class="gallery__slide carousel__slide animates {% if template == "page.christmas" %} christmasPic-{{ forloop.index }} {% endif %} {% if template.name == "index"  %} ecom-welcome {% else %} ecom_blog_header  {%endif %}" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}">
+
+          {% if block.settings.link != blank %}
+            <a href="{{ block.settings.link }}" class="{% if template == "page.christmas" %} xmas_gallery__image {% else %}gallery__image {% endif %}">
+          {% else %}
+            <div class="{% if template == "page.christmas" %} xmas_gallery__image {% else %}gallery__image {% endif %}">
+          {% endif %}
+
+            {% if block.settings.image != blank %}
+              {% render 'image' with
+                image: block.settings.image
+              %}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+
+          {% if block.settings.link != blank %}
+            </a>
+          {% else %}		
+         
+      </div>
+          {% endif %}
+
+          {% unless block.settings.description == blank %}
+            <div
+              class="gallery__description type-body-regular mt3 mb0"
+              data-theme-editor-setting="section.{{ id }}.block.{{ block.id }}.description"
+            >
+              {{ block.settings.description }}
+            </div>
+          {% endunless %}
+        </div>
+      {%- endfor -%}
+    {% else %}
+      {% for i in (1..minimum_items_for_wrap_around) %}
+        <div class="gallery__slide carousel__slide animates ecom-welcome">
+        
+          <div class="gallery__image ecom-welcome">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            
+            </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+<!--   christmas page section mobile - end -->
+              
+{% endif %}
+  
+</section>
+<style>
+ .gallery__slides.carousel__slides2 {
+    display: flex;
+   flex-direction: row;
+    padding: 0px 10px 0px 10px !important;
+    margin-top: -42px;
+   justify-content: space-between;
+}
+  .carousel--columns-4 .carousel__slide{
+    
+  }
+  .txt-ecom-head.text-block__subheading.type-body-regular.ma0.mt3{
+    display: -webkit-box;
+    /* max-width: 200px; */
+    -
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+ .btn-block{
+    background:#007b84;
+    color: #fff;
+    border-radius: 25px;
+    border:none;
+    width:50%;
+  }
+  .ecom-bloglayout .text-block--center {
+    text-align: center;
+    position: relative;
+    bottom: 35px;
+  
+
+    
+}
+  .text-block .mb5 .animation__staggered-children-fade-in text-block--center{
+    text-align: center;
+    margin-top: 14px;
+  }
+  .btn-block:hover{
+    background: #ad820b!important;
+   
+  }
+  .bttn--secondary:hover:before {
+    opacity: 0;
+    height: 48px;
+    height: var(--height-button);
+}
+  .blog-posts__slide.carousel__slide.animates.ecom-bloglayout {
+    margin-top: -47px !important;
+/*     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%); */
+    
+
+}
+ h2.ecom_txt_h1.text-block__heading.type-heading-1.ma0.mt3.txt-head-block {
+    min-height: 57px;
+    margin: -9px;
+    padding-top: 20px;
+    padding: 20px 45px 0px;
+    display: -webkit-box;
+    /* max-width: 200px; */
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+  
+.ecom-icons{
+   width:80% !important;
+   height: 100%;
+  
+   }   
+  
+.txt-ecom-head p {
+    width: 100%;
+    text-align: center !important;
+      font-size: 18px;
+      font-weight: 500;
+}
+  .ecom_txt_h1{
+    opacity: 1;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 36px;
+    margin: 0 0 20px;
+    color: #0d6971;
+  }
+  .ecom-icons .gallery--portrait .image  img {
+    height: 50% !important;
+}
+  @media only screen and (max-width: 1000px) {
+	
+.gallery__slides.carousel__slides2 {
+    display: flex;
+    flex-direction: row;
+    /* padding: 0px 20px 0px 85px !important; */
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    margin-top: -41px;
+}
+
+.gallery__slide.carousel__slide.animates.ecom-icons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 33% !important;
+}
+.gallery__image {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 18% !important;
+    flex: 1;
+}
+    .txt-ecom-head {
+    padding: 0px 50px;
+}
+   .ecom-icons{
+   width:100% !important;
+   height: 100%;
+   } 
+   .ecom_txt_h1 {
+    opacity: 1;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 30px;
+    margin: 0 0 20px;
+    color: #0d6971;
+}} 
+ @media only screen and (max-width: 768px) {
+      h2.ecom_txt_h1.text-block__heading.type-heading-1.ma0.mt3.txt-head-block {
+    min-height: 51px;
+    padding: 0px 0px;
+    margin: -2px;
+} 
+  .txt-ecom-head{
+   padding: 0px !important;
+   }
+    h2.ecom_txt_h1.text-block__heading.type-heading-1.ma0.mt3.txt-head-block {
+    min-height: auto;
+    padding: 0px 10px; 
+    bottom: 0px;
+    position: relative;
+}
+	 .gallery__slides.carousel__slides2 {
+       display: grid;
+    /* flex-direction: row; */
+    margin: 0 auto;
+    grid-gap: 1rem;
+/*     grid-template-columns: repeat(2, 1fr); */
+    padding: 0px 20px 0px 25px !important;
+}
+   .template-index .gallery__slides.carousel__slides2:after {
+    content: " ";
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: gray;
+}
+   .ecom_gift_card_img {
+    position: relative !important;
+     width: 150px;}
+ .ecom-icons:last-child {
+    display: grid;
+    grid-column: 1/3;
+    /* grid-template-columns: repeat(1, 1fr); */
+    justify-content: center;
+    /* align-items: center; */
+    
+}
+   .ecom-icons{
+   height: 200px;
+   margin-bottom: -40px;
+   }
+   .ecom_txt_h1 {
+    opacity: 1;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 30px;
+    margin: 0 0 20px;
+    color: #0d6971;
+   }
+
+.txt-ecom-head.text-block__subheading.type-body-regular.ma0.mt3{
+   width:98%;
+ }
+ 
+}
+ 
+ 
+</style>
+
+         

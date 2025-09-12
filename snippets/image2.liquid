@@ -1,0 +1,38 @@
+{%- assign img_url = image -%}
+{%- assign height = image.height | times: 1.0 | default: 1.0 -%}
+{%- assign width = image.width | times: 1.0 | default: 1.0 -%}
+
+{% assign image_id = image.id %}
+
+{% unless id == blank %}
+  {% assign image_id = id %}
+{% endunless %}
+
+{%- assign padding_top = height | divided_by: width | times: 100 | append: "%" -%}
+
+{% if image.alt != blank %}
+{% assign bannerAlt = image.alt %}
+{% else %}
+{% assign bannerAlt = bannerTitle %}
+{% endif %}
+
+<div class="image image--{{ image_id }} {{ wrapper_class }}">
+  <img
+    class="test400 image__img lazyload {{ image_class }}"
+    src="{{ image | img_url: '2048x2048' }}"
+    data-src="{{ img_url }}"
+    data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+    data-aspectratio="{{ image.aspect_ratio }}"
+    data-sizes="auto"
+    alt="{{ bannerAlt | escape }}"
+    loading="lazy"
+  >
+</div>
+
+{%- unless disable_style -%}
+  <style>
+    .image--{{ image_id }} {
+      padding-top: {{ padding_top }};
+    }
+  </style>
+{%- endunless -%}

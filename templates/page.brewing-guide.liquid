@@ -1,0 +1,119 @@
+<section
+  class="page section faq_page"
+  data-section-id="{{ id }}"
+  data-section-type="page"
+>
+  <header class="page__header center">
+    {% unless overline == blank %}
+      <div class="page__overline overline ma0 mb3 tc">
+        {{ overline }}
+      </div>
+    {% endunless %}
+
+    <h1 class="type-heading-1 tc mt0 mb5">{{ page.title }}</h1>
+  </header>
+</section>
+    <style>
+      .brew_container {
+        width: 80%;
+        max-width: 1200px;
+        margin: 30px auto;
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-template-areas: 
+          "image_1 image_2 image_3"
+          "image_4 gentlemen image_5"
+          "image_6 gentlemen image_5"
+          "image_7 logo image_5";
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+        grid-column-gap: 35px;
+      }
+      img {
+        width: 100%;
+      }
+
+      .items-1 {
+        grid-area: image_1;
+      }
+      .items-2 {
+        grid-area: image_2;
+      }
+      .items-3 {
+        grid-area: image_3;
+      }
+      .items-4 {
+        grid-area: image_4;
+      }
+      .items-5 {
+        grid-area: image_5;
+      }
+      .items-6 {
+        grid-area: image_6;
+      }
+      .items-7 {
+        grid-area: image_7;
+      }
+      .items-8 {
+        grid-area: gentlemen;
+        width: 85%;
+      }
+      .items-9 {
+        grid-area: logo;
+        width: 30%;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .brew_container {
+          width: 90%;
+          margin: 10px auto;
+          grid-template-columns: 1fr;
+          grid-template-areas: 
+            "image_1"
+            "image_2"
+            "image_3"
+            "image_4"
+            "image_5"
+            "image_6"
+            "image_7"
+            "gentlemen"
+            "logo";
+          justify-items: center;
+          align-items: center;
+          justify-content: center;			
+        }
+        .items-1 {
+          padding-top: 15px;
+        }
+
+        .items-4 {
+          padding: 15px 0 5px 0;			
+        }
+        .items-5 {
+          padding: 5px 0 15px 0;	
+        }
+        .items-6 {
+          padding: 15px 0;	
+        }
+        .items-7 {
+          padding: 15px 0;	
+        }
+      }
+
+
+    </style>
+ 
+
+
+    <div class="brew_container">
+		<div class="items-1"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/1_07d587d7-d1ec-41b8-82e3-e64ddab20ced.jpg?v=1632640843" alt="Dilmah Brew image 1" class="img-1"></div>
+		<div class="items-2"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/2_34c838fc-4a36-4fb6-8808-9a510c26e151.jpg?v=1632640843" alt="Dilmah Brew image 2" class="img-2"></div>
+		<div class="items-3"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/3_ac03e9eb-5484-4b2c-909d-361153bb9a89.jpg?v=1632640843" alt="Dilmah Brew image 3" class="img-3"></div>
+		<div class="items-4"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/4_4f1dcfc6-8a52-48d5-a856-c7666d50542c.jpg?v=1632640843" alt="Dilmah Brew image 4" class="img-4"></div>
+		<div class="items-5"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/5_65d06196-d9af-4ec6-8cba-3028b9586db2.jpg?v=1632640843" alt="Dilmah Brew image 5" class="img-5"></div>
+		<div class="items-6"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/6_dff0d790-ab2f-4616-a8f9-11905f88a248.jpg?v=1632640843" alt="Dilmah Brew image 6" class="img-6"></div>
+		<div class="items-7"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/7_7467e441-4c2b-4115-8aad-5be3dfaf330a.jpg?v=1632640843" alt="Dilmah Brew image 7" class="img-7"></div>
+		<div class="items-8"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/logo_c6aacf19-7509-4bfc-b7ce-272922131fb4.jpg?v=1632640843" alt="Dilmah Brew image gentlement" class="img-8"></div>
+		<div class="items-9"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/dilmah_ad38531f-7f57-488e-bc32-f43ba295a64c.jpg?v=1632640843" alt="Dilmah Brew image logo" class="img-9"></div>
+	</div>

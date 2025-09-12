@@ -1,0 +1,104 @@
+<p class="txt-filters">Filters</p>
+<div class="ecom_top-bar_filters collection-top-bar__filters">
+  {% if collection.all_tags.size > 0 and show_filters %}
+    {% if filter_type == 'by_group' %}
+
+      {% assign activeFilters = settings.enable_tags %}
+      {% assign activeFilters = activeFilters | split:"," %}
+
+      {% for category in categories %}
+        {%- assign current_category = category | escape | strip -%}
+        {%- unless activeFilters contains current_category -%}
+          {%- continue -%}
+        {%- endunless -%}
+        
+        <a href="#" class="collection__button type-body-regular" data-filter="{{ category }}">
+          {{ category }}
+          {% render 'icon-chevron-down' %}
+        </a>
+      {% endfor %}
+    {% endif %}
+
+    {% if filter_type == 'by_tag' %}
+      <a href="#" class="collection__button type-body-regular" data-filter="__tags">
+        {{ 'collections.tags.title' | t }}
+        {% render 'icon-chevron-down' %}
+      </a>
+    {% endif %}
+  {% endif %}
+
+  {% if show_sort %}
+    <a href="#" class="collection__button type-body-regular" data-filter="__sort">
+      {{ 'collections.sorting.title' | t }}
+      {% render 'icon-chevron-down' %}
+    </a>
+  {% endif %}
+</div>
+
+<!-- added on 9/24/2021 -->
+<style>
+ 
+.collection__button svg {
+    color: var(--color-icon);
+    width: 11px;
+    height: 11px;
+    margin-top: 3px;
+    
+    margin: 0;
+    padding: 0;
+  
+    position: absolute;
+    right: 10px;
+    top: 12px;
+}
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .ecom_top-bar_filters {
+      display: flex !important;
+      flex-wrap: wrap;
+    }
+  }
+  
+  
+  [data-filter="Tea Type"] {
+    order: 0;
+  }
+  [data-filter="price"] {
+    order: 1;
+  }
+  [data-filter="Mood"] {
+    order: 2;
+  }
+  [data-filter="Tea Flavour"] {
+    order: 3;
+  }
+  [data-filter="Time Of Day"] {
+    order: 4;
+  }
+  [data-filter="Caffeine Level"] {
+    order: 5;
+  }
+  [data-filter="Tea Format"] {
+    order: 6;
+  }
+  [data-filter="Category"] {
+    order: 7;
+  }
+  [data-filter="Colour"] {
+    order: 8;
+  }
+  [data-filter="Material"] {
+    order: 9;
+  }
+  [data-filter="Tea Grading"] {
+    order: 10;
+  }
+  [data-filter="Tea Strength"] {
+    order: 11;
+  }
+  [data-filter="__sort"] {
+    order: 12;
+  }
+</style>
+<!-- added on 9/24/2021 | END -->

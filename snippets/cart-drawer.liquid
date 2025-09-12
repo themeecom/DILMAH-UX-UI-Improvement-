@@ -1,0 +1,125 @@
+<div class="ecom_drawer drawer cart-flyout" data-cart-drawer>
+  <div class="cart-flyout__inner quick-cart" data-quick-cart>
+    <ul class="quick-cart__tabs">
+      <li>
+        <a class="ecom_tabs js-tab-link-cart" href="#">{{ 'layout.cart.title' | t }}</a>
+      </li>
+      <li>
+        <a class="ecom_tabs js-tab-link-recent hide" href="#">{{ 'general.products.recently_viewed' | t }}</a>
+      </li>
+      <li>
+        <a class="ecom_tabs js-tab-link-quick-shop quick-cart__quick-shop-product" href="#">{{ 'general.products.quick_cart' | t }}</a>
+      </li>
+      <li class="quick-cart__close js-close">
+        {% render 'icon-close' %}
+      </li>
+    </ul>
+
+
+    <div class='ecom-cart-quick js-items' data-csapp_line_wrapper>
+      <div class='abs fill'>
+        <svg viewBox="0 0 100 86" class='loader abs fill mxa cg'>
+          <use xlink:href="#logo"></use>
+        </svg>
+      </div>
+    </div>
+
+    <footer class='quick-cart__footer js-footer'>
+      
+<!--         <a class="ecom_tabs clear_cart" href="#">Clear Cart</a> -->
+      
+      <p class='mt0 quick-cart__discounts js-discounts'>-</p>
+     <p class='ma0 abc'>{{ settings.quick_cart_note | replace: "[subtotal]" , "<span class='clear_cart_data'><span class='csapps-cart-original-total'><span class='js-subtotal'>.$---</span><p></p></span></span> <p class='ecom-msg-cal' id='ecomtxt' style='display:none;'>**You are away for free shipping</p>" | replace:"Your subtotal today is","<span class='ecom_subtotal'>Subtotal</span>" |replace:". Shipping and taxes will calculated at checkout","Shipping and taxes will calculated at checkout" }}</p>
+       <a
+        class="quick-cart__checkout-button bttn bttn-full no-ajax"
+        href="{{ routes.cart_url }}"
+      >
+        {{ 'layout.cart.go' | t }}
+      </a>
+      
+      <a class="ecom_tabs2 clear_cart" href="#">Clear Cart</a>
+    </footer>
+  </div>
+</div>
+
+<!-- added on 10/4/2021 -->
+<style>
+  .ecom_drawer {
+    background: white;
+    color: #007c85;
+  }
+  .ecom_tabs {
+    color: #007c85 !important;
+  }
+  .ecom_tabs.active {
+    color: #002f32 !important;
+  }
+  .quick-cart__product-details.justify-between div h4 a {
+    color: #007c85;
+    font-size: 12px;
+}
+  .quick-cart__product-details.justify-between .ma0 {
+    line-height: 1.4;
+  }
+  .quick-cart__quantity button {
+    color: #01585e;
+}
+  .quick-cart__product-details span {
+    color: #002f32;
+}
+
+.quick-cart__product-details a h3 {
+    color: #007c85;
+}
+  
+  .quick-cart__quantity {
+    border: none;
+}
+  button.quick-cart__quantity-button {
+    border: 1px solid #007c85;
+    color: #007c85;
+    transition: all 0.6s;
+}
+  button.quick-cart__quantity-button:hover {
+    color: black;
+}
+  span.quick-cart__product-price-value {
+    font-size: 0.8em;
+    font-weight: 700;
+}
+  span.quick-cart__product-price {
+    font-size: 1.4em;
+    font-weight: 400;
+}
+.product-form__item.product-form__quantity {
+    margin-top: 12px;
+}
+  button.product-form__quantity-button {
+    border: 1px solid #007c85;
+    height: 25px;
+    padding: 14px 10px;
+}
+
+  button.product-form__quantity-button:first-of-type {
+    border-right: none;
+}
+
+button.product-form__quantity-button:last-of-type {border-left: none;}
+/*  added on 12/31/2021  */
+  a.ecom_tabs2.clear_cart {
+    display: inline-block;
+    border: 1px solid;
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+    padding: 7px 10px;
+    transition: all 0.5s;
+  }
+  a.ecom_tabs2.clear_cart:hover {
+    background: #007c85;
+    color: white;
+  }
+    p.ecom-msg-cal {
+    color: #868585;
+}
+</style>

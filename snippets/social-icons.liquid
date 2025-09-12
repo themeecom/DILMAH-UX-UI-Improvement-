@@ -1,0 +1,58 @@
+{%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+
+<ul class="list ma0 pa0">
+  {% for social in social_accounts %}
+    {%- assign social_handle = social | handleize -%}
+    {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+    {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+
+    {% if settings[social_link] != blank %}
+      <li class="dib ph1">
+        <a target="_blank" href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+          {% render 'icon-social-icons' with icon: social_handle %}
+        </a>
+        
+      </li>
+    {% endif %}
+
+  {% endfor %}
+  
+  
+  
+  <li class="dib ph1 ecom_li">
+  <a target="_blank" href="https://www.tiktok.com/@dilmah_tea?lang=en" title="Dilmah Global on TikTok">
+    <svg
+         width="21"
+         height="23"
+         viewBox="0 0 2268.7812 2268.7773"
+         version="1.1"
+         id="svg5"
+         sodipodi:docname="bfe9986c5817b0304dbcb3ffe2211e60.svg"
+         xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+         xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+         xmlns="http://www.w3.org/2000/svg"
+         xmlns:svg="http://www.w3.org/2000/svg">
+      <defs
+            id="defs9" />
+      <sodipodi:namedview
+                          id="namedview7"
+                          pagecolor="#ffffff"
+                          bordercolor="#666666"
+                          borderopacity="1.0"
+                          inkscape:pageshadow="2"
+                          inkscape:pageopacity="0.0"
+                          inkscape:pagecheckerboard="0"
+                          inkscape:document-units="pt" />
+      <g
+         id="surface1"
+         transform="translate(-115.60937,-115.61328)">
+        <path
+              style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+              d="m 1898.5469,1105.3906 c -12.3906,1.2071 -24.8242,1.836 -37.2735,1.8946 -136.5234,0.016 -263.8554,-68.7969 -338.6406,-183.01567 v 623.21097 c 0,254.3906 -206.2265,460.6172 -460.6172,460.6172 -254.3906,0 -460.61716,-206.2266 -460.61716,-460.6172 0,-254.3907 206.22656,-460.6172 460.61716,-460.6172 9.6172,0 19.0157,0.8633 28.4688,1.4609 v 226.9844 c -9.4531,-1.1328 -18.7461,-2.8633 -28.4688,-2.8633 -129.83591,0 -235.08982,105.2539 -235.08982,235.0899 0,129.8359 105.25391,235.0859 235.08982,235.0859 129.8594,0 244.543,-102.3086 244.543,-232.168 l 2.2656,-1058.44138 h 217.1563 c 20.4765,194.73437 177.4961,346.83984 372.7812,361.11328 v 252.2656 M 2114.2969,115.61328 H 385.70312 c -148.92968,0 -270.09374,121.16016 -270.09374,270.08984 V 2114.2969 c 0,148.9297 121.16406,270.0937 270.09374,270.0937 H 2114.2969 c 148.9297,0 270.0937,-121.164 270.0937,-270.0937 V 385.70312 c 0,-148.92968 -121.164,-270.08984 -270.0937,-270.08984"
+              id="path2" />
+      </g>
+    </svg>
+  </a>
+</li>
+  
+</ul>

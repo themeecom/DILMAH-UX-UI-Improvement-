@@ -1,0 +1,29 @@
+{% if enabled %}
+  <section
+    data-section-id="{{ id }}"
+    data-section-type="static-text"
+    class="static-text"
+  >
+    <div class="static-text__inner">
+      {% unless heading == blank %}
+        <div class="static-text__heading">
+          <h2
+            class="type-heading-1-small mt0 mb3"
+            data-theme-editor-setting="section.{{ id }}.title"
+          >
+            {{ heading }}
+          </h2>
+        </div>
+      {% endunless %}
+
+      {%- unless text == blank -%}
+        <div
+          class="static-text__text type-body-regular rte"
+          data-theme-editor-setting="section.{{ id }}.text"
+        >
+          {{ text }}
+        </div>
+      {%- endunless -%}
+    </div>
+  </section>
+{% endif %}

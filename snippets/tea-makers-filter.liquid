@@ -1,0 +1,55 @@
+<div class="collection-sidebar__group" data-group="{{ heading }}" data-here>
+   <select name="tag_categories" id="ecom_tag_categories" onchange="ecomTagFilter(this);">
+    {% assign activeFilters = "material type" %}
+    {% assign activeFilters = activeFilters | downcase %}
+    {% assign activeFilters = activeFilters | split:"," %}
+    {% for category in categories %}
+      {% assign currentCategory =  category | escape | strip | downcase %}
+      {% unless activeFilters contains currentCategory %}
+        {% continue %}
+      {% endunless %}
+      {% for tag in collection.all_tags %}
+        
+        {% if forloop.first %}
+          <option value="{{ url }}" {% if current_tags == blank %} selected {% endif %} disabled>Select option</option>
+        {% endif %}
+        
+          {% assign cat = tag | split: '_' | first %}
+
+          {% if cat != tag and category == cat %}
+            {% assign label = tag | remove_first: cat | remove_first: '_' %}
+
+            {% if current_tags contains tag %}
+              {% assign is_active = true %}
+              {% assign url = label | link_to_remove_tag: tag | split: '"' %}
+              {% assign url = url[1] %}
+            {% else %}
+              {% assign is_active = false %}
+              {% assign url = label | link_to_add_tag: tag | split: '"' %}
+              {% assign url = url[1] %}
+            {% endif %}
+
+            <option value="{{ url }}" {% if is_active %}selected{% endif %}>{{ label }}</option>
+            {% comment %}
+            {% render 'filter-item' with
+              type: 'checkbox',
+              label: label,
+              active: is_active,
+              url: url,
+
+              key: 'tag',
+              val: tag
+            %}
+            {% endcomment %}
+          {% endif %}
+        {% endfor %}
+              
+    {% endfor %}
+</select>
+</div>
+<script type="text/javascript">
+  function ecomTagFilter(thisElem){
+    const value = thisElem.value;
+    window.location.href = value;
+  }
+</script>

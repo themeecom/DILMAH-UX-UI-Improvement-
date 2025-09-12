@@ -1,0 +1,285 @@
+{% assign timing_in_ms = announcement_bar_timing | times: 1000 %}
+<div class="ecom-shipping_amount" id="ecom_shipping_ammount" style="display:none;">
+    <div class="msg-ecom-p" id="msgecom"><p></p></div>
+  </div> 
+
+{% comment %} <script>
+  window.addEventListener("load", ()=>{
+                      
+   var txtMsg_shipping="You are away $";  
+   var txtMsg_shippingback="for free shipping"; 
+    var res=txtMsg_shipping.concat(shipping_amount)+ " ".concat(txtMsg_shippingback);                    
+    document.getElementById("msgecom").innerHTML = res;
+    console.log(res);
+   });
+  
+</script> {% endcomment %}
+ 
+<section
+  class="announcement-bar-wrapper"
+  data-section-id="{{ id }}"
+  data-section-type="announcement-bar"
+  data-timing="{{ timing_in_ms }}"
+   
+  id="default-announcement-ecom"
+>
+  
+ 
+  
+<!-- ===========================================================old shipping-bar=================================================-->
+  {% if announcement_bar_enabled %}
+
+    {% for block in blocks %}
+      <div
+        class="announcement-bar flex items-center justify-center"
+        style="
+          background-color: {{ block.settings.background_color }};
+          color: {{ block.settings.text_color }};
+        "
+        data-index="{{ forloop.index0 }}"
+        {{ block.shopify_attributes }}
+      >
+        <div class="announcement-bar__content">
+          {%- if block.settings.link != blank -%}
+          
+          {%if block.settings.text contains "Free Shipping"%}
+            <a class="color-inherit" href="{{ block.settings.link }}" id="ecom_shipping_text"  >
+              {{ block.settings.text | escape }}
+            </a>
+          <input type="hidden" id="ecom_free_shipping_margin" value="{{block.settings.text | escape}}">
+          
+            {%else%}
+          <a class="color-inherit" href="{{ block.settings.link }}"  >
+              {{ block.settings.text | escape }}
+            </a>
+ 
+          {%endif%}
+          
+          
+          {%- else -%}
+            {{ block.settings.text | escape }}
+          {%- endif -%}
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+</section>
+<section class="top_header">
+
+<div class="panel Top_header">
+   
+		 
+  
+<ul class="parent special-orders-wrapper">
+  {% for link in linklists.top-header-navigation.links %}
+    <li class="Top_nav_li"><a href="{{ link.url }}" class="top_nav_head">{{ link.title }}</a>
+    {% if link.links != blank %}
+      <ul class="child ">
+        {% for child_link in link.links %}  
+        <li class="child_list"><a href= "{{ child_link.url }}" class="chils_list_head">{{ child_link.title }}</a>
+        {% if child_link.links != blank %}
+          <ul class="grandchild">
+          {% for grandchild_link in child_link.links %}  
+            <li><a href= "{{ grandchild_link.url }}">{{ grandchild_link.title }}</a></li>
+          {% endfor %}
+          </ul>
+        {% endif %}   
+        </li>
+        {% endfor %}
+      </ul> 
+    {% endif %} 
+    </li>
+  {% endfor %}
+</ul>
+  
+  
+  {% comment %}
+		<ul class="special-orders-wrapper">
+		
+          {% for link in linklists.top-header-navigation.links %}
+          
+          <li class="Top_nav_li {% if link.active %} current{% endif %}"><a href="{{ link.url }}">{{ link.title }}</a></li>
+          
+          {% endfor %}
+          
+         	
+		</ul>
+		  {% endcomment %}
+		
+</div>
+
+</section>
+
+
+<style>
+  .ecom-shipping_amount{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(187, 145, 7); 
+    height: 50px !important;
+    color: rgb(255, 255, 255);
+    height: 50px !important;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: "Open Sans", sans-serif;
+  } 
+.top_header .panel.Top_header {
+    display: flex;
+    justify-content: flex-end;
+    background: white;
+    color: #007c85;
+    padding: 0 35px;
+}  
+ul.special-orders-wrapper {
+    display: flex;
+  margin: 0;
+}  
+ul.icon_header.links.active {
+    display: flex;
+  margin: 0;
+}
+  ul.special-orders-wrapper li {
+    list-style: none;
+   
+    float: left;
+}
+  
+  
+li.Top_nav_li a {
+    color: #8e8e8e;
+    align-items: center;
+    display: inline-block;
+    vertical-align: top;
+    height: 40px;
+    line-height: 45px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0 0 0 22px;
+    margin: 0;
+}
+ li.Top_nav_li {
+    display: inline-block;
+    margin-right: calc(4px * 5);
+} 
+ul.icon_header.links.active li {
+    list-style: none;
+    /* height: 41.88px; */
+    width: 22px;
+    display: flex;
+    align-items: center;
+    margin: 0 7px;
+} 
+ ul.icon_header.links.active li img {
+    width: 100%;
+}   
+.header:not(.header--transparent) {
+    color: #060c0d;
+    background-color: #ffffff;
+    border-top: 1px solid #4c4c4c24;
+/*   border-bottom: 1px solid #007c821c; */
+}  
+ 
+a.color-inherit.no-ajax.quick-search__trigger {
+/*     width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center; */
+  
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    border: 1px solid white;
+}  
+a.color-inherit.no-ajax.quick-search__trigger:hover {
+   
+    border: 1px solid gray;
+}
+  a.quick-cart__trigger.color-inherit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    border: 1px solid white;
+}
+  a.quick-cart__trigger.color-inherit:hover {
+   
+    border: 1px solid gray;
+}
+img.nav_icon {
+    width: 20px;
+} 
+.quick-cart__indicator.js-cart-count {
+    position: relative;
+}
+span.quick-cart__indicator-inner {
+    position: absolute;
+    top: 0px;
+    right: -3px;
+    background: #eadbb0f2;
+    border-radius: 25px;
+    font-size: 10px;
+    padding: 10px 10px;
+    line-height: 0.9;
+}  
+
+.header-container.is-sticky .header {
+    background-color: #ffffff;
+}  
+ section.ecom-welcome_setion.section.gallery2.carousel2.section--default.section--bordered.carousel--columns-4.carousel--text-position-middle.carousel--text-alignment-left.carousel--items-4.gallery--square {
+    padding: 0;
+    padding-top: 32px;
+    border-bottom: 1px solid #027d803d;
+} 
+  
+  
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  section.top_header {
+      display: none;
+  }
+}  
+
+</style>
+<style>
+  ul.special-orders-wrapper {
+/*     margin-top: 1px;
+    margin-bottom: 1px; */
+  }
+  li.Top_nav_li {
+    transition: 0.2s ease-in-out;
+  }
+  li.Top_nav_li.current {
+    background: #007c85;
+/*     border-radius: 13px; */
+  }
+  li.Top_nav_li:hover {
+    background: #007c85;
+/*     border-radius: 13px; */
+  }
+  li.Top_nav_li.current a {
+    color: white;
+    font-weight: 500;
+  }
+  li.Top_nav_li a:hover {
+    color: white;
+    font-weight: 500;
+  }
+  
+  li.Top_nav_li a {
+    padding: 0 10px;
+  }
+  li.Top_nav_li {
+    display: inline-block;
+    min-width: 100px;
+    text-align: center;
+    margin-right: 0;
+}
+</style>

@@ -1,0 +1,352 @@
+<section class="section cart-template">
+
+  {% if cart.empty? == false %}
+    <style>
+      .cart-main-title {
+        font-family: {{section.settings.font_for_title_cart.family}};
+        font-weight: {{section.settings.font_for_title_cart.weight}};
+        font-style: {{section.settings.font_for_title_cart.style}};
+      }
+    </style>
+  <h1 class="type-heading-1 mt3 mb3 cart-main-title">
+    {{ 'cart.general.title' | t }}
+
+    <a href="/collections/all" class="continue-shopping-header">Continue Shopping</a>
+  </h1>
+  {% endif %}
+ 
+  {% if cart.item_count > 0 %}
+
+    <form action="{{ routes.cart_url }}" method="post" novalidate>
+<div class="item_list" data-csapp_line_wrapper>
+      {% for item in cart.items %}
+        <div class="cart-template__item contrast" data-csapp_line_index>
+
+          <div class="cart-template__image">
+            {% if item.image != blank %}
+              <a href="{{ item.url | within: collections.all }}">
+                {{ item | img_url: '300x300' | img_tag: item.title }}
+              </a>
+            {% endif %}
+          </div>
+
+          <div class="cart-template__text">
+
+            <div class="cart-template__details">
+
+              <a class="mb1 db" href="{{ item.url }}" data-aiod-volume-discount-line_item-bar>{{ item.product.title }}</a>
+
+              {% unless item.product.has_only_default_variant %}
+                <p class="type-body-small mt0 mb1">{{ item.variant.title }}</p>
+              {% endunless %}
+
+              <div class="meta">
+
+                {% if item.original_line_price > item.final_line_price %}
+                  <s><div class="qb-price-item" data-id="{{ item.key }}">{{ item.original_price | money }}</div></s>
+                {% endif %}
+                {{ item.final_price | money }}
+
+                {% render 'unit-price' item: item %}
+
+                {% if item.line_level_discount_allocations.size > 0 %}
+                  <ul class="cart__line-item-discounts">
+                  {% for discount_allocation in item.line_level_discount_allocations %}
+                    <li>{{ discount_allocation.discount_application.title }} (-{{ discount_allocation.amount | money }})</li>
+                  {% endfor %}
+                  </ul>
+                {% endif %}
+
+              </div>
+
+              {%- assign property_size = item.properties | size -%}
+              {% comment %}
+              {% if property_size > 0 %}
+              {% for p in item.properties %}
+              {% unless p.last == blank %}
+              {{ p.first }}:
+
+              {% if p.last contains '/uploads/' %}
+              <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+              {% else %}
+              {{ p.last }}
+              {% endif %}
+
+              {% endunless %}
+              {% endfor %}
+              {% endif %}
+              {% endcomment %}
+              
+              {% assign property_size = item.properties | size %}
+              {% if property_size > 0 %}
+                {% for p in item.properties %}
+                  {% assign first_character_in_key = p.first | truncate: 1, '' %}
+                  {% unless p.last == blank or first_character_in_key == '_' %}
+                    {{ p.first }}:
+                    {% if p.last contains '/uploads/' %}
+                      <a class="lightbox" href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                    {% else %}
+                      {{ p.last }}
+                    {% endif %}
+                    <br>
+                  {% endunless %}
+                {% endfor %}
+              {% endif %}
+            </div>
+
+            <div class="cart-template__quantity" style="max-width: 100px;">
+            <input type="number"
+                  class="input-reset input"
+                  name="updates[]"
+                  id="updates_{{ item.key }}"
+                  value="{{ item.quantity }}"
+                  min="0"
+                  aria-label="{{ 'cart.general.item_quantity' | t }}">
+            </div>
+
+            <div class="cart-template__line-price type-body-large" data-csapp_line_price data-csapp_discount_summery >
+              {% if item.original_line_price > item.final_line_price %}
+                <s class="meta"><div class="qb-total-line-item" data-id="{{ item.key }}">{{ item.original_line_price | money }}</div></s><br/>
+              {% endif %}
+              {{ item.final_line_price | money }}
+            </div>
+
+            <div class="cart-template__remove">
+              <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0">
+                <small>{{ 'cart.general.remove' | t }}</small>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      {% endfor %}
+      </div>
+
+      <div class="cart-template__footer">
+        <div class="cart-template__footer-left">
+          {% if settings.cart_notes_enable %}
+            <div class="cart__special-instruction">
+              <label for="CartSpecialInstructions" class="db mb2">{{ 'cart.general.note' | t }}</label>
+              <textarea name="note" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+            </div>
+          {% endif %}
+        </div>
+        <div class="cart-template__footer-right">
+
+          {% comment %} Cart level discounts {% endcomment %}
+          {%- if cart.cart_level_discount_applications != blank -%}
+          <ul class="cart__discounts">
+            {%- for discount_application in cart.cart_level_discount_applications -%}
+              <li>{{ discount_application.title }} (-{{ discount_application.total_allocated_amount | money }})</li>
+            {%- endfor -%}
+            </ul>
+          {%- endif -%}
+		<div class="total_wrp">
+          <p class="meta mv0">{{ 'cart.general.subtotal' | t }}</p>
+          {% comment %} Final cart total {% endcomment %}
+          <p class="ecom_total type-body-extra-large type-heading-1-small mt1 mb1"><span class="csapps-cart-original-total">{{ cart.total_price | money }}</span></p>
+          </div>
+
+          <p class="type-body-regular mt1 mb2">{{ 'cart.general.shipping_at_checkout' | t }}</p>
+
+          <div class="cart-template__footer-actions">
+            {% comment %} terms and conditions checkbox {% endcomment %}
+                {% if section.settings.enable_tc_checkbox %}
+                <div style="display:relative; ">
+                  <input type="checkbox" id="agree" style="display: inline-block; text-align: left; width: 20px;vertical-align: middle;"/>
+                  <label  for="agree">
+                    {{ section.settings.tc_text }} <a style="text-decoration:underline" href="/pages/terms-conditions">{{ section.settings.tc_link_text }}</a>.
+                  </label>
+                </div>
+                {% endif %}
+          {% comment %} end terms and conditions checkbox {% endcomment %}
+            
+            <button type="submit" name="update" class="bttn bttn--secondary">{{ 'cart.general.update' | t }}</button>
+            <button type="submit" id="checkout-ecom" name="checkout" class="bttn bttn--primary">{{ 'cart.general.checkout' | t }} </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  {% else %}
+
+    {% comment %}
+    Cart empty state
+    {% endcomment %}
+    <style>
+      .cart-empty-wrapper {
+        position: relative;
+        text-alignment: {{section.settings.empty_cart_alignment}};
+        justify-items: {{section.settings.empty_cart_alignment}};
+      }
+      .empty-cart-title {
+        font-family: {{section.settings.font_for_empty_title.family}};
+        font-weight: {{section.settings.font_for_empty_title.weight}};
+        font-style: {{section.settings.font_for_empty_title.style}};
+        font-size: {{section.settings.font_for_empty_size_deskotop}}px;
+        line-height: calc({{section.settings.font_for_empty_size_deskotop}} / 20);
+      }
+      .cart-empty-wrapper .empty-cart-menu {
+        display: flex;
+        position: relative;
+        flex-wrap: wrap;
+        width: fit-content;
+        flex-direction: column;
+        margin-top: 20px;
+        row-gap: 10px;
+        text-align: center;
+      }
+      .cart-empty-wrapper .empty-cart-menu .empty-cart-menu-item {
+        cursor: pointer;
+        text-decoration: underline;
+        font-weight: 600;
+      }
+      @media only screen and (max-width: 768px) {
+        .empty-cart-title {
+          font-size: {{section.settings.font_for_empty_size_mobile}}px;
+        }
+      }
+    </style>
+    <div class="supports-cookies cart-empty-wrapper">
+     <p class="empty-cart-title">{{ section.settings.empty_title }}</p>
+      
+      {% if section.settings.empty_cart_small_text %}
+       <p class="empty-cart-title-small">{{ section.settings.empty_cart_small_text }}</p>
+      {% endif %}
+
+      <div class="empty-cart-menu">
+        {% for block in section.blocks %}
+          {% if block.type != "empty_cart_links" %} {% continue %} {% endif %}
+          <a class="empty-cart-menu-item" href="{{ block.settings.url }}"> {{ block.settings.link_text }} </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% comment %}
+    Cart no cookies state
+    ---------------------
+    Browser cookies are required to use the cart. If cookies aren't enabled in the
+    browser a message is displayed prompting the user to enable them.
+    {% endcomment %}
+    <div class="supports-no-cookies">
+      <p>{{ 'cart.general.cookies_required' | t }}</p>
+    </div>
+  {% endif %}
+
+</section>
+
+
+<style>
+  .featured-collection-cart-title:after {
+    content: "  ";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    background: #e9e9e9;
+    height: 1px;
+  }
+  .featured-collection-cart-title {
+    font-family: {{section.settings.font_for_featured_collection_title.family}};
+    font-weight: {{section.settings.font_for_featured_collection_title.weight}};
+    font-style: {{section.settings.font_for_featured_collection_title.style}};
+    font-size: {{section.settings.font_for_featured_collection_title_deskotop}}px;
+    line-height: calc({{section.settings.font_for_featured_collection_title_deskotop}} / 20);
+    text-align: {{section.settings.font_for_empty_cart_alignment}};
+    margin-top: 10px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .featured-collection__slides {
+    padding: 0 80px;
+  }
+  @media only screen and (max-width: 768px) {
+    .empty-cart-title-small {
+      text-align: center !important;
+    }
+    .featured-collection__slides {
+      padding: 0px;
+    }
+    .featured-collection-cart-title {
+      font-size: {{section.settings.font_for_featured_collection_title_mobile}}px;
+    }
+  }
+</style>
+<div class="featured-collection-cart-title">
+  {{ section.settings.featured_collection_title }}
+</div>
+{% assign featured_collection = collections[section.settings.collection] %}
+  <div class="featured-collection__slides owl-carousel {% if cart.empty? %} empty-cart {% endif %}" id="owl-slider" data-carousel>
+    {% if featured_collection != blank %}
+      {%- for product in featured_collection.products limit: max_product_limit -%}
+    
+        <div class="featured-collection__slide  ">
+          {% render 'product-item' with
+            product: product
+            aspect_ratio: aspect_ratio
+          %}
+        </div>
+      {%- endfor -%}
+    {% else %}
+      {% for i in (1..minimum_items_for_wrap_around) %}
+        <div class="featured-collection__slide product-item ">
+          {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+          <div class="product-item__placeholder">
+            {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+
+          <h2 class="type-body-regular mt3">
+            {{ 'homepage.onboarding.product_title' | t }}
+          </h2>
+          <p class="price-item price-item--regular ma0 meta">{{ 2000 | money }}</p>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+
+
+<style>
+  .csapp_discount_total_wrapper {
+    align-items: flex-start;
+}
+  .CartNoticeInline_picky-cart-notice-inline_1OW2k {
+    text-align: left !important;
+    font-family: var(--font-body);
+  }
+  
+  .ecom_cart_page_img{
+    position:unset;
+  }
+  .ecom_cart_a{
+    width: 45%;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  @media (max-width: 38em){
+    .cart-template__text {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: center;
+    }
+    .cart-template__quantity {
+      min-width: 100%;
+      text-align: center;
+      align-items: center;
+    }
+    .cart-template__quantity input {
+      text-align: center;
+    }
+    .cart-template__remove {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media only screen and (max-width: 608px){
+    .cart-template__text [data-csapp_line_price] {
+      align-items: center;
+    }
+  }
+</style>

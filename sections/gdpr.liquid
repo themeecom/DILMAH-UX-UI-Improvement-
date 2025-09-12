@@ -1,0 +1,193 @@
+{% unless section.settings.hide_gdpr %}
+  <style>
+    .ecom-gdpr-container {
+        position: fixed;
+        bottom: 0;
+        width: 30%;
+        z-index: 9999;
+        background-color: {{ section.settings.ecom_bg_color }};
+        color: {{ section.settings.ecom_text_color }};
+        right: 10px;
+        bottom: 15px;
+        padding: 5px;
+        border: 1px solid {{ section.settings.ecom_border_color }};
+    }
+
+    @media only screen and (max-width: 768px) {
+      .ecom-gdpr-container {
+        width: 80%;
+      }
+    }
+    
+    .ecom-gdpr-container .content-container {
+      padding: {{ section.settings.text_container_padding }}; 
+    }
+
+    .ecom-gdpr-container .content-container .ecom-gdpr-title{
+      color: {{section.settings.ecom_gdpr_title_text_color}};
+      font-weight: 700;
+    }
+    .ecom-gdpr-container .content-container .ecom-gdpr-content {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .ecom-gdpr-container .content-container .ecom-gdpr-content a {
+      color: blue;
+    }
+    
+    .sf-prem-bubble {
+        z-index: 9998 !important;
+    }
+    
+    div#smile-ui-lite-container {
+        z-index: 700 !important;
+    }
+    .sf-push {
+       z-index: 9998 !important;
+    }
+
+
+    .ecom-gdpr-container .ecom-gdpr-btns {
+      text-align: left;
+    }
+    
+    .ecom-gdpr-container .ecom-gdpr-btns .ecom-accept-gdpr {
+      color: {{ section.settings.ecom_accept_btn_txt_color }};
+      background-color: {{section.settings.ecom_accept_btn_bg_color}};
+      padding: {{ section.settings.ecom_accept_btn_padding }};
+      border: none;
+    }
+  </style>
+ 
+  <div class="ecom-gdpr-container" hidden>
+    <div class="content-container">
+      <div class="ecom-gdpr-title">{{ section.settings.ecom_gdpr_title }}</div>
+      <div class="ecom-gdpr-content">{{ section.settings.ecom_gdpr_content }}</div>
+      <div class="ecom-gdpr-btns">
+        <button class="ecom-accept-gdpr" onclick="acceptGDPR()">{{ section.settings.ecom_gdpr_accept_text }}</button>
+      </div>
+    </div>
+  </div>
+   <script>
+    function getCookieGDPR(name) {
+      let cookieArr = document.cookie.split(";");
+      
+      for(let i = 0; i < cookieArr.length; i++) {
+        let cookiePair = cookieArr[i].split("=");
+      
+        /* Removing whitespace at the beginning of the cookie name 
+           and compare it with the given string */
+        if(name == cookiePair[0].trim()) {
+          /* Decode the cookie value and return */
+          return decodeURIComponent(cookiePair[1]);
+        }
+      }
+      
+      /* Return null if not found */
+      return null;
+      }
+
+    function setCookiGDRP(name, value, days) {
+      let expires = "";
+      if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+    
+    //check gdpr is there. if not show gdpr
+    if(!getCookieGDPR("ecom_gdpr_check")) {
+      document.querySelector('.ecom-gdpr-container').hidden= false;
+    }
+
+    function acceptGDPR() {
+      document.querySelector('.ecom-gdpr-container').hidden= true;
+      setCookiGDRP("ecom_gdpr_check", "true", {{ section.settings.ecom_ask_again_n_days }});
+    }
+
+     if(Shopify.designMode) {
+        document.querySelector('.ecom-gdpr-container').hidden= false;
+    }
+  </script>
+{% endunless %} {% comment %} end of hide GDPR check {% endcomment %}
+{% schema %}
+  {
+    "name": "GDPR",
+    "tag": "div",
+    "settings": [
+      {
+        "type": "checkbox",
+        "default": false,
+        "id": "hide_gdpr",
+        "label": "Hide GDPR stripe"
+      },
+      {
+        "type": "number",
+        "label": "Ask GDPR accept after every n days",
+        "default": 2,
+        "id": "ecom_ask_again_n_days"
+      },
+      {
+        "type": "text",
+        "id": "ecom_gdpr_title",
+        "label": "GDPR title text"
+      },
+      {
+        "type": "color",
+        "id": "ecom_gdpr_title_text_color",
+        "label": "GDPR title text color"
+      },
+      
+      {
+        "type": "color",
+        "id": "ecom_bg_color",
+        "label": "Container BG color"
+      },
+      {
+        "type": "color",
+        "id":"ecom_border_color",
+        "label": "Ecom border color"
+      },
+      {
+        "type": "color",
+        "id": "ecom_text_color",
+        "label": "Container text color"
+      },
+      {
+        "type": "richtext",
+        "default": "<p>OUR GDPR POLICY</p>",
+        "id": "ecom_gdpr_content",
+        "label": "GDPR Content"
+      },
+      {
+        "type": "text",
+        "id": "text_container_padding",
+        "label": "Container padding"
+      },
+      {
+        "type": "text",
+        "default":"Accept",
+        "id": "ecom_gdpr_accept_text",
+        "label": "GDPR Accept button text"
+      },
+      {
+        "type": "color",
+        "id": "ecom_accept_btn_txt_color",
+        "label": "Accept btn text color"
+      },
+      {
+        "type": "color",
+        "id": "ecom_accept_btn_bg_color",
+        "label": "Accept btn bg color"
+      },
+      {
+        "type": "text",
+        "id": "ecom_accept_btn_padding",
+        "label": "Accept btn padding"
+      }
+    ]
+  }
+{% endschema %}

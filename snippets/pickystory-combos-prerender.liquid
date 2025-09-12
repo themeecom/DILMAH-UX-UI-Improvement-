@@ -1,0 +1,56 @@
+<script type="text/javascript">
+{% comment %}
+/**
+ * Optimize rendering the combo products widget by the main PickyStory app.
+ * Rendered by layout/theme.liquid.
+ * If you choose to uninstall PickyStory, this snippet can be safely deleted.
+ * Get the app: https://go.pickystory.com/8nsjceym
+ * Contact us for any questions: hello@pickystory.com.
+ * Copyright (C) 2023 Picky Story Ltd. - All Rights Reserved
+ */
+{% endcomment %}
+; (() => {
+  const getPageProductHandle = () => {
+    const path = window.location.pathname
+    const searchTerm = '/products/'
+    const start = path.lastIndexOf(searchTerm)
+    if (start < 0) return null
+    const encoded = path.slice(start + searchTerm.length).replace('/', '')
+    return decodeURI(encoded) // Decode to handle non-English letters
+  }
+  const findProductForms = ({ productHandle, compoundProductHandles, insertionMode, productFormSelector }) => {
+    if (!compoundProductHandles.includes(productHandle) || insertionMode !== 'replace') {
+      return []
+    }
+    // Override cart URL inside the selector with a localized version if necessary
+    const selector = productFormSelector.replace('"/cart/add"', '"{{ routes.cart_add_url }}"')
+    return document.querySelectorAll(selector)
+  }
+  const isProductPage = /^.*\/products\/[A-Za-z0-9-_%]+\/?$/i.test(window.location.pathname)
+  if (!isProductPage) {
+    return
+  }
+  const productHandle = getPageProductHandle()
+  if (!productHandle) {
+    return
+  }
+  const productForms = [
+    ...findProductForms({
+      productHandle,
+      compoundProductHandles: ["classics-for-the-tea-connoisseurs-a-cotton-gift", "new-combo", "new-combo-1", "the-ceylon-tea-experience", "the-tea-aficionado-collection", "the-premium-brewing-experience", "the-exceptional-brewing-experience", "new-combo-9", "romance-in-your-cuppa-a-cotton-gift-pouch-with-2-designer-gourmet-teas", "brilliant-breakfast-bundle-with-t-series-porcelain-pot-t-series-mug-saucer", "tea-lovers-bundle", "mangroves-in-mannar-tea-experience-bundle", "azure-waters-of-the-levant-tea-experience-bundle", "ramadan-festive-bundle", "calming-tea-infusions-bundle-1", "indulgent-dessert-tea-bundle", "an-exceptional-christmas", "a-vivid-christmas-bundle", "the-christmas-chai-experience-bundle", "a-fun-christmas-bundle", "marzipan-under-the-mistletoe-bundle", "t-licious-tea-party-bundle", "white-tea-bundle"],
+      insertionMode: 'replace',
+      productFormSelector: 'form[action="/cart/add"]',
+    }),
+    ...findProductForms({
+      productHandle,
+      compoundProductHandles: ["oolong-tea-bundle", "green-tea-bundle", "souchong-bundle", "black-tea-bundle"],
+      insertionMode: 'replace',
+      productFormSelector: 'form[action="/cart/add"]',
+    }),
+  ]
+  const productForm = productForms.length === 1 && productForms[0]
+  if (productForm) {
+    productForm.style.setProperty('visibility', 'hidden')
+  }
+})()
+</script>

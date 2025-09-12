@@ -1,0 +1,39 @@
+
+{% assign shipping-banner = section.settings.show_shipping_banner %}
+{% assign shipping-amount = section.settings.shipping_amount %}
+
+{% if shipping-banner  %}
+<script>
+  let shipping_amount = '{{- shipping-amount -}}';
+</script>
+  {% else %}
+  <script>
+     let shipping_amount = NaN;
+  </script>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Shipping Banner",
+    "settings": [
+{
+        "type": "checkbox",
+        "id": "show_shipping_banner",
+        "label": "Show shipping banner",
+        "default": true
+      },
+{
+        "type": "text",
+        "id": "shipping_amount",
+        "label": "Free shipping amount",
+        "default": "50"
+      }
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

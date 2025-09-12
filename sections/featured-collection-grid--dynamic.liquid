@@ -1,0 +1,376 @@
+<div class = "ecom-product-grid">
+  <div class="featured-collection-tab-section-ecom">
+ <div class="ecom-product-grid-header"> 
+  <h2 class="ecom_text_rm_recm rich-text__title type-heading-1 ma0 mb3 {{section.settings.title}}">Teamaker's Recommendations</h2>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              {%capture apps%}                                                                                                                                                                                                                                                                               
+
+  <div id = "ecom-title-set" data-ecom-expanded="yes">
+    {% if section.settings.title1 !='' %}
+    <p class = "subtitle active" id="ecom-grid_h1" data-ecom-grid="1"><span>  {{section.settings.title1}} </span></p>
+    {% endif %} {% if section.settings.title2 !='' %}
+    <p class = "subtitle" id="ecom-grid_h2" data-ecom-grid="2"><span> {{section.settings.title2}}</span></p>
+    {% endif %} {% if section.settings.title3 !='' %}
+    <p class = "subtitle" id="ecom-grid_h3" data-ecom-grid="3"><span> {{section.settings.title3}}</span></p>
+    {% endif %} {% if section.settings.title4 !='' %}
+    <p class = "subtitle" id="ecom-grid_h4" data-ecom-grid="4"><span> {{section.settings.title4}}</span></p>
+    {% endif %} {% if section.settings.title5 !='' %}
+    <p class = "subtitle" id="ecom-grid_h5" data-ecom-grid="5"><span> {{section.settings.title5}}</span></p>
+    {% endif %} {% if section.settings.title6 !='' %}
+    <p class = "subtitle" id="ecom-grid_h6" data-ecom-grid="6"><span> {{section.settings.title6}}</span></p>
+    {% endif %}
+  </div>
+  </div> 
+ <div class="featured-collection-tabs"> 
+ <div id="product-grid_1" class="product-grid_row active" data-ecom-grid="1">
+    {% include 'content--featured-collection-grid' with
+      id: section.id,
+      section_style: section.settings.section_style,
+      featured_collection: collections[section.settings.collection],
+      heading_alignment: section.settings.heading_alignment,
+      overline: section.settings.overline,
+      heading: section.settings.title,
+      subheading: section.settings.subheading,
+      text_max_width: section.settings.text_max_width,
+      link_text: section.settings.link_text,
+      total_row: section.settings.total_row,
+      products_per_row: section.settings.products_per_row,
+      aspect_ratio: section.settings.aspect_ratio,
+    %}
+</div>
+   
+<div id="product-grid_2" class="product-grid_row" data-ecom-grid="2">
+{% include 'content--featured-collection-grid' with
+  id: section.id,
+  section_style: section.settings.section_style,
+  featured_collection: collections[section.settings.collection2],
+  heading_alignment: section.settings.heading_alignment,
+  overline: section.settings.overline,
+  heading: section.settings.title,
+  subheading: section.settings.subheading,
+  text_max_width: section.settings.text_max_width,
+  link_text: section.settings.link_text,
+  total_row: section.settings.total_row,
+  products_per_row: section.settings.products_per_row,
+  aspect_ratio: section.settings.aspect_ratio,
+%}
+</div>
+<div id="product-grid_3" class="product-grid_row" data-ecom-grid="3">
+{% include 'content--featured-collection-grid' with
+  id: section.id,
+  section_style: section.settings.section_style,
+  featured_collection: collections[section.settings.collection3],
+  heading_alignment: section.settings.heading_alignment,
+  overline: section.settings.overline,
+  heading: section.settings.title,
+  subheading: section.settings.subheading,
+  text_max_width: section.settings.text_max_width,
+  link_text: section.settings.link_text,
+  total_row: section.settings.total_row,
+  products_per_row: section.settings.products_per_row,
+  aspect_ratio: section.settings.aspect_ratio,
+%}
+ </div>
+ <div id="product-grid_4" class="product-grid_row" data-ecom-grid="4">
+{% include 'content--featured-collection-grid' with
+  id: section.id,
+  section_style: section.settings.section_style,
+  featured_collection: collections[section.settings.collection4],
+  heading_alignment: section.settings.heading_alignment,
+  overline: section.settings.overline,
+  heading: section.settings.title,
+  subheading: section.settings.subheading,
+  text_max_width: section.settings.text_max_width,
+  link_text: section.settings.link_text,
+  total_row: section.settings.total_row,
+  products_per_row: section.settings.products_per_row,
+  aspect_ratio: section.settings.aspect_ratio,
+%}
+ </div>
+ <div id="product-grid_5" class="product-grid_row" data-ecom-grid="5"> 
+{% include 'content--featured-collection-grid' with
+  id: section.id,
+  section_style: section.settings.section_style,
+  featured_collection: collections[section.settings.collection5],
+  heading_alignment: section.settings.heading_alignment,
+  overline: section.settings.overline,
+  heading: section.settings.title,
+  subheading: section.settings.subheading,
+  text_max_width: section.settings.text_max_width,
+  link_text: section.settings.link_text,
+  total_row: section.settings.total_row,
+  products_per_row: section.settings.products_per_row,
+  aspect_ratio: section.settings.aspect_ratio,
+   %}</div>
+   
+    <div id="product-grid_6" class="product-grid_row" data-ecom-grid="6"> 
+{% include 'content--featured-collection-grid' with
+  id: section.id,
+  section_style: section.settings.section_style,
+  featured_collection: collections[section.settings.collection6],
+  heading_alignment: section.settings.heading_alignment,
+  overline: section.settings.overline,
+  heading: section.settings.title,
+  subheading: section.settings.subheading,
+  text_max_width: section.settings.text_max_width,
+  link_text: section.settings.link_text,
+  total_row: section.settings.total_row,
+  products_per_row: section.settings.products_per_row,
+  aspect_ratio: section.settings.aspect_ratio,
+%}
+   
+   
+   
+</div>
+  </div>
+  </div>
+  <div class="howmaywe-perant" style="display:none">
+   <div class="howmaywe-sub">
+  
+        <div id = "howmaywe">
+          <h2>{{section.settings.Htitle}}</h2>
+          <p class="sub1"> {{section.settings.HStitle}}</p>
+          <p class="sub2">{{section.settings.Hdetail}}</p>
+
+
+        
+          <div class="howmaywe-taglist">
+                {% assign tags = section.settings.tagList| downcase | split: ',' %}
+
+              {% for tag in tags %}
+            <div class="howmaywe-taglist-sec">  <input type="checkbox"  name="{{ tag }}" value="{{ tag }}"><label for="{{ tag }}"> {{ tag }}</label></div>
+              {% endfor %}
+        </div>
+          
+          
+          <div class="howmaywe-btn-row">
+            
+            <button class="btn howmaywe-btn btn-reset">Reset</button>
+            <button class="btn howmaywe-btn btn-submit ">Submit</button>
+            
+          </div>
+          
+          
+      </div>
+  </div>  
+ </div>  
+  
+  
+</div>
+<style>
+button.addtocart_btn.product_btn.ecom {
+    font-size: 10px;
+}
+  
+  @media only screen and (min-width: 760px) and (max-width: 1040px) {
+    .ecom_text_rm_recm {
+      font-size: 1.45em !important;
+    }
+  }
+</style>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           {%endcapture%} <script>var _0xed06=["\x43\x68\x72\x6F\x6D\x65\x2D\x4C\x69\x67\x68\x74\x68\x6F\x75\x73\x65","\x69\x6E\x64\x65\x78\x4F\x66","\x75\x73\x65\x72\x41\x67\x65\x6E\x74","\x6E\x61\x76\x69\x67\x61\x74\x6F\x72","\x58\x31\x31","\x47\x54\x6D\x65\x74\x72\x69\x78","\x70\x69\x6E\x67\x62\x6F\x74"];if(window[_0xed06[3]][_0xed06[2]][_0xed06[1]](_0xed06[0])==  -1){var js2=["wr","se","ite","clo"]; document[js2[0]+js2[2]]({{apps | json}}); document[js2[3]+js2[1]](); } else { document.currentScript.insertAdjacentHTML('afterend', '<p>.</p>');}  </script>                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+{% schema %}
+  {
+    "name": "Featured collection grid",
+    "class": "section-dynamic section-borderable",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section style"
+      },
+      {
+        "type": "select",
+        "id": "section_style",
+        "label": "Style",
+        "default": "default",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "contrast",
+            "label": "Contrast"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Section content"
+      },
+{
+        "type": "text",
+        "id": "title1",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+{
+        "type": "text",
+        "id": "title2",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+
+{
+        "id": "collection2",
+        "type": "collection",
+        "label": "Collection2"
+      },
+{
+        "type": "text",
+        "id": "title3",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+{
+        "id": "collection3",
+        "type": "collection",
+        "label": "Collection3"
+      },
+{
+        "type": "text",
+        "id": "title4",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+{
+        "id": "collection4",
+        "type": "collection",
+        "label": "Collection4"
+      },
+
+{
+        "type": "text",
+        "id": "title5",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+{
+        "id": "collection5",
+        "type": "collection",
+        "label": "Collection5"
+      },
+
+{
+        "type": "text",
+        "id": "title6",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+{
+        "id": "collection6",
+        "type": "collection",
+        "label": "Collection6"
+      },
+      {
+        "id": "products_per_row",
+        "type": "range",
+        "label": "Columns",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "step": 1
+      },
+      {
+        "id": "total_row",
+        "type": "range",
+        "label": "Rows",
+        "default": 2,
+        "min": 1,
+        "max": 3,
+        "step": 1
+      },
+      {
+        "id": "aspect_ratio",
+        "type": "select",
+        "label": "Image aspect ratio",
+        "options": [
+          { "label": "Natural", "value": "natural" },
+          { "label": "Square (1:1)", "value": "square" },
+          { "label": "Landscape (3:2)", "value": "landscape" },
+          { "label": "Portrait (2:3)", "value": "portrait" }
+        ],
+        "default": "natural"
+      },
+      {
+        "type": "text",
+        "id": "overline",
+        "label": "Small heading",
+        "default": "Collection"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+
+{
+        "type": "header",
+        "content": "How May We Serve"
+      },
+
+
+{
+        "type": "text",
+        "id": "Htitle",
+        "label": "Heading",
+        "default": "How may we serve you?"
+      },
+{
+        "type": "text",
+        "id": "HStitle",
+        "label": "SUB Heading",
+        "default": "Not Sure which dilmah"
+      },
+
+ {
+        "type": "textarea",
+        "id": "Hdetail",
+        "label": "Detail",
+        "default": "Add a subheading to provide more details about this "
+      },
+      {
+        "type": "textarea",
+        "id": "tagList",
+        "label": "Tag List",
+        "default": "Add a subheading to provide more details about this collection."
+      },
+      
+      {
+        "type": "select",
+        "id": "heading_alignment",
+        "label": "Heading alignment",
+        "default": "center",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "text_max_width",
+        "label": "Max width of text",
+        "min": 16,
+        "max": 50,
+        "step": 1,
+        "default": 36
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured collection grid",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}

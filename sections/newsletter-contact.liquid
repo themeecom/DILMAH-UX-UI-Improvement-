@@ -1,0 +1,538 @@
+
+{% assign modifiers = '' %}
+{%- assign has_image = false -%}
+
+{% if section.settings.image != blank %}
+  {%- assign has_image = true -%}
+  {% assign modifiers = modifiers | append: ' contact--has-image' %}
+{% endif %}
+
+{% capture content %}
+  {%- if page.content != blank -%}
+    <div class="contact__text rte">{{ page.content }}</div>
+  {%- endif -%}
+
+  
+{% endcapture %}
+
+<section class="contact section{{ modifiers }} ecom-contact_page">
+  
+  <div class="contact-DES">
+  
+      {% if has_image %}
+      <div class="contact__container">
+        <div class="contact__image">
+          {% render 'image' with image: section.settings.image, wrapper_class: 'borders' %}
+        </div>
+        <div class="contact__content">
+          <div class="contact__content-inner">
+            <h1 class="contact__heading type-heading-1 mt0 mb3">{{ page.title }}</h1>
+
+          </div>
+        </div>
+      </div>
+    {% else %}
+<!--       <div class="contact__image">
+          <img src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/newsletter_pic.png?v=1661428367">
+        </div> -->
+      <header class="contact_header page__header center">
+        <div class="newsletterCoverWithPic">
+          <div class="newsletterTxtArea">
+<!--             <h1 class="contact__heading type-heading-1 mt0 mb3 newletterTxt">{{ page.title }} </h1> -->
+<!--             <h2 class="ecom_contact__heading newletterTxt">Subscribe and get 10% off your first purchase!</h2> -->
+            <!-- <h3 class="ecom_news_heading newletterTxt">Subscribe and get 10% off your first purchase. Login to avail this discount.</h3> -->
+          </div>
+        </div>
+        <div class="smallMobNewsLetterPic">
+          <img src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/newsletter_pic.png?v=1661428367">
+        </div>
+      </header>
+
+      
+    {% endif %}
+  
+    
+    {{content}}
+  </div>
+  
+  
+  <div class="contact_form_tr">
+    
+    {% comment  %}}
+  <div class="right-info">
+  
+     <ul>
+        <li class="telephone">
+          <span class="icon">
+          </span>
+          <span class="icon-text">
+          <span >
+            <font style="vertical-align: inherit;">
+               <font style="vertical-align: inherit;color: #999;">Phone number: </font>
+            </font>
+            <span>
+              <a href="tel:+44 (0) 1933 422 060"><font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">+ 94 11 482 2000 </font>
+                </font>
+              </a>
+            </span>
+          </span>
+     
+          </span>
+          
+        </li>
+        
+        <li class="email">
+          <span class="icon"></span> <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Email: </font></font>
+          <span><a href="mailto:orders@dilmahtea.com">
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">orders@dilmahtea.com</font></font></a></span></span></li>
+        <!--<li class="email"><span>Postadres:&nbsp;<span>&nbsp;&nbsp;&nbsp;</span></span></li>-->
+        <li class="address">
+          <span class="icon"></span>
+          <span class="address_text">
+          <span class="head"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            
+            Dilmah Ceylon Tea Company PLC, </font></font></span> 
+            
+            <span><font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">111, Negombo Road,</font></font></span>
+            <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Peliyagoda (11830), </font></font></span>
+            <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sri Lanka.
+</font></font></span>
+                        
+          </span> 
+        </li>
+   
+    
+    </ul>
+  
+  
+  
+  </div>
+    {% endcomment %}
+    
+  <div class="form-wrapper">
+    <h3 class="ecom_news_heading newsLetterSubsTxt">Subscribe and get 10% off your first purchase. Login to avail this discount.</h3>
+{% render 'newsletter-contact' %}
+  </div>
+  </div>
+  
+</section>
+<style>
+  .ecom_news_heading {
+    text-align: left;
+    color: #007b84;
+  }
+  
+  @media only screen and (min-width: 768px) {
+  /* For desktop: */
+  
+section.contact.section.ecom-contact_page {
+  padding: 0 calc(10px * 10);
+   margin: 42px 0;
+} 
+}
+
+  
+  
+ section.contact.section.ecom-contact_page {
+    display: block;
+}
+ 
+    .mid-content {
+    width: 100%;
+    float: left;
+}
+  
+.contact__inner {
+  max-width: 1252px;
+}  
+/* .form-wrapper {
+    width: 67%;
+  float: left;
+      padding: 0 0 0 23px;
+}
+ .right-info {
+    width: 33%;
+   float: left;
+   margin-bottom: 24px;
+}  */
+.fieldset.fieldset-row {
+    width: 100%;
+    float: left;
+    margin: 0 0 7px;
+}  
+.fieldset-row .field {
+    width: 50%;
+    float: left;
+ 
+}  
+.right-info ul {
+    padding: 44px 41px 48px;
+    background: #ededed;
+    float: left;
+    margin: 0;
+    border-radius: 12px;
+} 
+  
+.right-info ul li {
+    list-style: none;
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 20px;
+}  
+.mid-content .form-wrapper .fieldset .fieldset.fieldset-row .field:first-child {
+    padding-right: 21px;
+}  
+.mid-content .form-wrapper .fieldset .fieldset.fieldset-row.wide .field:first-child {
+    padding-right: 0;
+}  
+ 
+.fieldset-row .field.topic {
+    width: 100%;
+}  
+.field.comment.required {
+    width: 100%;
+} 
+  
+.field.choice.newsletter {
+    width: 100%;
+    text-align: left;
+    float: left;
+    position: relative;
+    color: #007c85 !important;
+    font-weight: bold;
+    padding-left: 34px;
+} 
+
+ .field.choice.newsletter input {
+   
+       position: absolute;
+    top: 0;
+    left: 0;
+    width: 21px;
+    height: 21px;
+    padding: 0;
+    margin: 0;
+    z-index: 100;
+    opacity: 1;
+    cursor: pointer;
+} 
+  
+
+  .field.choice.is_confirmed {
+    position: relative;
+}
+  
+.field.choice.is_confirmed input {
+      
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 21px;
+    height: 21px;
+    padding: 0;
+    margin: 0;
+    z-index: 100;
+    opacity: 1;
+    cursor: pointer;
+}
+ .field.choice.is_confirmed label {
+    padding-left: 32px;
+} 
+  
+  
+button.action.submit.primary {
+    background-image: none;
+    background: #2d9699;
+    border: 1px solid #2d9699;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'signika_regular','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    padding: 7px 15px;
+    width: 180px;
+    font-size: 1.4rem;
+    line-height: 3.4rem;
+    box-sizing: border-box;
+    vertical-align: middle;
+}  
+ .actions-toolbar {
+    padding: 14px;
+}
+li.telephone span.icon:before {
+    -webkit-font-smoothing: antialiased;
+    font-size: 27px;
+    line-height: 27px;
+    color: #007c85;
+    content: "\e937";
+    font-family: 'dilmah-icons';
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
+}  
+ li.email span.icon:before {
+    -webkit-font-smoothing: antialiased;
+    font-size: 25px;
+    line-height: 24px;
+    color: #007c85;
+    content: "\e943";
+    font-family: 'dilmah-icons';
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+   text-align: center;
+ 
+ } 
+  
+  
+  
+  li.address span.icon:before{
+      -webkit-font-smoothing: antialiased;
+    font-size: 32px;
+    line-height: 32px;
+    color: #007c85;
+    content: "\e942";
+    font-family: 'dilmah-icons';
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
+  }
+  
+.mid-content .right-info ul li.telephone .icon {
+    margin: 8px 22px 0 0;
+    display: inline-block;
+    text-decoration: none;
+} 
+  
+   .mid-content .right-info ul li .icon {
+    width: 45px;
+    height: 45px;
+}
+  .mid-content .right-info ul li span {
+    font-size: 1.6rem;
+    color: #007c85;
+}
+  
+  .mid-content .right-info ul li span.time {
+    float: left;
+    font-size: 1.4rem;
+    color: #666;
+}
+  
+  .mid-content .right-info ul li span span a {
+    color: #007c85;
+    text-decoration: none;
+}
+ .mid-content .right-info ul li.address .icon {
+    width: 45px;
+    height: 110px;
+    margin: 0;
+    padding-left: 1px;
+    display: inline-block;
+    text-decoration: none;
+}  
+ li.telephone {
+    display: flex;
+} 
+  
+li.address {
+    display: flex;
+}  
+span.address_text {
+    display: flex;
+    flex-direction: column;
+}  
+  
+  li.informatoin {
+    display: flex;
+    flex-direction: column;
+   
+}
+  li.informatoin span {
+    margin-left: 45px;
+}
+  
+  input[type="submit"] {
+    border: 0;
+}
+  
+.field font {
+    text-transform: capitalize;
+}  
+form#contact_form button {
+    width: 10%;
+}  
+
+  .icon {
+   
+    margin-right: 10px;
+}
+ .contact_form_tr {
+    display: flex;
+    justify-content: center;
+}
+ 
+.right-info {
+    width: 33%;
+}
+.form-wrapper {
+    width: 62%;
+}  
+ form#contact_form button {
+    width: auto;
+} 
+
+  form button#submit_btn {
+    font-size:14px;
+    width: 50%;
+}
+h2.ecom_contact__heading {
+  text-align: center;
+  color: #007b84;
+}
+  @media only screen and (max-width: 968px){
+      form button#submit_btn {
+    width: 100%;
+    }
+    .contact_form_tr {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    
+  
+  .form-wrapper {
+        width: 100%;
+      float: left;
+      padding: 0;
+    
+    
+    }
+     .right-info {
+        width: 100%;
+       float: left;
+       margin-bottom: 42px;
+    } 
+    
+    .fieldset-row .field {
+        width: 100%;
+        float: left;
+    }
+    .mid-content .form-wrapper .fieldset .fieldset.fieldset-row .field:first-child {
+        padding-right: 0;
+    } 
+    
+  }
+  
+ 
+  .iti.iti--allow-dropdown {
+    width: 100%;
+    margin-bottom: 13px;
+}
+  
+  @media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+
+    li.address span.icon:before {
+    
+      font-size: 22px;
+    
+    }
+    
+    li.email span.icon:before {
+    
+      font-size: 18px;
+    
+    }
+    li.telephone span.icon:before {
+      font-size: 18px;
+    }
+}
+  
+   @media only screen and (min-width: 768px) {
+        .ecom-contact_page form#contact_form {
+    width: 55%;
+    margin: 0 auto;
+}
+
+header.contact_header.page__header.center {
+    border-bottom: 0;
+}
+
+h1.contact__heading.type-heading-1.mt0.mb3 {
+    margin-bottom: 24px;
+}
+
+section.contact.section.ecom-contact_page {
+    margin-top: 10px;
+    margin-bottom: 63px;
+}
+h2.ecom_contact__heading, .ecom_news_heading {
+  margin: 3px 0px;
+}
+   }
+
+
+
+  
+   @media only screen and (max-width: 768px) {
+     form#contact_form {
+    width: 100%;
+    margin: 0 auto;
+}
+
+header.contact_header.page__header.center {
+    border-bottom: 0;
+  padding-bottom: 10px;
+}
+
+h1.contact__heading.type-heading-1.mt0.mb3 {
+        margin-bottom: 5px;
+  margin-top:12px;
+}
+
+section.contact.section.ecom-contact_page {
+        margin-top: -43px;
+    margin-bottom: 0px;
+}
+     h2.ecom_contact__heading, .ecom_news_heading {
+    margin: 3px 0px;
+}
+     h2.ecom_contact__heading, .ecom_news_heading {
+    margin: 0px 0px;
+}
+
+.contact_form_tr {
+    margin-top: -4px;
+}
+   }
+  
+  </style>
+{% schema %}
+  {
+    "name": "Contact page",
+    "class": "page-section",
+    "settings": [
+      {
+        "id": "image",
+        "type": "image_picker",
+        "label": "Image",
+        "info": "We recommend using an image with a 2:3 aspect ratio."
+      }
+    ]
+  }
+{% endschema %}

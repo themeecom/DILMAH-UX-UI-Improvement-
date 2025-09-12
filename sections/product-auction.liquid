@@ -1,0 +1,418 @@
+{% render 'pages--product' with
+  show_vendor: section.settings.show_vendor,
+  show_swatches: section.settings.show_swatches,
+  show_quantity_input: section.settings.show_quantity_input,
+  show_share_buttons: section.settings.show_share_buttons,
+  enable_payment_button: section.settings.enable_payment_button,
+  enable_video_looping: section.settings.enable_video_looping,
+%}
+
+<script>
+  setInterval(function(e){
+    
+  },1000)
+</script>
+
+
+{% if product.tags contains "on_auction"  %}
+  <meta id="auction_status" data-ongoing="on_auction">
+  <script>
+    let found = 0;
+    // function showCurrentBidding(changeBiddingClose) {
+    //   const auction_id =document.getElementById("auction_id").value;
+    //   jQuery.ajax({
+    //       url: spObj.api_url + "index.php?p=wk_ajax_process",
+    //       type: "GET",
+    //       crossDomain: true,
+    //       jsonpCallback: "show_bids",
+    //       cache: false,
+    //       async: false,
+    //       dataType: "jsonp",
+    //       data: { 
+    //           shop_name: spObj.shop_name,
+    //          auction_id: auction_id, 
+    //          cust_id: "", 
+    //          page: spObj.page, 
+    //          timediff: spObj.timediff, 
+    //          auction_config: spObj.auction_config, 
+    //          widget_config: spObj.widget_config 
+    //     },
+          
+    //       success: function(response) {
+    //           const container = document.createElement("div");
+    //           container.hidden = true;
+    //           container.innerHTML = response.bidders;
+    //           console.log(container)
+    //           const maxPriceElem = container.querySelector(`table.table tbody tr td:nth-child(2)`);
+    //           const maxPrice = maxPriceElem?.innerText?.trim();
+      
+    //           if(!maxPrice) {
+    //               return;
+    //           }
+      
+    //           const startBiddingElem = document.querySelector(`#wk-auction .pa-bdr.margin-top-15.pad-15.pa-form-bg.font-arial .margin-top-15`);
+    //           const nextBiddingHTML = `<div class="ecomCurrentBidAmount">
+    //           <span class="pa-label-color font-bold font-16">Current Bidding Amount: </span>
+    //           <span class="font-16 pa-text-color">${maxPrice}</span>
+              
+    //           </div>`;
+    //           startBiddingElem.insertAdjacentHTML("afterend", nextBiddingHTML)
+    //         if(changeBiddingClose){
+    //             clearInterval(changeBiddingClose);
+    //         }
+    //         document.getElementById("wk-auction").classList.remove("ecom_hide");
+    //       }
+    //   })
+    
+    // }
+
+  function showCurrentBidding(changeBiddingClose) {
+      const auction_id =document.getElementById("auction_id").value;
+      jQuery.ajax({
+          url: spObj.api_url + "index.php?p=wk_ajax_process",
+          type: "GET",
+          crossDomain: true,
+          jsonpCallback: "show_bids",
+          cache: false,
+          async: false,
+          dataType: "jsonp",
+          data: { 
+              shop_name: spObj.shop_name,
+             auction_id: auction_id, 
+             cust_id: "", 
+             page: spObj.page, 
+             timediff: spObj.timediff, 
+             auction_config: spObj.auction_config, 
+             widget_config: spObj.widget_config 
+        },
+          
+          success: function(response) {
+              const container = document.createElement("div");
+              container.hidden = true;
+              container.innerHTML = response.bidders;
+              console.log(container)
+              const maxPriceElem = container.querySelector(`table.table tbody tr td:nth-child(2)`);
+              const maxPrice = maxPriceElem?.innerText?.trim();
+      
+              if(!maxPrice) {
+                  return;
+              }
+
+              const wkContainer = document.querySelector(`.pa-bdr.margin-top-15.pad-15.pa-form-bg.font-arial`);
+              const bidEndDate = document.querySelector(`.pa-bdr.margin-top-15.pad-15.pa-form-bg.font-arial .margin-top-15`);
+              const startBidding = document.querySelector(`.width-65.pa-left.margin-left-0`);
+              const nextBidding = document.getElementById("label_bid_amt");
+              const actionTimer = document.getElementById("auction-timer");
+              
+              const startBiddingElem = document.querySelector(`#wk-auction .pa-bdr.margin-top-15.pad-15.pa-form-bg.font-arial .margin-top-15`);
+              const currentBiddingAmmount = `<div class="ecomCurrentBidAmount">
+              <span class="pa-label-color font-bold font-16">Current Bidding Amount: </span>
+              <span class="font-16 pa-text-color">${maxPrice}</span>
+              </div>`;
+
+              wkContainer.insertBefore(startBidding, wkContainer.firstChild);
+              wkContainer.insertBefore(bidEndDate, wkContainer.firstChild.nextSibling);
+              // actionTimer.insertAdjacentHTML("afterend", `<div class="ecom_bid_count">${response.bid_count} </div>`)
+                
+              //const ecombidcount = document.querySelector(`.ecom_bid_count`);
+              actionTimer.insertAdjacentHTML("afterend", nextBidding.outerHTML)
+
+              //hide bidding closed for thisproduct
+              const metaAuctionStatus = document.getElementById("auction_status").getAttribute("data-ongoing").trim();
+              const biddingclosedmsg = document.querySelector(`.pa-finished-msg`);
+              if(metaAuctionStatus == "on_auction") {
+                biddingclosedmsg.classList.add("ecom_hide");
+              }
+              //hide original bidding ammount
+              nextBidding.classList.add("ecom_hide")
+              if(changeBiddingClose){
+                  clearInterval(changeBiddingClose);
+              }
+              const nextBiddingText = "Next" + document.querySelector(`#label_bid_amt`).childNodes[0].nodeValue.toLowerCase();
+              document.querySelector(`#label_bid_amt`).childNodes[0].nodeValue = nextBiddingText;
+              document.getElementById("wk-auction").classList.remove("ecom_hide");
+          }
+      })
+    
+    }
+    const changeBiddingClose = setInterval(function(e) {
+      if(!window.spObj) {
+        console.log("searching auction")
+          return;
+      }
+
+      if(found <=4) {
+        found +=1;
+      }
+      if(found >= 4) {
+        found =10;
+         showCurrentBidding(changeBiddingClose);
+
+        document.querySelector("#place_my_bid")?.addEventListener("click", function(){
+          setTimeout(function(){
+                    const ecomCurrentBidAmount = document.querySelector(`.ecomCurrentBidAmount`);
+                    ecomCurrentBidAmount.remove();
+                   showCurrentBidding()
+                },3000)
+        })
+        
+      }
+    }, 1000)
+
+
+    
+  </script>
+{% endif %}
+
+<style>
+.rich-text__inner {
+    display: flex;
+    flex-direction: column-reverse;
+}
+  
+.product{
+  width:90% !important;
+  margin:0 auto;
+}
+
+h1.product__title.type-heading-display.mt0.mb1{
+  display:none;
+}
+/*   hide bidding table bidder name */
+#bidders_list table th:first-child, #bidders_list table td:first-child {
+    display: none;
+}
+.product__meta {
+  position:unset;
+}
+
+section.section.rich-text.section--default.section--spacing-tall.rich-text--center.section--bordered.ecom-story-section.in-view {
+    margin: 1rem auto;
+    padding: 12px;
+}
+
+.rich-text__subheading.type-body-regular.rte p {
+    margin: 5px auto;
+    max-width: 1000px;
+}
+
+  .product-slider {
+    width: 40%;
+    float:left;
+}
+.product__meta {
+    position: unset;
+    /* border: 5px solid red; */
+    float: right;
+  width:60%;
+}
+
+  .slideshow__slide--full_height {
+    height:36.5vw;
+}
+
+.slideshow__slide--full_height .slideshow__image .image__img{
+  object-fit:contain !important;
+}
+  
+.ecom-footer1 {
+  margin-top:0!important;
+}
+
+.product-slider{
+  position:relative;
+  z-index:1;
+}
+.product__header{
+  padding: 0 15px;
+}
+/* -- mobile responsive ----*/
+
+  @media only screen and (max-width:768px){
+	.product__meta {
+		float: none;
+		width: 90%;
+		margin: 10px auto;
+	}
+	.product-slider{
+		float: none;
+		width: 90%;
+		margin: 0 auto;
+	}
+}
+
+@media only screen and (max-width: 468px)
+.product__mobile-header {
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+}
+
+
+/*--------- Auction Area Styles - Start ----------*/ 
+.product__meta{
+position: relative;
+    z-index: 1;
+}
+#wk-auction .pa-bdr {
+    border: none!important;
+}
+
+#wk-auction .pa-theme-color{
+  display:block;
+}
+
+#wk-auction .font-30 {
+  width:50%;
+  font-weight: 100;
+  margin-bottom: 40px;
+  color: #007c85;
+}
+
+#wk-auction .pa-td {
+  text-align:left!important;
+}
+
+#wk-auction .font-bold {
+    margin-bottom: 20px;
+}
+
+#wk-auction .pa-left{
+  float:none!important;
+}
+
+#wk-auction .pa-theme-color span{
+  color:red!important;
+}
+
+#wk-auction .margin-left-24 {
+    margin-left: 0px!important;
+    display: flex;
+    color: #007c85;
+}
+
+
+#bid_amount{
+/*     margin-left: 26.5%; */
+    display: block;
+    border: 1px solid #b6b6b5;
+}
+
+#wk-auction .pa-checkbox{
+  display:none;
+}
+
+#place_my_bid{
+  height: 40px;
+  border-radius: 25px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all .4s;
+  min-width:25%;
+/*   margin-left:39%; */
+  background-color: #007c85!important;
+}
+
+#place_my_bid:hover {
+    color: #fff!important;
+    background: #be9406!important;
+}
+
+#wk-auction .pa-theme-color {
+    color: #be9406!important;
+}
+
+#show_bids[data-bids-label] {
+  color: #007c85 !important; 
+}
+
+#show_bids{
+  color: #007c85;
+}
+
+.slideshow__slide--full_height {
+  padding:0;
+}
+
+@media only screen and (min-width:769px) and (max-width:960px){
+.product__meta {
+    width: 50%;
+}
+}
+@media only screen and (max-width: 960px){
+#wk-auction .width-47 {
+    width: 100% !important;
+}
+
+  h1.product__title.type-heading-display.mt0.mb1{
+    margin-left:10px;
+  }
+  
+}
+
+#wk-auction .pa-checkbox + label {
+	border: 1px solid red!important;
+}
+
+#wk-auction .font-30 {
+    width: 40%;
+	
+	
+	.product-slider {
+    width: 100%;
+}
+  
+</style>
+{% schema %}
+  {
+    "name": "Product pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show vendor",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_swatches",
+        "label": "Show swatches",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_share_buttons",
+        "label": "Show social sharing buttons"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_quantity_input",
+        "label": "Show quantity selector",
+        "info": "If quantity selector is hidden, quantities will default to 1.",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_payment_button",
+        "label": "Show dynamic checkout button",
+        "info": "Lets customers check out directly using a familiar payment method. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Media"
+      },
+      {
+        "type": "paragraph",
+        "content": "Learn more about [media types](https://help.shopify.com/en/manual/products/product-media)"
+      },
+      {
+        "id": "enable_video_looping",
+        "type": "checkbox",
+        "label": "Enable video looping",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

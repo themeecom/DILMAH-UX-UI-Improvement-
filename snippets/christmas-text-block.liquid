@@ -1,0 +1,53 @@
+{% if overline != blank or heading != blank or subheading != blank or link_text != blank %}
+
+  {% assign alignment = ' text-block--' | append: heading_alignment %}
+
+  <div class="text-block">
+    {% unless overline == blank  %}
+      {% comment %} 
+      <div
+        class="text-block__overline overline ma0"
+        data-theme-editor-setting="section.{{ id }}.overline"
+      >
+        {{ overline }}
+      </div>
+    
+  {% endcomment %}
+    
+    {% endunless %}
+
+    {%- unless heading == blank -%}
+      <h2
+        class="xmas-main-text-block"
+        data-theme-editor-setting="section.{{ id }}.title"  >
+        {{ heading }}
+      </h2>
+    {%- endunless -%}
+
+    {%- unless subheading == blank -%}
+      <div
+        class="xmas-sub-text-block"
+        data-theme-editor-setting="section.{{ id }}.subheading"   >
+        {{ subheading }}</p>
+      </div>
+    {%- endunless -%}
+
+    {% if link != blank and link_text != blank %}
+      <a
+        href="{{ link }}"
+        class="text-block__button bttn bttn--secondary bttn--inline mt4 btn-block"
+        data-theme-editor-setting="section.{{ id }}.link_text"
+      >
+        {{ link_text }}
+      </a>
+
+    {% elsif show_placeholder_link %}
+      <a class="text-block__button bttn bttn--secondary bttn--inline mt4 btn-block">
+        {{ link_text }}
+      </a>
+    {% endif %}
+  </div>
+
+{% endif %}
+
+

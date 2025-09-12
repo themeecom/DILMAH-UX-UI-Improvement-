@@ -1,0 +1,14 @@
+{% assign all_articles = "" %}
+{% for blog in blogs %}
+  {% assign all_articles = all_articles | concat: blog.articles %}
+{% endfor %}
+
+{% assign all_articles = all_articles | sort: 'published_at' | reverse %}
+
+<ul>
+  {% for article in all_articles %}
+    <li>
+      <a href="{{ article.url }}">{{ article.title }}</a> - <small>{{ article.published_at | date: "%B %d, %Y" }}</small>
+    </li>
+  {% endfor %}
+</ul>

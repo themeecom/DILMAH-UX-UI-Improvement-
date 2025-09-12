@@ -1,0 +1,712 @@
+{% assign blog = blogs[section.settings.blog] %}
+{% assign blog_url-1 = blog.url %}
+{% assign onboarding = true %}
+
+{% assign blog-2 = blogs[section.settings.blog-2] %}
+{% assign blog_url-2 = blog-2.url %}
+{% assign onboarding = true %}
+
+{% assign blog-3 = blogs[section.settings.blog-3] %}
+{% assign blog_url-3 = blog-3.url %}
+{% assign onboarding = true %}
+
+{% assign blog-4 = blogs[section.settings.blog-4] %}
+{% assign blog_url-4 = blog-4.url %}
+{% assign onboarding = true %}
+
+
+
+
+{% if section.settings.blog != 'none' and blog.articles.size > 0 %}
+  {% assign onboarding = false %}
+  {% assign blog_url = blog.url %}
+{% endif %}
+
+{% assign article_count = 3 %}
+{% if onboarding == false and blog.articles.size < article_count %}
+  {% assign article_count = blog.articles.size %}
+{% endif %}
+{% assign article_count = 2 %}
+<script
+  type="application/json"
+  data-section-id="{{ section.id }}"
+  data-section-type="dynamic-blog-posts">
+</script>
+
+<script type="application/pxs-animation-mapping+json">
+  {
+    "blocks": [".article--excerpt-wrapper"],
+    "elements": [
+      ".article--excerpt-content"
+    ]
+  }
+</script>
+<!--------blog-list liq-------------->
+<section class="ecom-blog-tea-ideas blogpost--count-{{ article_count }} ">
+  
+  <h2 class="Tea_for_everything">tea for everything</h2>
+  
+  {% if section.settings.title != blank %}
+  
+  
+  <div class="ecom_two_sections">
+   
+    <h2 class="hvr-float-shadow home-section--title tab_head_1 active" data-id="tab_1">
+       <img loading="lazy" src = {{section.settings.image1|img_url: '100x'}}/>
+      <span> {{ section.settings.title | escape }}</span>
+    </h2>
+  {% endif %}
+  
+  {% if section.settings.title2 != blank %}
+     
+     <h2 class="hvr-float-shadow home-section--title tab_head_2" data-id="tab_2">
+       <img loading="lazy" src = {{section.settings.image2|img_url: '100x'}}/>
+       <span> {{ section.settings.title2 | escape }}</span>
+    </h2>
+  
+  {% endif %}
+  
+  {% if section.settings.title3 != blank %}
+     
+    <h2 class="hvr-float-shadow home-section--title tab_head_3" data-id="tab_3">
+      <img loading="lazy" src = {{section.settings.image3|img_url: '100x'}}/>
+      <span> {{ section.settings.title3 | escape }}</span>
+    </h2>
+  {% endif %}
+  
+  {% if section.settings.title4 != blank %}
+    
+    <h2 class="hvr-float-shadow home-section--title tab_head_4" data-id="tab_4">
+       <img  loading="lazy"src = {{section.settings.image4|img_url: '100x'}}/>
+      <span> {{ section.settings.title4 | escape }}</span>
+    </h2>
+  {% endif %}
+    
+    
+</div>
+  
+  
+  <ul class="home-section--content blogposts--inner" data-blog-posts>
+    {% if onboarding %}
+      {% for i in (1..article_count) %}
+        {%
+          render 'article-excerpt',
+          onboarding: true
+        %}
+      {% endfor %}
+    {% else %}
+	<div class="tab_sec ecom_first tab_1  {{article_count}}">
+      <div class="tab_row">
+      {% for article in blog.articles limit: article_count %}
+        
+      
+        
+        {%
+          render 'article-excerpt',
+          article: article
+        %}
+      {% endfor %}
+    
+         <li class="left-image" >
+             <img src="{{section.settings.image1-banner|img_url: '400x'}}" style="width: 100%;border-radius: 19px;" loading="lazy">
+            <a href="{{blog_url-1}}" class="shop_now_btn CollectionDrop">EXPLORE ALL</a>
+        </li>
+        
+        
+        
+      </div>
+      
+	</div>
+	<div class="tab_sec ecom_hidden ecom_second tab_2">
+       <div class="tab_row">
+      {% for article in blog-2.articles limit: article_count %}
+     
+        {%
+          render 'article-excerpt',
+          article: article
+        %}
+      {% endfor %}
+     <li class="left-image" >
+             <img src="{{section.settings.image2-banner|img_url: '400x'}}" style="width: 100%;border-radius: 19px;" loading="lazy">
+            <a href="{{blog_url-2}}" class="shop_now_btn CollectionDrop">EXPLORE ALL</a>
+        </li>
+         
+         
+      </div>
+      
+      
+      
+	</div>
+	<div class="tab_sec ecom_hidden tab_3">
+       <div class="tab_row">
+      {% for article in blog-3.articles limit: article_count %}
+     
+        {%
+          render 'article-excerpt',
+          article: article
+        %}
+      {% endfor %}
+         <li class="left-image" >
+             <img src="{{section.settings.image3-banner|img_url: '400x'}}" style="width: 100%;border-radius: 19px;" loading="lazy">
+            <a href="{{blog_url-3}}" class="shop_now_btn CollectionDrop">EXPLORE ALL</a>
+        </li>
+         
+      </div>
+	
+	</div>
+	<div class="tab_sec ecom_hidden tab_4">
+       <div class="tab_row">
+      {% for article in blog-4.articles limit: article_count %}
+        {%
+          render 'article-excerpt',
+          article: article
+        %}
+      {% endfor %}
+         
+         <li class="left-image" >
+             <img src="{{section.settings.image4-banner|img_url: '400x'}}" style="width: 100%;border-radius: 19px;" loading="lazy">
+            <a href="{{blog_url-4}}" class="shop_now_btn CollectionDrop">EXPLORE ALL</a>
+        </li> 
+         
+      </div>
+	
+	</div>
+    
+    {% endif %}
+  </ul>
+  
+
+  <div class="blogposts--footer">
+    <a class="blogposts--footer-link button-primary" href="{{ blog_url }}">
+     
+      {% comment %}
+      {{ 'blog.general.see_more' | t }}
+      {% endcomment %}
+
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog post list",
+  "class": "blogposts--section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Blog posts"
+    },
+
+
+
+{
+           "type": "image_picker",
+           "id": "image1",
+           "label": "Image"
+         },
+
+{
+           "type": "image_picker",
+           "id": "image1-banner",
+           "label": "Image"
+         },
+
+
+
+	{
+      "type": "text",
+      "id": "title2",
+      "label": "Heading",
+      "default": "Blog posts"
+    },
+{
+           "type": "image_picker",
+           "id": "image2",
+           "label": "Image"
+         },
+{
+           "type": "image_picker",
+           "id": "image2-banner",
+           "label": "Image"
+         },
+	{
+      "type": "text",
+      "id": "title3",
+      "label": "Heading",
+      "default": "Blog posts"
+    },
+{
+           "type": "image_picker",
+           "id": "image3",
+           "label": "Image"
+         },
+{
+           "type": "image_picker",
+           "id": "image3-banner",
+           "label": "Image"
+         },
+	{
+      "type": "text",
+      "id": "title4",
+      "label": "Heading",
+      "default": "Blog posts"
+    },
+{
+           "type": "image_picker",
+           "id": "image4",
+           "label": "Image"
+         },
+{
+           "type": "image_picker",
+           "id": "image4-banner",
+           "label": "Image"
+         },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+	{
+      "type": "blog",
+      "id": "blog-2",
+      "label": "Blog"
+    },
+	{
+      "type": "blog",
+      "id": "blog-3",
+      "label": "Blog"
+    },
+	{
+      "type": "blog",
+      "id": "blog-4",
+      "label": "Blog"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show date published",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show post author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "label": "Show post excerpt",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "category": "Blog",
+      "name": "Blog post list",
+      "settings": {
+        "blog": "none",
+		"blog-2": "none",
+		"blog-3": "none"
+      }
+    }
+  ]
+}
+
+{% endschema %}
+
+<!-- added on 8/13/2021 -->
+<style>
+  .ecom_two_sections {
+    display: flex;
+  }
+  h2.home-section--title {
+    margin: 2px auto;
+  }
+  .ecom_hidden {
+    display: none;
+  }
+  
+  section.ecom-blog-tea-ideas.blogpost--count-2 {
+      box-sizing: border-box;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1280px;
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+  
+  
+  section.ecom-blog-tea-ideas.blogpost--count-2 .ecom_two_sections h2 {
+/*     cursor: pointer;
+    background: #fbfbfb;
+    border: 1px solid #e4dede;
+    padding: 4px 52px;
+    box-shadow: 0 0 2px 0px #e2e2e2; */
+    
+    
+/*     bottom: 9px;
+    padding: 7px 10px;
+    margin: calc(4px * 5);
+    width: calc(100% - (calc(4px * 5) * 2));
+    width: calc(100% - (var(--spacing-medium) * 2));
+    opacity: 1;
+    transition: opacity .35s;
+    color: #007c85;
+    border: 1px solid #007c85;
+    margin-bottom: 0;
+    left: 0;
+     text-align: center; */
+    
+}
+h2.home-section--title.active {
+    /* background: #007c85; */
+    color: #007c85 !important;
+}
+  
+/* .article_img {
+    width: 50%;
+}   */
+.tab_sec li {
+    list-style-type: none;
+}  
+  
+  
+li.article--excerpt-wrapper {
+    margin-bottom: 7px;
+/*     width: 25%; */
+} 
+li.article--excerpt-wrapper {
+    margin-bottom: 7px;
+/*     width: 29%; */
+/*     height: 431px; */
+/*     background: whitesmoke; */
+    margin: 5px;
+    border-radius: 19px;
+    position: relative;
+}  
+  
+/* .tab_sec {
+    display: flex;
+}   */
+.tab_row {
+    display: flex;
+   justify-content: center;
+   align-items: flex-start;
+}  
+/* .left__article-image {
+  position: relative;
+    margin-bottom: 7px;
+    width: 38%;
+    height: 431px;
+
+    margin: 5px;
+    border-radius: 19px;
+    background-image: url(//cdn.shopify.com/s/files/1/0525/3693/4552/collections/Untitled_design_b512db3f-f21d-456b-911c-452d4df504ed_500x.jpg?v=1627536348);
+    background-repeat: no-repeat;
+    background-size: cover;
+}  */
+  
+  
+  .blog__article-image {
+    /* border-radius: 17px; */
+    border-radius: 19px;
+    padding-top: 100%;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+  article.article-list-item {
+    height: 100%;
+}
+  
+  .blog__article-image {
+    /* border-radius: 17px; */
+    border-radius: 19px;
+    /* padding-top: 153%; */
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+/*     height: 100%; */
+}
+.ecom_two_sections {
+    display: flex;
+    max-width: 982px;
+    margin: auto;
+    margin-bottom: 30px;
+    /* font-size: 1px; */
+}
+  
+  
+.tab_row li {
+/*     height: 431px; */
+    overflow: hidden;
+    border-radius: 19px;
+    margin: 5px;
+    position: relative;
+}
+li.left-image img {
+    height: 100%;
+}  
+ li.left-image {
+    width: 39%;
+} 
+  
+h2.home-section--title {
+    display: flex;
+    flex-direction: column;
+/*     font-size: 18px; */
+/*     align-items: center; */
+  
+     font-size: 15px;
+    align-items: center;
+    font-weight: 500;
+    text-transform: uppercase;
+    
+  
+}  
+  
+h2.home-section--title img {
+    margin-bottom: 8px;
+   width: 50px;
+}  
+  
+ul.home-section--content.blogposts--inner {
+    padding: 0;
+}  
+  
+h2.Tea_for_everything {
+    text-align: center;
+    text-transform: uppercase;
+  
+  
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 22px;
+    margin: 0 0 30px;
+    color: #0d6971;
+    margin-top: 41px;
+  
+}  
+a.shop_now_btn.CollectionDrop {
+   
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all .4s;
+  
+    color: black;
+    font-weight: 600;
+    font-size: 12px;
+    
+}  
+.tab_row > li {
+    width: 33%;
+}  
+/* h2.home-section--title.active img {
+    background-image: url(https://cdn.shopify.com/s/files/1/0525/3693/4552/files/tea-hover.png?v=1629093666);
+    background-position: center top;
+    background-size: cover;
+    background-position: center top;
+    background-size: 106px;
+    background-repeat: no-repeat;
+}   */
+  
+/*  shadow effect  */
+  .hvr-float-shadow {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .hvr-float-shadow:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(ellipse at center, rgb(1 125 133) 0%, rgba(0, 0, 0, 0) 80%);
+    /* W3C */
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform, opacity;
+    transition-property: transform, opacity;
+  }
+  .hvr-float-shadow.active:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 1;
+    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(ellipse at center, rgb(1 125 133) 0%, rgba(0, 0, 0, 0) 80%);
+    /* W3C */
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform, opacity;
+    transition-property: transform, opacity;
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+  }
+  .hvr-float-shadow:hover, .hvr-float-shadow:focus, .hvr-float-shadow:active {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+    /* move the element up by 5px */
+  }
+  .hvr-float-shadow.active:hover, .hvr-float-shadow.active:focus, .hvr-float-shadow.active:active {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    /* move the element up by 5px */
+  }
+  .hvr-float-shadow:hover:before, .hvr-float-shadow:focus:before, .hvr-float-shadow:active:before {
+    opacity: 1;
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+  }
+  .hvr-float-shadow.active:hover:before, .hvr-float-shadow.active:focus:before, .hvr-float-shadow.active:active:before {
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+  }
+  
+ @media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+   
+   
+   .ecom_two_sections {
+        display: flex;
+        flex-direction: column;
+    }
+   
+     ul.home-section--content.blogposts--inner {
+          padding: 0;
+      }
+   
+      .article_img {
+          width: 100%;
+      }
+   
+   .tab_row {
+/*         display: flex;
+        justify-content: center;
+        flex-direction: column; */
+     
+     
+     display: flex;
+    justify-content: center;
+    flex-direction: row;
+     
+    }
+   
+   
+   .tab_row li {
+        width: auto;
+        margin: 0;
+        padding: 8px;
+
+    }
+   .tab_row .article--excerpt-wrapper {
+    display: none;
+}
+   .ecom_two_sections {
+        display: flex;
+        flex-direction: row;
+    }
+   h2.home-section--title {
+      display: flex;
+      flex-direction: column;
+      font-size: 23px;
+      align-items: center;
+  }
+  h2.home-section--title img {
+      margin-bottom: 16px;
+      width: 35px;
+  }
+   
+} 
+  
+@media only screen and (max-width: 700px) {
+  /* For mobile phones: */
+  
+  .ecom_two_sections {
+      display: flex;
+      flex-direction: row;
+      overflow: auto;
+      width: 100%;
+  }
+  .tab_row {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+  }
+  
+   h2.home-section--title span {
+      font-size: 14px;
+      text-align: center;
+  }
+  
+  
+  h2.home-section--title {
+      min-width: 142px;
+  }
+  
+  
+}  
+  
+  
+</style>
+
+<script>
+  $(document).ready(function(){
+    
+   $('.home-section--title').click(function() {
+     var data_id = $(this).attr("data-id");
+      //console.log('data_iddata_iddata_id --- >> '+data_id);
+      $('.home-section--title').removeClass("active");
+      $(this).addClass("active");
+      $('.tab_sec').addClass("ecom_hidden");
+      $('.'+data_id).removeClass("ecom_hidden");
+     
+      //console.log('dddddddddddddddddddd');
+   });
+  
+  });
+//    $('h2.ecom_first_title').click(function() {
+//     $('.home-section--title').removeClass("active");
+//     $(this).addClass("active");
+//     $('.ecom_first').css("display","block");
+//     $('.ecom_second').css("display","none");
+//   })
+  
+//   $('h2.ecom_first_title').click(function() {
+//     $('.home-section--title').removeClass("active");
+//     $(this).addClass("active");
+//     $('.ecom_first').css("display","block");
+//     $('.ecom_second').css("display","none");
+//   })
+//   $('h2.ecom_second_title').click(function() {
+//     $('.home-section--title').removeClass("active");
+//     $(this).addClass("active");
+//     $('.ecom_second').css("display","block");
+//     $('.ecom_first').css("display","none");
+//   })
+</script>
+<!-- added on 8/13/2021 | END -->

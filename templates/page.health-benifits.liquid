@@ -1,0 +1,227 @@
+<section
+  class="page section faq_page"
+  data-section-id="{{ id }}"
+  data-section-type="page"
+>
+  <header class="page__header center">
+    {% unless overline == blank %}
+      <div class="page__overline overline ma0 mb3 tc">
+        {{ overline }}
+      </div>
+    {% endunless %}
+
+    <h1 class="type-heading-1 tc mt0 mb5">{{ page.title }}</h1>
+  </header>
+
+  {%- if blocks.size > 0 -%}
+    <div class="about__grid about__grid--{{ blocks.size }}">
+      {%- for block in section.blocks -%}
+        <div class="about__block about__block--{{ forloop.index }}">
+
+          {%- if block.settings.image == blank and block.settings.video_url == blank -%}
+            <div class="placeholder-image">
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.image != blank -%}
+            {% render 'image' with
+              image: block.settings.image,
+              disable_style: true
+            %}
+          {%- endif -%}
+
+          {% if block.settings.video_url != blank %}
+            <video class="about__block-video" autoplay playsinline loop muted src="{{ block.settings.video_url }}"></video>
+          {% endif %}
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  <div class="page__content center">
+    <div class="rte">
+     <div class="tnh_container">
+		<div class="tnh_content_wrapper">
+			<div class="content_header">
+				
+			</div>
+			<div class="tnh_content">
+				<div class="cell cell_1">
+					<h3 class="content_text"><ul><li>13 Reasons Tea Is Good for You</li></ul></h3>
+					<img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/1_b85e72c8-0318-4a4d-aa10-9dc23dd6af66.jpg?v=1632825261" alt="Dilmah Tea and Health Image 1" class="cell_img cell_img_1">
+				</div>
+				<div class="cell cell_2"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/2_3c178499-419f-434b-885c-925f08dd1d4a.jpg?v=1632825261" alt="Dilmah Tea and Health Image 2" class="cell_img cell_img_2"></div>
+				<div class="cell cell_3"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/3_8101cffa-ebe4-4134-a071-d2893389b1cc.jpg?v=1632825261" alt="Dilmah Tea and Health Image 3" class="cell_img cell_img_3"></div>
+				<div class="cell cell_4"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/4_c0d1e7a2-91ad-4474-b31a-05992eab7090.jpg?v=1632825261" alt="Dilmah Tea and Health Image 4" class="cell_img cell_img_4"></div>
+				<div class="cell cell_5"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/5_c972b1a8-ad6f-40d8-910c-c19453ddc064.jpg?v=1632825262" alt="Dilmah Tea and Health Image 5" class="cell_img cell_img_5"></div>
+				<div class="cell cell_6"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/6_95110421-d16d-4b91-9479-50eff1cf8adc.jpg?v=1632825262" alt="Dilmah Tea and Health Image 6" class="cell_img cell_img_6"></div>
+				<div class="cell cell_7"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/7_000e2c6b-9ad5-4545-9b49-ef64e41279c5.jpg?v=1632825262" alt="Dilmah Tea and Health Image 7" class="cell_img cell_img_7"></div>
+				<div class="cell cell_8"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/8.jpg?v=1632825261" alt="Dilmah Tea and Health Image 8" class="cell_img cell_img_8"></div>
+				<div class="cell cell_9"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/9.jpg?v=1632825262" alt="Dilmah Tea and Health Image 9" class="cell_img cell_img_9"></div>
+              	<div class="cell cell_10"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/10.jpg?v=1633080622" alt="Dilmah Tea and Health Image 10" class="cell_img cell_img_10"></div>
+				<div class="cell cell_11"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/11.jpg?v=1633080622" alt="Dilmah Tea and Health Image 11" class="cell_img cell_img_11"></div>
+				<div class="cell cell_12"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/12.jpg?v=1633080622" alt="Dilmah Tea and Health Image 12" class="cell_img cell_img_12"></div>
+				<div class="cell cell_13"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/13_tea_effective.jpg?v=1633080622" alt="Dilmah Tea and Health Image 13" class="cell_img cell_img_13"></div>
+				<div class="cell cell_14"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/common_vegetables.jpg?v=1633094695" alt="Dilmah Tea and Health Image 14" class="cell_img cell_img_14"></div>
+				<div class="cell cell_15"><img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/water_soluble_components.jpg?v=1633094695" alt="Dilmah Tea and Health Image 15" class="cell_img cell_img_15"></div>
+			</div>
+		</div>
+	</div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<style>
+  .tnh_container {
+    width: 85%;
+    margin: 0 auto;
+    padding-bottom: 3em;
+  }
+  .cell_img {
+    width: 100%;
+  }
+  .tnh_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1em;
+    border-bottom: 6px solid #bc9307;
+  }
+  .header_logo {
+    width: 8% !important;
+  }
+  h1.header_text {
+    font-weight: 300;
+    font-size: 2.5em;
+    padding-left: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #007b84;
+  }
+  h3.content_text {
+    font-weight: 600;
+    font-size: 1.2em;
+  }
+  .tnh_content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-column-gap: 2em;
+    grid-row-gap: 1em;
+    grid-template-areas: 
+      "img_1 img_5"
+      "img_2 img_6"
+      "img_3 img_7"
+      "img_4 img_8"
+      "img_4 img_9"
+      "img_10 img_13"
+      "img_11 img_13"
+      "img_12 img_14"
+      "img_15 img_14";
+  }
+  .cell_1 {
+    grid-area: img_1;
+  }
+  .cell_2 {
+    grid-area: img_2;
+  }
+  .cell_3 {
+    grid-area: img_3;
+  }
+  .cell_4 {
+    grid-area: img_4;
+  }
+  .cell_5 {
+    grid-area: img_5;
+  }
+  .cell_6 {
+    grid-area: img_6;
+  }
+  .cell_7 {
+    grid-area: img_7;
+  }
+  .cell_8 {
+    grid-area: img_8;
+  }
+  .cell_9 {
+    grid-area: img_9;
+  }
+  .cell_10 {
+    grid-area: img_10;
+  }
+  .cell_11 {
+    grid-area: img_11;
+  }
+  .cell_12 {
+    grid-area: img_12;
+  }
+  .cell_13 {
+    grid-area: img_13;
+  }
+  .cell_14 {
+    grid-area: img_14;
+  }
+  .cell_15 {
+    grid-area: img_15;
+  }
+  .rte img {
+    margin: 0em 0;
+  }
+  @media only screen and (max-width: 1000px) {
+    .tnh_content {
+      grid-template-columns: 1fr;
+      grid-gap: 1.2em;
+      grid-template-areas: 
+        "img_1"
+        "img_2"
+        "img_3"
+        "img_4"
+        "img_5"
+        "img_6"
+        "img_7"
+        "img_8"
+        "img_9"
+        "img_10"
+        "img_11"
+        "img_12"
+        "img_13"
+        "img_14"
+        "img_15";
+    }
+    h1.header_text {
+      font-size: 1em;
+    }
+    .tnh_header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 1em;
+      border-bottom: 3px solid #bf9407;
+    }
+    h3.content_text {
+      font-weight: 600;
+      font-size: 0.7em;
+    }
+  }
+  @media only screen and (max-width: 486px) {
+    .tnh_container {
+      width: 100%;
+      margin: 0 auto;
+    }
+    .tnh_header {
+      padding-bottom: 0;
+    }
+    .header_logo {
+      width: 15% !important;
+    }
+  }
+  
+
+</style>
+
+
+	

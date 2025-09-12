@@ -1,0 +1,1001 @@
+{% assign modifiers = '' %}
+
+{% assign modifiers = modifiers | append: ' section--' | append: section_style %}
+
+{% unless section_style == 'contrast' %}
+  {% assign modifiers = modifiers | append: ' section--bordered' %}
+{% endunless %}
+
+{% assign modifiers = modifiers | append: ' carousel--columns-' | append: columns %}
+
+{% assign carousel_text_position = text_position | split: '_' | first %}
+{% assign carousel_text_alignment = text_position | split: '_' | last %}
+
+{% assign modifiers = modifiers | append: ' carousel--text-position-' | append: carousel_text_position %}
+{% assign modifiers = modifiers | append: ' carousel--text-alignment-' | append: carousel_text_alignment %}
+{% assign modifiers = modifiers | append: ' carousel--items-' | append: blocks.size %}
+{% assign modifiers = modifiers | append: ' gallery--' | append: aspect_ratio %}
+
+{% assign minimum_items_for_wrap_around = columns | plus: 2 %}
+{% assign items_needed = minimum_items_for_wrap_around | minus: blocks.size %}
+
+{% if carousel_text_position == 'top' and items_needed <= 0 or blocks.size == 0 %}
+  {% assign modifiers = modifiers | append: ' carousel--columns-wrap-around' %}
+{% endif %}
+
+
+
+
+<section
+  data-section-id="{{ id }}"
+  data-section-type="gallery"
+  class="section gallery carousel{{ modifiers }} christmasHeaderSection"
+  data-text-position={{ carousel_text_position }}
+  data-text-alignment={{ carousel_text_alignment }}
+>
+
+  {% render 'carousel-navigation' %}
+
+  <div class="{% if template.name == "index"  %} gallery__slides carousel__slides2 {% else %} ecom_gallery__slides  {%endif %}" data-carousel3>
+
+    {% assign xmasCelebrateTxt ="" %}
+{% assign image1 ="" %}
+{% assign image2 ="" %}
+{% assign image3 ="" %}
+{% assign image4 ="" %}
+{% assign image5 ="" %}
+
+    {% if blocks.size > 0 %}
+      {%- for block in blocks -%}
+
+    {% if  block.settings.description != "" %}
+      {% assign xmasCelebrateTxt = block.settings.description %}
+    {% endif %}
+        
+       {% if forloop.index  == 1%}
+         {% assign image1 = block.settings.image %}
+       {% endif %}
+
+        {% if forloop.index  == 2%}
+         {% assign image2 = block.settings.image %}
+       {% endif %}
+
+    {% if forloop.index  == 3%}
+         {% assign image3 = block.settings.image %}
+       {% endif %}
+
+    {% if forloop.index  == 4%}
+         {% assign image4 = block.settings.image %}
+       {% endif %}
+
+    {% if forloop.index  == 5%}
+         {% assign image5 = block.settings.image %}
+       {% endif %}
+    
+      {% endfor %}
+    {% endif %}
+
+<!--   <div class="restTheTexts">
+      {% render 'text-block' with
+        id: id,
+        modifiers: 'mb5 animation__staggered-children-fade-in',
+        heading_alignment: carousel_text_alignment,
+        text_max_width: text_max_width,
+        overline: overline,
+        heading: heading,
+        subheading: subheading,
+        link: link,
+        link_text: link_text
+      %}
+      <ul>
+        <li>xmasCelebrateTxt - {{ xmasCelebrateTxt }}</li>
+        <li>image1 - <img src="{{ image1 | image_url }}"></li>
+        <li>image2 - <img src="{{ image2 | image_url }}"></li>
+        <li>image3 - <img src="{{ image3 | image_url }}"> </li>
+        <li>image4 - <img src="{{ image4 | image_url }}"></li>
+        <li>image5 - <img src="{{ image5 | image_url }}"></li>
+      </ul>
+    </div> -->
+    <div class="xmasTopHeaderArea">
+      <div class="celebratiTxtWithLogoArea">
+          <div class="rightLogo">
+              <h3 class="celebritiTxt">{{ xmasCelebrateTxt }}</h3>
+            <img class="xmasLogo" src="{{ image1 | image_url }}">
+          </div>
+      </div>
+      <div class="xmasTopHeaderTextBlockWithLabel">
+          <div class="xmasTopTxtTopicBlock">
+            {% render 'christmas-text-block' with
+              id: id,
+              modifiers: 'mb5 animation__staggered-children-fade-in',
+              heading_alignment: carousel_text_alignment,
+              text_max_width: text_max_width,
+              overline: overline,
+              heading: heading,
+              subheading: subheading,
+              link: link,
+              link_text: link_text
+            %}
+          </div>
+          <div class="xmasHeaderBottomPics">
+<!--             <img src="{{ image2 | image_url }}"> -->
+<!--             <img src="{{ image3 | image_url }}">
+            <img src="{{ image4 | image_url }}"> -->
+          </div> 
+      </div>
+    </div>
+
+
+
+
+
+    
+  </div>
+</section>
+
+<style>
+@import url('http://fonts.cdnfonts.com/css/playfair-display');
+@import url('http://fonts.cdnfonts.com/css/gotham');
+@import url('http://fonts.cdnfonts.com/css/gotham-black')
+@import url(//db.onlinewebfonts.com/c/1fdf9a4d690c4e7271e535c39f40045f?family=Miller+Display);
+/*-- snow falling effect styles start--*/
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y:hidden;
+}
+html{
+  overflow-x:hidden;
+}
+.ecom-footer1{
+  margin:0 !important;
+}
+#snowflakeContainer {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: none;
+    z-index:12;
+    overflow-x:clip;
+    width:100%;
+  }
+ 
+/*   .snowflake {
+    position: fixed;
+    background-color: #C8C;
+    user-select: none;
+    z-index: 1000;
+    pointer-events: none;
+    border-radius: 0%;
+    width: 10px;
+    height: 10px;
+  } */
+
+  .snowflake{
+    width:50px;
+    margin: auto;
+    overflow:unset;
+  }
+  .stroke{
+    height: 190px;
+    width: 250px;
+/*     background-color: snow; */
+    position: absolute;
+    top:0px;
+/*     -webkit-box-shadow: 2px 2px 50px 0px rgba(255,255,255,0.3); */
+        background-repeat: no-repeat;
+        background-size: 100px;
+  }
+
+/*   .stroke:before, .stroke:after{
+    content:"";
+    border: 10px solid snow;
+    width:50px;
+    height: 50px;
+    position: absolute;
+    left:-25px;
+    border-top:0;
+    border-left: 0;
+    transform: rotate(45deg);
+  }
+
+  .stroke:after{
+    bottom:0;
+    transform: rotate(-135deg);
+  } */
+
+  .stroke-2{
+    transform: rotate(90deg);
+  }
+
+  .stroke-3{
+    transform: rotate(45deg);
+  }
+  .stroke-4{
+    transform: rotate(-45deg);
+}
+/*-- end --*/
+  .christmasHeaderSection{
+/*     background:red; */
+    margin: 0;
+    padding: 0;
+  }
+  .xmasTopHeaderArea{
+    background-image:url('{{ image2 | image_url }}');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 55vw;
+    margin-top:10px;
+  }
+  .celebratiTxtWithLogoArea {
+    height: auto;
+    display: flex;
+    width: 30%;
+    flex-direction: row;
+    display:none;
+}
+.xmasTopTxtTopicBlock {
+    display: none;
+}
+.celebritiTxt{
+    color: white;
+    font-size: 34px;
+    text-align: center;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 4rem;
+    font-family: 'Playfair Display';
+    line-height: 32px;
+  font-weight:700;
+}
+.rightLogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:0rem;
+    width:100%;
+}
+img.xmasLogo {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/*-- text styles --*/
+.xmasTopHeaderTextBlockWithLabel {
+    width: 40%;
+    margin-top: 0rem;
+}
+.text-block {
+text-align:center;
+color:white;
+margin:0rem auto;
+  margin-bottom:-3rem;
+}
+
+.text-block h2 {
+    color: #cf1d2b;
+}
+.xmas-main-text-block{
+  color:white !important;
+}
+
+h2.slideshow__heading.type-heading-display{
+  font-family: 'Miller Display';
+  font-style: italic;
+  font-size:40px;
+  text-transform:capiltalize;
+}
+p.slideshow__subheading.type-body-regular {
+    font-size:20px;
+    font-family: 'Gotham',sans-serif;
+    text-align:center !important;
+    font-weight:100;
+}
+h2.xmas-main-text-block {
+    font-size: 50px;
+    font-family: 'Miller Display';
+    font-style: italic;
+    line-height:34px;
+    margin-bottom:0;
+}
+
+h2.xmas-main-text-block p {
+    text-align: center !important;
+}
+  
+.xmas-sub-text-block {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    font-family: 'Gotham';
+    margin-top:1rem;
+    font-weight:600;
+}
+.xmas-sub-text-block p {
+    text-align: center !important;
+}
+
+  /*-- bottom pics --*/
+.xmasHeaderBottomPics {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.xmasHeaderBottomPics img {
+    width: 150px;
+}
+
+  .rotate1sec {
+    animation: rotateSnow 1s linear infinite;
+  }
+  .roatePoint5 {
+    animation: rotateSnow 0.5s linear infinite;
+  }
+  .roatateOneFive {
+    animation: rotateSnow 1.5s linear infinite;
+  }
+
+
+  
+@keyframes rotateSnow {
+  100% {transform: rotate(360deg);}
+}
+/*-- mob responsive --*/
+@media only screen and (max-width:1000px){
+  .xmas_gallery__image {
+    display: flex;
+    flex-direction: column;
+    flex-basis: unset !important;
+    flex: unset !important;
+}
+}
+
+@media only screen and (max-width:960px){
+  .celebritiTxt , .xmasTopHeaderTextBlockWithLabel , h2.slideshow__heading.type-heading-display , p.slideshow__subheading.type-body-regular {
+    text-shadow: 3px 3px 2px black;
+  }
+  a.slideshow__link.bttn{
+	background-color: #00000036 !important;
+  }
+  img.xmasLogo {
+    width: 65%;
+    -webkit-filter: drop-shadow(4px 3px 2px #000);
+    filter: drop-shadow(4px 3px 2px #000);
+  }
+
+  h2.welcome_text_heading.text-block__heading.type-heading-1.ma0.txt-head-block{
+    margin-top:2rem;
+  }
+  
+  .xmasTopHeaderArea{
+    background-image:url('https://cdn.shopify.com/s/files/1/0558/2920/1082/files/christmas-top-banner-mob-image.jpg?v=1667879607');
+    height: 180vw;
+    background-size: 100% 100%;
+    background-position: center;
+  }
+  .xmasTopHeaderTextBlockWithLabel {
+    width: 99%;
+  }
+  .celebratiTxtWithLogoArea , .rightLogo {
+    width: 100%;
+  }
+  img.xmasLogo {
+    width: 50%;
+    margin-top:2rem;
+  }
+  .text-block {
+    margin:32px auto;
+    width:94%;
+  }
+  h2.xmas-main-text-block {
+    font-size: 36px;
+  }
+  .celebritiTxt {
+    font-size: 30px;
+    width:100%;
+  }
+  h2.slideshow__heading.type-heading-display {
+    margin: 0 auto;
+}
+
+  p.slideshow__subheading.type-body-regular {
+  	margin: 0 auto;
+  }
+  
+  a.slideshow__link.bttn {
+      margin: 8px auto !important;
+  }
+  .slideshow__content-wrap {
+    display:flex;
+    flex-direction:column;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media only screen and (max-width:600px){
+  
+  .xmasHeaderBottomPics img {
+    margin-top: 10px;
+    width: 80px;
+}
+  .xmasTopHeaderArea {
+    height: 170vw;
+    background-size: 100% 100%;
+    background-position: center;
+  }
+  h2.xmas-main-text-block {
+    font-size: 28px;
+  }
+  .xmas-sub-text-block {
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  img.xmasLogo {
+    width: 65%;
+  }
+  .slideshow__slide.slideshow__slide--full_height.slideshow__slide--has-mobile-image.is-selected {
+    padding: 0;
+    height: 150vw;
+  }
+  h2.welcome_text_heading.text-block__heading.type-heading-1.ma0.txt-head-block {
+    font-size: 24px;
+    margin: 2px auto;
+    margin-top: 16px !important;
+  }
+  .slick-dotted.slick-slider {
+    margin-bottom: 18px;
+    margin-top: -30px;
+  }
+}
+.xmas-slideshow .slideshow__slide .slideshow__content-wrap .slideshow__content .slideshow__content-inner p{
+text-shadow:none;
+}
+.xmas-slideshow .slideshow__slide .slideshow__content-wrap .slideshow__content .slideshow__content-inner h2{
+text-shadow:none;
+}
+@media only screen and (max-width:768px) and (min-width:960px){
+  .slideshow__slide.slideshow__slide--full_height.slideshow__slide--has-mobile-image.is-selected {
+    padding: 0;
+    height: 120vw;
+  }
+}
+@media screen and (min-width:960px){
+  .slideshow__content-inner {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    align-items: center;
+    float: right;
+  }
+  h2.slideshow__heading.type-heading-display {
+    max-width: unset !important;
+  }
+  p.slideshow__subheading.type-body-regular{
+    max-width:unset !important;
+  }
+  .slideshow__content-wrap {
+    position: absolute;
+     top: 24% !important;
+    bottom: auto !important;
+  }
+}
+@media screen and (max-width:820px){
+  .christmasPic-1, .christmasPic-3{
+    border-right:none !important;
+  }
+  .gallery__description.type-body-regular.mt3.mb0 {
+    position: relative !important;
+    margin: 8px auto;
+    font-size: 22px !important;
+  }
+  .christmasTeaAwaitsAreaOnMob{
+    display:block;
+  }
+  .christmasTeaAwaitsArea{
+    display:none !important;
+  }
+  .slick-slide img{
+    width:100%;
+    margin:0 auto;
+  }
+  .celebritiTxt {
+    margin-top: 5rem;
+  }
+  .xmasTopHeaderTextBlockWithLabel{
+    margin-top:0;
+  }
+}
+
+@media screen and (min-width:821px){
+  .christmasTeaAwaitsAreaOnMob{
+    display:none !important;
+  }
+}
+  
+/*--- xmas tea awaits sections-Start --*/
+
+  .christmasTeaAwaitsArea{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 4rem;
+    width: 75%;
+    margin:0rem auto;
+  }
+
+  .christmasTeaAwaitsArea .gallery__slide{
+    width:100% !important;
+  }
+
+  h2.welcome_text_heading.text-block__heading.type-heading-1.ma0.txt-head-block {
+    font-family: 'Gotham Black','Montserrat'; 
+    line-height:35px;
+    font-weight:800;
+    margin-top:4rem;
+  }
+  .gallery__slide.carousel__slide.animates {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: space-around;
+  }
+  .xmas_gallery__image {
+    width: 100%;
+    margin: 0 auto;
+    height:300px;
+    position:relative;
+}
+
+  .christmasPic-1 , .christmasPic-3{
+    border-right:1px solid red;
+  }
+  .gallery__description.type-body-regular.mt3.mb0 {
+    position: relative;
+    bottom: 26px;
+    font-size: 24px;
+    font-family: 'Playfair Display', sans-serif;
+    text-align:center;
+}
+  h2.slideshow__heading.type-heading-display {
+    text-align: center;
+}
+
+a.slideshow__link.bttn {
+    background-color: transparent;
+    margin: 0 auto;
+    border: 3px solid white;
+    padding: 0;
+    height: 24px;
+    width: 145px;
+    font-size: 20px;
+}
+
+a.slideshow__link.bttn:hover {
+  background-color:#fff;
+  color:#9e071b;
+}
+
+/*--- xmas tea awaits sections-End --*/
+
+/*--- last section icons start ----*/
+
+.footer__social-icons {
+    position: absolute;
+    width: 100%;
+  top:62%;
+  z-index:20;
+}
+
+.footer__social-icons .list.ma0.pa0{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer__social-icons ul li {
+  height:40px;
+  margin-bottom:20px;
+}
+  .footer__social-icons path {
+    fill: #d3172f;
+}
+
+ .footer__social-icons circle {
+    fill: #d3172f;
+}
+.footer__social-icons .ecom_li path {
+    fill: #d3172f !important;
+}
+
+@media only screen and (min-width:600px){
+.footer__social-icons svg {
+    width: 52px !important;
+    height: 40px !important;
+}
+}
+
+@media only screen and (max-width:601px){
+.footer__social-icons svg {
+    width: 54px !important;
+    height: 35px !important;
+}
+}
+  
+
+.slideshow__overlay{
+  background-color:transparent !important;
+}
+.slideshow__slide--full_height , .slideshow__slide--full_height .slideshow__image .image__img {
+  height: 45vw;
+}
+
+.xmas-slideshow{
+  position:relative;
+}
+
+
+@media screen and (max-width:600px){
+  .xmas-slideshow .slideshow__slide--full_height{
+  height:400px !important;
+}
+  .xmas-slideshow .slideshow__content-wrap {
+    top: 8% !important;
+  }
+}
+
+@media screen and (max-width:601px) and (min-width:959px){
+  .xmas-slideshow .slideshow__slide--full_height{
+  height:600px !important;
+  }
+}
+
+@media screen and (min-width:960px){
+  .xmas-slideshow .slideshow__slide--full_height{
+  height:90vh !important;
+    padding:0;
+}
+}
+.xmas-slideshow .slideshow__content-inner.slideshow__content-inner--left.animation__staggered-children-fade-in{
+ 
+  color:#5d5d5d !important;
+  display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    align-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.xmas-slideshow .slideshow__overline.overline{
+  color:#5d5d5d !important;
+  margin:10px auto;
+  text-align:center;
+  font-size:20px;
+  font-weight:600;
+}
+ .xmas-slideshow .slideshow__content-wrap {
+    position: absolute;
+    top: 20%;
+    bottom: auto !important;
+}
+/*--- last section icons end ----*/
+.sumo-form-wrapper.listbuilder-popup {
+    display: none;
+}
+@media only screen and (max-width:960px) and (min-width:1440px){
+  .slideshow__content {
+    margin-top: 5rem;
+  }
+  .xmas-slideshow .slideshow__slide .slideshow__content-wrap.slideshow__content {
+    margin-top: 0rem;
+  }
+}
+@media only screen and (min-width:961px){
+  .slideshow__content {
+    padding-right: 8px;
+    margin-top:4rem;
+  }
+  .xmas-slideshow .slideshow__slide .slideshow__content-wrap .slideshow__content{
+    padding-right:80px;
+    margin-top:0;
+  }
+  .christmasTeaAwaitsArea{
+    margin-top: 6rem;
+    margin-bottom:4rem;
+  }
+  .celebritiTxt {
+    font-size: 2vw;
+    width: 95%;
+    margin-top: 4rem;
+    line-height: 2vw;
+  }
+  img.xmasLogo {
+    width: 65%;
+    margin: 1.5rem auto;
+  }
+  h2.xmas-main-text-block {
+    font-size: 3.2vw;
+    line-height: 3.2vw;
+    margin-top:0;
+  }
+  .xmasTopHeaderTextBlockWithLabel {
+    width: 28%;
+  }
+  .xmas-sub-text-block {
+    font-size: 1.4vw;
+    line-height: 1.5vw;
+  }
+  h2.welcome_text_heading.text-block__heading.type-heading-1.ma0.txt-head-block {
+    font-size: 2.8vw;
+    line-height: 3vw;
+  }
+  h2.slideshow__heading.type-heading-display {
+    font-size: 4.2vw;
+    line-height:4vw;
+  }
+  p.slideshow__subheading.type-body-regular {
+    font-size: 1.6vw;
+    font-weight:700;
+    line-height:2vw;
+    margin:0 auto;
+  }
+  a.slideshow__link.bttn {
+    min-width: 48%;
+    font-size: 2vw;
+    height: 2.4vw;
+  }
+  .footer__social-icons svg {
+    width: 80px !important;
+    height: 60px !important;
+  }
+}
+
+.xmas-slideshow p.slideshow__subheading.type-body-regular {
+    display: none;
+}
+@media only screen and (min-width:960px) and (max-width:1367px){
+  h2.xmas-main-text-block {
+    margin-top: -3%;
+    }
+/*   section.section.section--default.section--bordered.in-view {
+    height: 620px;
+  }   */
+}
+@media only screen and (min-width:960px) and (max-width:1300px){
+  .celebritiTxt {
+    margin-top: 1rem !important;
+  }
+}
+.xmas-footer{
+  position:relative;
+}
+
+
+</style>
+
+<script>
+  
+window.addEventListener("load", function(){
+  $('.christmasTeaAwaitsAreaOnMob').slick({
+  dots: true,
+  infinite: true,
+  speed: 500,
+  fade: true,
+  cssEase: 'linear',
+    autoplay: true,
+  autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 820,
+        settings: "unslick"
+      },
+      {
+        breakpoint: 820,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+      ]
+});
+});
+
+  // snow code START
+   // Array to store our Snowflake objects
+  var snowflakes = [];
+
+  // Global variables to store our browser's window size
+  var browserWidth;
+  var browserHeight;
+
+  // Specify the number of snowflakes you want visible
+  var numberOfSnowflakes = 30;
+
+  // Flag to reset the position of the snowflakes
+  var resetPosition = false;
+
+  // Handle accessibility
+  var enableAnimations = false;
+  var reduceMotionQuery = matchMedia("(prefers-reduced-motion)");
+
+  // Handle animation accessibility preferences 
+  function setAccessibilityState() {
+    if (reduceMotionQuery.matches) {
+      enableAnimations = true;
+    } else { 
+      enableAnimations = true;
+    }
+  }
+  setAccessibilityState();
+
+  reduceMotionQuery.addListener(setAccessibilityState);
+
+  //
+  // It all starts here...
+  //
+  function setup() {
+    if (enableAnimations) {
+      window.addEventListener("load", generateSnowflakes, false);
+      window.addEventListener("resize", setResetFlag, false);
+    }
+  }
+  setup();
+
+  //
+  // Constructor for our Snowflake object
+  //
+  function Snowflake(element, speed, xPos, yPos) {
+    // set initial snowflake properties
+    this.element = element;
+    this.speed = speed;
+    this.xPos = xPos;
+    this.yPos = yPos;
+    this.scale = 0.5;
+
+    // declare variables used for snowflake's motion
+    this.counter = 0;
+    this.sign = Math.random() < 0.5 ? 1 : -1;
+
+    // setting an initial opacity and size for our snowflake
+    this.element.style.opacity = 1//(.5 + Math.random()) / 3;
+  }
+
+  //
+  // The function responsible for actually moving our snowflake
+  //
+  Snowflake.prototype.update = function () {
+    // using some trigonometry to determine our x and y position
+    this.counter += this.speed / 5000;
+    this.xPos += this.sign * this.speed * Math.cos(this.counter) / 40;
+    this.yPos += Math.sin(this.counter) / 40 + this.speed / 30;
+    this.scale = .5 + Math.abs(10 * Math.cos(this.counter) / 20);
+
+
+    // setting our snowflake's position
+    setTransform(Math.round(this.xPos), Math.round(this.yPos), this.scale, this.element);
+
+    // if snowflake goes below the browser window, move it back to the top
+    if (this.yPos > browserHeight) {
+      this.yPos = -50;
+    }
+  }
+    
+  //
+  // A performant way to set your snowflake's position and size
+  //
+  function setTransform(xPos, yPos, scale, el, rotate) {
+    el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0) scale(${scale}, ${scale}) `;
+  }
+
+  //
+  // The function responsible for creating the snowflake
+  //
+  function generateSnowflakes() {
+
+    // get our snowflake element from the DOM and store it
+    var originalSnowflake = document.querySelector(".snowflake");
+
+    // access our snowflake element's parent container
+    var snowflakeContainer = originalSnowflake.parentNode;
+    snowflakeContainer.style.display = "block";
+
+    // get our browser's size
+    browserWidth = document.documentElement.clientWidth;
+    browserHeight = document.body.clientHeight -100;
+
+    // create each individual snowflake
+    for (var i = 0; i < numberOfSnowflakes; i++) {
+
+      // clone our original snowflake and add it to snowflakeContainer
+        let imgFlake = "";
+        if( i % 2 == 0) {
+            imgFlake = "https://cdn.shopify.com/s/files/1/0558/2920/1082/files/christmas-flake-1.png?v=1663564048"
+        } else {
+            imgFlake = "https://cdn.shopify.com/s/files/1/0558/2920/1082/files/christmas-flake-2.png?v=1663564047"
+        }
+        
+      var snowflakeClone = originalSnowflake.cloneNode(true);
+      snowflakeClone.querySelector(".stroke").style.backgroundImage = "url('"+imgFlake+"')";
+
+      snowflakeContainer.appendChild(snowflakeClone);
+
+      // set our snowflake's initial position and related properties
+      var initialXPos = getPosition(50, browserWidth);
+      var initialYPos = getPosition(50, browserHeight);
+      var speed = 5 + Math.random() * 40;
+
+      // create our Snowflake object
+      var snowflakeObject = new Snowflake(snowflakeClone,
+        speed,
+        initialXPos,
+        initialYPos);
+      snowflakes.push(snowflakeObject);
+    }
+
+    // remove the original snowflake because we no longer need it visible
+    snowflakeContainer.removeChild(originalSnowflake);
+
+    moveSnowflakes();
+  }
+
+  //
+  // Responsible for moving each snowflake by calling its update function
+  //
+  function moveSnowflakes() {
+
+    if (enableAnimations) {
+      for (var i = 0; i < snowflakes.length; i++) {
+        var snowflake = snowflakes[i];
+        snowflake.update();
+      }      
+    }
+
+    // Reset the position of all the snowflakes to a new value
+    if (resetPosition) {
+      browserWidth = document.documentElement.clientWidth;
+      browserHeight = document.body.clientHeight -100;
+
+      for (var i = 0; i < snowflakes.length; i++) {
+        var snowflake = snowflakes[i];
+
+        snowflake.xPos = getPosition(50, browserWidth);
+        snowflake.yPos = getPosition(50, browserHeight);
+      }
+
+      resetPosition = false;
+    }
+
+    requestAnimationFrame(moveSnowflakes);
+  }
+
+  //
+  // This function returns a number between (maximum - offset) and (maximum + offset)
+  //
+  function getPosition(offset, size) {
+    return Math.round(-1 * offset + Math.random() * (size + 2 * offset));
+  }
+
+  //
+  // Trigger a reset of all the snowflakes' positions
+  //
+  function setResetFlag(e) {
+    resetPosition = true;
+  }
+  // snow code end
+</script>

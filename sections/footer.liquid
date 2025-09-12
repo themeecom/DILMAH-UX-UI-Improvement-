@@ -1,0 +1,578 @@
+{% render 'frame--footer' with
+  id: section.id,
+  show_headings: section.settings.show_headings,
+  show_newsletter_signup: section.settings.show_newsletter_signup,
+  newsletter_subheading: section.settings.newsletter_subheading,
+  show_payment_icons: section.settings.show_payment_icons,
+  show_locale_selector: section.settings.show_locale_selector,
+  show_currency_selector: section.settings.show_currency_selector,
+  blocks: section.blocks
+%}
+<script src="//cdn.shopify.com/s/files/1/0617/7298/8603/files/optimizer.js?v=1659207041" type="text/javascript"></script>
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_headings",
+        "label": "Show headings",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_icons",
+        "label": "Show payment icons",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_newsletter_signup",
+        "label": "Show newsletter signup",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "newsletter_subheading",
+        "label": "Newsletter subheading",
+        "default": "Subscribe to our mailing list"
+      },
+      {
+        "type": "header",
+        "content": {
+          "da": "Sprogvælger",
+          "de": "Sprachauswahl",
+          "en": "Language Selector",
+          "es": "Selector de idioma",
+          "fi": "Kielenvalitsin",
+          "fr": "Sélecteur de langue",
+          "hi": "भाषा चयनकर्ता",
+          "it": "Selettore lingua",
+          "ja": "言語セレクター",
+          "ko": "언어 선택기",
+          "nb": "Språkvelger",
+          "nl": "Taalkiezer",
+          "pt-BR": "Seletor de idiomas",
+          "pt-PT": "Seletor de Idioma",
+          "sv": "Språkväljare",
+          "th": "ตัวเลือกภาษา",
+          "zh-CN": "语言选择器",
+          "zh-TW": "語言選擇器"
+        },
+        "info": {
+          "da": "Du kan tilføje et sprog ved at gå til dine [sprogindstillinger.](/admin/settings/languages)",
+          "de": "Gehen Sie zu Ihren [Spracheinstellungen](/admin/settings/languages), um eine Sprache hinzuzufügen.",
+          "en": "To add a language, go to your [language settings.](/admin/settings/languages)",
+          "es": "Para agregar un idioma, ve a tu[configuración de idioma](/admin/settings/languages)",
+          "fi": "Lisää kieli siirtymällä [kieliasetuksiin.](/admin/settings/languages)",
+          "fr": "Pour ajouter une langue, allez dans vos [paramètres de langue.](/admin/settings/languages).",
+          "hi": "भाषा जोड़ने के लिए, अपने [language settings.](/admin/settings/languages) पर जाएं",
+          "it": "Per aggiungere una lingua, vai su [impostazioni della lingua.](/admin/settings/languages)",
+          "ja": "言語を追加するには、[言語設定](/admin/settings/languages) に移動します。",
+          "ko": "언어를 추가하려면 [언어 설정.](/admin/settings/languages)(으)로 이동하십시오.",
+          "nb": "For å legge til et språk, går du til dine [språkinnstillinger.](/admin/settings/languages)",
+          "nl": "Ga naar uw [taalinstellingen.](/admin/settings/languages) om een taal toe te voegen.",
+          "pt-BR": "Para adicionar um idioma, acesse suas [configurações de idioma. ](/admin/settings/languages)",
+          "pt-PT": "Para adicionar um idioma, aceda a [definições de idioma.](/admin/settings/languages)",
+          "sv": "För att lägga till ett språk, gå till dina [språkinställningar.](/admin/settings/languages)",
+          "th": "หากต้องการเพิ่มภาษา ให้ไปที่ [การตั้งค่าภาษา ](/admin/settings/languages) ของคุณ",
+          "zh-CN": "若要添加语言，请转到您的 [语言设置。](/admin/settings/languages)",
+          "zh-TW": "若要新增語言，請前往 [語言設定。](/admin/settings/languages)"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "show_locale_selector",
+        "label": {
+          "da": "Vis sprogvælger",
+          "de": "Sprachauswahl anzeigen",
+          "en": "Show language selector",
+          "es": "Mostrar el selector de idioma",
+          "fi": "Näytä kielenvalitsin",
+          "fr": "Afficher le sélecteur de langue",
+          "hi": "मात्रा चयनकर्ता दिखाएं",
+          "it": "Mostra selettore lingua",
+          "ja": "言語セレクターを表示する",
+          "ko": "언어 선택기 표시",
+          "nb": "Vis språkvelger",
+          "nl": "Taalkiezer weergeven",
+          "pt-BR": "Mostrar seletor de idioma",
+          "pt-PT": "Mostrar seletor de idioma",
+          "sv": "Visa språkväljare",
+          "th": "แสดงตัวเลือกภาษา",
+          "zh-CN": "显示语言选择器",
+          "zh-TW": "顯示語言選擇器"
+        },
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": {
+          "da": "Valutavælger",
+          "de": "Währungsauswahl",
+          "en": "Currency Selector",
+          "es": "Selector de moneda",
+          "fi": "Valuutanvalitsin",
+          "fr": "Sélecteur de devise",
+          "hi": "मुद्रा चयनकर्ता",
+          "it": "Selettore di valuta",
+          "ja": "通貨セレクター",
+          "ko": "통화 선택기",
+          "nb": "Valutavelger",
+          "nl": "Valutakiezer",
+          "pt-BR": "Seletor de moeda",
+          "pt-PT": "Seletor de Moeda",
+          "sv": "Valutaväljare",
+          "th": "ตัวเลือกสกุลเงิน",
+          "zh-CN": "货币选择器",
+          "zh-TW": "幣別選擇器"
+        },
+        "info": {
+          "da": "Du kan tilføje en valuta ved at gå til dine [betalingsindstillinger.](/admin/settings/payments)",
+          "de": "Gehen Sie zu Ihren [Zahlungseinstellungen](/admin/settings/payments), um eine Währung hinzuzufügen.",
+          "en": "To add a currency, go to your [payment settings.](/admin/settings/payments)",
+          "es": "Para agregar una moneda, ve a tu [configuración de pago.](/admin/settings/payments)",
+          "fi": "Lisää valuutta siirtymällä [maksuasetuksiisi.](/admin/settings/payments)",
+          "fr": "Pour ajouter une devise, allez dans vos [paramètres de paiement.](/admin/settings/payments)",
+          "hi": "कोई मुद्रा जोड़ने के लिए, अपनी [payment settings.](/admin/settings/payments) में जाएं",
+          "it": "Per aggiungere una valuta, vai su [impostazioni pagamento.](/admin/settings/payments)",
+          "ja": "通貨を追加するには、[決済設定](/admin/settings/payments) に移動します。",
+          "ko": "통화를 추가하려면 [결제 설정](/admin/settings/payments)(으)로 이동하십시오.",
+          "nb": "For å legge til en valuta, går du til [betalingsinnstillingene.](/admin/settings/payments)",
+          "nl": "Ga naar je [betaalinstellingen.](/admin/settings/payments) om een valuta toe te voegen.",
+          "pt-BR": "Para adicionar uma moeda, acesse as [configurações de pagamento.](/admin/settings/payments)",
+          "pt-PT": "Para adicionar uma moeda, aceda às suas [definições de pagamento.](/admin/settings/payments)",
+          "sv": "Gå till [payment settings ](/admin/settings/payments) för att lägga till en valuta.",
+          "th": "หากต้องการเพิ่มสกุลเงิน ให้ไปที่ [การตั้งค่าการชำระเงิน ](/admin/settings/payments)",
+          "zh-CN": "若要添加货币，请转到 [支付设置。](/admin/settings/payments)",
+          "zh-TW": "若要新增幣別，請前往 [付款設定。](/admin/settings/payments)"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "show_currency_selector",
+        "label": {
+          "da": "Vis valutavælger",
+          "de": "Währungsauswahl anzeigen",
+          "en": "Show currency selector",
+          "es": "Mostrar el selector de moneda",
+          "fi": "Näytä valuutanvalitsin",
+          "fr": "Afficher le sélecteur de devise",
+          "hi": "मुद्रा चयनकर्ता दिखाएं",
+          "it": "Mostra selettore valuta",
+          "ja": "通貨セレクターを表示する",
+          "ko": "통화 선택기 표시",
+          "nb": "Vis valutavelger",
+          "nl": "Valutakiezer weergeven",
+          "pt-BR": "Mostrar seletor de moeda",
+          "pt-PT": "Mostrar seletor de moeda",
+          "sv": "Visa valutaväljare",
+          "th": "แสดงตัวเลือกสกุลเงิน",
+          "zh-CN": "货币选择器显示",
+          "zh-TW": "顯示幣別選擇器"
+        },
+        "default": true
+      }
+    ],
+    "max_blocks": 4,
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "About the shop"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.</p>"
+          }
+        ]
+      },
+      {
+        "type": "link_list",
+        "name": "Links",
+        "settings": [
+          {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Menu",
+            "info": "This menu won't show dropdown items.",
+            "default": "footer"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+<style>
+  
+    
+/*  --------------------------
+  		Footer 1 
+  --------------------------- */
+.ecom-footer1 {
+    background: #e1e1e1;
+    padding: 18px 0;
+    display: flex;
+    grid-auto-columns: 33%;
+    /* grid-gap: 10px; */
+    /* background-color: #2196F3; */
+    padding: 10px;
+  	margin-top: 1em;
+}
+  
+  .ecom-footer1 > div {
+     
+     
+      padding: 20px 0;
+      
+  }
+  .col1 {
+    width: 30%;
+      grid-area: 1 / 1 / 2 / 2;
+  }
+  .col2 {
+      grid-area: 1 / 2 / 2 / 3;
+    
+  }
+  .col3 {
+      grid-area: 1 / 3 / 2 / 4;
+  }
+  /* ---------------------------- */
+.ecom-footer2 {
+    
+    padding: 18px 0;
+    display: flex;
+    grid-auto-columns: 33%;
+    /* grid-gap: 10px; */
+    /* background-color: #2196F3; */
+    padding: 10px 78px;
+}
+  
+  .ecom-footer2 > div {
+     
+     width: 43%;
+      padding: 20px 0;
+      
+  }
+  .col4 {
+      grid-area: 1 / 1 / 2 / 2;
+  }
+  .col5 {
+      grid-area: 1 / 2 / 2 / 3;
+  }
+  .col6 {
+      grid-area: 1 / 3 / 2 / 4;
+  }
+   /* ---------------------------- */
+  
+  
+  
+  .ecom-footer1 {
+      background: #e1e1e1;
+      padding: 18px 0;
+      display: flex;
+      /* grid-auto-columns: 33%; */
+      /* grid-gap: 10px; */
+      /* background-color: #2196F3; */
+      padding: 10px 78px;
+  }
+  
+  
+  .ecom-footer1 h1 {
+      font-size: 30px;
+      text-align: left;
+      margin: 0;
+      text-transform: uppercase;
+      padding-top: 4px;
+  }
+  
+  
+  
+  .ecom-footer1 h4 {
+    font-size: 24px;
+    color: #007c85;
+    text-align: left;
+    margin: 9px 0;
+    font-weight: 500;
+  }
+  
+  .ecom-footer1 .col2 p {
+      font-size: 23px;
+  }
+  
+  .footer__social-icons svg {
+      fill: #000000 !important;
+      width: 44px;
+      height: 28px;
+  }
+  
+  .ecom-footer2 .col5 p {
+      font-size: 20px;
+  }
+  
+  .footer__newsletter .input {
+      border: 1px solid;
+      background-color: #ffffff;
+  }
+  
+  .footer__col-title {
+      color:  var(--color-footer-text);
+      margin: 0;
+  }
+  
+  .footer__newsletter-button {
+      color: #0c0000;
+  }
+  
+  
+  .footer__col-list a {
+      color: var(--color-footer-text);
+  }
+  .footer {
+    background-color: var(--color-footer-bg);
+  
+  }
+  
+  .ecom-footer2 {
+
+      border-bottom: 1px solid #e2e2e2;
+  }
+
+  .footer__col-list h3 {
+      font-weight: 700;
+  }
+/*   .footer__cols {
+      grid-template-columns: repeat(4, 1fr);
+  } */
+  
+  .footer__cols {  
+    grid-template-columns: 75% 25%;
+  }
+  
+  .ecom-collection-text .text-block__subheading.type-body-regular.ma0.mt3 {
+      margin: 0;
+      max-width: 100% !important;
+      text-align: left;
+  }
+  
+  .sort-option .collection-sidebar__group {
+      border-bottom: 1px solid #b3adad;
+      border-top: 1px solid #b3adad;
+      margin-top: 13px;
+  }
+  .sort-option a.collection-sidebar__heading.closed {
+      display: none;
+  }
+  .ecom-footer1 .col3 img {
+      width: 100%;
+  }
+  
+  
+  .collection__header .collection__image.lazyloaded .image__img {
+      position: unset;
+      height: unset;
+      border-radius: 10px;
+  }
+  .collection_banner_exist .collection-meta-mobile-banner-wrapper .image__img {
+    border-radius: 10px;
+  }
+
+  .collection__header .collection__image.lazyloaded {
+      height: unset;
+  }  
+  .collection__header .collection__image.lazyloaded .image__img.lazyloading {
+    max-height: 120px;
+  }
+  /*---------------------------*/
+  
+  .footer_Left {
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer_Left > div {
+   width: 50%;
+  } 
+  
+  .footer_logo {
+      margin: 10px 0;
+  }  
+ .footer_logo img {
+    margin: 0 32px 0 0;
+  }
+  
+  section.footer__cols {
+      position: relative;
+  }  
+ .footer__col-list.Newsletter_row {
+    position: absolute;
+    right: 0;
+    width: unset;
+  } 
+  
+ /*---------------------------*/ 
+ /* For mobile phones: */
+  @media only screen and (max-width: 1000px) {
+     .ecom-footer1 {
+      background: #e1e1e1;
+      padding: 18px 0;
+      display: inline-block;
+      /* grid-auto-columns: 33%; */
+      /* grid-gap: 10px; */
+      /* background-color: #2196F3; */
+      padding: 10px 39px;
+      width: 100%;
+      text-align: center;
+  }
+  .ecom-footer1 > div {
+      width: 100%;
+      padding: 20px 0;
+  }  
+  .ecom-footer1 h1 {
+    font-size: 30px;
+    text-align: center;
+  
+  }  
+  .ecom-footer1 h4 {
+     text-align: left;
+  }
+    .ecom-footer1 h4 {
+      text-align: center;
+  }
+    
+  .ecom-footer1 .col2 p {
+      font-size: 23px;
+      text-align: center !important;
+  }  
+   .ecom-footer1 .col3 {
+      border-top: 1px solid #bbafaf;
+  } 
+    
+    
+    
+    /* --------------------------   */
+       .ecom-footer2 {
+          
+          padding: 18px 0;
+          display: inline-block;
+          /* grid-auto-columns: 33%; */
+          /* grid-gap: 10px; */
+          /* background-color: #2196F3; */
+          padding: 10px 39px;
+          width: 100%;
+          text-align: center;
+      }
+      .ecom-footer2 > div {
+          width: 100%;
+          padding: 8px 0;
+          font-size: 24px;
+      }
+    
+    
+      .footer__newsletter {
+         
+          align-items: center;
+      }
+      .footer__social-icons ul {
+          display: unset;
+          align-items: center;
+      }
+    
+      .footer__bottom {
+        display: unset;
+
+      }
+      
+    
+      .ecom-footer2 .footer__col-text, .footer__col-list, .footer__signup-text {
+        line-height: unset;
+        margin: 0;
+    }
+
+    
+    .ecom-footer2 .col4 {
+        margin-bottom: 10px;
+    }
+    
+    
+    
+    
+    /* -------------------- */
+    
+    .sort-option ul {
+        display: block;
+        
+    }
+    
+    .collection-top-bar__filters {
+      display: block;
+    
+    }
+    
+    
+    
+    .footer__cols {
+        grid-template-columns: 100%;
+    }
+    
+    .footer__cols {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+    }
+    
+    .footer_Left {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+    
+    .footer_Left > div {
+        width: 100%;
+    }
+    .footer__col-list.Newsletter_row {
+        position: unset;
+        right: 0;
+        width: 100%;
+    }
+    
+    .footer__container {
+        padding: 0 10px;
+    }
+    .list-item.ma0.connected_icom {
+      text-align: center;
+    }
+    
+    .footer_logo {
+        margin: unset;
+        text-align: center;
+    }
+    
+    .footer_logo img {
+      height: unset;
+      margin: unset;
+    }
+  }
+  
+  .col3_img {
+    width: 33px;
+    height: auto;
+  }
+  @media only screen and (max-width: 768px) {
+    .ecom-footer1 .col_3 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .col3_img {
+      margin: 0 auto;
+    }
+  }
+</style>

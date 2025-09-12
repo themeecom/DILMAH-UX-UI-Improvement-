@@ -1,0 +1,232 @@
+{% for block in blocks %}
+
+
+  {% assign image = block.value | defadivt: block.settings.image %}
+
+  {% assign slide_class_modifiers = '' %}
+  {% assign slide_class_modifiers = slide_class_modifiers | append: ' slideshow__slide--' | append: aspect_ratio %}
+
+  {% if block.settings.image != blank and block.settings.mobile_image != blank %}
+    {% assign slide_class_modifiers = slide_class_modifiers | append: ' slideshow__slide--has-mobile-image' %}
+  {% endif %}
+
+    {%- if block.settings.link_text == blank and block.settings.link != blank and aspect_ratio == 'unconstrained' -%}
+      <a href="{{ block.settings.link }}" class="slideshow__slide{{ slide_class_modifiers }}" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}">
+    {%- else -%}
+      <div
+        class="ecom_brand_col Brand-col" >
+        {% if block.settings.subheading %}
+        <div class="ecom_brand_txt_wrapper" style="--bg-gradient:{{ block.settings.overlay_color }};">
+          <p class="ecom_brand_txt">{{block.settings.subheading}}</p>
+        </div>
+
+       
+        {% endif %}
+    {%- endif -%}
+
+
+
+        {% assign video_link_verified = false %}
+
+        
+       
+
+        {% if block.settings.image != blank and video_link_verified == false %}
+          {% assign image_is_constrained = true %}
+
+          {% if aspect_ratio == 'unconstrained' %}
+            {% assign image_is_constrained = false %}
+          {% endif %}
+
+          {% assign image_wrapper_class = 'slideshow__image slideshow__image--desktop' %}
+
+          {% if block.settings.mobile_image == blank %}
+            {% assign image_wrapper_class = image_wrapper_class | append: ' slideshow__image--mobile' %}
+          {% endif %}
+
+          {% render 'image' with
+            image: block.settings.image,
+            wrapper_class: image_wrapper_class,
+            disable_style: image_is_constrained,
+            max_width: 3000
+          %}
+
+          {% if block.settings.mobile_image != blank and block.settings.image != blank %}
+            {% render 'image' with
+              image: block.settings.mobile_image,
+              wrapper_class: 'slideshow__image slideshow__image--mobile',
+              disable_style: image_is_constrained,
+              max_width: 3000
+            %}
+          {% endif %}
+        {% endif %}
+
+      {%- if block.settings.link_text == blank and block.settings.link != blank and aspect_ratio != 'unconstrained' -%}
+        </a>
+      {%- endif -%}
+
+    {%- if block.settings.link_text == blank and block.settings.link != blank and aspect_ratio == 'unconstrained' -%}
+      </a>
+    {%- else -%}
+      </div>
+    {%- endif -%}
+
+  {% endfor %}
+
+{% if template !="page.christmas" %}
+<style>
+  .ecom_brand_col{
+    position: relative;
+  }
+  p.ecom_brand_txt {
+/*     position: absolute; */
+    z-index: 1;
+    color: white;
+/*     background: #007d8585; */
+    padding: 0 33px 16px 24px;
+    bottom: 3%;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1;
+    width: 100%;
+  }
+  
+  @media only screen and (max-width: 1260px) {
+     p.ecom_brand_txt {
+      font-size: 16px;
+    }
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    p.ecom_brand_txt {
+      font-size: 15px;
+      padding: 0 10px;
+    }
+  }
+  
+  
+  @media only screen and (max-width: 1024px) {
+    p.ecom_brand_txt {
+      padding: 0px 6px;
+      bottom: 1%;
+      font-size: 12px;
+      line-height: 0.9;
+    }
+  }
+  
+  @media only screen and (max-width: 800px) {
+    p.ecom_brand_txt {
+      padding: 0px 4px;
+      font-size: 11px;
+    }
+  }
+  
+  
+  @media only screen and (max-width: 768px) {
+    p.ecom_brand_txt {
+      display: none;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    p.ecom_brand_txt {
+      display: block;
+      padding: 0px 41px 0 41px;
+      bottom: 8%;
+      font-size: 28px;
+      line-height: 0.9;
+    }
+  }
+  @media only screen and (max-width: 700px) {
+    p.ecom_brand_txt {
+      display: block;
+      padding: 0px 30px 0 30px;
+      bottom: 8%;
+      font-size: 22px;
+      line-height: 0.9;
+    }
+  }
+  @media only screen and (max-width: 540px) {
+    p.ecom_brand_txt {
+      padding: 0px 45px 0 30px;
+      bottom: 6%;
+      font-size: 20px;
+    }
+  }
+  @media only screen and (max-width: 445px) {
+    p.ecom_brand_txt {
+      padding: 0px 45px 0 23px;
+      bottom: 6%;
+      font-size: 15px;
+      font-weight: 800;
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    p.ecom_brand_txt {
+      padding: 0px 36px 0 20px;
+      bottom: 4%;
+    }
+  }
+  @media only screen and (max-width: 320px) {
+    p.ecom_brand_txt {
+      padding: 0px 15px 0 17px;
+      bottom: 3%;
+      font-size: 12px;
+      font-weight: 800;
+    }
+  }
+  
+  
+  
+/*  12/30/2021  */
+  .ecom_brand_txt_wrapper {
+    background: var(--bg-gradient);
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    bottom: 0%;
+    min-height: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ecom_brand_txt_wrapper p.ecom_brand_txt {
+    position: initial;
+    margin-bottom: 0
+  }
+  
+  @media (max-width: 1200px) {
+    .ecom_brand_txt_wrapper {
+      min-height: 70px;
+    }
+  }
+  @media (max-width: 1025px) {
+    .ecom_brand_txt_wrapper {
+      min-height: 55px;
+    }
+  }
+  @media (max-width: 768px) {
+    .ecom_brand_txt_wrapper {
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 10px;
+    }
+
+    .ecom_brand_txt_wrapper p.ecom_brand_txt {
+      position: relative;
+      bottom: 0;
+      text-align: center !important;
+    }
+  }
+  @media (max-width: 445px) {
+    .ecom_brand_txt_wrapper {
+      min-height: 80px;
+    }
+  }
+  @media (max-width: 320px) {
+    .ecom_brand_txt_wrapper {
+      min-height: 70px;
+    }
+  }
+</style>
+  {% endif %}

@@ -1,0 +1,61 @@
+{%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+{%- assign height = image.height | times: 1.0 | default: 1.0 -%}
+{%- assign width = image.width | times: 1.0 | default: 1.0 -%}
+
+{% assign image_id = image.id %}
+
+{% unless id == blank %}
+  {% assign image_id = id %}
+{% endunless %}
+
+{%- assign padding_top = height | divided_by: width | times: 100 | append: "%" -%}
+
+{% if image.alt != "" %}
+{% assign imgAltName = image.alt %}
+{% else %}
+{% assign imgAltName = productTitle %}
+{% endif %}
+
+<div class="ecom_img_tst image image--{{ image_id }} {{ wrapper_class }}">
+  <img
+    class="ecom_gift_card_img image__img lazyload ecom_cart_page_img{{ image_class }}"
+    srcset="{%- if image.width >= 165 -%}{{ image | image_url: width: 165 }} 165w,{%- endif -%}
+
+    {%- if image.width >= 360 -%}{{ image | image_url: width: 360 }} 360w,{%- endif -%}
+
+    {%- if image.width >= 533 -%}{{ image | image_url: width: 533 }} 533w,{%- endif -%}
+
+    {%- if image.width >= 720 -%}{{ image | image_url: width: 720 }} 720w,{%- endif -%}
+
+    {%- if image.width >= 940 -%}{{ image | image_url: width: 940 }} 940w,{%- endif -%}
+
+    {%- if image.width >= 1066 -%}{{ image | image_url: width: 1066 }} 1066w,{%- endif -%}
+
+    {{ image | image_url }} {{ image.width }}w"
+    
+    src="{{ image | image_url }}"
+
+    {% unless lazy_load == false %}loading="lazy"{% endunless %}
+
+    width="{{ image.width }}"
+  
+    height="{{ image.height }}"
+
+    alt="{{ imgAltName | escape }}"
+
+  >
+</div>
+
+{%- unless disable_style -%}
+  <style>
+/*     .image--{{ image_id }} {
+      padding-top: {{ padding_top }};
+    } */
+  </style>
+{%- endunless -%}
+
+<style>
+  .ecom_gift_card_img {
+    object-fit: contain;
+  }
+</style>

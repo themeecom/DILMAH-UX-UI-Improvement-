@@ -1,0 +1,215 @@
+<style>button[name="add"], input[name="add"], button[class*="add"], input[class*="add"]{display: none !important;}</style>
+<div class="product-page-wrapper">
+  {% section 'product--static' %}
+
+  {% section 'text--static' %}
+
+  {% section 'gallery-grid--static' %}
+</div>
+
+<div class="product-page-wrapper">
+  
+  <div class="pro-brewing-info-main">
+    {% if product.metafields.product.Recommended %}
+    <p class="brewing-info-title">Brewing Information</p>
+    {% endif %}
+    <div class="pro-brewing-info">
+      {% if product.metafields.product.Recommended %}
+      <div class="brewing_info_des">
+        <div class="brewing_info_img">
+          <img class="bi-img" alt="Image of a teapot" title="A teapot" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/1_b8825fd4-d43a-4f1f-82c0-8c82447cce92.jpg?v=1632501466" width="50px" height="50px" />
+        </div>
+        <p class="brewing_info-p"> {{ product.metafields.product.Recommended }}</p>
+      </div>
+      {% endif %}
+
+      {% if product.metafields.product.temp %}
+      <div class="brewing_info_des">
+        <div class="brewing_info_img">                                        
+          <img class="bi-img" alt="A cup of Dilmah tea" title="Cup of Dilmah tea" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/2_5b437e0b-2379-48d0-9c5b-802117a49a85.jpg?v=1632501465" width="50px" height="50px" />
+        </div>
+        <p class="brewing_info-p">{{ product.metafields.product.temp }}</p>
+      </div>
+      {% endif %}
+
+      {% if product.metafields.product.serving %}
+      <div class="brewing_info_des">
+        <div class="brewing_info_img">                                 
+          <img class="bi-img" alt="An image of a timer and a teapot" title="A timer and a teapot"  src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/3_b0f070f3-8846-4151-a383-96adf6c1c58d.jpg?v=1632501465" width="50px" height="50px" />
+        </div>
+        <p class="brewing_info-p">{{ product.metafields.product.serving }}</p>
+      </div>
+      {% endif %}
+
+      {% if  product.metafields.product.water %}
+      <div class="brewing_info_des">
+        <div class="brewing_info_img">                                         
+          <img style="margin: 0;" class="bi-img ecom-serve-img" alt="An image of a cup of tea" title="Image of a cup of tea" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/4_de2d1bb4-7d5e-4c5b-8ee7-5f8de7b74dbd.jpg?v=1632501465" width="50px" height="50px" />
+        </div>
+        <p class="brewing_info-p">{{ product.metafields.product.water }}</p>
+      </div>
+      {% endif %}
+
+      {% if  product.metafields.product.minutes %}
+      <div class="brewing_info_des">
+        <div class="brewing_info_img">                                         
+          <img style="margin: 0;" class="last-img bi-img ecom-serve-img" alt="An image of a cup of tea" title="Image of a cup of tea" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/5_baa51a6e-1f50-46fa-b824-8694515abbcc.jpg?v=1632501466" width="50px" height="50px" />
+        </div>
+        <p class="brewing_info-p">{{ product.metafields.product.minutes }}</p>
+      </div>
+      {% endif %}
+    </div>
+
+  </div>
+  
+  <hr style="border: 1px solid #d2d2d2;">
+  
+  <div class="review_wrapper">
+
+  
+  </div>
+  
+  
+       
+
+  {% section 'product-recommendations--static' %}
+</div>
+
+
+
+<style>
+  @media only screen and (max-width: 768px) {
+    div#shopify-product-reviews {
+    width: 100% !important;
+}
+  }
+  </style>
+
+
+
+
+
+
+<style>
+p.ingredients-title {
+    font-weight: 700;
+      margin-top: 25px
+}
+</style>
+
+<style>
+  /***************brewing info product********************/
+  .pro-brewing-info-main {
+    width: 100%;
+    margin: 0px auto 40px;
+  }
+  img.bi-img {
+    width: 40%;
+    height: auto;
+}
+  p.brewing-info-title {
+    text-align: center !important;
+    font-size: 1.5em;
+    padding-top: 0px;
+    padding-bottom: 30px;
+  }
+  p.brewing-info-title {
+    font-weight: 700;
+  }
+  .product-page-related-products .sitewide--title-wrapper {
+    margin-top: 23px;
+  }
+  .pro-brewing-info {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    justify-items: center;
+    grid-column-gap: 5px;
+  }
+  .brewing_info_img {
+    text-align: center;
+  }
+  @media only screen and (max-width: 768px) {
+    .pro-brewing-info {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      justify-items: center;
+      grid-row-gap: 30px;
+    }
+    .brewing_info_des:last-child {
+      grid-column: 1/span 2;
+    }
+    img.last-img {
+      width: 25%;
+      height: auto;
+    }
+   .pro-brewing-info-main {
+    width: 100%;
+    margin: 0px auto 40px;
+}
+    
+  }
+  
+  @media only screen and (max-width: 600px) {
+   p.brewing-info-title {
+    text-align: center !important;
+    font-size: 1.5em;
+    padding-top: 0px;
+    padding-bottom: 30px  !important;
+  }
+}
+</style>
+
+<style>
+  h2.spr-header-title {
+    font-size: 15px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    color: #333 !important;
+    line-height: 26px !important;
+  }
+  span.spr-summary-actions {
+    border: 1px solid #777 !important;
+}
+  span.spr-summary-actions a {
+    color: #111 !important;
+}
+  .spr-form-input {
+    background: transparent !important;
+  }
+  .spr-form-label {
+    background: white !important;
+    font-weight: 500;
+  }
+  #shopify-product-reviews .spr-icon-star, #shopify-product-reviews .spr-icon-star-empty, #shopify-product-reviews .spr-icon-star-half-alt, .product__reviews .spr-icon-star, .product__reviews .spr-icon-star-empty, .product__reviews .spr-icon-star-half-alt {
+    color: #bc9307;
+}
+  input.spr-button.spr-button-primary.button.button-primary.btn.btn-primary {
+    border-radius: 25px !important;
+    transition: 0.4s !important;
+  }
+  input.spr-button.spr-button-primary.button.button-primary.btn.btn-primary:hover {
+    background: #bc9307 !important;
+  }
+  .spr-form input, .spr-form textarea {
+    border: 1px solid #ccc !important;
+  }
+  .spr-form-review-body .spr-form-input.spr-form-input-textarea {
+    border: 1px solid #ccc !important;
+  }
+  #shopify-product-reviews {
+    padding: 20px 0 !important;
+  }
+  
+  .product-form__quantity {
+    max-width: 123px;
+}
+  
+  .cart_button button {
+    max-width: 152px;
+    margin-right: 10px;
+}
+</style>
+
+<script>
+
+</script>

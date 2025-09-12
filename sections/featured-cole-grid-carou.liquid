@@ -1,0 +1,645 @@
+<style>
+ .ecom-carousel-product {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100px;
+    min-height: 125px;
+}
+
+.ecom-carousel-prod-title {
+  text-align: center;
+  flex: 0 0 100%;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #16858d;
+  font-weight: 500;
+}
+
+.ecom-carousel-price2 {
+    position: absolute;
+    font-size: 10px;
+    bottom: 7%;
+    left: 0;
+}
+
+.ecom-carousel-product-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.ecom-carousel-price2 dt {
+    display: none;
+}
+
+.ecom-carousel-product .ecom-carousel-price2 span.price-item.price-item--regular.meta {
+    /* font-size: 12px; */
+  color: #b8930b;
+    font-size: 15px;
+}
+.ecom_slick_container .price__compare.meta .price-item.meta {
+  font-size: 15px;
+  color: #b8930b;
+}
+
+.ecom_slick_container .ecom-carousel-price2 .price-item.price-item--sale {
+  color: #b8930b;
+  font-size: 15px;
+}
+  
+.ecom-carousel-product .ecom-carousel-product-btn .addtocart_btn img {
+    width: 35px;
+}
+
+
+.slide-arrow.slick-arrow img {width: 30px;}
+
+.slide-arrow.prev-arrow.slick-arrow {
+    position: absolute;
+    left: 0%;
+}
+
+.slide-arrow.slick-arrow {
+    position: absolute;
+}
+
+.ecom-carousel-review.review-count-0 {}
+
+.ecom-carousel-review.review-count-0 {
+    position: absolute;
+    z-index: 1;
+    font-size: 15px;
+    background: white;
+    border-radius: 6px;
+    padding: 0px 6px;
+    left: -11px;
+    top: -9px;
+    border: 1px solid #5b595614;
+}
+
+.ecom-carousel-review i.spr-icon.spr-icon-star {font-size: 13px;color: #007b84;}
+
+.ecom-carousel-product-btn img {
+    width: 100%;
+    height: auto;
+}
+  .ecom-carousel-product-btn .addtocart_btn {
+    cursor: pointer;
+}
+  
+.ecom_slick_container .grid-display__item_ecom {
+    /* box-shadow: 4px 1px 2px 2px rgb(0 0 0 / 18%); */
+  padding: 10px;
+  margin: 5px 10px;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+}
+
+.ecom-carousel-product-btn .addtocart_btn_sold.product_btn.ecom[disabled] {
+    pointer-events: none;
+    cursor: no-drop;
+    overflow: hidden;
+    position: relative;
+    width: 35px;
+    height: 34px;
+}
+
+.ecom-carousel-product-btn .addtocart_btn_sold.product_btn.ecom[disabled]:after {
+    content: " ";
+    width: 35px;
+    height: 34px;
+    position: absolute;
+    top: 0px;
+    left: 0.0px;
+    background: #00000075;
+    border-radius: 5px;
+}
+  .ecom-teamkers-container .ecom-teamakers .ecom_text_rm_recm {
+    margin-bottom: 0px;
+    color: #007b84;
+    font-family: {{ section.settings.font_for_main_title.family }};
+    font-weight: {{ section.settings.font_for_main_title.weight }};
+    font-style: {{ section.settings.font_for_main_title.style }};
+  }
+
+  button.addtocart_btn.product_btn.ecom {
+    font-size: 10px;
+  }
+  
+  @media only screen and (min-width: 760px) and (max-width: 1040px) {
+    .ecom_text_rm_recm {
+      font-size: 1.45em !important;
+    }
+  }
+
+@media only screen and (max-width: 768px) {
+  .ecom_slick_container .grid-display__item_ecom {
+    margin: 5px 5px;
+  }
+  .ecom-carousel-price2 {
+    position: relative;
+    width: 75%;
+    min-height: 58px;
+  }
+  
+  .ecom-carousel-product-btn {
+    position: relative;
+    display: block;
+    align-self: anchor-center;    
+  }
+  
+  .ecom-carousel-product {
+      row-gap: 10px;
+  }
+  
+  .ecom-carousel-price2 .price.price--listing {
+      position: relative;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+  }
+  .ecom-teamkers-container .ecom-teamakers .ecom_text_rm_recm {
+    text-align: center;
+  }
+}  
+</style>
+
+<div class="ecom-product-grid {{ section.settings.custom_class }}">
+  <div class="ecom-teamkers-container">
+   <div class="ecom-teamakers"> 
+      <h2 class="ecom_text_rm_recm rich-text__title type-heading-1 ma0 mb3 {{section.settings.title}}">{{section.settings.title}}</h2> 
+    
+      <div id = "ecom-title-set" >
+        {% if section.settings.title1 !='' %}
+        <p class = "subtitle active" id="ecom-grid_h1"><span>  {{section.settings.title1}} </span></p>
+        {% endif %} {% if section.settings.title2 !='' %}
+        <p class = "subtitle" id="ecom-grid_h2"><span> {{section.settings.title2}}</span></p>
+        {% endif %} {% if section.settings.title3 !='' %}
+        <p class = "subtitle" id="ecom-grid_h3"><span> {{section.settings.title3}}</span></p>
+        {% endif %} {% if section.settings.title4 !='' %}
+        <p class = "subtitle" id="ecom-grid_h4"><span> {{section.settings.title4}}</span></p>
+        {% endif %} {% if section.settings.title5 !='' %}
+        <p class = "subtitle" id="ecom-grid_h5"><span> {{section.settings.title5}}</span></p>
+        {% endif %} {% if section.settings.title6 !='' %}
+        <p class = "subtitle" id="ecom-grid_h6"><span> {{section.settings.title6}}</span></p>
+        {% endif %} {% if section.settings.title7 !='' %}
+        <p class = "subtitle" id="ecom-grid_h7"><span> {{section.settings.title7}}</span></p>
+        {% endif %}
+      </div>
+    </div> 
+
+    <div class="featured-collection-products">
+      <div id="product-grid_1" class="ecom_product-grid_row active absolute">
+        <div class="ecom_slick_container">
+        {% for product in collections[section.settings.collection].products limit: 6 %}
+          <div class="grid-display__item_ecom">
+            {%
+              render 'product-carousel-item', product: product,
+              aspect_ratio: section.settings.aspect_ratio
+            %}
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+      <div id="product-grid_2" class="ecom_product-grid_row absolute">
+        <div class="ecom_slick_container">
+        {% for product in collections[section.settings.collection2].products limit: 6 %}
+          <div class="grid-display__item_ecom">
+            {%
+              render 'product-carousel-item', product: product,
+              aspect_ratio: section.settings.aspect_ratio
+            %}
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+      <div id="product-grid_3" class="ecom_product-grid_row absolute">
+        <div class="ecom_slick_container">
+        {% for product in collections[section.settings.collection3].products limit: 6 %}
+          <div class="grid-display__item_ecom">
+            {%
+              render 'product-carousel-item', product: product,
+              aspect_ratio: section.settings.aspect_ratio
+            %}
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+      <div id="product-grid_4" class="ecom_product-grid_row absolute">
+        <div class="ecom_slick_container">
+        {% for product in collections[section.settings.collection4].products limit: 6 %}
+          <div class="grid-display__item_ecom">
+            {%
+              render 'product-carousel-item', product: product,
+              aspect_ratio: section.settings.aspect_ratio
+            %}
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+      <div id="product-grid_5" class="ecom_product-grid_row absolute">
+        <div class="ecom_slick_container">
+        {% for product in collections[section.settings.collection5].products limit: 6 %}
+          <div class="grid-display__item_ecom">
+            {%
+              render 'product-carousel-item', product: product,
+              aspect_ratio: section.settings.aspect_ratio
+            %}
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+      <div id="product-grid_6" class="ecom_product-grid_row absolute">
+        <div class="ecom_slick_container">
+        {% for product in collections[section.settings.collection6].products limit: 6 %}
+          <div class="grid-display__item_ecom">
+            {%
+              render 'product-carousel-item', product: product,
+              aspect_ratio: section.settings.aspect_ratio
+            %}
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+      <div id="product-grid_7" class="ecom_product-grid_row absolute">
+        <div class="ecom_slick_container">
+        {% for product in collections[section.settings.collection7].products limit: 6 %}
+          <div class="grid-display__item_ecom">
+            {%
+              render 'product-carousel-item', product: product,
+              aspect_ratio: section.settings.aspect_ratio
+            %}
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {% comment %}
+ <div class="featured-collection-products" hidden> 
+     <div id="product-grid_1" class="ecom_product-grid_row active">
+        {% include 'content--featured-collection-grid' with
+          id: section.id,
+          section_style: section.settings.section_style,
+          featured_collection: collections[section.settings.collection],
+          heading_alignment: section.settings.heading_alignment,
+          overline: section.settings.overline,
+          heading: section.settings.title,
+          subheading: section.settings.subheading,
+          text_max_width: section.settings.text_max_width,
+          link_text: section.settings.link_text,
+          total_row: section.settings.total_row,
+          products_per_row: section.settings.products_per_row,
+          aspect_ratio: section.settings.aspect_ratio,
+        %}
+    </div>
+    <div id="product-grid_2" class="ecom_product-grid_row">
+    {% include 'content--featured-collection-grid' with
+      id: section.id,
+      section_style: section.settings.section_style,
+      featured_collection: collections[section.settings.collection2],
+      heading_alignment: section.settings.heading_alignment,
+      overline: section.settings.overline,
+      heading: section.settings.title,
+      subheading: section.settings.subheading,
+      text_max_width: section.settings.text_max_width,
+      link_text: section.settings.link_text,
+      total_row: section.settings.total_row,
+      products_per_row: section.settings.products_per_row,
+      aspect_ratio: section.settings.aspect_ratio,
+    %}
+    </div>
+    <div id="product-grid_3" class="ecom_product-grid_row">
+    {% include 'content--featured-collection-grid' with
+      id: section.id,
+      section_style: section.settings.section_style,
+      featured_collection: collections[section.settings.collection3],
+      heading_alignment: section.settings.heading_alignment,
+      overline: section.settings.overline,
+      heading: section.settings.title,
+      subheading: section.settings.subheading,
+      text_max_width: section.settings.text_max_width,
+      link_text: section.settings.link_text,
+      total_row: section.settings.total_row,
+      products_per_row: section.settings.products_per_row,
+      aspect_ratio: section.settings.aspect_ratio,
+    %}
+     </div>
+     <div id="product-grid_4" class="ecom_product-grid_row">
+    {% include 'content--featured-collection-grid' with
+      id: section.id,
+      section_style: section.settings.section_style,
+      featured_collection: collections[section.settings.collection4],
+      heading_alignment: section.settings.heading_alignment,
+      overline: section.settings.overline,
+      heading: section.settings.title,
+      subheading: section.settings.subheading,
+      text_max_width: section.settings.text_max_width,
+      link_text: section.settings.link_text,
+      total_row: section.settings.total_row,
+      products_per_row: section.settings.products_per_row,
+      aspect_ratio: section.settings.aspect_ratio,
+    %}
+     </div>
+     <div id="product-grid_5" class="ecom_product-grid_row"> 
+    {% include 'content--featured-collection-grid' with
+      id: section.id,
+      section_style: section.settings.section_style,
+      featured_collection: collections[section.settings.collection5],
+      heading_alignment: section.settings.heading_alignment,
+      overline: section.settings.overline,
+      heading: section.settings.title,
+      subheading: section.settings.subheading,
+      text_max_width: section.settings.text_max_width,
+      link_text: section.settings.link_text,
+      total_row: section.settings.total_row,
+      products_per_row: section.settings.products_per_row,
+      aspect_ratio: section.settings.aspect_ratio,
+       %}</div>
+       
+  <div id="product-grid_6" class="ecom_product-grid_row"> 
+    {% include 'content--featured-collection-grid' with
+      id: section.id,
+      section_style: section.settings.section_style,
+      featured_collection: collections[section.settings.collection6],
+      heading_alignment: section.settings.heading_alignment,
+      overline: section.settings.overline,
+      heading: section.settings.title,
+      subheading: section.settings.subheading,
+      text_max_width: section.settings.text_max_width,
+      link_text: section.settings.link_text,
+      total_row: section.settings.total_row,
+      products_per_row: section.settings.products_per_row,
+      aspect_ratio: section.settings.aspect_ratio,
+    %}
+       
+    </div>
+  </div>
+  {% endcomment %}
+  </div>
+  <div class="howmaywe-perant" style="display:none">
+   <div class="howmaywe-sub">
+  
+        <div id = "howmaywe">
+          <h2>{{section.settings.Htitle}}</h2>
+          <p class="sub1"> {{section.settings.HStitle}}</p>
+          <p class="sub2">{{section.settings.Hdetail}}</p>
+
+
+        
+          <div class="howmaywe-taglist">
+                {% assign tags = section.settings.tagList| downcase | split: ',' %}
+
+              {% for tag in tags %}
+            <div class="howmaywe-taglist-sec">  <input type="checkbox"  name="{{ tag }}" value="{{ tag }}"><label for="{{ tag }}"> {{ tag }}</label></div>
+              {% endfor %}
+        </div>
+          
+          
+          <div class="howmaywe-btn-row">
+            
+            <button class="btn howmaywe-btn btn-reset">Reset</button>
+            <button class="btn howmaywe-btn btn-submit ">Submit</button>
+            
+          </div>
+          
+          
+      </div>
+  </div>  
+ </div>  
+  
+  
+</div>
+
+
+{% schema %}
+  {
+    "name": "featured cole grid carou",
+    "class": "section-dynamic section-borderable carousel",
+    "settings": [
+      {
+        "type": "text",
+        "id": "custom_class",
+        "label": "Custom Class"
+      },
+      {
+        "type": "header",
+        "content": "Section style"
+      },
+      {
+        "type": "select",
+        "id": "section_style",
+        "label": "Style",
+        "default": "default",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "contrast",
+            "label": "Contrast"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Section content"
+      },
+{
+        "type": "text",
+        "id": "title1",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+{
+        "type": "text",
+        "id": "title2",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+
+{
+        "id": "collection2",
+        "type": "collection",
+        "label": "Collection2"
+      },
+{
+        "type": "text",
+        "id": "title3",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+{
+        "id": "collection3",
+        "type": "collection",
+        "label": "Collection3"
+      },
+{
+        "type": "text",
+        "id": "title4",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+{
+        "id": "collection4",
+        "type": "collection",
+        "label": "Collection4"
+      },
+
+{
+        "type": "text",
+        "id": "title5",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+{
+        "id": "collection5",
+        "type": "collection",
+        "label": "Collection5"
+      },
+
+{
+        "type": "text",
+        "id": "title6",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+        "id": "collection6",
+        "type": "collection",
+        "label": "Collection6"
+      },
+      {
+        "type": "text",
+        "id": "title7",
+        "label": "Heading collection 7",
+        "default": "Featured collection"
+      },
+      {
+        "id": "collection7",
+        "type": "collection",
+        "label": "Collection7"
+      },
+      {
+        "id": "products_per_row",
+        "type": "range",
+        "label": "Columns",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "step": 1
+      },
+      {
+        "id": "total_row",
+        "type": "range",
+        "label": "Rows",
+        "default": 2,
+        "min": 1,
+        "max": 3,
+        "step": 1
+      },
+      {
+        "id": "aspect_ratio",
+        "type": "select",
+        "label": "Image aspect ratio",
+        "options": [
+          { "label": "Natural", "value": "natural" },
+          { "label": "Square (1:1)", "value": "square" },
+          { "label": "Landscape (3:2)", "value": "landscape" },
+          { "label": "Portrait (2:3)", "value": "portrait" }
+        ],
+        "default": "natural"
+      },
+      {
+        "type": "text",
+        "id": "overline",
+        "label": "Small heading",
+        "default": "Collection"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+        "type": "font_picker",
+        "label": "Font for Main title",
+        "id": "font_for_main_title",
+        "default": "mariposa_sans_n7"
+      },
+
+      {
+        "type": "header",
+        "content": "How May We Serve"
+      },
+
+
+    {
+        "type": "text",
+        "id": "Htitle",
+        "label": "Heading",
+        "default": "How may we serve you?"
+      },
+{
+        "type": "text",
+        "id": "HStitle",
+        "label": "SUB Heading",
+        "default": "Not Sure which dilmah"
+      },
+
+ {
+        "type": "textarea",
+        "id": "Hdetail",
+        "label": "Detail",
+        "default": "Add a subheading to provide more details about this "
+      },
+      {
+        "type": "textarea",
+        "id": "tagList",
+        "label": "Tag List",
+        "default": "Add a subheading to provide more details about this collection."
+      },
+      
+      {
+        "type": "select",
+        "id": "heading_alignment",
+        "label": "Heading alignment",
+        "default": "center",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "text_max_width",
+        "label": "Max width of text",
+        "min": 16,
+        "max": 50,
+        "step": 1,
+        "default": 36
+      }
+    ],
+    "presets": [
+      {
+        "name": "Ecom featured collection grid carousel",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}

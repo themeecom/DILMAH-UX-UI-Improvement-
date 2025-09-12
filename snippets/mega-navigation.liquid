@@ -1,0 +1,70 @@
+{% assign meganav_has_feature = false %}
+{% if link.handle == 'tea-gifts' or link.handle == 'promotions' %}
+
+<ul class="mega-navigation dropdown_ecom">
+  
+  <li class="mega-navigation__list-container{% if meganav_has_feature == false %} full-width{% endif %}">
+    <ul class="mega-navigation__list-parent">
+      {% for link in link.links %}
+        <li class="mega-navigation__list">
+          <h4 class="mega-navigation__list-heading mt0 overline"><a class="{% if link.active %}active{% endif %}" href="{{ link.url }}">{{ link.title }}</a></h4>
+          {% render 'navmenu' with
+            menu: link.handle
+          %}
+        </li>
+      {% endfor %}
+    </ul>
+  </li>
+  
+</ul>
+
+{% else %}
+
+
+<ul class="mega-navigation ecom-submenu-2-dev">
+  
+
+  <li class="mega-navigation__list-container{% if meganav_has_feature == false %} full-width{% endif %} ecom-submenu-left-side">
+    <ul class="mega-navigation__list-parent">
+      {% for link in link.links %}
+        {% assign submenuLinksCount = linklists[link.handle].links | size %}
+        <li class="mega-navigation__list  sub-{{link.levels}} {% if submenuLinksCount > 10 %} new {% endif %}" data-name="{{link.handle}}" data-sublinks="{{ submenuLinksCount }}">
+          <h4 class="mega-navigation__list-heading mt0 overline"><a class="{% if link.active %}active{% endif %}" href="{{ link.url }}">{{ link.title }}</a></h4>
+          {% render 'navmenu' with
+            menu: link.handle
+          %}
+        </li>
+      {% endfor %}
+    </ul>
+  </li>
+  
+    <div class="mega-navigation__featured ecom-submenu-right-side">
+        {% for link in link.links %}
+            {% for link_a in link.links %}
+              <div class="test nav_right_sec {{link_a.levels}}   {{link_a.handle}}" data-link="{{ link_a.url }}">
+                <div class="nav_right_img" ><img style=" height: 100%;" src=""></div>
+                <div class="nav_right_title"><h3>{{link_a.title}}</h3></div>
+                <div class="nav_right_description"></div>
+              </div>
+            {% endfor %}
+      {% endfor %}
+    </div>
+</ul>
+
+
+
+
+{% for block in blocks %}
+  {% assign b = block.settings %}
+  {% assign meganav_trigger = b.dropdown_parent_link | handle | strip %}
+
+  {% if link.handle == meganav_trigger and b.feature_text != blank %}
+    <div class="mega-navigation__feature-text rte">
+      {{ b.feature_text }}
+    </div>
+
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+ {% endif %}

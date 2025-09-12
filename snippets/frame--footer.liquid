@@ -1,0 +1,536 @@
+{%- assign locale_selector = false -%}
+{%- assign currency_selector = false -%}
+
+{%- if show_locale_selector and shop.published_locales.size > 1 -%}
+  {%- assign locale_selector = true -%}
+{%- endif -%}
+
+{%- if show_currency_selector and shop.enabled_currencies.size > 1 -%}
+  {%- assign currency_selector = true -%}
+{%- endif -%}
+
+{% assign modifiers = '' %}
+
+{% unless show_headings %}
+  {% assign modifiers = modifiers | append: ' footer--hide-titles' %}
+{% endunless %}
+
+<div class="ecom-footer1">
+        <div class="footer1_item1 col_1">
+            <h1>Secure Shopping</h1>
+            <h4>WITH DILMAH</h4>
+        </div>
+        <div class="footer1_item2 col_2">
+            <p class="col_2_para">We provide the most secure <br> online shopping experience with us. </p>
+        </div>
+        <div class="footer1_item3 col_3">
+          <svg class="payment-icon col3_img" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="45" height="30" aria-labelledby="pi-american_express">
+            <title id="pi-american_express">American Express</title>
+            <g fill="none">
+              <path fill="#000" d="M35,0 L3,0 C1.3,0 0,1.3 0,3 L0,21 C0,22.7 1.4,24 3,24 L35,24 C36.7,24 38,22.7 38,21 L38,3 C38,1.3 36.6,0 35,0 Z" opacity=".07"></path>
+              <path fill="#006FCF" d="M35,1 C36.1,1 37,1.9 37,3 L37,21 C37,22.1 36.1,23 35,23 L3,23 C1.9,23 1,22.1 1,21 L1,3 C1,1.9 1.9,1 3,1 L35,1"></path>
+              <path fill="#FFF" d="M8.971,10.268 L9.745,12.144 L8.203,12.144 L8.971,10.268 Z M25.046,10.346 L22.069,10.346 L22.069,11.173 L24.998,11.173 L24.998,12.412 L22.075,12.412 L22.075,13.334 L25.052,13.334 L25.052,14.073 L27.129,11.828 L25.052,9.488 L25.046,10.346 L25.046,10.346 Z M10.983,8.006 L14.978,8.006 L15.865,9.941 L16.687,8 L27.057,8 L28.135,9.19 L29.25,8 L34.013,8 L30.494,11.852 L33.977,15.68 L29.143,15.68 L28.065,14.49 L26.94,15.68 L10.03,15.68 L9.536,14.49 L8.406,14.49 L7.911,15.68 L4,15.68 L7.286,8 L10.716,8 L10.983,8.006 Z M19.646,9.084 L17.407,9.084 L15.907,12.62 L14.282,9.084 L12.06,9.084 L12.06,13.894 L10,9.084 L8.007,9.084 L5.625,14.596 L7.18,14.596 L7.674,13.406 L10.27,13.406 L10.764,14.596 L13.484,14.596 L13.484,10.661 L15.235,14.602 L16.425,14.602 L18.165,10.673 L18.165,14.603 L19.623,14.603 L19.647,9.083 L19.646,9.084 Z M28.986,11.852 L31.517,9.084 L29.695,9.084 L28.094,10.81 L26.546,9.084 L20.652,9.084 L20.652,14.602 L26.462,14.602 L28.076,12.864 L29.624,14.602 L31.499,14.602 L28.987,11.852 L28.986,11.852 Z"></path>
+            </g>
+          </svg>
+          {%- for type in shop.enabled_payment_types -%}
+            {% if type == "apple_pay" %}
+                {{ type | payment_type_svg_tag: class: 'payment-icon col3_img' }}
+            {% endif %}
+          {%- endfor -%}
+          <svg class="payment-icon col3_img" viewBox="0 0 38 24" width="45" height="30" role="img" aria-labelledby="pi-discover" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <title id="pi-discover">Discover</title>
+            <path fill="#000" opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path>
+            <path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32z" fill="#fff"></path>
+            <path d="M3.57 7.16H2v5.5h1.57c.83 0 1.43-.2 1.96-.63.63-.52 1-1.3 1-2.11-.01-1.63-1.22-2.76-2.96-2.76zm1.26 4.14c-.34.3-.77.44-1.47.44h-.29V8.1h.29c.69 0 1.11.12 1.47.44.37.33.59.84.59 1.37 0 .53-.22 1.06-.59 1.39zm2.19-4.14h1.07v5.5H7.02v-5.5zm3.69 2.11c-.64-.24-.83-.4-.83-.69 0-.35.34-.61.8-.61.32 0 .59.13.86.45l.56-.73c-.46-.4-1.01-.61-1.62-.61-.97 0-1.72.68-1.72 1.58 0 .76.35 1.15 1.35 1.51.42.15.63.25.74.31.21.14.32.34.32.57 0 .45-.35.78-.83.78-.51 0-.92-.26-1.17-.73l-.69.67c.49.73 1.09 1.05 1.9 1.05 1.11 0 1.9-.74 1.9-1.81.02-.89-.35-1.29-1.57-1.74zm1.92.65c0 1.62 1.27 2.87 2.9 2.87.46 0 .86-.09 1.34-.32v-1.26c-.43.43-.81.6-1.29.6-1.08 0-1.85-.78-1.85-1.9 0-1.06.79-1.89 1.8-1.89.51 0 .9.18 1.34.62V7.38c-.47-.24-.86-.34-1.32-.34-1.61 0-2.92 1.28-2.92 2.88zm12.76.94l-1.47-3.7h-1.17l2.33 5.64h.58l2.37-5.64h-1.16l-1.48 3.7zm3.13 1.8h3.04v-.93h-1.97v-1.48h1.9v-.93h-1.9V8.1h1.97v-.94h-3.04v5.5zm7.29-3.87c0-1.03-.71-1.62-1.95-1.62h-1.59v5.5h1.07v-2.21h.14l1.48 2.21h1.32l-1.73-2.32c.81-.17 1.26-.72 1.26-1.56zm-2.16.91h-.31V8.03h.33c.67 0 1.03.28 1.03.82 0 .55-.36.85-1.05.85z" fill="#231F20"></path>
+            <path d="M20.16 12.86a2.931 2.931 0 100-5.862 2.931 2.931 0 000 5.862z" fill="url(#pi-paint0_linear)"></path>
+            <path opacity=".65" d="M20.16 12.86a2.931 2.931 0 100-5.862 2.931 2.931 0 000 5.862z" fill="url(#pi-paint1_linear)"></path>
+            <path d="M36.57 7.506c0-.1-.07-.15-.18-.15h-.16v.48h.12v-.19l.14.19h.14l-.16-.2c.06-.01.1-.06.1-.13zm-.2.07h-.02v-.13h.02c.06 0 .09.02.09.06 0 .05-.03.07-.09.07z" fill="#231F20"></path>
+            <path d="M36.41 7.176c-.23 0-.42.19-.42.42 0 .23.19.42.42.42.23 0 .42-.19.42-.42 0-.23-.19-.42-.42-.42zm0 .77c-.18 0-.34-.15-.34-.35 0-.19.15-.35.34-.35.18 0 .33.16.33.35 0 .19-.15.35-.33.35z" fill="#231F20"></path>
+            <path d="M37 12.984S27.09 19.873 8.976 23h26.023a2 2 0 002-1.984l.024-3.02L37 12.985z" fill="#F48120"></path>
+            <defs>
+              <linearGradient id="pi-paint0_linear" x1="21.657" y1="12.275" x2="19.632" y2="9.104" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F89F20"></stop>
+                <stop offset=".25" stop-color="#F79A20"></stop>
+                <stop offset=".533" stop-color="#F68D20"></stop>
+                <stop offset=".62" stop-color="#F58720"></stop>
+                <stop offset=".723" stop-color="#F48120"></stop>
+                <stop offset="1" stop-color="#F37521"></stop>
+              </linearGradient>
+              <linearGradient id="pi-paint1_linear" x1="21.338" y1="12.232" x2="18.378" y2="6.446" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F58720"></stop>
+                <stop offset=".359" stop-color="#E16F27"></stop>
+                <stop offset=".703" stop-color="#D4602C"></stop>
+                <stop offset=".982" stop-color="#D05B2E"></stop>
+              </linearGradient>
+            </defs>
+          </svg>
+          <svg class="payment-icon col3_img" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="45" height="30" aria-labelledby="pi-master">
+            <title id="pi-master">Mastercard</title>
+            <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path>
+            <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path>
+            <circle fill="#EB001B" cx="15" cy="12" r="7"></circle>
+            <circle fill="#F79E1B" cx="23" cy="12" r="7"></circle>
+            <path fill="#FF5F00" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"></path>
+          </svg>
+          <svg class="payment-icon col3_img" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="45" height="30" aria-labelledby="pi-visa">
+            <title id="pi-visa">Visa</title>
+            <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path>
+            <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path>
+            <path d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z" fill="#142688"></path>
+          </svg>
+          <svg class="payment-icon col3_img" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="45" height="30" aria-labelledby="pi-diners_club">
+            <title id="pi-diners_club">Diners Club</title>
+            <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path>
+            <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path>
+            <path d="M12 12v3.7c0 .3-.2.3-.5.2-1.9-.8-3-3.3-2.3-5.4.4-1.1 1.2-2 2.3-2.4.4-.2.5-.1.5.2V12zm2 0V8.3c0-.3 0-.3.3-.2 2.1.8 3.2 3.3 2.4 5.4-.4 1.1-1.2 2-2.3 2.4-.4.2-.4.1-.4-.2V12zm7.2-7H13c3.8 0 6.8 3.1 6.8 7s-3 7-6.8 7h8.2c3.8 0 6.8-3.1 6.8-7s-3-7-6.8-7z" fill="#3086C8"></path>
+          </svg>
+          {%- for type in shop.enabled_payment_types -%}
+            {% if type == "google_pay" %}
+              {{ type | payment_type_svg_tag: class: 'payment-icon col3_img' }}
+            {% endif %}
+          {%- endfor -%}
+          {% comment %} JCB {% endcomment %}
+          <img src="https://cdn.shopify.com/s/files/1/0558/2920/1082/files/2025-08-22_68a8099f7778d_30d746b8e26ae4901c192d31184b29e6a5ed4efb.png?v=1755843017" class="payment-icon col3_img">
+
+        </div>
+        <div class="col_4 footer-icons">
+            <div class="col4_img1_wrapper">
+                <img loading="lazy" class="col4_img col4_img1" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/3d_secure_checkout.png?v=1632737814" alt="Dilmah 3D Secure Checkout">
+                <p>3D Secure Checkout</p>
+            </div>
+            <div class="col4_img2_wrapper">
+                <img loading="lazy" class="col4_img col4_img2" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/pci_complaint_servers.png?v=1632737813" alt="Dilmah PCI-Compliant Servers">
+                <p>PCI-Compliant Servers</p>
+            </div>
+            <div class="col4_img3_wrapper">
+                <img loading="lazy" class="col4_img col4_img3" src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/payment_data_encription.png?v=1632737813" alt="Dilmah Payment Data Encryption">
+                <p>Payment Data Encryption</p>
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="ecom-footer2" style="display: none;">
+  
+  <div class="col4">
+    
+        <div class="footer__bottom mb5">
+        {%- render 'cross-border' with
+          show_locale: locale_selector,
+          show_currency: currency_selector
+        -%}
+
+        {%- assign social_icons_in_use = false -%}
+
+        {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+        {%- for social in social_accounts -%}
+          {%- assign social_handle = social | handleize -%}
+          {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+          {%- if settings[social_link] != blank -%}
+            {%- assign social_icons_in_use = true -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+
+        {%- if social_icons_in_use -%}
+          <div class="footer__social-icons">
+            {%- render 'social-icons' -%}
+          </div>
+        {%- endif -%}
+      </div>
+    
+  </div>
+  
+  <div class="col5">
+    
+    {% comment %}
+      <h3 class="footer__col-title overline mt0 mb3"> {{ 'general.newsletter_form.title' | t }}</h3>
+   {% endcomment %}
+    
+    {% unless newsletter_subheading == blank %}
+    <div class="footer__signup-text mb3">
+       {% comment %}
+      {{ newsletter_subheading }}
+      {% endcomment %}
+      Subscribe to our email newsletter today to receive updates
+    </div>
+    {% endunless %}
+  </div>
+    
+  <div class="col6">
+     {% if show_newsletter_signup %}
+          <div class="footer__newsletter">
+            
+
+            <div class="footer__input-wrap">
+
+              {% form 'customer' %}
+                {{ form.errors | default_errors }}
+                {% if form.posted_successfully? %}
+                  <p>{{ 'general.newsletter_form.confirmation' | t }}</p>
+                {% else %}
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <div class="newsletter__input-container">
+                    <input type="email"
+                      class="input-reset input"
+                      name="contact[email]"
+                      id="Email"
+                      value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+                      placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                      autocorrect="off"
+                      autocapitalize="off">
+                      {% comment %}<label class="label--above" for="Email">{{ 'general.newsletter_form.email_placeholder' | t }}</label> {% endcomment %}
+                      <button class="footer__newsletter-button">
+                        {% render 'icon-arrow-forward' %}
+                      </button>
+                  </div>
+                {% endif %}
+              {% endform %}
+
+            </div>
+          </div>
+        {% endif %}
+        
+   </div>
+  
+  
+</div>
+
+
+<footer
+  data-section-id="{{ id }}"
+  data-section-type="footer"
+  class="footer{{ modifiers }}"
+>
+  <div class="footer__container">
+
+    {% if blocks.size > 0 or show_newsletter_signup %}
+      <section class="footer__cols">
+        <div class="footer_Left">
+        {% for block in blocks %}
+
+          {% if block.type == 'text' and block.settings.text != blank %}
+            <div class="footer__col-text">
+              <h3 class="footer__col-title overline mt0 mb3">{{ block.settings.title }}</h3>
+              {% if block.settings.text %}
+                <div class="rte">
+                  {{ block.settings.text }}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          {% if block.type == 'link_list' and linklists[block.settings.menu].links.size > 0 %}
+            <div class="footer__col-list">
+              <h3 class="footer__col-title overline mt0 mb3 {{ linklists[block.settings.menu].title }}">{{ linklists[block.settings.menu].title }}</h3>
+              {% if linklists[block.settings.menu].links.size > 0 %}
+                <ul class="list ma0 pa0">
+                  {% for link in linklists[block.settings.menu].links %}
+                    <li class="list-item ma0"><a href="{{ link.url }}">{{ link.title }}</a></li>
+                  {% endfor %}
+              
+                  
+                </ul>
+              {% endif %}
+            </div>
+            
+          {% endif %}
+     
+        
+        {% endfor %}
+     </div>
+        <div class="footer_right">
+          
+          
+          
+          <div class="footer_logo">
+            
+<!--                   <img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/Dilmah_Fresh_Logo.png?v=1631951881">
+                 <img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/Dilmah_Ethical_Logo.png?v=1631951881">
+                 <img src="https://cdn.shopify.com/s/files/1/0525/3693/4552/files/Dilmah_Carbon_Neutral_Product.png?v=1631951881">
+           -->
+          </div>  
+           
+           <div class="list-item ma0 connected_icom">
+
+             <div class="footer__col-title overline mt0 mb3">Get connected</div>
+             {%- render 'social-icons' -%}
+
+           </div>
+          
+          
+          
+         <div class="footer__col-list Newsletter_row">
+           <h3 class="footer__col-title overline mt0 mb3">Newsletter</h3>
+           
+           
+           {% if show_newsletter_signup %}
+          <div class="footer__newsletter">
+            
+
+            <div class="footer__input-wrap">
+
+              {% form 'customer' %}
+                {{ form.errors | default_errors }}
+                {% if form.posted_successfully? %}
+                  <p>{{ 'general.newsletter_form.confirmation' | t }}</p>
+                {% else %}
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <div class="newsletter__input-container">
+                    <input type="email"
+                      class="input-reset input"
+                      name="contact[email]"
+                      id="Email"
+                      value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+                      placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                      autocorrect="off"
+                      autocapitalize="off">
+                      {% comment %}<label class="label--above" for="Email">{{ 'general.newsletter_form.email_placeholder' | t }}</label> {% endcomment %}
+                      <button class="footer__newsletter-button">
+                        {% render 'icon-arrow-forward' %}
+                      </button>
+                  </div>
+                {% endif %}
+              {% endform %}
+
+            </div>
+          </div>
+        {% endif %}
+           
+           <div style="display:none">
+           <br>
+          <h3 class="footer__col-title overline mt0 mb3">Secure Shopping</h3>
+           <p style="color: black;">We provide you with the fastest most secure shopping experience possible </p>
+            {% if show_payment_icons %}
+              <div class="footer__payment-icons mb2">
+                {% unless shop.enabled_payment_types == empty %}
+                  <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
+                  <ul class="payment-icons list flex ma0 pa0">
+                    {% for type in shop.enabled_payment_types %}
+                      <li class="footer__payment-icon">
+                        {{ type | payment_type_svg_tag: class: 'icon' }}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endunless %}
+              </div>
+            {% endif %}
+           <br>
+           </div>
+           
+          
+           
+           
+         </div>
+            
+        </div>
+        
+        
+      </section>
+
+      <hr class="footer__divider mt6-l mt5 mb3 b--solid b--default bb" style="border-top: 0; border-right: 0; border-left: 0;margin-top: 10px;" />
+    {% endif %}
+
+
+
+
+    <div class="footer__copyright" >
+      <p>Copyright&copy;{{ 'now' | date: "%Y" }} Dilmah Ceylon Tea Company PLC. All Rights Reserved·  </p><p><a target="_blank" href="https://www.ecom.services">E-commerce Solution</a> By Ecom Services</p>
+    </div>
+    
+    
+  </div>
+</footer>
+<style>
+  .ecom-footer1 {
+    display: grid !important;
+    grid-template-columns: 21% 30% 30% 19% !important;
+    align-items: center;
+    background: #017d85 !important;
+    color: white;
+    padding: 41.9px 36px !important;
+  }
+  
+  .col_1 h1 {
+    font-size: 1.3em !important;
+    font-weight: 300 !important;
+    letter-spacing: 1.5px !important;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  .col_1 h4 {
+    font-size: 17px !important;
+    letter-spacing: 1px !important;
+    margin-top: -2px !important;
+    color: #bc9307 !important;
+    margin-bottom: 0 !important;
+  }
+  .col_2 p {
+    font-size: 18px !important;
+    line-height: 18px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.2px !important;
+    margin-bottom: 0 !important;
+  }
+  .col_3 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .ecom-footer1 .col_3 {
+        /* grid-template-columns: repeat(8, 1fr); */
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 2px;
+    max-width: 215px;
+    align-items: center;
+    margin: 0 auto;
+    column-gap: 29px;
+  }
+  .col_4 {
+    display: flex;
+    text-align: center;
+    margin: 0px 0px 0 28px;
+  }
+  .col_4 img {
+    width: 40%;
+  }
+  .col_4 div {
+    padding: 0 3px;
+  }
+  .col_4 p {
+    margin-top: 0 !important;
+    font-size: 0.6em !important;
+    margin-bottom: 0 !important;
+    text-align: center !important;
+    line-height: 11px;
+  }
+  .ecom-footer1 > div {
+    padding: 0 !important;
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .footer__col-list {
+      text-align: center;
+    }
+   	.ecom-footer1 {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      grid-row-gap: 20px;
+      align-items: center;
+      background: #017d85 !important;
+      color: white;
+      padding: 22px 40px !important;
+    } 
+    .col_4 {
+      display: flex;
+      text-align: center;
+      margin: 0px;
+    }
+    .footer1_item1.col_1 h1 {
+      padding-top: 4px;
+    }
+    .col_4 {
+/*       margin-bottom: 10px; */
+    }
+  }
+  
+  
+  
+      
+    @media only screen and (max-width: 768px) {
+    /* For mobile phones: */  
+      .col_4 img {
+          width: 72%;
+      }
+    }
+</style>
+
+
+<!-- 9/27 -->
+<style>
+/*   .footer__container {
+    padding: 5px 30px !important;
+} */
+  .footer__col-list li {
+    margin-bottom: 1px !important;
+  }
+  .footer__col-list.Newsletter_row {
+    position: revert !important;
+    width: 50%;
+  }
+  
+/*   .ecom-footer1 {
+    align-items: center;
+    padding: 8px 40px 8px 69px !important;
+    background: #017d85 !important;
+    color: white;
+}
+  .footer1_item1.col1 {
+    flex-basis: 37.8%;
+    margin-top: 10px;
+}
+  .footer1_item1.col1 h1 {
+    font-size: 1.7em;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+}
+  .footer1_item1.col1 h4 {
+    font-size: 1.3em;
+    letter-spacing: 1px;
+    margin-top: 0;
+    color: #bc9307;
+  }
+  .footer1_item2.col2 {
+    flex-basis: 55%;
+    margin-top: 8px;
+  }
+  .footer1_item2.col2 p {
+    font-size: 18px !important;
+    line-height: 18px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+  }
+  .footer1_item3.col3 {
+    flex-basis: 24%;
+  }
+  .footer__payment-icons.mb2 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  li.footer__payment-icon {
+    margin: 6px;
+  }
+  .ecom-footer1 > div {
+    padding: 0 !important;
+  } */
+  
+  
+  @media only screen and (max-width: 1000px) {
+    ul.payment-icons.list.flex.ma0.pa0 {
+      justify-content: center;
+    }
+    .footer1_item2.col2 {
+      margin-bottom: 9px;
+    }
+  }
+
+  .input-reset.input {
+    color: black;
+  }
+
+  
+/* added on 12/31/2021   */
+  .col_4 img {
+    width: 55%;
+  }
+
+  @media (max-width: 450px) {
+    .ecom-footer1 {
+      padding: 18px !important;
+    }
+    .ecom-footer1 .col_2_para {
+      text-align: center !important;
+    }
+  } 
+</style>
+<!-- 9/27 | END -->

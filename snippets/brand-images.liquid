@@ -1,0 +1,212 @@
+
+<section class="brand_section_row {{ section.settings.custom_class }}" data-section-id="{{ section.id }}">
+  <div class="brand image-slide">
+    
+      {% render 'brand-blocks' with
+        id: id,
+        blocks: slides
+        aspect_ratio: aspect_ratio
+    subheading:subheading
+      %}
+    
+   
+   
+  </div>
+
+  
+   {% if section.settings.minilogo1 %}
+  <div class="left_text_col">
+  
+    <p>{{section.settings.text}}</p>
+    <div class="logo_brand">
+      
+      <div class="logo_brand_1">
+            <img loading="lazy" src="{{section.settings.logo1 | img_url: '800x'}}" alt="Dilmah Made with Love For Huminity">
+        {% if section.settings.logo2 !=blank %}
+            <img loading="lazy" class="img-brand-logo1" src="{{section.settings.logo2 | img_url: '800x'}}" alt="Dilmah Carbon Neutral Product" > 
+        {% endif %}
+      </div>
+      
+     
+      <div class="logo_brand_2">
+            <img loading="lazy" src="{{section.settings.minilogo1 | img_url: '800x'}}" alt="Dilmah Fresh Tea"> 
+            <img loading="lazy" src="{{section.settings.minilogo2 | img_url: '800x'}}" alt="Dilmah Ethical Tea"> 
+            <img loading="lazy" src="{{section.settings.minilogo3 | img_url: '800x'}}" alt="Dilmah Sustaninably"> 
+      </div>
+  
+
+  
+</div>
+    
+    
+  </div>
+  {% else%}
+
+   {% endif %}
+
+</section>
+
+<style>
+  .brand.image-slide {
+    width: 100% !IMPORTANT;
+}
+section.brand_section_row {
+    overflow: hidden;
+}
+  
+.brand {
+  display: flex;
+  margin: 46px 0;
+  width: 65%;
+  column-gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+  
+.Brand-col {
+  width: 23.33%;
+  border-radius: 15px;
+  overflow: hidden;
+}
+ 
+.left_text_col {
+    width: 35%;
+    padding: 0 35px;
+}
+ 
+ .logo_brand_1 {
+        display: flex;
+    }  
+
+.logo_brand_1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+  .logo_brand_2 {
+    display: flex;
+    justify-content: space-around;
+}
+.left_text_col p {
+    text-align: center !important;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+}  
+ .logo_brand_2 {
+    display: flex;
+    justify-content: center;
+} 
+.logo_brand_1 img {
+    padding: 12px 6px;
+    width: 80%;
+    height: auto;
+}  
+.logo_brand_2 img {
+    padding: 7px 10px;
+    width: 35%;
+}  
+img.img-brand-logo1 {
+    height: 99px;
+    width: auto;
+}  
+  
+  @media only screen and (min-width: 769px) {
+  /* For desktop: */
+  .Brand-col .slideshow__image--desktop .image__img {
+      position: unset;
+  }
+    .Brand-col .slideshow__image--mobile {
+        display: none;
+    }
+    
+    
+    section.brand_section_row {
+        display: flex;
+        align-items: center;
+    }
+   
+    
+  }
+  
+  
+  @media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .Brand-col .slideshow__image--desktop {
+      display: none;
+  }
+    .Brand-col .slideshow__image--mobile .image__img {
+      position: unset;
+      width:100%;
+  }
+    
+    .brand {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 36px 0px;
+      width: 100%;
+      flex-direction: row;
+      justify-content: center;
+      column-gap: 5px;
+    }
+   .Brand-col {
+      width: 46%;
+      margin: 4px 4px;
+    } 
+    .left_text_col {
+      width: 100%;
+    }
+    
+    
+
+    .left_text_col {
+    width: 100%;
+    padding: 0 12px;
+}
+   .logo_brand_1 img {
+    padding: 12px 6px;
+    width: 80%;
+} 
+ .logo_brand_2 img {
+    padding: 7px 8px;
+    width: 33%;
+}   
+/*   section.brand_section_row {
+      margin-bottom: 23px;
+  }   */
+}
+
+  </style>
+
+
+<script>
+jQuery(document).ready(function ($) {
+
+  
+    setInterval(function () {
+        moveRight();
+    }, 3000);
+
+  
+	var slideCount = $('#slider ul li').length;
+	var slideWidth = $('#slider ul li').width();
+	var slideHeight = $('#slider ul li').height();
+	var sliderUlWidth = slideCount * slideWidth;
+	
+	$('#slider').css({ width: slideWidth, height: slideHeight });
+	
+	$('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+	
+    $('#slider ul li:last-child').prependTo('#slider ul');
+
+    function moveRight() {
+        $('#slider ul').animate({
+            left: - slideWidth
+        }, 200, function () {
+            $('#slider ul li:first-child').appendTo('#slider ul');
+            $('#slider ul').css('left', '');
+        });
+    };
+});    
+</script>
+

@@ -1,0 +1,376 @@
+<div class="ecom_sidebar collection-sidebar">
+  <div class="ecom_sorts sort-by--container collection-sidebar-filter">
+    <label class="ecom_sort_label" for="sort-by">Sort by</label> 
+    <select id="sort-by" class="ecom_sort_by_select sort-by">
+      {% for option in collection.sort_options %}
+      <option value="{{ option.value }}"{% if option.value == collection.sort_by %} selected{% endif %}>
+        {% if option.value == "created-descending"%}
+          New
+        {% elsif option.value == "best-selling" %}
+          Most Popular
+        {% elsif option.value == "price-ascending" %}
+          Lowest price
+        {% elsif option.value == "price-descending" %}
+          Rarest
+        {% else %}  
+          {{ option.name }}
+        {% endif %}
+      </option>
+      {% endfor %}
+    </select>
+  </div>
+<!-- -->
+  <p class="ecom-title-filter">Filters</p>
+  {% if collection.all_tags.size > 0 and show_filters %}
+
+    {%- if filter_type == 'by_tag' -%}
+      <div class="ecom_sidebar_group collection-sidebar__group" data-group="{{ 'collections.tags.title' | t }}">
+        {%- assign heading = 'collections.tags.title' | t -%}
+        {% render 'collection-sidebar-heading' with heading: heading %}
+        <ul>
+        {% for tag in collection.all_tags %}
+          {% assign is_in_category = false %}
+          {% assign cat = tag | split: '_' | first %}
+          {% unless cat == tag %}
+            {% if categories contains cat %}
+              {% assign is_in_category = true %}
+            {% endif %}
+          {% endunless %}
+
+          {%- capture tag_text -%}
+            {% if is_in_category %}
+              {{ tag | remove_first: cat | remove_first: '_' }}
+            {% else %}
+              {{ tag }}
+            {% endif %}
+          {%- endcapture -%}
+
+          {% if current_tags contains tag %}
+            {% assign is_active = true %}
+            {% assign url = tag_text | link_to_remove_tag: tag | split: '"' %}
+            {% assign url = url[1] %}
+          {% else %}
+            {% assign is_active = false %}
+            {% assign url = tag_text | link_to_add_tag: tag | split: '"' %}
+            {% assign url = url[1] %}
+          {% endif %}
+
+          {% render 'filter-item' with
+            type: 'checkbox',
+            label: tag_text,
+            active: is_active,
+            url: url,
+
+            key: 'tag',
+            val: tag
+          %}
+        {% endfor %}
+        </ul>
+      </div>
+    {%- endif -%}
+
+
+    {%- if filter_type == 'by_group' -%}
+      
+      {% assign activeFilters = settings.enable_tags %}
+      {% assign activeFilters = activeFilters | split:"," %}
+      
+      {% for category in categories %}
+        {%- assign current_category = category | escape | strip -%}
+        
+        {%- unless activeFilters contains current_category -%}
+          {%- continue -%}
+        {%- endunless -%}
+        
+        {%- assign heading = category -%}
+        <div class="collection-sidebar__group" data-group="{{ heading }}" data-here>
+          {% render 'collection-sidebar-heading' with heading: heading %}
+          <ul>
+            {% for tag in collection.all_tags %}
+              {% assign cat = tag | split: '_' | first %}
+
+              {% if cat != tag and category == cat %}
+                {% assign label = tag | remove_first: cat | remove_first: '_' %}
+
+                {% if current_tags contains tag %}
+                  {% assign is_active = true %}
+                  {% assign url = label | link_to_remove_tag: tag | split: '"' %}
+                  {% assign url = url[1] %}
+                {% else %}
+                  {% assign is_active = false %}
+                  {% assign url = label | link_to_add_tag: tag | split: '"' %}
+                  {% assign url = url[1] %}
+                {% endif %}
+
+                {% render 'filter-item' with
+                  type: 'checkbox',
+                  label: label,
+                  active: is_active,
+                  url: url,
+
+                  key: 'tag',
+                  val: tag
+                %}
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+
+    {%- endif -%}
+  {% endif %}
+
+{% comment %}{% endcomment %}
+  {% if show_sort %}
+    {%- assign heading = 'collections.sorting.title' | t -%}
+    <div class="collection-sidebar__group" data-group="{{ heading }}" style="
+    position: absolute;
+    background: #ffffff;
+    width: 170%;
+    left: 100;
+    display: none !important;
+">
+{% comment %{% render 'collection-sidebar-heading' with heading: heading %}{% endcomment %}
+      <ul style="
+    display: none;
+    flex-wrap: wrap;
+">
+        {% for option in collection.sort_options %}
+          {%- assign is_active = false -%}
+          {%- if option.value == collection.sort_by -%}
+            {%- assign is_active = true -%}
+          {%- endif -%}
+          {% render 'filter-item' with
+            label: option.name,
+            type: 'radio',
+            active: is_active,
+            url: '#',
+
+            key: 'sort',
+            val: option.value
+          %}
+        {% endfor %}
+      </ul>
+      <!--    added on 10/6/2021    -->
+      <div class="ecom_sorts sort-by--container">
+        <label class="ecom_sort_label" for="sort-by">Sort by</label> 
+        <select id="sort-by" class="ecom_sort_by_select sort-by">
+          {% for option in collection.sort_options %}
+          <option value="{{ option.value }}"{% if option.value == collection.sort_by %} selected{% endif %}>
+            
+            {% if option.value == "created-descending"%}
+              New
+            {% elsif option.value == "best-selling" %}
+              Most Popular
+            {% elsif option.value == "price-ascending" %}
+              Lowest price
+            {% elsif option.value == "price-descending" %}
+              Rarest
+            {% else %}  
+              {{ option.name }}
+            {% endif %}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+      <!--    added on 10/6/2021 | END    -->
+    </div>
+  {% endif %}
+</div>
+
+<!-- added on 9/24/2021 -->
+<style>
+  
+   @media only screen and (min-width: 768px) {
+  /* For desktop: */
+    .sort-option {
+     position: relative;
+      display: block;
+      justify-items: right;
+    }
+     
+   .collection__sidebar {
+      position: relative;
+    }   
+ }
+  .ecom_sidebar {
+    display: flex;
+    flex-direction: column;
+  }
+  .ecom_sidebar a.collection-sidebar__heading {
+    text-transform: capitalize;
+  }
+  [data-group="Tea Type"] {
+    order: 0;
+  }
+  [data-group="price"] {
+    order: 1;
+  }
+  [data-group="Mood"] {
+    order: 2;
+  }
+  [data-group="Tea Flavour"] {
+    order: 3;
+  }
+  [data-group="Time Of Day"] {
+    order: 4;
+  }
+  [data-group="Caffeine Level"] {
+    order: 5;
+  }
+  [data-group="Tea Format"] {
+    order: 6;
+  }
+  [data-group="Category"] {
+    order: 7;
+  }
+  [data-group="Colour"] {
+    order: 8;
+  }
+  [data-group="Material"] {
+    order: 9;
+  }
+  [data-group="Tea Grading"] {
+    order: 10;
+  }
+  [data-group="Tea Strength"] {
+    order: 11;
+  }
+  
+</style>
+<!-- added on 9/24/2021 | END -->
+
+<!-- added on 10/6/2021 -->
+<style>
+  .ecom_sorts {
+    display: none;
+  }
+  @media only screen and (min-width: 960px) {
+    .ecom_sorts {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+  }
+  .ecom_sort_label {
+    flex-basis: 45%;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 26px
+  }
+  select.ecom_sort_by_select {
+    appearance: none;
+    position: relative;
+    display: block;
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+  }
+  select.ecom_sort_by_select:focus {
+    background: transparent;
+  }
+  .ecom_sorts:not(.mobile-sort):has(select.ecom_sort_by_select):after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    transform: translate(-50%, -50%) rotate(135deg);
+  }
+  @media only screen and (max-width: 959px) {
+    .ecom_hide_desktop {
+      display:flex;
+    }
+  }
+  .ecom-title-filter {
+    position: relative;
+    display: block;
+    border-bottom: 2px solid gray;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    font-weight: 800;
+    color: black;
+  }
+
+
+  .template-collection .txt-filters {
+    font-weight: 700;
+    color: black;
+    border-bottom: 1px solid #808080;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .ecom_top-bar_filters .collection__button.type-body-regular {
+      border: 1px solid #a8a8a8;
+      border-radius: 10px;
+      margin-right: 0;
+  }
+  
+  .template-collection .ecom_top-bar_filters {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      row-gap: 10px;
+      column-gap: 10PX;
+  }
+  
+  .ecom_sorts.sort-by--container.mobile-sort {
+    display: none;
+  }
+  @media only screen and (max-width: 768px){
+    .ecom_sorts.sort-by--container.mobile-sort {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-top: 20px;
+    }
+    .ecom_sorts.sort-by--container.mobile-sort:after {
+        content: " ";
+        position: absolute;
+        top: -15px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: #808080bf;
+    }
+    .ecom_sorts.sort-by--container.mobile-sort:before {
+      content: " ";
+      position: absolute;
+      top: 50%;
+      left: 90%;
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-top: 2px solid black;
+      border-right: 2px solid black;
+      transform: translate(-50%, -50%) rotate(135deg);
+      z-index: 1;
+    }
+    .ecom_sorts.sort-by--container.mobile-sort .ecom_sort_by_select {
+        background: white;
+        border: 1px solid gray;
+    }  
+    .ecom_top-bar_filters .collection__button.type-body-regular[data-filter="__sort"] {
+        display: none;
+    }
+  }
+</style>
+<script>
+  // Save existing sort parameters
+  Shopify.queryParams = {};
+  if(location.search.length) {
+    for(var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+      aKeyValue = aCouples[i].split('=');
+      if (aKeyValue.length > 1) {
+        Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+      }
+    }
+  }
+</script>
+<!-- added on 10/6/2021 | END -->

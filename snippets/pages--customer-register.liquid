@@ -1,0 +1,84 @@
+<section class="section account">
+
+  <div class="account__auth-wrapper">
+
+    <h1 class="account__auth-wrapper-heading type-heading-display">{{ 'customer.register.title' | t }}</h1>
+
+    {% form 'create_customer' %}
+      {{ form.errors | default_errors }}
+
+      <div class="relative account_field">
+          <div class="ecom_input_col">
+        <i class="fa fa-user icon"></i>
+        
+        <input type="text"
+          name="customer[first_name]"
+          id="FirstName"
+          class="input"
+          placeholder="{{ 'customer.register.first_name' | t }}"
+          {% if form.first_name %}value="{{ form.first_name }}"{% endif %} >
+        </div>
+        
+        <label for="FirstName" class="label--above">
+          {{ 'customer.register.first_name' | t }}
+        </label>
+      </div>
+
+      <div class="relative account_field">
+         <div class="ecom_input_col">
+        <i class="fa fa-user icon"></i>
+        
+        <input type="text"
+          name="customer[last_name]"
+          id="LastName"
+          class="input"
+          placeholder="{{ 'customer.register.last_name' | t }}"
+          {% if form.last_name %}value="{{ form.last_name }}"{% endif %} required>
+        </div>
+        <label for="LastName" class="label--above">
+          {{ 'customer.register.last_name' | t }}
+        </label>
+      </div>
+
+      <div class="relative account_field">
+          <div class="ecom_input_col">
+          <i class="fa fa-envelope icon"></i>
+        <input type="email"
+          name="customer[email]"
+          id="Email"
+          class="input {% if form.errors contains 'email' %}input-error{% endif %}"
+          placeholder="{{ 'customer.register.email' | t }}"
+          value="{% if form.email %}{{ form.email }}{% endif %}"
+          spellcheck="false"
+          autocomplete="off"
+          autocapitalize="off" required>
+        </div>
+        <label for="Email" class="label--above">
+          {{ 'customer.register.email' | t }}
+        </label>
+      </div>
+
+      <div class="relative account_field">
+          <div class="ecom_input_col">
+        <i class="fa fa-key icon"></i>
+        <input type="password"
+          name="customer[password]"
+          id="CreatePassword"
+          class="input {% if form.errors contains 'password' %}input-error{% endif %}"
+          placeholder="{{ 'customer.register.password' | t }}" required>
+        </div>
+        <label for="CreatePassword" class="label--above">
+          {{ 'customer.register.password' | t }}
+        </label>
+      </div>
+
+      <input type="submit" value="{{ 'customer.register.submit' | t }}" class="bttn bttn--full mb3 ecom_register_btn">
+
+      <div class="login__links">
+        <a class="underline" href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a>
+      </div>
+    {% endform %}
+
+  </div>
+
+</section>
