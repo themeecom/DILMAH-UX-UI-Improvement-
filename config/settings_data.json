@@ -771,6 +771,8 @@
           "a37e4e19-a356-4006-8dc0-2ad17c43d426": {
             "type": "slide",
             "settings": {
+              "image": "shopify://shop_images/blurred_4.jpg",
+              "mobile_image": "shopify://shop_images/5.jpg",
               "video_url": "",
               "overline": "",
               "title": "",
