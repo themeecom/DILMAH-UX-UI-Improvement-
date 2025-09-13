@@ -733,6 +733,8 @@
           "1632757703d43adf55-1": {
             "type": "slide",
             "settings": {
+              "image": "shopify://shop_images/blurred_2.jpg",
+              "mobile_image": "shopify://shop_images/7.jpg",
               "video_url": "",
               "overline": "",
               "title": "",
