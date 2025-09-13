@@ -752,6 +752,8 @@
           "32e3f9b7-ee9a-409f-ab2c-24cc74281ef0": {
             "type": "slide",
             "settings": {
+              "image": "shopify://shop_images/blurred_3_3c4dbc57-670c-49a7-ac61-396f29dce7aa.jpg",
+              "mobile_image": "shopify://shop_images/6.jpg",
               "video_url": "",
               "overline": "",
               "title": "",
