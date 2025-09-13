@@ -1072,6 +1072,7 @@
           "image_GPMWLB": {
             "type": "image",
             "settings": {
+              "block_image": "shopify://shop_images/Ethical_Tea_banner_2f6b121c-004f-481f-865a-350fc7f4b4d0.jpg",
               "width_number": "50.25",
               "width_number_mobile": "100"
             }
@@ -1079,6 +1080,7 @@
           "image_pnLCig": {
             "type": "image",
             "settings": {
+              "block_image": "shopify://shop_images/MicrosoftTeams-image_18_354bbee9-63a5-48ce-a9ee-d24ea3b6ddd1.jpg",
               "width_number": "24.875",
               "width_number_mobile": "50"
             }
@@ -1086,6 +1088,7 @@
           "image_yfCabf": {
             "type": "image",
             "settings": {
+              "block_image": "shopify://shop_images/2_06dc0878-be28-4394-8e0a-1f12f7eb2cfd.jpg",
               "width_number": "24.875",
               "width_number_mobile": "50"
             }
