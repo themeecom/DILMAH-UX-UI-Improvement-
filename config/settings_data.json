@@ -791,7 +791,9 @@
           "aspect_ratio": "full_height",
           "text": "<p>Our founder made a commitment to the 'purpose beyond profit'. A minimum of 15% of our pretax profits directly benefit people and the planet, efficiently and effectively fulfilling the philosophy of making 'business a matter of human service'. </p>",
           "logo1": "shopify://shop_images/15_percent_logo.png",
-          "minilogo1": "shopify://shop_images/dilmah_fresh_800x_9df58302-0655-4d3c-ad81-694fa3bb028c.png"
+          "minilogo1": "shopify://shop_images/dilmah_fresh_800x_9df58302-0655-4d3c-ad81-694fa3bb028c.png",
+          "minilogo2": "shopify://shop_images/ethical_tea_800x_f6116e0e-77c0-49f7-a42d-7be5598e67c6.png",
+          "minilogo3": "shopify://shop_images/3_800x_e3098c3a-a7c9-4dd3-bdf9-43fe8901b950.png"
         }
       },
       "16348173678df9fa29": {
