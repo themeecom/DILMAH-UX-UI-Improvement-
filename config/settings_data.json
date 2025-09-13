@@ -715,6 +715,7 @@
             "type": "slide",
             "settings": {
               "image": "shopify://shop_images/blurred_1.jpg",
+              "mobile_image": "shopify://shop_images/8_65322f4d-0c8c-42f8-babe-8de4fc6529f5.jpg",
               "video_url": "",
               "overline": "",
               "title": "",
