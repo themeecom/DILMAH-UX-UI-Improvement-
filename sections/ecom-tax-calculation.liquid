@@ -7,9 +7,9 @@ function ecom_tax_calculation(countryCode) {
     const taxRates = [];
 
     // Convert array of strings into a mapping object
-    {%- for block in section.blocks -%}
+    {% for block in section.blocks %}
         taxRates.push({ "tag_list": {{ block.settings.tag_list | downcase | split:"," | json }}, "tax_rate": {{ block.settings.tax_rate | downcase | split:"," | json }} });
-    {%- endfor -%}
+    {% endfor %}
 
     // Detect current page type
     const pageType = document.body.getAttribute("data-template");
