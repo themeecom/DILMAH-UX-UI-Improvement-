@@ -19,7 +19,7 @@
         </div>
         <div class="quick-cart__item-bottom test400">
             <div class="quick-cart__quantity">
-                <button type="button" class="quick-cart__quantity-button js-remove-single_2 px05" onclick="minuscartbtn({{ item.id }},173);">
+                <button type="button" class="quick-cart__quantity-button js-remove-single_2 px05" onclick="minuscartbtn({{ item.id }}, {{ item.final_price | money_without_currency }});">
                     <svg width="10" height="2" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 1h8" stroke="currentColor" stroke-linecap="square"></path>
                     </svg>
