@@ -108,9 +108,9 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
     if (response['ecom-side-cart']) {
         $(".ecom-cart-quick.js-items").empty();
         $(".ecom-cart-quick.js-items").append(response['ecom-side-cart']);
-    }
-});
-return;
+    } 
+  });
+  
   var p = '';
   var tr = '';
   $(".product_btn span").css("display", "none");
@@ -120,47 +120,13 @@ return;
   const ecomData = document.querySelector("#ecom-data");
   const cartCurrencySymbol = ecomData.getAttribute("cart-currency-symbol");
   console.log("load cartdate callback new");
-  for (var i = 0; i < cartdataArry.length; i++) {
-
-    var price = cartdataArry[i].price / 100;
-    var ID = cartdataArry[i].id;
-
-    tr += '<div class="abc cart__item test400  item_' + cartdataArry[i].id + '" data-component="quickCartItem" data-id="' + cartdataArry[i].id + '">'
-      + ' <div class="cart__item-content">'
-      + '<div class="quick-cart__image">'
-
-      + ' <a href="' + cartdataArry[i].url + '">'
-      + '<img src="' + cartdataArry[i].image + '">'
-      + '  </a>'
-
-      + '</div>'
-      + '<div class="quick-cart__product-details justify-between">'
-      + '  <div>'
-      + '<h4 class="ma0">'
-      + ' <a href="' + cartdataArry[i].url + '">' + cartdataArry[i].product_title + '</a>'
-      + '</h4>'
-      + '<span class="quick-cart__product-price">'
-      + ` <span class="quick-cart__product-price-value">${cartCurrencySymbol}${cartdataArry[i].price / 100} <span></span>`
-      + '</span>'
-      + '</span>'
-      + '</div>'
-      + '</div>'
-      + ' </div>'
-      + ' <div class="quick-cart__item-bottom test400">'
-      + '<div class="quick-cart__quantity">'
-      + ' <button type="button" class="quick-cart__quantity-button js-remove-single_2 px05" onclick="minuscartbtn(' + ID + ',' + price + ');"><svg width="10" height="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1h8" stroke="currentColor" stroke-linecap="square"></path></svg></button>'
-      + ' <div class="quick-cart__item-total js-single-quantity  popup_qty_' + cartdataArry[i].id + '">' + cartdataArry[i].quantity + '</div>'
-      + ' <button type="button" onclick="addcartbtn(' + ID + ',' + price + ');"  class=" dd quick-cart__quantity-button js-add-single_2 px05 test1"><svg width="11" height="11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 0v11M0 5.5h11" stroke="currentColor"></path></svg></button>'
-      + '</div>'
-      + '</div>'
-      + '</div>';
-  }
-
-  $(".ecom-cart-quick.js-items").empty();
-  $(".ecom-cart-quick.js-items").append(tr);
-
-  $(".csapps-cart-original-total span").text('US$' + original_total_price / 100);
-
+  
+  var priceCents = original_total_price;
+  var price = priceCents / 100;
+  var formattedPrice = theme.moneyFormat.replace('{{amount_no_decimals}}', Math.round(price));
+  $(".csapps-cart-original-total span").text(formattedPrice);
+  
+  return;
 }
 
 // engraving
