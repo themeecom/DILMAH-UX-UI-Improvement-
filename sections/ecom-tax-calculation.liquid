@@ -1,23 +1,92 @@
 <script>
-    function ecom_tax_calculation(countryCode) {
-        const collection_page_tax_text = {{ section.settings.excluding_tax_in_collection_page | json }};
-        const product_page_tax_text = {{ section.settings.excluding_tax_product_page | json }};
-        
-        let taxRates = [];
-        {%- for block in section.blocks -%}
-            tax_rate.push({ "tag_list": {{ block.settings.tag_list | downcase | split:"," | json }}, "tax_rate": {{ block.settings.tax_rate | downcase | split:"," | json }} });
-        {%- endfor -%}
+function ecom_tax_calculation(countryCode) {
+    const collection_page_tax_text = {{ section.settings.excluding_tax_in_collection_page | json }};
+    const product_page_tax_text = {{ section.settings.excluding_tax_product_page | json }};
 
-        document.querySelectorAll(`[data-product-price][data-price]:not([data-price=""]:not([with-tax]))`);
+    // Define tax rates with expected product tags
+    const taxRates = [];
 
-        for(let itemPriceElem of priceElements) {
-            const productTags = itemPriceElem.closest('[data-product-tags]')?.getAttribute("data-product-tags") || "";
-            if(productTags == "") return;
+    // Convert array of strings into a mapping object
+    {%- for block in section.blocks -%}
+        taxRates.push({ "tag_list": {{ block.settings.tag_list | downcase | split:"," | json }}, "tax_rate": {{ block.settings.tax_rate | downcase | split:"," | json }} });
+    {%- endfor -%}
 
-            
+    // Detect current page type
+    const pageType = document.body.getAttribute("data-template");
+    console.log("[INFO] Page type detected:", pageType);
+
+    // Select product price elements
+    const priceElements = document.querySelectorAll(
+        `[data-product-price][data-price]:not([data-price=""]):not([with-tax])`
+    );
+    console.log("[INFO] Found price elements:", priceElements.length);
+
+    for (let itemPriceElem of priceElements) {
+        console.log("----------------------------------------------------");
+        console.log("[DEBUG] Processing element:", itemPriceElem);
+
+        const productTags = (itemPriceElem.closest('[data-product-tags]')?.getAttribute("data-product-tags") || "")
+            .toLowerCase();
+
+        console.log("[DEBUG] Product tags:", productTags);
+
+        if (!productTags) {
+            console.log("[WARN] No product tags found, skipping element.");
+            continue;
         }
-        
+
+        // Find tax rate object if product tags match
+        let matchedRateObj = null;
+        for (let rateObj of taxRates) {
+            if (rateObj.tag_list.some(tag => productTags.includes(tag))) {
+                matchedRateObj = rateObj;
+                break;
+            }
+        }
+        console.log("[DEBUG] Matched tax rate object:", matchedRateObj);
+
+        // Get base price from attribute (in cents)
+        const basePriceCents = parseInt(itemPriceElem.getAttribute("data-price"), 10);
+        const basePrice = basePriceCents / 100; // Convert to decimal
+        console.log("[DEBUG] Base price (cents):", basePriceCents, "→ Decimal:", basePrice);
+
+        let finalPrice = basePrice.toFixed(2);
+
+        if (matchedRateObj && matchedRateObj.tax_rate[countryCode.toLowerCase()]) {
+            // Apply tax
+            const taxPercent = matchedRateObj.tax_rate[countryCode.toLowerCase()];
+            const taxMultiplier = 1 + (taxPercent / 100);
+            finalPrice = (basePrice * taxMultiplier).toFixed(2);
+
+            console.log("[INFO] Applying tax:", taxPercent + "%");
+            console.log("[INFO] New price after tax:", finalPrice);
+
+            // Format with theme.moneyFormat
+            if (typeof theme !== "undefined" && theme.moneyFormat) {
+                let formatted = theme.moneyFormat.replace("{{amount_no_decimals}}", finalPrice);
+                console.log("[DEBUG] Formatted price:", formatted);
+                itemPriceElem.textContent = formatted;
+            } else {
+                console.log("[WARN] theme.moneyFormat not found, using raw price.");
+                itemPriceElem.textContent = finalPrice;
+            }
+
+        } else {
+            // No tax match, append text instead
+            const suffix = (pageType === "collection") ? collection_page_tax_text : product_page_tax_text;
+            const fallbackPrice = basePrice.toFixed(2) + " " + suffix;
+            console.log("[INFO] No tax applied. Using fallback display:", fallbackPrice);
+
+            itemPriceElem.textContent = fallbackPrice;
+        }
+
+        // Always set with-tax attribute, even if no tax was applied
+        itemPriceElem.setAttribute("with-tax", finalPrice);
+        console.log("[DEBUG] with-tax attribute set to:", finalPrice);
     }
+}
+
+
 </script>
 {% schema %}
 {
