@@ -463,7 +463,7 @@
     </button>
   {%- endif -%}
 
-  <div class="product__meta">
+  <div class="product__meta" data-product-tags="{{ product.tags | join: "," | downcase }}">
     <div class="product__meta-inner">
 
       <div class="product__header">
