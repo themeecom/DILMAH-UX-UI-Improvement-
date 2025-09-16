@@ -194,7 +194,7 @@
       <div id="product-grid_1" class="ecom_product-grid_row active absolute">
         <div class="ecom_slick_container">
         {% for product in collections[section.settings.collection].products limit: 6 %}
-          <div class="grid-display__item_ecom">
+          <div class="grid-display__item_ecom" data-product-tags="{{ product.tags | downcase }}">
             {%
               render 'product-carousel-item', product: product,
               aspect_ratio: section.settings.aspect_ratio
@@ -206,7 +206,7 @@
       <div id="product-grid_2" class="ecom_product-grid_row absolute">
         <div class="ecom_slick_container">
         {% for product in collections[section.settings.collection2].products limit: 6 %}
-          <div class="grid-display__item_ecom">
+          <div class="grid-display__item_ecom" data-product-tags="{{ product.tags | downcase }}">
             {%
               render 'product-carousel-item', product: product,
               aspect_ratio: section.settings.aspect_ratio
@@ -218,7 +218,7 @@
       <div id="product-grid_3" class="ecom_product-grid_row absolute">
         <div class="ecom_slick_container">
         {% for product in collections[section.settings.collection3].products limit: 6 %}
-          <div class="grid-display__item_ecom">
+          <div class="grid-display__item_ecom" data-product-tags="{{ product.tags | downcase }}">
             {%
               render 'product-carousel-item', product: product,
               aspect_ratio: section.settings.aspect_ratio
@@ -230,7 +230,7 @@
       <div id="product-grid_4" class="ecom_product-grid_row absolute">
         <div class="ecom_slick_container">
         {% for product in collections[section.settings.collection4].products limit: 6 %}
-          <div class="grid-display__item_ecom">
+          <div class="grid-display__item_ecom" data-product-tags="{{ product.tags | downcase }}">
             {%
               render 'product-carousel-item', product: product,
               aspect_ratio: section.settings.aspect_ratio
@@ -242,7 +242,7 @@
       <div id="product-grid_5" class="ecom_product-grid_row absolute">
         <div class="ecom_slick_container">
         {% for product in collections[section.settings.collection5].products limit: 6 %}
-          <div class="grid-display__item_ecom">
+          <div class="grid-display__item_ecom" data-product-tags="{{ product.tags | downcase }}">
             {%
               render 'product-carousel-item', product: product,
               aspect_ratio: section.settings.aspect_ratio
@@ -254,7 +254,7 @@
       <div id="product-grid_6" class="ecom_product-grid_row absolute">
         <div class="ecom_slick_container">
         {% for product in collections[section.settings.collection6].products limit: 6 %}
-          <div class="grid-display__item_ecom">
+          <div class="grid-display__item_ecom" data-product-tags="{{ product.tags | downcase }}">
             {%
               render 'product-carousel-item', product: product,
               aspect_ratio: section.settings.aspect_ratio
@@ -266,7 +266,7 @@
       <div id="product-grid_7" class="ecom_product-grid_row absolute">
         <div class="ecom_slick_container">
         {% for product in collections[section.settings.collection7].products limit: 6 %}
-          <div class="grid-display__item_ecom">
+          <div class="grid-display__item_ecom" data-product-tags="{{ product.tags | downcase }}">
             {%
               render 'product-carousel-item', product: product,
               aspect_ratio: section.settings.aspect_ratio
