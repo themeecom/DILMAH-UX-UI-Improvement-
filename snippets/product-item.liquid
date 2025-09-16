@@ -22,7 +22,7 @@
   {% assign includes_aspect_ratio = true %}
 {% endif %}
 
-<div class="product-item{% if includes_aspect_ratio %} product-item--{{ aspect_ratio }}{% endif %}">
+<div class="product-item{% if includes_aspect_ratio %} product-item--{{ aspect_ratio }}{% endif %}" data-product-tags="{{ product.tags | downcase }}">
   {% if product.featured_media != blank or product.media.size > 1 %}
 
     <a href="{{ product.url | within: collection }}" class="ecom_cart_a product-item__image-wrapper db{% unless product.available %} o-50{% endunless %}">
