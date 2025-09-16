@@ -1121,7 +1121,7 @@
           "tax_group_gHKD8f": {
             "type": "tax_group",
             "settings": {
-              "tag_list": "VATTea,VATTeaware",
+              "tag_list": "VAT Tea,VAT Teaware",
               "tax_rate": "NL-9,BE-6,DE-7,LU-3,LK-9"
             }
           }
