@@ -133,7 +133,7 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
       + ' <a href="' + cartdataArry[i].url + '">' + cartdataArry[i].product_title + '</a>'
       + '</h4>'
       + '<span class="quick-cart__product-price">'
-      + ` <span class="quick-cart__product-price-value qqq">${cartCurrencySymbol}${cartdataArry[i].price / 100} <span></span>`
+      + ` <span class="quick-cart__product-price-value">${cartCurrencySymbol}${cartdataArry[i].price / 100} <span></span>`
       + '</span>'
       + '</span>'
       + '</div>'
