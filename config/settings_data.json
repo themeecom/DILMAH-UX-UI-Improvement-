@@ -333,7 +333,7 @@
           "enabled": true,
           "header_font_style": "normal",
           "text_position": "top_center",
-          "collection": "ayervedic-arana",
+          "collection": "all-teas",
           "columns": 4,
           "aspect_ratio": "square",
           "overline": "",
