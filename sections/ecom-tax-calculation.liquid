@@ -1,5 +1,5 @@
 <script>
-    function ecom_tax_calculation() {
+    function ecom_tax_calculation(countryCode) {
         const collection_page_tax_text = {{ section.settings.excluding_tax_in_collection_page | json }};
         const product_page_tax_text = {{ section.settings.excluding_tax_product_page | json }};
         
