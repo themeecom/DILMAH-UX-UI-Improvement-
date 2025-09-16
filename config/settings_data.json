@@ -333,7 +333,7 @@
           "enabled": true,
           "header_font_style": "normal",
           "text_position": "top_center",
-          "collection": "best-sellers",
+          "collection": "ayervedic-arana",
           "columns": 4,
           "aspect_ratio": "square",
           "overline": "",
@@ -1129,7 +1129,10 @@
         "block_order": [
           "tax_group_gHKD8f"
         ],
-        "settings": {}
+        "settings": {
+          "excluding_tax_product_page": "(ex BTW)",
+          "excluding_tax_in_collection_page": "ex BTW"
+        }
       }
     },
     "content_for_index": [
