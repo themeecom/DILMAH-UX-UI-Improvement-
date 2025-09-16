@@ -12,7 +12,8 @@
                         <a href="{{ item.url }}">{{ item.title }}</a>
                     </h4>
                     <span class="quick-cart__product-price">
-                        <span class="quick-cart__product-price-value">
+                        <span class="quick-cart__product-price-value"
+                        data-product-price data-price="{{ item.final_line_price }}">
                             {{item.final_price | money_with_currency }}
                         </span>
                     </span>
