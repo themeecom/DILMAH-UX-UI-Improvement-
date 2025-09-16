@@ -11,6 +11,16 @@ function ecom_tax_calculation(countryCode) {
         taxRates.push({ "tag_list": {{ block.settings.tag_list | downcase | split:"," | json }}, "tax_rate": {{ block.settings.tax_rate | downcase | split:"," | json }} });
     {% endfor %}
 
+    // Convert string array to mapping function
+    function parseTaxRateArray(rateArray) {
+        const mapping = {};
+        rateArray.forEach(str => {
+            const [country, rate] = str.split('-');
+            mapping[country.toLowerCase()] = parseFloat(rate);
+        });
+        return mapping;
+    }
+
     // Detect current page type
     const pageType = document.body.getAttribute("data-template");
     console.log("[INFO] Page type detected:", pageType);
@@ -52,31 +62,39 @@ function ecom_tax_calculation(countryCode) {
 
         let finalPrice = basePrice.toFixed(2);
 
-        if (matchedRateObj && matchedRateObj.tax_rate[countryCode.toLowerCase()]) {
-            // Apply tax
-            const taxPercent = matchedRateObj.tax_rate[countryCode.toLowerCase()];
-            const taxMultiplier = 1 + (taxPercent / 100);
-            finalPrice = (basePrice * taxMultiplier).toFixed(2);
+        if (matchedRateObj) {
+            // Convert string array to mapping
+            const taxMapping = parseTaxRateArray(matchedRateObj.tax_rate);
 
-            console.log("[INFO] Applying tax:", taxPercent + "%");
-            console.log("[INFO] New price after tax:", finalPrice);
+            if (taxMapping[countryCode.toLowerCase()]) {
+                const taxPercent = taxMapping[countryCode.toLowerCase()];
+                const taxMultiplier = 1 + (taxPercent / 100);
+                finalPrice = (basePrice * taxMultiplier).toFixed(2);
 
-            // Format with theme.moneyFormat
-            if (typeof theme !== "undefined" && theme.moneyFormat) {
-                let formatted = theme.moneyFormat.replace("{{amount_no_decimals}}", finalPrice);
-                console.log("[DEBUG] Formatted price:", formatted);
-                itemPriceElem.textContent = formatted;
+                console.log("[INFO] Applying tax:", taxPercent + "%");
+                console.log("[INFO] New price after tax:", finalPrice);
+
+                // Format with theme.moneyFormat
+                if (typeof theme !== "undefined" && theme.moneyFormat) {
+                    let formatted = theme.moneyFormat.replace("{{amount_no_decimals}}", finalPrice);
+                    console.log("[DEBUG] Formatted price:", formatted);
+                    itemPriceElem.textContent = formatted;
+                } else {
+                    console.log("[WARN] theme.moneyFormat not found, using raw price.");
+                    itemPriceElem.textContent = finalPrice;
+                }
             } else {
-                console.log("[WARN] theme.moneyFormat not found, using raw price.");
-                itemPriceElem.textContent = finalPrice;
+                // Country not found in tax mapping
+                const suffix = (pageType === "collection") ? collection_page_tax_text : product_page_tax_text;
+                const fallbackPrice = basePrice.toFixed(2) + " " + suffix;
+                console.log("[INFO] Country not in tax mapping. Using fallback display:", fallbackPrice);
+                itemPriceElem.textContent = fallbackPrice;
             }
-
         } else {
             // No tax match, append text instead
             const suffix = (pageType === "collection") ? collection_page_tax_text : product_page_tax_text;
             const fallbackPrice = basePrice.toFixed(2) + " " + suffix;
             console.log("[INFO] No tax applied. Using fallback display:", fallbackPrice);
-
             itemPriceElem.textContent = fallbackPrice;
         }
 
@@ -85,6 +103,10 @@ function ecom_tax_calculation(countryCode) {
         console.log("[DEBUG] with-tax attribute set to:", finalPrice);
     }
 }
+
+// Example usage
+ecom_tax_calculation("LKA");
+
 {% comment %} https://ipgeolocation.abstractapi.com/v1/?api_key=3fde81d0008345a09b580e1a6a7edf2e {% endcomment %}
 
 </script>
