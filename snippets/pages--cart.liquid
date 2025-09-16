@@ -20,7 +20,7 @@
     <form action="{{ routes.cart_url }}" method="post" novalidate>
 <div class="item_list" data-csapp_line_wrapper>
       {% for item in cart.items %}
-        <div class="cart-template__item contrast" data-csapp_line_index >
+        <div class="cart-template__item contrast" data-product-tags="{{ item.product.tags | join: "," | downcase }}" >
 
           <div class="cart-template__image">
             {% if item.image != blank %}
