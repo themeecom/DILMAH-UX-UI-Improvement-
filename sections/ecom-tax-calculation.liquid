@@ -5,7 +5,7 @@
         
         let taxRates = [];
         {%- for block in section.blocks -%}
-            tax_rate.push({ "tag_list": {{ block.settings.tag_list | split:"," | json }}, "tax_rate": {{ block.settings.tax_rate | split:"," | json }} });
+            tax_rate.push({ "tag_list": {{ block.settings.tag_list | downcase | split:"," | json }}, "tax_rate": {{ block.settings.tax_rate | downcase | split:"," | json }} });
         {%- endfor -%}
 
         document.querySelectorAll(`[data-product-price][data-price]:not([data-price=""]:not([with-tax]))`);
