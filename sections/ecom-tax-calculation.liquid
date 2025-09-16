@@ -1,0 +1,27 @@
+{% schema %}
+{
+    "name": "Tax Calculation",
+    "settings": [
+    ],
+    "blocks": [
+        {
+            "type": "tax_group",
+            "name": "Tax Group",
+            "settings": [
+                {
+                    "type": "textarea",
+                    "label": "Tag List",
+                    "info": "Add the tag list seperate by comma",
+                    "id": "tag_list"
+                },
+                {
+                    "type": "textarea",
+                    "label": "Tax rate",
+                    "info": "Follow this pattern, CountryCode-TaxPercentage. Ex: NL-21,BE-21,DE-19,LU-17,LK-21",
+                    "id": "tax_rate"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
