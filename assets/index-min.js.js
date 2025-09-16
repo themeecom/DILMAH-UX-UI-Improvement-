@@ -124,7 +124,7 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
   var priceCents = original_total_price;
   var price = priceCents / 100;
   var formattedPrice = theme.moneyFormat.replace('{{amount_no_decimals}}', Math.round(price));
-  $(".csapps-cart-original-total span").text(formattedPrice);
+  $(".csapps-cart-original-total span").text(formattedPrice).attr("data-cart-total", formattedPrice);
   
   return;
 }
