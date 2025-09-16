@@ -25,7 +25,7 @@
                     </svg>
                 </button>
                 <div class="quick-cart__item-total js-single-quantity  popup_qty_{{ item.id }}">1</div>
-                <button type="button" onclick="addcartbtn({{ item.id }},173);" class=" dd quick-cart__quantity-button js-add-single_2 px05 test1">
+                <button type="button" onclick="addcartbtn({{ item.id }}, {{ item.final_price | money_without_currency }});" class=" dd quick-cart__quantity-button js-add-single_2 px05 test1">
                     <svg width="11" height="11" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5.5 0v11M0 5.5h11" stroke="currentColor"></path>
                     </svg>
