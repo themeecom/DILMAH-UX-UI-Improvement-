@@ -1114,6 +1114,22 @@
       "popups": {
         "type": "popups",
         "settings": {}
+      },
+      "ecom-tax-calculation": {
+        "type": "ecom-tax-calculation",
+        "blocks": {
+          "tax_group_gHKD8f": {
+            "type": "tax_group",
+            "settings": {
+              "tag_list": "VATTea-tax1,VATTeaware-tax2",
+              "tax_rate": "NL-9,BE-6,DE-7,LU-3,LK-9"
+            }
+          }
+        },
+        "block_order": [
+          "tax_group_gHKD8f"
+        ],
+        "settings": {}
       }
     },
     "content_for_index": [
