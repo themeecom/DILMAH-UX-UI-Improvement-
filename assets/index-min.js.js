@@ -104,6 +104,13 @@ function zi(e) { const t = e || {}; this.settings = Object.assign({ method: "scr
 
 function load_cartdata_callback2(response, cartcount, original_total_price) {
 
+  $.get('/?sections=ecom-side-cart', function (response) {
+    if (response['ecom-side-cart']) {
+        $(".ecom-cart-quick.js-items").empty();
+        $(".ecom-cart-quick.js-items").append(response['ecom-side-cart']);
+    }
+});
+return;
   var p = '';
   var tr = '';
   $(".product_btn span").css("display", "none");
