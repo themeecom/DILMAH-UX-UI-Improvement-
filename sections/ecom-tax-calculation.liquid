@@ -1,3 +1,11 @@
+<script>
+    function ecom_tax_calculation() {
+        let taxRates = [];
+        {%- for block in section.blocks -%}
+            tax_rate.push({ "tag_list": {{ block.settings.tag_list | json }}, "tax_rate": {{ block.settings.tax_rate | json }} });
+        {%- endfor -%}
+    }
+</script>
 {% schema %}
 {
     "name": "Tax Calculation",
