@@ -20,7 +20,7 @@
     <form action="{{ routes.cart_url }}" method="post" novalidate>
 <div class="item_list" data-csapp_line_wrapper>
       {% for item in cart.items %}
-        <div class="cart-template__item contrast" data-csapp_line_index>
+        <div class="cart-template__item contrast" data-csapp_line_index >
 
           <div class="cart-template__image">
             {% if item.image != blank %}
@@ -104,7 +104,9 @@
                   aria-label="{{ 'cart.general.item_quantity' | t }}">
             </div>
 
-            <div class="cart-template__line-price type-body-large" data-csapp_line_price data-csapp_discount_summery >
+            <div class="cart-template__line-price type-body-large" 
+              data-product-price data-price="{{ item.final_line_price }}"
+            >
               {% if item.original_line_price > item.final_line_price %}
                 <s class="meta"><div class="qb-total-line-item" data-id="{{ item.key }}">{{ item.original_line_price | money }}</div></s><br/>
               {% endif %}
