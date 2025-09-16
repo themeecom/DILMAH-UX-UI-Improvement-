@@ -147,7 +147,8 @@
 		<div class="total_wrp">
           <p class="meta mv0">{{ 'cart.general.subtotal' | t }}</p>
           {% comment %} Final cart total {% endcomment %}
-          <p class="ecom_total type-body-extra-large type-heading-1-small mt1 mb1"><span class="csapps-cart-original-total">{{ cart.total_price | money }}</span></p>
+          <p class="ecom_total type-body-extra-large type-heading-1-small mt1 mb1"><span class="csapps-cart-original-total" 
+          data-cart-total="{{ cart.total_price }}">{{ cart.total_price | money }}</span></p>
           </div>
 
           <p class="type-body-regular mt1 mb2">{{ 'cart.general.shipping_at_checkout' | t }}</p>
