@@ -1,5 +1,5 @@
 {% for item in cart.items %}
-    <div class="abc cart__item test400  item_{{ item.id }}" data-component="quickCartItem" data-id="{{ item.id }}">
+    <div class="abc cart__item test400  item_{{ item.id }}" data-component="quickCartItem" data-id="{{ item.id }}" data-product-tags="{{ item.product.tags | join: "," | downcase }}">
         <div class="cart__item-content">
             <div class="quick-cart__image">
                 <a href="{{ item.url }}">
@@ -12,7 +12,9 @@
                         <a href="{{ item.url }}">{{ item.title }}</a>
                     </h4>
                     <span class="quick-cart__product-price">
-                        <span class="quick-cart__product-price-value">{{item.final_price | money_with_currency }}</span>
+                        <span class="quick-cart__product-price-value">
+                            {{item.final_price | money_with_currency }}
+                        </span>
                     </span>
                 </div>
             </div>
