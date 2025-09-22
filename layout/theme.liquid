@@ -288,6 +288,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   {% section 'gdpr' %}
 
+  {% section 'ecom-tax-calculation' %}
+
 
 {% comment %}  {{ '//www.youtube.com/iframe_api' | script_tag }} {% endcomment %}
 <script src="//www.youtube.com/iframe_api" defer></script>
@@ -311,7 +313,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  
    {% if request.page_type == 'collection'%}
   
-<script>
+   <script>
    
     $(document).ready(function(){
       if (!$(this).hasClass("template-collection")) {
@@ -344,7 +346,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
       }
     });
-     
    </script>
   
    {% endif %}
@@ -785,8 +786,6 @@ for(let elem of nextPreviewBtn) {
       });
   })
 </script>
-
-{% section 'ecom-tax-calculation' %}
 
 {{ '//cdn.shopify.com/s/files/1/0194/1736/6592/t/1/assets/booster-page-speed-optimizer.js?23' | script_tag }}
   <!-- PickyStory code, do not modify. Safe to remove after the app is uninstalled -->
