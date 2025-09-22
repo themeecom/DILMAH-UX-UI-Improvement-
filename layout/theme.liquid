@@ -311,39 +311,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  
    {% if request.page_type == 'collection'%}
   
-   <script>
+<script>
    
     $(document).ready(function(){
-if (!$(this).hasClass("template-collection")) {
+      if (!$(this).hasClass("template-collection")) {
 
-  var item_count = $( ".collection__infinite-container .product-item" ).length;
-  if(item_count == 0){
+        var item_count = $( ".collection__infinite-container .product-item" ).length;
+        if(item_count == 0){
 
 
-  var link = window.location.href;
-  var array = link.split('+');
-      console.log('array -- '+array);
-    console.log('leng -- '+array.length);
+        var link = window.location.href;
+        var array = link.split('+');
+            console.log('array -- '+array);
+          console.log('leng -- '+array.length);
 
-       var leng = array.length;
-    if(leng > 1){
-    
-   
-      var a ='';
-      var i;
-      for (i = 0; i < array.length - 1; ++i) {
-            if(i == 0){
-              a += array[i];
-             }else{
-               a += '+'+array[i];
+            var leng = array.length;
+          if(leng > 1){
+          
+        
+            var a ='';
+            var i;
+            for (i = 0; i < array.length - 1; ++i) {
+                  if(i == 0){
+                    a += array[i];
+                  }else{
+                    a += '+'+array[i];
+                  }
+
             }
-
+            $(location).prop('href', a);
+          }
+        }
       }
-      $(location).prop('href', a);
-    }
-  }
-}
-});
+    });
      
    </script>
   
@@ -785,6 +785,8 @@ for(let elem of nextPreviewBtn) {
       });
   })
 </script>
+
+{% section 'ecom-tax-calculation' %}
 
 {{ '//cdn.shopify.com/s/files/1/0194/1736/6592/t/1/assets/booster-page-speed-optimizer.js?23' | script_tag }}
   <!-- PickyStory code, do not modify. Safe to remove after the app is uninstalled -->
