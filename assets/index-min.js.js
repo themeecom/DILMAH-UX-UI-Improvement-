@@ -146,7 +146,7 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
         });
 
         const formattedPrice = theme.moneyFormat.replace('{{amount_no_decimals}}', Math.round(total));
-        $(".csapps-cart-original-total span").text(formattedPrice).attr("data-cart-total", formattedPrice);
+        $(".csapps-cart-original-total span").text(formattedPrice).attr("data-cart-total", total);
         
         return;
     } 
