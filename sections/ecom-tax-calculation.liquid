@@ -110,6 +110,33 @@ function ecom_tax_calculation(countryCode) {
 
 {% comment %} https://ipgeolocation.abstractapi.com/v1/?api_key=3fde81d0008345a09b580e1a6a7edf2e {% endcomment %}
 
+document.addEventListener("DOMContentLoaded", function () {
+
+  const existingCountry = getCookie("ecom_country_code");
+
+  if (existingCountry) {
+    // Already have cookie → directly call tax calculation
+    ecom_tax_calculation(existingCountry);
+  } else {
+    // No cookie → fetch from API
+    fetch("https://ipgeolocation.abstractapi.com/v1/?api_key=7ae4553a4f7a4300a9caf291300ff94d")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && data.country_code) {
+          const countryCode = data.country_code;
+          // Save in cookie for 1 day
+          setCookie("ecom_country_code", countryCode, 1);
+          // Call tax calculation
+          ecom_tax_calculation(countryCode);
+        }
+      })
+      .catch((error) => {
+        console.error("Geo API Error:", error);
+      });
+  }
+});
+
+
 </script>
 {% schema %}
 {
