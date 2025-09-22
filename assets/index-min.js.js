@@ -140,6 +140,8 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
   var formattedPrice = theme.moneyFormat.replace('{{amount_no_decimals}}', Math.round(price));
   $(".csapps-cart-original-total span").text(formattedPrice).attr("data-cart-total", formattedPrice);
   
+  // calcualte tax for the products
+  document.dispatchEvent(new Event("calculate-taxes"));
   return;
 }
 
