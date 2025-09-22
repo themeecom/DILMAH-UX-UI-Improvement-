@@ -123,28 +123,28 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
         $(".ecom-cart-quick.js-items").empty();
         $(".ecom-cart-quick.js-items").append(response['ecom-side-cart']);
         
+        var p = '';
+        var tr = '';
+        $(".product_btn span").css("display", "none");
+        // var a = JSON.stringify(response)
+        let cartdataArry = response;
+
+        const ecomData = document.querySelector("#ecom-data");
+        const cartCurrencySymbol = ecomData.getAttribute("cart-currency-symbol");
+        console.log("load cartdate callback new");
+        
+        var priceCents = original_total_price;
+        var price = priceCents / 100;
+        var formattedPrice = theme.moneyFormat.replace('{{amount_no_decimals}}', Math.round(price));
+        $(".csapps-cart-original-total span").text(formattedPrice).attr("data-cart-total", formattedPrice);
+        
+
         // calcualte tax for the products
         document.dispatchEvent(new Event("calculate-taxes"));
+        return;
     } 
   });
   
-  var p = '';
-  var tr = '';
-  $(".product_btn span").css("display", "none");
-  // var a = JSON.stringify(response)
-  let cartdataArry = response;
-
-  const ecomData = document.querySelector("#ecom-data");
-  const cartCurrencySymbol = ecomData.getAttribute("cart-currency-symbol");
-  console.log("load cartdate callback new");
-  
-  var priceCents = original_total_price;
-  var price = priceCents / 100;
-  var formattedPrice = theme.moneyFormat.replace('{{amount_no_decimals}}', Math.round(price));
-  $(".csapps-cart-original-total span").text(formattedPrice).attr("data-cart-total", formattedPrice);
-  
-
-  return;
 }
 
 // engraving
