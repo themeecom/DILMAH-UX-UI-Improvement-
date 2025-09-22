@@ -77,7 +77,7 @@ function ecom_tax_calculation(countryCode) {
                 // Format with theme.moneyFormat
                 if (typeof theme !== "undefined" && theme.moneyFormat) {
                     {% raw %}
-                    let formatted = theme.moneyFormat.replace("{{amount_no_decimals}}", finalPrice);
+                    let formatted = theme.moneyFormat.replace(/{{\s*[^}]+\s*}}/, finalPrice);
                     {% endraw %}
                     // console.log("[DEBUG] Formatted price:", formatted);
                     itemPriceElem.textContent = formatted;
