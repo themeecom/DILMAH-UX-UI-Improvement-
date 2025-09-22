@@ -126,7 +126,7 @@ function initCountryCheckAndTax() {
         if (data && data.country_code) {
           const countryCode = data.country_code;
           // Save in cookie for 1 day
-          setCookie("ecom_country_code", countryCode, 1);
+          {% comment %} setCookie("ecom_country_code", countryCode, 1); {% endcomment %}
           // Call tax calculation
           ecom_tax_calculation(countryCode);
         }
