@@ -23,25 +23,25 @@ function ecom_tax_calculation(countryCode) {
 
     // Detect current page type
     const pageType = document.body.getAttribute("data-template");
-    console.log("[INFO] Page type detected:", pageType);
+    // console.log("[INFO] Page type detected:", pageType);
 
     // Select product price elements
     const priceElements = document.querySelectorAll(
         `[data-product-price][data-price]:not([data-price=""]):not([with-tax])`
     );
-    console.log("[INFO] Found price elements:", priceElements.length);
+    // console.log("[INFO] Found price elements:", priceElements.length);
 
     for (let itemPriceElem of priceElements) {
-        console.log("----------------------------------------------------");
-        console.log("[DEBUG] Processing element:", itemPriceElem);
+        // console.log("----------------------------------------------------");
+        // console.log("[DEBUG] Processing element:", itemPriceElem);
 
         const productTags = (itemPriceElem.closest('[data-product-tags]')?.getAttribute("data-product-tags") || "")
             .toLowerCase();
 
-        console.log("[DEBUG] Product tags:", productTags);
+        // console.log("[DEBUG] Product tags:", productTags);
 
         if (!productTags) {
-            console.log("[WARN] No product tags found, skipping element.");
+            // console.log("[WARN] No product tags found, skipping element.");
             continue;
         }
 
@@ -53,12 +53,12 @@ function ecom_tax_calculation(countryCode) {
                 break;
             }
         }
-        console.log("[DEBUG] Matched tax rate object:", matchedRateObj);
+        // console.log("[DEBUG] Matched tax rate object:", matchedRateObj);
 
         // Get base price from attribute (in cents)
         const basePriceCents = parseInt(itemPriceElem.getAttribute("data-price"), 10);
         const basePrice = basePriceCents / 100; // Convert to decimal
-        console.log("[DEBUG] Base price (cents):", basePriceCents, "→ Decimal:", basePrice);
+        // console.log("[DEBUG] Base price (cents):", basePriceCents, "→ Decimal:", basePrice);
 
         let finalPrice = basePrice.toFixed(2);
 
@@ -71,38 +71,38 @@ function ecom_tax_calculation(countryCode) {
                 const taxMultiplier = 1 + (taxPercent / 100);
                 finalPrice = (basePrice * taxMultiplier).toFixed(2);
 
-                console.log("[INFO] Applying tax:", taxPercent + "%");
-                console.log("[INFO] New price after tax:", finalPrice);
+                // console.log("[INFO] Applying tax:", taxPercent + "%");
+                // console.log("[INFO] New price after tax:", finalPrice);
 
                 // Format with theme.moneyFormat
                 if (typeof theme !== "undefined" && theme.moneyFormat) {
                     {% raw %}
                     let formatted = theme.moneyFormat.replace("{{amount_no_decimals}}", finalPrice);
                     {% endraw %}
-                    console.log("[DEBUG] Formatted price:", formatted);
+                    // console.log("[DEBUG] Formatted price:", formatted);
                     itemPriceElem.textContent = formatted;
                 } else {
-                    console.log("[WARN] theme.moneyFormat not found, using raw price.");
+                    // console.log("[WARN] theme.moneyFormat not found, using raw price.");
                     itemPriceElem.textContent = finalPrice;
                 }
             } else {
                 // Country not found in tax mapping
                 const suffix = (pageType === "collection") ? collection_page_tax_text : product_page_tax_text;
                 const fallbackPrice = basePrice.toFixed(2) + " " + suffix;
-                console.log("[INFO] Country not in tax mapping. Using fallback display:", fallbackPrice);
+                // console.log("[INFO] Country not in tax mapping. Using fallback display:", fallbackPrice);
                 itemPriceElem.textContent = fallbackPrice;
             }
         } else {
             // No tax match, append text instead
             const suffix = (pageType === "collection") ? collection_page_tax_text : product_page_tax_text;
             const fallbackPrice = basePrice.toFixed(2) + " " + suffix;
-            console.log("[INFO] No tax applied. Using fallback display:", fallbackPrice);
+            // console.log("[INFO] No tax applied. Using fallback display:", fallbackPrice);
             itemPriceElem.textContent = fallbackPrice;
         }
 
         // Always set with-tax attribute, even if no tax was applied
         itemPriceElem.setAttribute("with-tax", finalPrice);
-        console.log("[DEBUG] with-tax attribute set to:", finalPrice);
+        // console.log("[DEBUG] with-tax attribute set to:", finalPrice);
     }
 }
 
@@ -130,7 +130,7 @@ function initCountryCheckAndTax() {
         }
       })
       .catch((error) => {
-        console.error("Geo API Error:", error);
+        // console.error("Geo API Error:", error);
       });
   }
 }
