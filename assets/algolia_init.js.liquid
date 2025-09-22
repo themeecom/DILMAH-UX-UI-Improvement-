@@ -168,13 +168,13 @@
       return format.replace(regexp, '$1' + val + '$2');
     }
 
-    regexp = /^([^{}]*)\{\{amount_with_comma_separator\}\}([^{}]*)$/;
-    if (format.match(regexp)) {
-      var money = val.replace(/[.]/, '|');
-      money = money.replace(/[,]/, '.');
-      money = money.replace(/[|]/, ',');
-      return format.replace(regexp, '$1' + money + '$2');
-    }
+    // regexp = /^([^{}]*)\{\{amount_with_comma_separator\}\}([^{}]*)$/;
+    // if (format.match(regexp)) {
+    //   var money = val.replace(/[.]/, '|');
+    //   money = money.replace(/[,]/, '.');
+    //   money = money.replace(/[|]/, ',');
+    //   return format.replace(regexp, '$1' + money + '$2');
+    // }
 
     if (window.Shopify && window.Shopify.formatMoney) {
       return window.Shopify.formatMoney(priceInCents, format);
