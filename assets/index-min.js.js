@@ -123,20 +123,29 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
         $(".ecom-cart-quick.js-items").empty();
         $(".ecom-cart-quick.js-items").append(response['ecom-side-cart']);
         
-        var p = '';
-        var tr = '';
-        $(".product_btn span").css("display", "none");
-        // var a = JSON.stringify(response)
-        let cartdataArry = response;
-
-        const ecomData = document.querySelector("#ecom-data");
-        const cartCurrencySymbol = ecomData.getAttribute("cart-currency-symbol");
-        console.log("load cartdate callback new");
+        // calcualte tax for the products
+        document.dispatchEvent(new Event("calculate-taxes"));
         
-        var priceCents = original_total_price;
-        var price = priceCents / 100;
-        var formattedPrice = theme.moneyFormat.replace('{{amount_no_decimals}}', Math.round(price));
-        $(".csapps-cart-original-total span").text(formattedPrice).attr("data-cart-total", formattedPrice);
+        $(".product_btn span").css("display", "none");
+
+        //get sum of all products
+        let total = 0;
+
+        // Sum with-tax items
+        document.querySelectorAll('#shopify-section-ecom-side-cart [data-component="quickCartItem"] [with-tax]')
+          .forEach(el => {
+            const val = parseFloat(el.getAttribute("with-tax")) || 0;
+            total += val;
+        });
+
+        // Sum without-tax items (convert cents → dollars)
+        document.querySelectorAll('#shopify-section-ecom-side-cart [data-component="quickCartItem"] [data-price]:not([with-tax])')
+          .forEach(el => {
+            const val = parseFloat(el.getAttribute("data-price")) || 0;
+            total += val / 100;
+        });
+
+        $(".csapps-cart-original-total span").text(total).attr("data-cart-total", formattedPrice);
         
 
         // calcualte tax for the products
