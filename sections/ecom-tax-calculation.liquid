@@ -42,6 +42,7 @@ function ecom_tax_calculation(countryCode) {
 
         if (!productTags) {
             // console.log("[WARN] No product tags found, skipping element.");
+            itemPriceElem.classList.add("show-price")
             continue;
         }
 
@@ -102,6 +103,7 @@ function ecom_tax_calculation(countryCode) {
 
         // Always set with-tax attribute, even if no tax was applied
         itemPriceElem.setAttribute("with-tax", finalPrice);
+        itemPriceElem.classList.add("show-price");
         // console.log("[DEBUG] with-tax attribute set to:", finalPrice);
     }
 }
