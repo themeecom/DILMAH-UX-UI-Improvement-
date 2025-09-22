@@ -110,8 +110,8 @@ function ecom_tax_calculation(countryCode) {
 
 {% comment %} https://ipgeolocation.abstractapi.com/v1/?api_key=3fde81d0008345a09b580e1a6a7edf2e {% endcomment %}
 
-document.addEventListener("DOMContentLoaded", function () {
-
+// ---- Main Function (Reusable) ----
+function initCountryCheckAndTax() {
   const existingCountry = getCookie("ecom_country_code");
 
   if (existingCountry) {
@@ -134,6 +134,11 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Geo API Error:", error);
       });
   }
+}
+
+// ---- Fire on DOMContentLoaded ----
+document.addEventListener("DOMContentLoaded", function () {
+  initCountryCheckAndTax();
 });
 
 
