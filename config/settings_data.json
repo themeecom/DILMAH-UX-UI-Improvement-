@@ -37,7 +37,7 @@
     "logo_image_size": 90,
     "navigation_icon_size": 25,
     "section_padding_desktop": 40,
-    "enable_tags": "Special,Mood,Tea Type,Tea Flavour,Time Of Day,Caffeine Level,Tea format,Tea Grading,Tea Strength",
+    "enable_tags": "Special,Mood,Tea Type,Tea Flavour,Time Of Day,Caffeine Level,Tea Format,Tea Grading,Tea Strength",
     "font_heading": "montserrat_n4",
     "size_heading": 18,
     "uppercase_headings": false,
@@ -249,25 +249,25 @@
           "1602015986783": {
             "type": "link_list",
             "settings": {
-              "menu": "footer"
+              "menu": "about-us"
             }
           },
           "1605557765620": {
             "type": "link_list",
             "settings": {
-              "menu": ""
+              "menu": "customer-services"
             }
           },
           "e0943f59-96aa-41c2-a5f4-a349b799fdf4": {
             "type": "link_list",
             "settings": {
-              "menu": ""
+              "menu": "our-policies"
             }
           },
           "d8350a17-703c-4f0c-b992-85abe5802b6b": {
             "type": "link_list",
             "settings": {
-              "menu": ""
+              "menu": "community"
             }
           }
         },
