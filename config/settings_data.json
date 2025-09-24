@@ -37,7 +37,7 @@
     "logo_image_size": 90,
     "navigation_icon_size": 25,
     "section_padding_desktop": 40,
-    "enable_tags": "Special,Mood,Tea Type,Tea Flavour,Time Of Day,Caffeine Level,Tea Format,Tea Grading,Tea Strength",
+    "enable_tags": "Special,Mood,Tea Type,Tea Flavour,Time Of Day,Caffeine Level,Tea format,Tea Grading,Tea Strength",
     "font_heading": "montserrat_n4",
     "size_heading": 18,
     "uppercase_headings": false,
