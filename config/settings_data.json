@@ -220,7 +220,7 @@
           "show_currency_selector": true,
           "logo": "shopify://shop_images/Dilmah_Logo_Updated.jpg",
           "logo_max_size": 300,
-          "menu": "main-menu",
+          "menu": "main-menu-new",
           "transparent_index_header_enabled": false,
           "transparent_header_foreground_color": "#ffffff",
           "transparent_header_border_color": "#bb9107",
