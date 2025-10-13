@@ -985,7 +985,7 @@
       "gdpr": {
         "type": "gdpr",
         "settings": {
-          "hide_gdpr": false,
+          "hide_gdpr": true,
           "ecom_ask_again_n_days": 2,
           "ecom_gdpr_title": "YOUR CONSENT TO OUR PRIVACY AND COOKIE POLICY",
           "ecom_gdpr_title_text_color": "#007c85",
