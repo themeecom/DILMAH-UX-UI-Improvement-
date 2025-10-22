@@ -116,7 +116,7 @@
             "settings": {
               "background_color": "#bb9107",
               "text_color": "#ffffff",
-              "text": "Free Shipping on orders above US$75",
+              "text": "Free Shipping on orders above €75",
               "link": "shopify://collections/all"
             }
           },
@@ -1025,7 +1025,7 @@
               "title": "Deliciously Fragrant",
               "color_heading": "#ffffff",
               "subheading": "Indulge in the aromatic taste of italian almond",
-              "link": "https://shop.dilmahtea.com/collections/t-series-designer-gourmet-teas",
+              "link": "shopify://collections/all",
               "link_text": "Shop now",
               "link_2": "#select-tea-section",
               "link_text_2": "Customize Tea",
