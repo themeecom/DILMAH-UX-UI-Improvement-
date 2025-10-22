@@ -965,7 +965,7 @@
           "title5": "Teaware",
           "collection5": "vat-teaware",
           "title6": "Gift a Tea",
-          "collection6": "dilmah-gift-of-tea",
+          "collection6": "dilmah-inteamate-gifts",
           "title7": "Check All our tea",
           "collection7": "all-teas",
           "products_per_row": 4,
@@ -1041,6 +1041,7 @@
           },
           "slide_WrigHW": {
             "type": "slide",
+            "disabled": true,
             "settings": {
               "image": "shopify://shop_images/September_2025_New_Size.jpg",
               "video_url": "",
