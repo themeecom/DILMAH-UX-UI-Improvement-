@@ -162,7 +162,10 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
 window.addEventListener("load", ()=>{
   load_cartdata_callback2();
   if (window.location.href.includes(".nl/cart")) {
-    $(".ecom_total .csapps-cart-original-total").addClass("show-price");
+    load_cartdata_callback2()
+    setTimeout(()=>{
+      $(".ecom_total .csapps-cart-original-total").addClass("show-price");
+    }, 2000);
   }
 });
 
