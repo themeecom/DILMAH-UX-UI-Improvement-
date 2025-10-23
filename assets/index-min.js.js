@@ -151,7 +151,7 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
 
         const formattedPrice = theme.moneyFormat.replace(/{{\s*[^}]+\s*}}/, total.toFixed(2));
         $(".csapps-cart-original-total span, .ecom_total .csapps-cart-original-total").text(formattedPrice).attr("data-cart-total", total);
-        $(".csapps-cart-original-total span, .ecom_total .csapps-cart-original-total").addClass("show");
+        $(".csapps-cart-original-total span, .ecom_total .csapps-cart-original-total").addClass("show-price");
 
         return;
     } 
