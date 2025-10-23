@@ -126,7 +126,7 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
         // calcualte tax for the products
         document.dispatchEvent(new Event("calculate-taxes"));
         
-        await new Promise(resolve=>setTimeout(resolve, 1000));
+        await new Promise(resolve=>setTimeout(resolve, 500));
 
         $(".product_btn span").css("display", "none");
 
