@@ -135,6 +135,7 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
         document.querySelectorAll('#shopify-section-ecom-side-cart [data-component="quickCartItem"] [with-tax]')
           .forEach(el => {
             const val = parseFloat(el.getAttribute("with-tax")) || 0;
+            console.log('with tax ', val);
             total += val;
         });
 
@@ -142,6 +143,7 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
         document.querySelectorAll('#shopify-section-ecom-side-cart [data-component="quickCartItem"] [data-price]:not([with-tax])')
           .forEach(el => {
             const val = parseFloat(el.getAttribute("data-price")) || 0;
+            console.log('without tax',val);
             total += val / 100;
         });
 
