@@ -159,6 +159,8 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
   
 }
 
+window.addEventListener("load",load_cartdata_callback2);
+
 // engraving
 //variant change then price change
 try {
