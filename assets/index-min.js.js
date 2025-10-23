@@ -145,7 +145,7 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
             total += val / 100;
         });
 
-        const formattedPrice = theme.moneyFormat.replace('/{{\s*[^}]+\s*}}/', total.toFixed(2));
+        const formattedPrice = theme.moneyFormat.replace(/{{\s*[^}]+\s*}}/, total.toFixed(2));
         $(".csapps-cart-original-total span").text(formattedPrice).attr("data-cart-total", total);
         
         return;
