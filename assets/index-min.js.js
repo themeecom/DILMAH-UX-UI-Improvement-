@@ -158,7 +158,9 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
 
 window.addEventListener("load", ()=>{
   load_cartdata_callback2();
-  $(".csapps-cart-original-total span, .ecom_total .csapps-cart-original-total").addClass("show-price");
+  setTimeout(()=>{
+    $(".csapps-cart-original-total span, .ecom_total .csapps-cart-original-total").addClass("show-price");
+  }, 2000);
 });
 
 // engraving
