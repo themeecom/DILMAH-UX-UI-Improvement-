@@ -153,7 +153,8 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
         const formattedPrice = theme.moneyFormat.replace(/{{\s*[^}]+\s*}}/, total.toFixed(2));
         $(".csapps-cart-original-total span, .ecom_total .csapps-cart-original-total").text(formattedPrice).attr("data-cart-total", total);
         $(".csapps-cart-original-total span").addClass("show-price");
-        
+        $(".ecom_total .csapps-cart-original-total").addClass("show-price");
+      
         console.log({total});
         return;
     } 
@@ -164,9 +165,8 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
 window.addEventListener("load", ()=>{
   load_cartdata_callback2();
   if (window.location.href.includes(".nl/cart")) {
-    load_cartdata_callback2()
+    // load_cartdata_callback2()
     setTimeout(()=>{
-      $(".ecom_total .csapps-cart-original-total").addClass("show-price");
     }, 2000);
   }
 });
