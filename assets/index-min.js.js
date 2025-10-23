@@ -122,6 +122,8 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
         $(".ecom-cart-quick.js-items").empty();
         $(".ecom-cart-quick.js-items").append(response['ecom-side-cart']);
         
+        await new Promise(resolve=>setTimeout(resolve, 500));
+        
         // calcualte tax for the products
         document.dispatchEvent(new Event("calculate-taxes"));
         
