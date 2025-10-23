@@ -117,7 +117,6 @@ function setCookie(name, value, days) {
 }
 
 function load_cartdata_callback2(response, cartcount, original_total_price) {
-
   $.get('/?sections=ecom-side-cart', async function (response) {
     if (response['ecom-side-cart']) {
         $(".ecom-cart-quick.js-items").empty();
