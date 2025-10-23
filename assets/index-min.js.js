@@ -125,7 +125,7 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
         // calcualte tax for the products
         document.dispatchEvent(new Event("calculate-taxes"));
         
-        await new Promise(resolve=>setTimeout(resolve, 2000));
+        await new Promise(resolve=>setTimeout(resolve, 1000));
 
         $(".product_btn span").css("display", "none");
 
@@ -152,9 +152,9 @@ function load_cartdata_callback2(response, cartcount, original_total_price) {
         $(".csapps-cart-original-total span, .ecom_total .csapps-cart-original-total").text(formattedPrice).attr("data-cart-total", total);
         setTimeout(()=>{
           console.log("show price");
-          $(".csapps-cart-original-total span, .ecom_total .csapps-cart-original-total").addClass("show-price");
+          $(".csapps-cart-original-total span").addClass("show-price");
         }, 1000);
-
+        
         console.log({total});
         return;
     } 
