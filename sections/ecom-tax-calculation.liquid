@@ -112,30 +112,34 @@ function ecom_tax_calculation(countryCode) {
 
 
 // ---- Main Function (Reusable) ----
-function initCountryCheckAndTax() {
+async function initCountryCheckAndTax() {
   const existingCountry = getCookie("ecom_country_code");
 
   if (existingCountry) {
-    // Already have cookie → directly call tax calculation
-    ecom_tax_calculation(existingCountry);
-  } else {
-    // No cookie → fetch from API
-    fetch("https://ipgeolocation.abstractapi.com/v1/?api_key=7ae4553a4f7a4300a9caf291300ff94d")
-      .then((response) => response.json())
-      .then((data) => {
-        if (data && data.country_code) {
-          const countryCode = data.country_code;
-          // Save in cookie for 1 day
-          {% comment %} setCookie("ecom_country_code", countryCode, 1); {% endcomment %}
-          // Call tax calculation
-          ecom_tax_calculation(countryCode);
-        }
-      })
-      .catch((error) => {
-        // console.error("Geo API Error:", error);
-      });
+    return ecom_tax_calculation(existingCountry);
+  }
+
+  try {
+    const response = await fetch("https://ipgeolocation.abstractapi.com/v1/?api_key=7ae4553a4f7a4300a9caf291300ff94d");
+
+    if (!response.ok) {
+      console.log("API Error Status:", response.status, response);
+      return ecom_tax_calculation(""); 
+    }
+
+    const data = await response.json();
+
+    if (data?.country_code) {
+      setCookie("ecom_country_code", countryCode, 1); 
+      return ecom_tax_calculation(data.country_code);
+    }
+
+  } catch (error) {
+    console.log("Network Error:", error.message);
+    return ecom_tax_calculation("");
   }
 }
+
 
 // ---- Fire on DOMContentLoaded ----
 document.addEventListener("DOMContentLoaded", function () {
