@@ -103,7 +103,6 @@
         "blocks": {
           "19e1dff7-4e3b-4408-99b3-4a84aa844d85": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
               "background_color": "#bb9107",
               "text_color": "#ffffff",
