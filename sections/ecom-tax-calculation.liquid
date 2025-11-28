@@ -90,7 +90,9 @@ function ecom_tax_calculation(countryCode) {
             } else {
                 // Country not found in tax mapping
                 const suffix = (pageType === "collection") ? collection_page_tax_text : product_page_tax_text;
-                const fallbackPrice = basePrice.toFixed(2) + " " + suffix;
+                {% raw %}
+                const fallbackPrice = theme.moneyFormat.replace(/{{\s*[^}]+\s*}}/, basePrice.toFixed(2))  + " " + suffix;
+                {% endraw %}
                 // console.log("[INFO] Country not in tax mapping. Using fallback display:", fallbackPrice);
                 itemPriceElem.textContent = fallbackPrice;
             }
