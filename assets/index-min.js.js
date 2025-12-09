@@ -478,3 +478,29 @@ function setupFloatingSubmitButton() {
 // document.addEventListener('DOMContentLoaded', setupFloatingSubmitButton);
 
 // hide show mobile floatin add to cart product END
+
+
+// show snackbar START
+function showSnackbar(text, timeout= 3000) {
+    const snackbar = document.getElementById("snackbar");
+    snackbar.textContent = text;
+    snackbar.className = "show";
+    setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, timeout);
+}
+// show snackbar END
+
+// newsletter subscribe show snackbar START
+document.addEventListener("DOMContentLoaded", function () {
+  const url = window.location.href;
+
+  if (url.includes("customer_posted=true#contact_form")) {
+    // Newsletter subscription → show snackbar + fetch discount
+    showSnackbar("Almost done! Please check your inbox to confirm.", 5000);
+    fetch("/discount/First10").then(res => res.text());
+  } 
+  else if (url.includes("/account/subscribe?token")) {
+    // Account subscribe confirmation → only fetch discount
+    fetch("/discount/First10").then(res => res.text());
+  }
+});
+// newsletter subscribe show snackbar END
