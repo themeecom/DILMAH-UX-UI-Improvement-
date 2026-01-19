@@ -97,7 +97,7 @@
     {% if product.compare_at_price > product.price %}
       {% if product.has_only_default_variant %} {% comment %} only show when there is only one variant {% endcomment %}
         <div class="badge type-body-small ttu lh-title absolute top-0 right-0 bg-sale same-as-bg" ecom-bb>
-          {{ product.compare_at_price_max | minus: product.price | times: 100.0 | divided_by: product.compare_at_price_max | money_without_currency | times: 100 | remove: '.0'}}% off
+          {{ product.compare_at_price_max | minus: product.price | times: 100.0 | divided_by: product.compare_at_price_max | round }}% off
         </div>
       {% endif %}
     {% endif %}
