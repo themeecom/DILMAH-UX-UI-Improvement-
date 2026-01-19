@@ -105,14 +105,14 @@
 
     {% comment %} SOLD OUT BADGE {% endcomment %}
     {% unless product.available %}
-          <div class="badge type-body-small ttu lh-title absolute top-0 right-0 mt3 mr3 bg-sold-out same-as-bg {% if comingSoon %} comingSoon {% endif %}" >
-            {% if comingSoon %}
-              Coming Soon
-            {% else %}
-              {% comment %}{{ 'products.product.sold_out' | t }} {% endcomment %}
-              Notify Me
-            {% endif %}
-          </div>
+      <div class="badge type-body-small ttu lh-title absolute top-0 right-0 mt3 mr3 bg-sold-out same-as-bg {% if comingSoon %} comingSoon {% endif %}" >
+        {% if comingSoon %}
+          Coming Soon
+        {% else %}
+          {% comment %}{{ 'products.product.sold_out' | t }} {% endcomment %}
+          Notify Me
+        {% endif %}
+      </div>
     {% endunless %}
 
   {% else %}
