@@ -174,8 +174,8 @@
 
                   {% assign collection_subheading = "" %}
 
-                  {% if show_description %}   
-                      {% assign collection_subheading =  collection.metafields.description.collection   %}
+                  {% if show_description %} {% comment %} collection.metafields.description.collection removed because we get from product description | 2026-01-26 {% endcomment %}
+                      {% assign collection_subheading =  collection.description %}
                   {% endif %}
 
                   {% render 'text-block' with
