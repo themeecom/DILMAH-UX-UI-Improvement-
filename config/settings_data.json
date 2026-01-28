@@ -1132,8 +1132,8 @@
           "tax_group_gHKD8f"
         ],
         "settings": {
-          "excluding_tax_product_page": "(ex BTW)",
-          "excluding_tax_in_collection_page": "ex BTW"
+          "excluding_tax_product_page": "",
+          "excluding_tax_in_collection_page": ""
         }
       }
     },
