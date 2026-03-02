@@ -1153,6 +1153,18 @@
           "button_vertical_position": "lowest",
           "greeting_message": "Hello! Please message us if you have questions, or give an idea of what you’re looking for. We’re happy to make recommendations."
         }
+      },
+      "18209738915288330680": {
+        "type": "shopify://apps/wholesale-all-in-one/blocks/wholesale-all-in-one/5a3d95fb-5647-47d5-8445-d5858f91ff9d",
+        "disabled": false,
+        "settings": {
+          "wsaio_app_access_token": "",
+          "wsaio_main_js_file": "",
+          "wsaio_main_liquid_file": "",
+          "wsaio_modules_liquid_file": "",
+          "wsaio_addons_liquid_file": "",
+          "wsaio_custom_css_file": ""
+        }
       }
     }
   },
