@@ -101,16 +101,6 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
-          "4c0fb5de-f438-4cf6-9a08-0753df8e4d69": {
-            "type": "announcement",
-            "disabled": true,
-            "settings": {
-              "background_color": "#bb9107",
-              "text_color": "#ffffff",
-              "text": "Free Shipping on orders above €75",
-              "link": "shopify://collections/all"
-            }
-          },
           "941f0173-79e2-4de9-9a75-0b9dc0690ecb": {
             "type": "announcement",
             "disabled": true,
@@ -123,7 +113,6 @@
           }
         },
         "block_order": [
-          "4c0fb5de-f438-4cf6-9a08-0753df8e4d69",
           "941f0173-79e2-4de9-9a75-0b9dc0690ecb"
         ],
         "settings": {
