@@ -103,7 +103,6 @@
         "blocks": {
           "941f0173-79e2-4de9-9a75-0b9dc0690ecb": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
               "background_color": "#bb9107",
               "text_color": "#ffffff",
@@ -122,93 +121,7 @@
       },
       "header": {
         "type": "header",
-        "blocks": {
-          "44d1906b-a507-47fd-a172-b5626c047203": {
-            "type": "mega_nav",
-            "settings": {
-              "dropdown_parent_link": "Tea Gifts",
-              "featured_image_heading": "",
-              "featured_image_link_text": "",
-              "featured_image_link": "",
-              "feature_text": ""
-            }
-          },
-          "4dff8e3d-c9ef-4f19-89d2-0e8403106c36": {
-            "type": "mega_nav",
-            "settings": {
-              "dropdown_parent_link": "Teaware",
-              "featured_image_heading": "",
-              "featured_image_link_text": "",
-              "featured_image_link": "",
-              "feature_text": ""
-            }
-          },
-          "8018e053-ee02-4075-b4dc-f673748ff445": {
-            "type": "mega_nav",
-            "settings": {
-              "dropdown_parent_link": "Flavours & Moods",
-              "featured_image_heading": "",
-              "featured_image_link_text": "",
-              "featured_image_link": "",
-              "feature_text": "<p>Mention a new sale, product line, or blog post here. <a href=\"#\">Don't forget to add a link →</a></p>"
-            }
-          },
-          "8842c48e-7ec9-475f-a55d-8be652585bd7": {
-            "type": "mega_nav",
-            "settings": {
-              "dropdown_parent_link": "Tea Types",
-              "featured_image_heading": "",
-              "featured_image_link_text": "",
-              "featured_image_link": "",
-              "feature_text": "<p>Mention a new sale, product line, or blog post here. <a href=\"#\">Don't forget to add a link →</a></p>"
-            }
-          },
-          "79e917ab-bcfb-40f6-a7f9-c87d7088fccf": {
-            "type": "mega_nav",
-            "settings": {
-              "dropdown_parent_link": "Our Teas",
-              "featured_image_heading": "",
-              "featured_image_link_text": "",
-              "featured_image_link": "",
-              "feature_text": "<p>Mention a new sale, product line, or blog post here. <a href=\"#\">Don't forget to add a link →</a></p>"
-            }
-          },
-          "mega_nav_GwBDY4": {
-            "type": "mega_nav",
-            "settings": {
-              "dropdown_parent_link": "Cinnamon",
-              "featured_image_heading": "",
-              "featured_image_link_text": "",
-              "featured_image_link": "",
-              "feature_text": "<p>Mention a new sale, product line, or blog post here. <a href=\"#\">Don't forget to add a link →</a></p>"
-            }
-          }
-        },
-        "block_order": [
-          "44d1906b-a507-47fd-a172-b5626c047203",
-          "4dff8e3d-c9ef-4f19-89d2-0e8403106c36",
-          "8018e053-ee02-4075-b4dc-f673748ff445",
-          "8842c48e-7ec9-475f-a55d-8be652585bd7",
-          "79e917ab-bcfb-40f6-a7f9-c87d7088fccf",
-          "mega_nav_GwBDY4"
-        ],
-        "settings": {
-          "header_style": "default",
-          "nav_alignment": "right",
-          "detect_menu_length": false,
-          "show_locale_selector": false,
-          "show_currency_selector": true,
-          "logo": "shopify://shop_images/Dilmah_Logo_Updated.jpg",
-          "logo_max_size": 300,
-          "menu": "main-menu-new",
-          "transparent_index_header_enabled": false,
-          "transparent_header_foreground_color": "#ffffff",
-          "transparent_header_border_color": "#bb9107",
-          "transparent_header_border_opacity": 10,
-          "show_less_menu_in_cart": true,
-          "cart_less_link": "shopify://collections/all",
-          "cart_less_link_text": "Shop"
-        }
+        "settings": {}
       },
       "exit-intent": {
         "type": "exit-intent",
