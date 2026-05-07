@@ -69,7 +69,7 @@
     "cart_quick_shop_show_quantity_input": true,
     "cart_notes_enable": true,
     "quick_cart_note": "Your subtotal today is [subtotal]. Shipping and taxes will calculated at checkout.",
-    "favicon": "shopify://shop_images/Dilmah_Pure_Ceylon_Tea_Official_Logo.jpg",
+    "favicon": "shopify://shop_images/logo.png",
     "checkout_header_image": "",
     "checkout_logo_image": "shopify://shop_images/NEW_Dilmah_Pure_Ceylon_Tea_Official_Logo_60027d21-0b79-4ef0-acd1-e8c48f489738.jpg",
     "checkout_logo_position": "left",
