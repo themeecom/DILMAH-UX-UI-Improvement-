@@ -115,7 +115,7 @@
           "941f0173-79e2-4de9-9a75-0b9dc0690ecb"
         ],
         "settings": {
-          "announcement_bar_enabled": false,
+          "announcement_bar_enabled": true,
           "announcement_bar_timing": 5
         }
       },
