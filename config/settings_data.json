@@ -122,6 +122,43 @@
       },
       "header": {
         "type": "header",
+        "blocks": {
+          "mega_nav_nxwrbw": {
+            "type": "mega_nav",
+            "settings": {
+              "dropdown_parent_link": "Our teas",
+              "featured_image_heading": "",
+              "featured_image_link_text": "",
+              "featured_image_link": "",
+              "feature_text": ""
+            }
+          },
+          "mega_nav_GwKUWb": {
+            "type": "mega_nav",
+            "settings": {
+              "dropdown_parent_link": "Tea lines",
+              "featured_image_heading": "",
+              "featured_image_link_text": "",
+              "featured_image_link": "",
+              "feature_text": ""
+            }
+          },
+          "mega_nav_jGBnAf": {
+            "type": "mega_nav",
+            "settings": {
+              "dropdown_parent_link": "Teaware",
+              "featured_image_heading": "",
+              "featured_image_link_text": "",
+              "featured_image_link": "",
+              "feature_text": ""
+            }
+          }
+        },
+        "block_order": [
+          "mega_nav_nxwrbw",
+          "mega_nav_GwKUWb",
+          "mega_nav_jGBnAf"
+        ],
         "settings": {
           "header_style": "default",
           "nav_alignment": "right",
@@ -129,7 +166,7 @@
           "show_locale_selector": false,
           "show_currency_selector": false,
           "logo": "shopify://shop_images/logo.png",
-          "logo_max_size": 50,
+          "logo_max_size": 150,
           "menu": "main-menu",
           "transparent_index_header_enabled": false,
           "transparent_header_foreground_color": "#ffffff",
