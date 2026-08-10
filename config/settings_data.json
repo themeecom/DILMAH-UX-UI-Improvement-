@@ -115,7 +115,7 @@
           "941f0173-79e2-4de9-9a75-0b9dc0690ecb"
         ],
         "settings": {
-          "announcement_bar_enabled": true,
+          "announcement_bar_enabled": false,
           "announcement_bar_timing": 5
         }
       },
@@ -1101,12 +1101,12 @@
         "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
         "disabled": true,
         "settings": {
+          "greeting_message": "Hello! Please message us if you have questions, or give an idea of what you’re looking for. We’re happy to make recommendations.",
           "button_color": "#249d7c",
           "button_icon": "chat_bubble",
           "button_text": "no_text",
           "button_horizontal_position": "bottom_right",
-          "button_vertical_position": "lowest",
-          "greeting_message": "Hello! Please message us if you have questions, or give an idea of what you’re looking for. We’re happy to make recommendations."
+          "button_vertical_position": "lowest"
         }
       },
       "18209738915288330680": {
