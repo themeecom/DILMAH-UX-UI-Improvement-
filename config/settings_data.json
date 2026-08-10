@@ -891,7 +891,7 @@
       "shipping-banner": {
         "type": "shipping-banner",
         "settings": {
-          "show_shipping_banner": true,
+          "show_shipping_banner": false,
           "shipping_amount": "75"
         }
       },
