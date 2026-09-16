@@ -1,35 +1,15 @@
 <div class="product-page-wrapper">
  
   <!--  product--static | START  -->
-  {% render 'pages--product' with
-    show_vendor: section.settings.show_vendor,
-    show_swatches: section.settings.show_swatches,
-    show_quantity_input: section.settings.show_quantity_input,
-    show_share_buttons: section.settings.show_share_buttons,
-    enable_payment_button: section.settings.enable_payment_button,
-    enable_video_looping: section.settings.enable_video_looping,
-  %}
+  {% render 'pages--product' with show_vendor, show_vendor: section.settings.show_vendor, show_swatches: section.settings.show_swatches, show_quantity_input: section.settings.show_quantity_input, show_share_buttons: section.settings.show_share_buttons, enable_payment_button: section.settings.enable_payment_button, enable_video_looping: section.settings.enable_video_looping %}
   <!--  product--static | END  -->
   
   <!--  text--static | START  -->
-  {% render 'content--static-text' with
-    id: section.id,
-    enabled: section.settings.enabled,
-    heading: section.settings.title,
-    text: section.settings.text,
-  %}
+  {% render 'content--static-text' with id, id: section.id, enabled: section.settings.enabled, heading: section.settings.title, text: section.settings.text %}
   <!--  text--static | END  -->
   
   <!--  gallery-grid--static | START  -->
-  {% render 'content--gallery-grid' with
-    id: section.id,
-    enabled: section.settings.enabled,
-    columns: section.settings.columns,
-    aspect_ratio: section.settings.aspect_ratio,
-    heading: section.settings.title,
-    text: section.settings.text,
-    blocks: section.blocks,
-  %}
+  {% render 'content--gallery-grid' with id, id: section.id, enabled: section.settings.enabled, columns: section.settings.columns, aspect_ratio: section.settings.aspect_ratio, heading: section.settings.title, text: section.settings.text, blocks: section.blocks %}
   <!--  gallery-grid--static | END  -->
 </div>
 
@@ -218,12 +198,7 @@
   
        
   <!-- product-recommendations--static | START -->
-  {% render 'content--product-recommendations' with
-    id: section.id,
-    enabled: section.settings.enabled,
-    heading: section.settings.heading,
-    columns: section.settings.columns,
-  %}
+  {% render 'content--product-recommendations' with id, id: section.id, enabled: section.settings.enabled, heading: section.settings.heading, columns: section.settings.columns %}
   <!-- product-recommendations--static | END -->
 </div>
 
@@ -559,3 +534,61 @@ li.multicolumn-list__item.active .Remove_multi_BTN {
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'pages--product' with
+        show_vendor: section.settings.show_vendor,
+        show_swatches: section.settings.show_swatches,
+        show_quantity_input: section.settings.show_quantity_input,
+        show_share_buttons: section.settings.show_share_buttons,
+        enable_payment_button: section.settings.enable_payment_button,
+        enable_video_looping: section.settings.enable_video_looping,
+      %}
+  to: "{% render 'pages--product' with show_vendor, show_vendor: section.settings.show_vendor,
+    show_swatches: section.settings.show_swatches, show_quantity_input: section.settings.show_quantity_input,
+    show_share_buttons: section.settings.show_share_buttons, enable_payment_button:
+    section.settings.enable_payment_button, enable_video_looping: section.settings.enable_video_looping
+    %}"
+  position: 76..452
+- from: |-
+    {% render 'content--static-text' with
+        id: section.id,
+        enabled: section.settings.enabled,
+        heading: section.settings.title,
+        text: section.settings.text,
+      %}
+  to: "{% render 'content--static-text' with id, id: section.id, enabled: section.settings.enabled,
+    heading: section.settings.title, text: section.settings.text %}"
+  position: 527..683
+- from: |-
+    {% render 'content--gallery-grid' with
+        id: section.id,
+        enabled: section.settings.enabled,
+        columns: section.settings.columns,
+        aspect_ratio: section.settings.aspect_ratio,
+        heading: section.settings.title,
+        text: section.settings.text,
+        blocks: section.blocks,
+      %}
+  to: "{% render 'content--gallery-grid' with id, id: section.id, enabled: section.settings.enabled,
+    columns: section.settings.columns, aspect_ratio: section.settings.aspect_ratio,
+    heading: section.settings.title, text: section.settings.text, blocks: section.blocks
+    %}"
+  position: 763..1024
+- from: |-
+    {% render 'content--product-recommendations' with
+        id: section.id,
+        enabled: section.settings.enabled,
+        heading: section.settings.heading,
+        columns: section.settings.columns,
+      %}
+  to: "{% render 'content--product-recommendations' with id, id: section.id, enabled:
+    section.settings.enabled, heading: section.settings.heading, columns: section.settings.columns
+    %}"
+  position: 11003..11179
+{% endcomment %}

@@ -9,7 +9,7 @@
     {% if settings[social_link] != blank %}
       <li class="dib ph1">
         <a target="_blank" href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
-          {% render 'icon-social-icons' with icon: social_handle %}
+          {% render 'icon-social-icons' with icon, icon: social_handle %}
         </a>
         
       </li>
@@ -56,3 +56,13 @@
 </li>
   
 </ul>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'icon-social-icons' with icon: social_handle %}"
+  to: "{% render 'icon-social-icons' with icon, icon: social_handle %}"
+  position: 620..683
+{% endcomment %}

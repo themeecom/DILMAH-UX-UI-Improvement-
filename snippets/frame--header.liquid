@@ -120,19 +120,10 @@
   <div class="header__content">
     <div class="flex justify-between w-100" data-primary-navigation="yes">
       <nav class="header__nav">
-        {%
-          render 'navmenu' with
-          menu: menu,
-          depth: 1,
-          max_depth: 3,
-          blocks: section.blocks,
-          top_level: true,
-          has_triggers: true,
-          section: section
-        %}
+        {% render 'navmenu' with menu, menu: menu, depth: 1, max_depth: 3, blocks: section.blocks, top_level: true, has_triggers: true, section: section %}
       </nav>
       <div class="no-js-menu no-js-menu--desktop">
-        {% render 'no-js-navmenu' with menu: menu %}
+        {% render 'no-js-navmenu' with menu, menu: menu %}
       </div>
 
       <div class="mobile-nav">
@@ -222,7 +213,7 @@
     </div>
   </div>
   <div class="no-js-menu no-js-menu--mobile">
-    {% render 'no-js-navmenu' with menu: menu %}
+    {% render 'no-js-navmenu' with menu, menu: menu %}
   </div>
   </div>
 
@@ -341,4 +332,30 @@
       "url": "{{ shop.url }}{{ page.url }}"
     }
   </script>
-{% endif %}
+{% endif %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%
+              render 'navmenu' with
+              menu: menu,
+              depth: 1,
+              max_depth: 3,
+              blocks: section.blocks,
+              top_level: true,
+              has_triggers: true,
+              section: section
+            %}
+  to: "{% render 'navmenu' with menu, menu: menu, depth: 1, max_depth: 3, blocks:
+    section.blocks, top_level: true, has_triggers: true, section: section %}"
+  position: 3926..4073
+- from: "{% render 'no-js-navmenu' with menu: menu %}"
+  to: "{% render 'no-js-navmenu' with menu, menu: menu %}"
+  position: 4146..4196
+- from: "{% render 'no-js-navmenu' with menu: menu %}"
+  to: "{% render 'no-js-navmenu' with menu, menu: menu %}"
+  position: 8131..8181
+{%- endcomment -%}

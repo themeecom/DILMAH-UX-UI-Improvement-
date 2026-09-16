@@ -573,10 +573,7 @@
         <button type="button" class="cancelBtn" onclick="backToDashPart1()">Cancel</button>
         {% endform %}
        {% if paginate.pages > 1 %}
-      {% render 'pagination' with
-        type: 'general.pagination.addresses',
-        paginate: paginate
-      %}
+      {% render 'pagination' with type, type: 'general.pagination.addresses', paginate: paginate %}
     {% endif %}
 
   {% endpaginate %}
@@ -1186,10 +1183,7 @@
   
       {% if paginate.pages > 1 %}
         <div class="pagination" id="pagination" style="display:none;">
-        {% render 'pagination' with
-          type: 'general.pagination.orders',
-          paginate: paginate
-        %}</div>
+        {% render 'pagination' with type, type: 'general.pagination.orders', paginate: paginate %}</div>
       {% endif %}
   
     {% endpaginate %}
@@ -1390,10 +1384,7 @@
   
       {% if paginate.pages > 1 %}
         <div class="pagination" id="pagination" style="display:none;">
-        {% render 'pagination' with
-          type: 'general.pagination.orders',
-          paginate: paginate
-        %}</div>
+        {% render 'pagination' with type, type: 'general.pagination.orders', paginate: paginate %}</div>
       {% endif %}
   
   
@@ -1487,10 +1478,7 @@
   
       {% if paginate.pages > 1 %}
         <div class="pagination" id="pagination" style="display:none;">
-        {% render 'pagination' with
-          type: 'general.pagination.orders',
-          paginate: paginate
-        %}</div>
+        {% render 'pagination' with type, type: 'general.pagination.orders', paginate: paginate %}</div>
       {% endif %}
   
 
@@ -1891,3 +1879,42 @@ async function updateAccountDetails () {
 }
 window.addEventListener("DOMContentLoaded",  setCustomerData);
 </script> 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'pagination' with
+            type: 'general.pagination.addresses',
+            paginate: paginate
+          %}
+  to: "{% render 'pagination' with type, type: 'general.pagination.addresses', paginate:
+    paginate %}"
+  position: 24311..24404
+- from: |-
+    {% render 'pagination' with
+              type: 'general.pagination.orders',
+              paginate: paginate
+            %}
+  to: "{% render 'pagination' with type, type: 'general.pagination.orders', paginate:
+    paginate %}"
+  position: 51223..51313
+- from: |-
+    {% render 'pagination' with
+              type: 'general.pagination.orders',
+              paginate: paginate
+            %}
+  to: "{% render 'pagination' with type, type: 'general.pagination.orders', paginate:
+    paginate %}"
+  position: 60238..60328
+- from: |-
+    {% render 'pagination' with
+              type: 'general.pagination.orders',
+              paginate: paginate
+            %}
+  to: "{% render 'pagination' with type, type: 'general.pagination.orders', paginate:
+    paginate %}"
+  position: 63938..64028
+{% endcomment %}

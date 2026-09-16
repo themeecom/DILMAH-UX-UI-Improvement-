@@ -2,12 +2,7 @@
 <section class="brand_section_row {{ section.settings.custom_class }}" data-section-id="{{ section.id }}">
   <div class="brand image-slide">
     
-      {% render 'brand-blocks' with
-        id: id,
-        blocks: slides
-        aspect_ratio: aspect_ratio
-    subheading:subheading
-      %}
+      {% render 'brand-blocks' with id, id: id, blocks: slides, aspect_ratio: aspect_ratio, subheading: subheading %}
     
    
    
@@ -210,3 +205,20 @@ jQuery(document).ready(function ($) {
 });    
 </script>
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'brand-blocks' with
+            id: id,
+            blocks: slides
+            aspect_ratio: aspect_ratio
+        subheading:subheading
+          %}
+  to: "{% render 'brand-blocks' with id, id: id, blocks: slides, aspect_ratio: aspect_ratio,
+    subheading: subheading %}"
+  position: 153..264
+{% endcomment %}

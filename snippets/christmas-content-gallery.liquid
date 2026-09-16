@@ -76,17 +76,7 @@
     {% endif %}
 
 <!--   <div class="restTheTexts">
-      {% render 'text-block' with
-        id: id,
-        modifiers: 'mb5 animation__staggered-children-fade-in',
-        heading_alignment: carousel_text_alignment,
-        text_max_width: text_max_width,
-        overline: overline,
-        heading: heading,
-        subheading: subheading,
-        link: link,
-        link_text: link_text
-      %}
+      {% render 'text-block' with id, id: id, modifiers: 'mb5 animation__staggered-children-fade-in', heading_alignment: carousel_text_alignment, text_max_width: text_max_width, overline: overline, heading: heading, subheading: subheading, link: link, link_text: link_text %}
       <ul>
         <li>xmasCelebrateTxt - {{ xmasCelebrateTxt }}</li>
         <li>image1 - <img src="{{ image1 | image_url }}"></li>
@@ -105,17 +95,7 @@
       </div>
       <div class="xmasTopHeaderTextBlockWithLabel">
           <div class="xmasTopTxtTopicBlock">
-            {% render 'christmas-text-block' with
-              id: id,
-              modifiers: 'mb5 animation__staggered-children-fade-in',
-              heading_alignment: carousel_text_alignment,
-              text_max_width: text_max_width,
-              overline: overline,
-              heading: heading,
-              subheading: subheading,
-              link: link,
-              link_text: link_text
-            %}
+            {% render 'christmas-text-block' with id, id: id, modifiers: 'mb5 animation__staggered-children-fade-in', heading_alignment: carousel_text_alignment, text_max_width: text_max_width, overline: overline, heading: heading, subheading: subheading, link: link, link_text: link_text %}
           </div>
           <div class="xmasHeaderBottomPics">
 <!--             <img src="{{ image2 | image_url }}"> -->
@@ -998,4 +978,44 @@ window.addEventListener("load", function(){
     resetPosition = true;
   }
   // snow code end
-</script>
+</script>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'text-block' with
+            id: id,
+            modifiers: 'mb5 animation__staggered-children-fade-in',
+            heading_alignment: carousel_text_alignment,
+            text_max_width: text_max_width,
+            overline: overline,
+            heading: heading,
+            subheading: subheading,
+            link: link,
+            link_text: link_text
+          %}
+  to: "{% render 'text-block' with id, id: id, modifiers: 'mb5 animation__staggered-children-fade-in',
+    heading_alignment: carousel_text_alignment, text_max_width: text_max_width, overline:
+    overline, heading: heading, subheading: subheading, link: link, link_text: link_text
+    %}"
+  position: 2572..2841
+- from: |-
+    {% render 'christmas-text-block' with
+                  id: id,
+                  modifiers: 'mb5 animation__staggered-children-fade-in',
+                  heading_alignment: carousel_text_alignment,
+                  text_max_width: text_max_width,
+                  overline: overline,
+                  heading: heading,
+                  subheading: subheading,
+                  link: link,
+                  link_text: link_text
+                %}
+  to: "{% render 'christmas-text-block' with id, id: id, modifiers: 'mb5 animation__staggered-children-fade-in',
+    heading_alignment: carousel_text_alignment, text_max_width: text_max_width, overline:
+    overline, heading: heading, subheading: subheading, link: link, link_text: link_text
+    %}"
+  position: 3642..3921
+{%- endcomment -%}

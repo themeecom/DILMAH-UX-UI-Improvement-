@@ -37,17 +37,7 @@
   data-text-alignment={{ carousel_text_alignment }}
   style="--title-text-transform: {{ section.settings.header_font_style }};"
 >
-  {% render 'text-block' with
-    id: id,
-    modifiers: 'mb5 animation__staggered-children-fade-in',
-    heading_alignment: carousel_text_alignment,
-    text_max_width: text_max_width,
-    overline: overline,
-    heading: heading,
-    subheading: subheading,
-    link: link,
-    link_text: link_text
-  %}
+  {% render 'text-block' with id, id: id, modifiers: 'mb5 animation__staggered-children-fade-in', heading_alignment: carousel_text_alignment, text_max_width: text_max_width, overline: overline, heading: heading, subheading: subheading, link: link, link_text: link_text %}
 
   {% render 'carousel-navigation' %}
 
@@ -68,10 +58,7 @@
                   <div class="db">
                 {% endif %}
 
-                {% render 'image' with
-                  image: block.settings.product_image,
-                  disable_style: image_is_constrained,
-                %}
+                {% render 'image' with image, image: block.settings.product_image, disable_style: image_is_constrained %}
 
                 {% if block.settings.product_link != blank %}
                   </a>
@@ -90,10 +77,7 @@
             <div class="testimonials__reviewer-wrapper flex mb3 mt3">
               {% if block.settings.reviewer_image != blank %}
                 <div class="testimonials__reviewer-image">
-                  {% render 'image' with
-                    image: block.settings.reviewer_image,
-                    disable_style: true
-                  %}
+                  {% render 'image' with image, image: block.settings.reviewer_image, disable_style: true %}
                 </div>
               {% endif %}
 
@@ -163,3 +147,43 @@
     {% endif %}
   </div>
 </section>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'text-block' with
+        id: id,
+        modifiers: 'mb5 animation__staggered-children-fade-in',
+        heading_alignment: carousel_text_alignment,
+        text_max_width: text_max_width,
+        overline: overline,
+        heading: heading,
+        subheading: subheading,
+        link: link,
+        link_text: link_text
+      %}
+  to: "{% render 'text-block' with id, id: id, modifiers: 'mb5 animation__staggered-children-fade-in',
+    heading_alignment: carousel_text_alignment, text_max_width: text_max_width, overline:
+    overline, heading: heading, subheading: subheading, link: link, link_text: link_text
+    %}"
+  position: 1631..1900
+- from: |-
+    {% render 'image' with
+                      image: block.settings.product_image,
+                      disable_style: image_is_constrained,
+                    %}
+  to: "{% render 'image' with image, image: block.settings.product_image, disable_style:
+    image_is_constrained %}"
+  position: 2734..2839
+- from: |-
+    {% render 'image' with
+                        image: block.settings.reviewer_image,
+                        disable_style: true
+                      %}
+  to: "{% render 'image' with image, image: block.settings.reviewer_image, disable_style:
+    true %}"
+  position: 3478..3568
+{% endcomment %}

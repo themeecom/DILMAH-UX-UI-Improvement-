@@ -28,27 +28,14 @@
          data-section-type="text-columns-with-images"
          class="section text-columns{{ modifiers }} ecom-collection-img"
          >
-  {% render 'text-block' with
-    id: id,
-  modifiers: 'text-columns__intro animation__staggered-children-fade-in',
-  heading_alignment: text_alignment,
-  text_max_width: text_max_width,
-  overline: overline,
-  heading: heading,
-  text_max_width: text_max_width,
-  subheading: subheading,
-  link: link,
-  link_text: link_text
-
-
-  %}
+  {% render 'text-block' with id, id: id, modifiers: 'text-columns__intro animation__staggered-children-fade-in', heading_alignment: text_alignment, text_max_width: text_max_width, overline: overline, heading: heading, subheading: subheading, link: link, link_text: link_text %}
 
   <div class="text-columns__content grid-display grid-display--{{ item_width }} ecom-img-banner">
 
 
     <div class = "section0">
 
-      {% render 'image' with image: section.settings.Mimage|img %}
+      {% render 'image' with image, image: section.settings.Mimage %}
     </div>
     <div class = "section1">
 
@@ -73,7 +60,7 @@
           <div class="mb3 w-100 text-columns__image db" style="max-width: 100%;">
             {% endif %}
 
-            {% render 'image' with image: block.settings.image %}
+            {% render 'image' with image, image: block.settings.image %}
 
             {% if block.settings.link != blank %}
             </a>
@@ -232,3 +219,35 @@ p.text_section2 {
 </style>
 
 <!-- added on 8/6/2021 | END -->
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'text-block' with
+        id: id,
+      modifiers: 'text-columns__intro animation__staggered-children-fade-in',
+      heading_alignment: text_alignment,
+      text_max_width: text_max_width,
+      overline: overline,
+      heading: heading,
+      text_max_width: text_max_width,
+      subheading: subheading,
+      link: link,
+      link_text: link_text
+
+
+      %}
+  to: "{% render 'text-block' with id, id: id, modifiers: 'text-columns__intro animation__staggered-children-fade-in',
+    heading_alignment: text_alignment, text_max_width: text_max_width, overline: overline,
+    heading: heading, subheading: subheading, link: link, link_text: link_text %}"
+  position: 904..1180
+- from: "{% render 'image' with image: section.settings.Mimage|img %}"
+  to: "{% render 'image' with image, image: section.settings.Mimage %}"
+  position: 1318..1381
+- from: "{% render 'image' with image: block.settings.image %}"
+  to: "{% render 'image' with image, image: block.settings.image %}"
+  position: 2574..2634
+{% endcomment %}

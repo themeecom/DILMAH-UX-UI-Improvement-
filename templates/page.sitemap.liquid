@@ -15,7 +15,7 @@ assign header_is_transparent = false
   			<ul class="child_1_list">
   			{%for child_1 in link.links%}
               <li class="child_1_list_item"> <a href="{{child_1.url}}">{{child_1.title}} </a></li>
-              		{%if child_1.levels> 0%}
+              		{% if child_1.levels %}
               			<ul class="child_2_list">
                           {%for child_2 in child_1.links%}
                           <li class="child_2_list_item"><a href="{{child_2.url}}">{{child_2.title}} </a></li>
@@ -41,4 +41,13 @@ assign header_is_transparent = false
     list-style-type: disc;
   }
   
-</style>
+</style>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%if child_1.levels> 0%}"
+  to: "{% if child_1.levels %}"
+  position: 532..555
+{%- endcomment -%}

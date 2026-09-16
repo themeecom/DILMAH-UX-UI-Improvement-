@@ -143,22 +143,12 @@
             <!-- image: collection.metafields.theme.collection_banner.value -->
             {% if show_collection_image and collection.metafields.theme.collection_banner != blank %}
               {% assign theme_collection_banner = collection.metafields.theme.collection_banner | image_url  %}
-              {% render 'image2' with
-                image: theme_collection_banner,
-                wrapper_class: 'lazyload collection__image',
-                disable_style: true,
-                bannerTitle: collection.title
-            %}
+              {% render 'image2' with image, image: theme_collection_banner, wrapper_class: 'lazyload collection__image', disable_style: true, bannerTitle: collection.title %}
             {% endif %}
             {% if show_collection_image and collection.metafields.theme.collection_banner_mobile != blank %}
               {% assign theme_collection_banner_mobile = collection.metafields.theme.collection_banner_mobile | image_url  %}
               <div class="collection-meta-mobile-banner-wrapper">
-                {% render 'image2' with
-                  image: theme_collection_banner_mobile,
-                  wrapper_class: 'lazyload collection__image',
-                  disable_style: true,
-                  bannerTitle: collection.title
-                %}
+                {% render 'image2' with image, image: theme_collection_banner_mobile, wrapper_class: 'lazyload collection__image', disable_style: true, bannerTitle: collection.title %}
               </div>
             {% endif %}
           {% endif %}
@@ -178,12 +168,7 @@
                       {% assign collection_subheading =  collection.description %}
                   {% endif %}
 
-                  {% render 'text-block' with
-                    heading_alignment: heading_alignment,
-                    text_max_width: text_max_width,
-                    overline: collection_label,
-                    heading: collection_heading,
-                  %}
+                  {% render 'text-block' with heading_alignment, heading_alignment: heading_alignment, text_max_width: text_max_width, overline: collection_label, heading: collection_heading %}
                       
                   {% if collection_subheading != blank %}
                     <p class="collection-details2-desc">{{ collection_subheading | split: "<iframe" | first }}</p>
@@ -196,12 +181,7 @@
         {% if show_sort or show_filters %}
           {%- if filter_style == 'sidebar' -%}
             <div class="collection__sidebar" data-sidebar>
-              {% render 'collection-sidebar' with
-                categories: categories,
-                filter_type: filter_type,
-                show_sort: show_sort,
-                show_filters: show_filters
-              %}
+              {% render 'collection-sidebar' with categories, categories: categories, filter_type: filter_type, show_sort: show_sort, show_filters: show_filters %}
             </div>
           {%- endif -%}
         {% endif %}
@@ -237,12 +217,7 @@
           
           <!--------------ecom end----------------------->
           {% if show_filters or show_sort %}
-            {% render 'collection-filters' with
-              categories: categories,
-              filter_type: filter_type,
-              show_sort: show_sort,
-              show_filters: show_filters
-            %}
+            {% render 'collection-filters' with categories, categories: categories, filter_type: filter_type, show_sort: show_sort, show_filters: show_filters %}
           {% endif %}
 
         <!-- mobile sort | 2025-07-25 START -->
@@ -276,13 +251,11 @@
 
             <div id="root" class="collection__products" data-partial>
               <div class="collection__top-row {% if template == "collection.tea-makers" %}tpr-filter-container{% endif %}">
-                {% render 'collection-top-bar' with
-                  categories: categories
-                %}
+                {% render 'collection-top-bar' with categories, categories: categories %}
 
                 {% if template == "collection.tea-makers" %}
                   <div class="ecom-tpr-filter" >
-                    {% render 'tea-makers-filter' with categories: categories %}
+                    {% render 'tea-makers-filter' with categories, categories: categories %}
                   </div>
                 {% endif %}
               </div>
@@ -291,11 +264,7 @@
 
                 {% for product in collection.products %}
 
-                  {% render 'product-item' with
-                    product: product,
-                    swatches_enabled: show_swatches,
-                    aspect_ratio: aspect_ratio
-                  %}
+                  {% render 'product-item' with product, product: product, swatches_enabled: show_swatches, aspect_ratio: aspect_ratio %}
                 {% else %}
                   <div class="collection__empty">
                     <div>{{ 'collections.general.no_products' | t }}</div>
@@ -315,16 +284,9 @@
               {% if paginated %}
                 <div class="mt3 w-100">
                   {% if paginate.pages > 1 %}
-                    {% render 'pagination' with
-                      paginate: paginate,
-                      type: 'general.pagination.products'
-                    %}
+                    {% render 'pagination' with paginate, paginate: paginate, type: 'general.pagination.products' %}
                   {% else %}
-                    {% render 'pagination' with
-                      paginate: paginate,
-                      type: 'general.pagination.products',
-                      display_paginate_item_count_only: true
-                    %}
+                    {% render 'pagination' with paginate, paginate: paginate, type: 'general.pagination.products', display_paginate_item_count_only: true %}
                   {% endif %}
                 </div>
               {% endif %}
@@ -335,9 +297,109 @@
     </div>
   {% endpaginate %}
 
-  {% render 'collection-flyout' with
-    filter_type: filter_type,
-    categories: categories,
-    show_sort: show_sort
-  %}
+  {% render 'collection-flyout' with filter_type, filter_type: filter_type, categories: categories, show_sort: show_sort %}
 </section>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'image2' with
+                    image: theme_collection_banner,
+                    wrapper_class: 'lazyload collection__image',
+                    disable_style: true,
+                    bannerTitle: collection.title
+                %}
+  to: "{% render 'image2' with image, image: theme_collection_banner, wrapper_class:
+    'lazyload collection__image', disable_style: true, bannerTitle: collection.title
+    %}"
+  position: 4874..5035
+- from: |-
+    {% render 'image2' with
+                      image: theme_collection_banner_mobile,
+                      wrapper_class: 'lazyload collection__image',
+                      disable_style: true,
+                      bannerTitle: collection.title
+                    %}
+  to: "{% render 'image2' with image, image: theme_collection_banner_mobile, wrapper_class:
+    'lazyload collection__image', disable_style: true, bannerTitle: collection.title
+    %}"
+  position: 5377..5545
+- from: |-
+    {% render 'text-block' with
+                        heading_alignment: heading_alignment,
+                        text_max_width: text_max_width,
+                        overline: collection_label,
+                        heading: collection_heading,
+                      %}
+  to: "{% render 'text-block' with heading_alignment, heading_alignment: heading_alignment,
+    text_max_width: text_max_width, overline: collection_label, heading: collection_heading
+    %}"
+  position: 6666..6841
+- from: |-
+    {% render 'collection-sidebar' with
+                    categories: categories,
+                    filter_type: filter_type,
+                    show_sort: show_sort,
+                    show_filters: show_filters
+                  %}
+  to: "{% render 'collection-sidebar' with categories, categories: categories, filter_type:
+    filter_type, show_sort: show_sort, show_filters: show_filters %}"
+  position: 7309..7458
+- from: |-
+    {% render 'collection-filters' with
+                  categories: categories,
+                  filter_type: filter_type,
+                  show_sort: show_sort,
+                  show_filters: show_filters
+                %}
+  to: "{% render 'collection-filters' with categories, categories: categories, filter_type:
+    filter_type, show_sort: show_sort, show_filters: show_filters %}"
+  position: 8841..8990
+- from: |-
+    {% render 'collection-top-bar' with
+                      categories: categories
+                    %}
+  to: "{% render 'collection-top-bar' with categories, categories: categories %}"
+  position: 10400..10473
+- from: "{% render 'tea-makers-filter' with categories: categories %}"
+  to: "{% render 'tea-makers-filter' with categories, categories: categories %}"
+  position: 10605..10677
+- from: |-
+    {% render 'product-item' with
+                        product: product,
+                        swatches_enabled: show_swatches,
+                        aspect_ratio: aspect_ratio
+                      %}
+  to: "{% render 'product-item' with product, product: product, swatches_enabled:
+    show_swatches, aspect_ratio: aspect_ratio %}"
+  position: 10928..11047
+- from: |-
+    {% render 'pagination' with
+                          paginate: paginate,
+                          type: 'general.pagination.products'
+                        %}
+  to: "{% render 'pagination' with paginate, paginate: paginate, type: 'general.pagination.products'
+    %}"
+  position: 11847..11943
+- from: |-
+    {% render 'pagination' with
+                          paginate: paginate,
+                          type: 'general.pagination.products',
+                          display_paginate_item_count_only: true
+                        %}
+  to: "{% render 'pagination' with paginate, paginate: paginate, type: 'general.pagination.products',
+    display_paginate_item_count_only: true %}"
+  position: 11993..12129
+- from: |-
+    {% render 'collection-flyout' with
+        filter_type: filter_type,
+        categories: categories,
+        show_sort: show_sort
+      %}
+  to: "{% render 'collection-flyout' with filter_type, filter_type: filter_type, categories:
+    categories, show_sort: show_sort %}"
+  position: 12307..12428
+{% endcomment %}

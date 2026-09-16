@@ -180,13 +180,25 @@
       {% if paginate.pages > 1 %}
         <div class="search-template__pagination">
           <hr class="mt0 mb3 b--solid b--default bb" style="border-top: none;" />
-          {% render 'pagination' with
-            type: 'general.pagination.products',
-            paginate: paginate
-          %}
+          {% render 'pagination' with type, type: 'general.pagination.products', paginate: paginate %}
         </div>
       {% endif %}
     {% endif %}
   {% endif %}
 </div>
 {% endpaginate %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'pagination' with
+                type: 'general.pagination.products',
+                paginate: paginate
+              %}
+  to: "{% render 'pagination' with type, type: 'general.pagination.products', paginate:
+    paginate %}"
+  position: 9132..9224
+{% endcomment %}

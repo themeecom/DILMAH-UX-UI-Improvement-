@@ -1,13 +1,4 @@
-{% render 'frame--footer' with
-  id: section.id,
-  show_headings: section.settings.show_headings,
-  show_newsletter_signup: section.settings.show_newsletter_signup,
-  newsletter_subheading: section.settings.newsletter_subheading,
-  show_payment_icons: section.settings.show_payment_icons,
-  show_locale_selector: section.settings.show_locale_selector,
-  show_currency_selector: section.settings.show_currency_selector,
-  blocks: section.blocks
-%}
+{% render 'frame--footer' with id, id: section.id, show_headings: section.settings.show_headings, show_newsletter_signup: section.settings.show_newsletter_signup, newsletter_subheading: section.settings.newsletter_subheading, show_payment_icons: section.settings.show_payment_icons, show_locale_selector: section.settings.show_locale_selector, show_currency_selector: section.settings.show_currency_selector, blocks: section.blocks %}
 <script src="//cdn.shopify.com/s/files/1/0617/7298/8603/files/optimizer.js?v=1659207041" type="text/javascript"></script>
 {% schema %}
   {
@@ -575,4 +566,27 @@
       margin: 0 auto;
     }
   }
-</style>
+</style>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'frame--footer' with
+      id: section.id,
+      show_headings: section.settings.show_headings,
+      show_newsletter_signup: section.settings.show_newsletter_signup,
+      newsletter_subheading: section.settings.newsletter_subheading,
+      show_payment_icons: section.settings.show_payment_icons,
+      show_locale_selector: section.settings.show_locale_selector,
+      show_currency_selector: section.settings.show_currency_selector,
+      blocks: section.blocks
+    %}
+  to: "{% render 'frame--footer' with id, id: section.id, show_headings: section.settings.show_headings,
+    show_newsletter_signup: section.settings.show_newsletter_signup, newsletter_subheading:
+    section.settings.newsletter_subheading, show_payment_icons: section.settings.show_payment_icons,
+    show_locale_selector: section.settings.show_locale_selector, show_currency_selector:
+    section.settings.show_currency_selector, blocks: section.blocks %}"
+  position: 0..434
+{%- endcomment -%}

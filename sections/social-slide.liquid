@@ -1,12 +1,5 @@
 <div class="xmas-footer">
-{% render 'single-content-christmas--slideshow' with
-  id: section.id,
-  aspect_ratio: section.settings.aspect_ratio,
-  timer: section.settings.timer,
-  slides: section.blocks,
-  section_class:section.settings.section_class
-  
-%}
+{% render 'single-content-christmas--slideshow' with id, id: section.id, aspect_ratio: section.settings.aspect_ratio, timer: section.settings.timer, slides: section.blocks, section_class: section.settings.section_class %}
 
    {%- if section.settings.show_social -%}
           <div class="footer__social-icons">
@@ -200,4 +193,17 @@
       }
     ]
   }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'single-content-christmas--slideshow' with\n  id: section.id,\n
+    \ aspect_ratio: section.settings.aspect_ratio,\n  timer: section.settings.timer,\n
+    \ slides: section.blocks,\n  section_class:section.settings.section_class\n  \n%}"
+  to: "{% render 'single-content-christmas--slideshow' with id, id: section.id, aspect_ratio:
+    section.settings.aspect_ratio, timer: section.settings.timer, slides: section.blocks,
+    section_class: section.settings.section_class %}"
+  position: 26..247
+{%- endcomment -%}

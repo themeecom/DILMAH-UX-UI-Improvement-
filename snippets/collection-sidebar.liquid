@@ -26,7 +26,7 @@
     {%- if filter_type == 'by_tag' -%}
       <div class="ecom_sidebar_group collection-sidebar__group" data-group="{{ 'collections.tags.title' | t }}">
         {%- assign heading = 'collections.tags.title' | t -%}
-        {% render 'collection-sidebar-heading' with heading: heading %}
+        {% render 'collection-sidebar-heading' with heading, heading: heading %}
         <ul>
         {% for tag in collection.all_tags %}
           {% assign is_in_category = false %}
@@ -55,15 +55,7 @@
             {% assign url = url[1] %}
           {% endif %}
 
-          {% render 'filter-item' with
-            type: 'checkbox',
-            label: tag_text,
-            active: is_active,
-            url: url,
-
-            key: 'tag',
-            val: tag
-          %}
+          {% render 'filter-item' with type, type: 'checkbox', label: tag_text, active: is_active, url: url, key: 'tag', val: tag %}
         {% endfor %}
         </ul>
       </div>
@@ -84,7 +76,7 @@
         
         {%- assign heading = category -%}
         <div class="collection-sidebar__group" data-group="{{ heading }}" data-here>
-          {% render 'collection-sidebar-heading' with heading: heading %}
+          {% render 'collection-sidebar-heading' with heading, heading: heading %}
           <ul>
             {% for tag in collection.all_tags %}
               {% assign cat = tag | split: '_' | first %}
@@ -102,15 +94,7 @@
                   {% assign url = url[1] %}
                 {% endif %}
 
-                {% render 'filter-item' with
-                  type: 'checkbox',
-                  label: label,
-                  active: is_active,
-                  url: url,
-
-                  key: 'tag',
-                  val: tag
-                %}
+                {% render 'filter-item' with type, type: 'checkbox', label: label, active: is_active, url: url, key: 'tag', val: tag %}
               {% endif %}
             {% endfor %}
           </ul>
@@ -140,15 +124,7 @@
           {%- if option.value == collection.sort_by -%}
             {%- assign is_active = true -%}
           {%- endif -%}
-          {% render 'filter-item' with
-            label: option.name,
-            type: 'radio',
-            active: is_active,
-            url: '#',
-
-            key: 'sort',
-            val: option.value
-          %}
+          {% render 'filter-item' with label, label: option.name, type: 'radio', active: is_active, url: '#', key: 'sort', val: option.value %}
         {% endfor %}
       </ul>
       <!--    added on 10/6/2021    -->
@@ -374,3 +350,55 @@
   }
 </script>
 <!-- added on 10/6/2021 | END -->
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'collection-sidebar-heading' with heading: heading %}"
+  to: "{% render 'collection-sidebar-heading' with heading, heading: heading %}"
+  position: 1150..1222
+- from: |-
+    {% render 'filter-item' with
+                type: 'checkbox',
+                label: tag_text,
+                active: is_active,
+                url: url,
+
+                key: 'tag',
+                val: tag
+              %}
+  to: "{% render 'filter-item' with type, type: 'checkbox', label: tag_text, active:
+    is_active, url: url, key: 'tag', val: tag %}"
+  position: 2211..2333
+- from: "{% render 'collection-sidebar-heading' with heading: heading %}"
+  to: "{% render 'collection-sidebar-heading' with heading, heading: heading %}"
+  position: 2952..3024
+- from: |-
+    {% render 'filter-item' with
+                      type: 'checkbox',
+                      label: label,
+                      active: is_active,
+                      url: url,
+
+                      key: 'tag',
+                      val: tag
+                    %}
+  to: "{% render 'filter-item' with type, type: 'checkbox', label: label, active:
+    is_active, url: url, key: 'tag', val: tag %}"
+  position: 3753..3872
+- from: |-
+    {% render 'filter-item' with
+                label: option.name,
+                type: 'radio',
+                active: is_active,
+                url: '#',
+
+                key: 'sort',
+                val: option.value
+              %}
+  to: "{% render 'filter-item' with label, label: option.name, type: 'radio', active:
+    is_active, url: '#', key: 'sort', val: option.value %}"
+  position: 4694..4827
+{% endcomment %}

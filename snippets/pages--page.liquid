@@ -25,10 +25,7 @@
           {%- endif -%}
 
           {%- if block.settings.image != blank -%}
-            {% render 'image' with
-              image: block.settings.image,
-              disable_style: true
-            %}
+            {% render 'image' with image, image: block.settings.image, disable_style: true %}
           {%- endif -%}
 
           {% if block.settings.video_url != blank %}
@@ -121,4 +118,18 @@
     document.querySelectorAll(`.purpose_block p span`).forEach(elem=> elem.innerHTML = elem.innerHTML.replaceAll("&nbsp;", " "));
   });
 </script>
-{% endif %}
+{% endif %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'image' with
+                  image: block.settings.image,
+                  disable_style: true
+                %}
+  to: "{% render 'image' with image, image: block.settings.image, disable_style: true
+    %}"
+  position: 873..954
+{%- endcomment -%}

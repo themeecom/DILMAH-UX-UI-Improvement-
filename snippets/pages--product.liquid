@@ -475,14 +475,7 @@
       
       
 <!--     form   -->
-      {% render 'product-form' with
-        product: product,
-        show_vendor: show_vendor,
-        current_variant: current_variant,
-        show_dynamic_checkout: enable_payment_button,
-        show_swatches: show_swatches,
-        show_quantity_input: show_quantity_input,
-      %}
+      {% render 'product-form' with product, product: product, show_vendor: show_vendor, current_variant: current_variant, show_dynamic_checkout: enable_payment_button, show_swatches: show_swatches, show_quantity_input: show_quantity_input %}
 <!--    form | END    -->
       
       
@@ -1025,9 +1018,9 @@
   {%- assign images = product.media | where: 'media_type', 'image' -%}
   
   {% comment %} {% endcomment %}
-  {% render 'lightbox' with images: images %}
+  {% render 'lightbox' with images, images: images %}
  
-   {% render 'reviews-drawer' with product: product %}
+   {% render 'reviews-drawer' with product, product: product %}
  
   
 </section>
@@ -1648,3 +1641,29 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'product-form' with
+            product: product,
+            show_vendor: show_vendor,
+            current_variant: current_variant,
+            show_dynamic_checkout: enable_payment_button,
+            show_swatches: show_swatches,
+            show_quantity_input: show_quantity_input,
+          %}
+  to: "{% render 'product-form' with product, product: product, show_vendor: show_vendor,
+    current_variant: current_variant, show_dynamic_checkout: enable_payment_button,
+    show_swatches: show_swatches, show_quantity_input: show_quantity_input %}"
+  position: 16998..17234
+- from: "{% render 'lightbox' with images: images %}"
+  to: "{% render 'lightbox' with images, images: images %}"
+  position: 41265..41316
+- from: "{% render 'reviews-drawer' with product: product %}"
+  to: "{% render 'reviews-drawer' with product, product: product %}"
+  position: 41322..41382
+{% endcomment %}

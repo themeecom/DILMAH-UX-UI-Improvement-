@@ -22,7 +22,7 @@
       {% if has_image %}
       <div class="contact__container">
         <div class="contact__image">
-          {% render 'image' with image: section.settings.image, wrapper_class: 'borders' %}
+          {% render 'image' with image, image: section.settings.image, wrapper_class: 'borders' %}
         </div>
         <div class="contact__content">
           <div class="contact__content-inner">
@@ -463,3 +463,15 @@ form#contact_form button {
     ]
   }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'image' with image: section.settings.image, wrapper_class: 'borders'
+    %}"
+  to: "{% render 'image' with image, image: section.settings.image, wrapper_class:
+    'borders' %}"
+  position: 587..675
+{% endcomment %}

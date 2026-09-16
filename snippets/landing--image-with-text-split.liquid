@@ -27,7 +27,7 @@
       {% endif %}
 
       {% if feature_image != blank %}
-        {% render 'image' with image: feature_image %}
+        {% render 'image' with image, image: feature_image %}
       {% else %}
         
       {% endif %}
@@ -88,23 +88,12 @@
       class="image-with-text-split__image lazyload"
     >
       {% if overlay_image != blank %}
-        {% render 'image' with
-          image: overlay_image,
-          wrapper_class: "image-with-text-split__image-mobile"
-        %}
+        {% render 'image' with image, image: overlay_image, wrapper_class: "image-with-text-split__image-mobile" %}
       {% else %}
         <div class="image-with-text-split__placeholder">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
       {% endif %}
 
-      {% render 'overlay' with
-        overlay_opacity: overlay_opacity,
-        overlay_color: overlay_color,
-
-        alignment: detail_alignment,
-        richtext: image_text,
-        text_color: text_color,
-        text_max_width: text_max_width,
-      %}
+      {% render 'overlay' with overlay_opacity, overlay_opacity: overlay_opacity, overlay_color: overlay_color, alignment: detail_alignment, richtext: image_text, text_color: text_color, text_max_width: text_max_width %}
 
       {% if gradient_color != blank %}
         <div
@@ -195,4 +184,35 @@
     font-family: Roboto;
 }
  }
-</style>
+</style>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'image' with image: feature_image %}"
+  to: "{% render 'image' with image, image: feature_image %}"
+  position: 1114..1167
+- from: |-
+    {% render 'image' with
+              image: overlay_image,
+              wrapper_class: "image-with-text-split__image-mobile"
+            %}
+  to: '{% render ''image'' with image, image: overlay_image, wrapper_class: "image-with-text-split__image-mobile"
+    %}'
+  position: 3711..3818
+- from: |-
+    {% render 'overlay' with
+            overlay_opacity: overlay_opacity,
+            overlay_color: overlay_color,
+
+            alignment: detail_alignment,
+            richtext: image_text,
+            text_color: text_color,
+            text_max_width: text_max_width,
+          %}
+  to: "{% render 'overlay' with overlay_opacity, overlay_opacity: overlay_opacity,
+    overlay_color: overlay_color, alignment: detail_alignment, richtext: image_text,
+    text_color: text_color, text_max_width: text_max_width %}"
+  position: 3978..4192
+{%- endcomment -%}

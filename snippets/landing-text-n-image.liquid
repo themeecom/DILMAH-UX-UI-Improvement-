@@ -41,7 +41,7 @@
             <video class="image" autoplay playsinline loop muted src="{{ video_url }}" />
           </div>
         {% elsif image != blank %}
-          {% render 'landing-image' with image: image %}
+          {% render 'landing-image' with image, image: image %}
         {% endif %}
       {% else %}
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -107,3 +107,13 @@
     {% endif %}
   </div>
 </section>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'landing-image' with image: image %}"
+  to: "{% render 'landing-image' with image, image: image %}"
+  position: 1639..1692
+{% endcomment %}

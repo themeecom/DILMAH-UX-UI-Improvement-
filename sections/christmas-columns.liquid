@@ -1,10 +1,4 @@
-{% render 'brand-images' with
-  id: section.id,
-  aspect_ratio: section.settings.aspect_ratio,
-  timer: section.settings.timer,
-  slides: section.blocks,
-subheading:section.blocks,
-%}
+{% render 'brand-images' with id, id: section.id, aspect_ratio: section.settings.aspect_ratio, timer: section.settings.timer, slides: section.blocks, subheading: section.blocks %}
 
 <style>
 /*--- 2nd Area Colums - Start --*/
@@ -335,4 +329,22 @@ a.slideshow__link.bttn {
       }
     ]
   }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'brand-images' with
+      id: section.id,
+      aspect_ratio: section.settings.aspect_ratio,
+      timer: section.settings.timer,
+      slides: section.blocks,
+    subheading:section.blocks,
+    %}
+  to: "{% render 'brand-images' with id, id: section.id, aspect_ratio: section.settings.aspect_ratio,
+    timer: section.settings.timer, slides: section.blocks, subheading: section.blocks
+    %}"
+  position: 0..179
+{%- endcomment -%}

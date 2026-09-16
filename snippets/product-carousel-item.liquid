@@ -35,31 +35,13 @@
         <div class="product-item__images">
           {% comment %} used for size {% endcomment %}
           <div class="product-item__sizer">
-            {% render 'image' with
-              image: product.media[0].preview_image,
-              id: product.media[0].id,
-              disable_style: includes_aspect_ratio,
-           	  lazy_load:false,
-              productTitle:product.title
-            %}
+            {% render 'image' with image, image: product.media[0].preview_image, id: product.media[0].id, disable_style: includes_aspect_ratio, lazy_load: false, productTitle: product.title %}
           </div>
           <div class="product-item__image first">
-            {% render 'image' with
-              image: product.media[0].preview_image,
-              id: product.media[0].id,
-              lazy_load:false,
-              disable_style: includes_aspect_ratio,
-              productTitle:product.title
-            %}
+            {% render 'image' with image, image: product.media[0].preview_image, id: product.media[0].id, lazy_load: false, disable_style: includes_aspect_ratio, productTitle: product.title %}
           </div>
           <div class="product-item__image not-first">
-            {% render 'image' with
-              image: product.media[1].preview_image,
-              id: product.media[1].id,
-              lazy_load:false,
-              disable_style: includes_aspect_ratio,
-              productTitle:product.title
-            %}
+            {% render 'image' with image, image: product.media[1].preview_image, id: product.media[1].id, lazy_load: false, disable_style: includes_aspect_ratio, productTitle: product.title %}
           </div>
         </div>
 
@@ -84,13 +66,7 @@
         
       {% else %}
         <div class="product-item__image">
-          {% render 'image' with
-            image: product.featured_media.preview_image,
-            id: product.featured_media.id,
-            disable_style: includes_aspect_ratio,
-            lazy_load:false,
-            productTitle:product.title
-          %}
+          {% render 'image' with image, image: product.featured_media.preview_image, id: product.featured_media.id, disable_style: includes_aspect_ratio, lazy_load: false, productTitle: product.title %}
         </div>
       {% endif %}
 
@@ -101,7 +77,7 @@
 
     {% if quick_shop_enabled %}
       <div class="quick-shop">
-        {% render 'quick-shop-product-form' with product: product %}
+        {% render 'quick-shop-product-form' with product, product: product %}
       </div>
     {% endif %}
 <span class="coll_save">
@@ -167,7 +143,7 @@
       </div>
       <div class="ecom-carousel-price2">
         {% if product.metafields.product.Bundle-code.value == blank %}
-          {% render 'product-item-price-carousel' with product: product %}
+          {% render 'product-item-price-carousel' with product, product: product %}
         {% endif %}
       </div>
       <div class="ecom-carousel-product-btn">
@@ -358,4 +334,59 @@
   }
   
 </style>
-{% endcomment %}
+{% endcomment %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'image' with\n              image: product.media[0].preview_image,\n
+    \             id: product.media[0].id,\n              disable_style: includes_aspect_ratio,\n
+    \          \t  lazy_load:false,\n              productTitle:product.title\n            %}"
+  to: "{% render 'image' with image, image: product.media[0].preview_image, id: product.media[0].id,
+    disable_style: includes_aspect_ratio, lazy_load: false, productTitle: product.title
+    %}"
+  position: 1442..1622
+- from: |-
+    {% render 'image' with
+                  image: product.media[0].preview_image,
+                  id: product.media[0].id,
+                  lazy_load:false,
+                  disable_style: includes_aspect_ratio,
+                  productTitle:product.title
+                %}
+  to: "{% render 'image' with image, image: product.media[0].preview_image, id: product.media[0].id,
+    lazy_load: false, disable_style: includes_aspect_ratio, productTitle: product.title
+    %}"
+  position: 1702..1882
+- from: |-
+    {% render 'image' with
+                  image: product.media[1].preview_image,
+                  id: product.media[1].id,
+                  lazy_load:false,
+                  disable_style: includes_aspect_ratio,
+                  productTitle:product.title
+                %}
+  to: "{% render 'image' with image, image: product.media[1].preview_image, id: product.media[1].id,
+    lazy_load: false, disable_style: includes_aspect_ratio, productTitle: product.title
+    %}"
+  position: 1966..2146
+- from: |-
+    {% render 'image' with
+                image: product.featured_media.preview_image,
+                id: product.featured_media.id,
+                disable_style: includes_aspect_ratio,
+                lazy_load:false,
+                productTitle:product.title
+              %}
+  to: "{% render 'image' with image, image: product.featured_media.preview_image,
+    id: product.featured_media.id, disable_style: includes_aspect_ratio, lazy_load:
+    false, productTitle: product.title %}"
+  position: 3210..3402
+- from: "{% render 'quick-shop-product-form' with product: product %}"
+  to: "{% render 'quick-shop-product-form' with product, product: product %}"
+  position: 3587..3656
+- from: "{% render 'product-item-price-carousel' with product: product %}"
+  to: "{% render 'product-item-price-carousel' with product, product: product %}"
+  position: 6377..6450
+{%- endcomment -%}
